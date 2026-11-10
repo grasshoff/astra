@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The emended second-order term of Opera omnia II 31, tested</title>
+<style>/* generated from tokens/famulus.json by famulus_visualization.tokens — do not edit */
+:root {
+  --fv-oxford: #002147;
+  --fv-oxford-deep: #00152e;
+  --fv-oxford-700: #042b5b;
+  --fv-oxford-300: #2c5282;
+  --fv-oxford-100: #dbe3ee;
+  --fv-gold: #cfb53b;
+  --fv-gold-deep: #8c6d2a;
+  --fv-gold-100: #f3ead0;
+  --fv-paper: #fafaf5;
+  --fv-sandstone: #fbf8f2;
+  --fv-sandstone-dark: #efe9db;
+  --fv-line: #cdbfa4;
+  --fv-ink: #1a1a1a;
+  --fv-muted: #5c5348;
+  --fv-white: #ffffff;
+  --fv-cat-0: #002147;
+  --fv-cat-1: #8c6d2a;
+  --fv-cat-2: #3f7686;
+  --fv-cat-3: #9a4f3c;
+  --fv-cat-4: #5f6b3a;
+  --fv-cat-5: #7a4a6a;
+  --fv-cat-6: #5c5348;
+  --fv-seq-0: #f3f6fa;
+  --fv-seq-1: #dbe3ee;
+  --fv-seq-2: #a9bcd6;
+  --fv-seq-3: #6f8fb8;
+  --fv-seq-4: #2c5282;
+  --fv-seq-5: #042b5b;
+  --fv-seq-6: #002147;
+  --fv-div-0: #002147;
+  --fv-div-1: #2c5282;
+  --fv-div-2: #a9bcd6;
+  --fv-div-3: #fafaf5;
+  --fv-div-4: #e6d6a8;
+  --fv-div-5: #b8953f;
+  --fv-div-6: #8c6d2a;
+  --fv-highlight: #cfb53b;
+  --fv-context: #cdbfa4;
+  --fv-sans: "Source Sans 3", "Inter", "Helvetica Neue", "Arial", sans-serif;
+  --fv-mono: "Fira Code", "JetBrains Mono", "Menlo", monospace;
+  --fv-size-small: 11px;
+  --fv-size-tick: 12px;
+  --fv-size-label: 13px;
+  --fv-size-caption: 12px;
+  --fv-size-title: 15px;
+  --fv-stroke-hairline: 1px;
+  --fv-stroke-grid: 0.75px;
+  --fv-stroke-line: 1.5px;
+  --fv-stroke-edge: 2px;
+  --fv-stroke-accent: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fv-oxford: #8fb0dc;
+    --fv-oxford-deep: #00152e;
+    --fv-oxford-700: #b9cde8;
+    --fv-oxford-300: #6d93c7;
+    --fv-oxford-100: #22324d;
+    --fv-gold: #d9c25e;
+    --fv-gold-deep: #c4a15a;
+    --fv-gold-100: #3b3420;
+    --fv-paper: #0d1624;
+    --fv-sandstone: #152238;
+    --fv-sandstone-dark: #efe9db;
+    --fv-line: #3a4a63;
+    --fv-ink: #ece6d8;
+    --fv-muted: #a89f90;
+    --fv-white: #ffffff;
+    --fv-surface: #152238;
+    --fv-cat-0: #8fb0dc;
+    --fv-cat-1: #d9c25e;
+    --fv-cat-2: #7fb3c2;
+    --fv-cat-3: #d0907c;
+    --fv-cat-4: #a9b67a;
+    --fv-cat-5: #c193b3;
+    --fv-cat-6: #a89f90;
+  }
+}
+:root[data-theme="dark"] {
+  --fv-oxford: #8fb0dc;
+  --fv-oxford-deep: #00152e;
+  --fv-oxford-700: #b9cde8;
+  --fv-oxford-300: #6d93c7;
+  --fv-oxford-100: #22324d;
+  --fv-gold: #d9c25e;
+  --fv-gold-deep: #c4a15a;
+  --fv-gold-100: #3b3420;
+  --fv-paper: #0d1624;
+  --fv-sandstone: #152238;
+  --fv-sandstone-dark: #efe9db;
+  --fv-line: #3a4a63;
+  --fv-ink: #ece6d8;
+  --fv-muted: #a89f90;
+  --fv-white: #ffffff;
+  --fv-surface: #152238;
+  --fv-cat-0: #8fb0dc;
+  --fv-cat-1: #d9c25e;
+  --fv-cat-2: #7fb3c2;
+  --fv-cat-3: #d0907c;
+  --fv-cat-4: #a9b67a;
+  --fv-cat-5: #c193b3;
+  --fv-cat-6: #a89f90;
+}
+
+.astra-figure { background: var(--fv-paper); }
+.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }
+.astra-dashed { stroke-dasharray: 5 4; }
+.astra-claim { stroke: var(--fv-gold-deep); }
+.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }
+.astra-label.var { font-style: italic; }
+.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }
+.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }
+.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-hidden { display: none; }
+.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }
+.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }
+.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }
+/* <astra-argument> — the display of a geometrical argument (astra-argument/1).
+   Colours come from the famulus tokens (--fv-*) where a page loads them; the fallbacks make the element
+   self-sufficient, e.g. inside ai-viewer, which has its own variables. One colour has one meaning:
+   gold marks what the selected step speaks of. */
+astra-argument { display: block; }
+.aa {
+  --aa-blue: var(--fv-oxford, #002147); --aa-gold: var(--fv-gold-deep, #8c6d2a); --aa-gold-soft: #c4a15a;
+  --aa-pale: #f3ead0; --aa-paper: var(--fv-paper, #fffdf8); --aa-ink: var(--fv-ink, #1b2733);
+  --aa-muted: var(--fv-muted, #5c5348); --aa-line: var(--fv-line, #e3d9c6); --aa-sand: #f6f1e7;
+  --aa-serif: "Source Serif 4", "Source Serif Pro", Palatino, Georgia, serif;
+  --aa-sans: var(--fv-sans, "Source Sans 3", "Helvetica Neue", Arial, sans-serif);
+  --aa-mono: var(--fv-mono, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace);
+  color: var(--aa-ink); background: var(--aa-paper); font-family: var(--aa-sans); font-size: 15px; line-height: 1.45;
+  border: 1px solid var(--aa-line); border-radius: 10px; overflow: hidden;
+}
+.aa * { box-sizing: border-box; }
+.aa button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.aa button:focus-visible { outline: 2px solid var(--aa-gold-soft); outline-offset: 2px; border-radius: 4px; }
+
+/* head */
+.aa-head { padding: 18px 22px 14px; border-bottom: 3px solid var(--aa-gold-soft); background: var(--aa-blue); color: #fff; }
+.aa-kicker { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--aa-gold-soft); margin: 0 0 4px; }
+.aa-title { font-family: var(--aa-serif); font-size: 21px; line-height: 1.25; font-weight: 600; margin: 0; }
+.aa-who { margin: 8px 0 0; font-size: 12.5px; color: #d9dfe8; }
+.aa-who b { color: #fff; font-weight: 600; }
+.aa-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 10px 22px; background: var(--aa-sand); border-bottom: 1px solid var(--aa-line); }
+.aa-depth { display: inline-flex; border: 1px solid var(--aa-blue); border-radius: 7px; overflow: hidden; }
+.aa .aa-depth button { padding: 5px 13px; font-size: 13px; color: var(--aa-blue); border-right: 1px solid var(--aa-blue); }
+.aa .aa-depth button:last-child { border-right: 0; }
+.aa .aa-depth button[aria-pressed="true"] { background: var(--aa-blue); color: #fff; }
+.aa-levels { font-size: 12.5px; color: var(--aa-muted); margin-left: auto; }
+.aa-levels span { margin-left: 10px; white-space: nowrap; }
+.aa-levels .ok::before { content: "✓ "; color: var(--aa-gold); }
+.aa-levels .no::before { content: "✗ "; color: #a23b2a; }
+
+/* layout */
+.aa-grid { display: grid; grid-template-columns: minmax(280px, 42%) 1fr; }
+.aa-fig { position: sticky; top: 0; align-self: start; padding: 14px 14px 10px 18px; border-right: 1px solid var(--aa-line); }
+/* the figure's tokens, in their light values: set here so that the element looks the same in any host */
+.aa-fig { --fv-paper: #fafaf5; --fv-oxford: #002147; --fv-ink: #1a1a1a; --fv-muted: #5c5348; --fv-gold-deep: #8c6d2a; --fv-line: #cdbfa4;
+  --fv-stroke-line: 1.5px; --fv-stroke-hairline: 1px; --fv-size-title: 15px; --fv-size-caption: 12px;
+  --fv-sans: "Source Sans 3", "Inter", "Helvetica Neue", Arial, sans-serif; }
+.aa-fig svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+.aa-fig-note { font-size: 12px; color: var(--aa-muted); margin: 6px 2px 0; }
+.aa-selected { min-height: 2.6em; margin: 8px 2px 0; padding: 7px 10px; border-left: 3px solid var(--aa-gold-soft); background: var(--aa-pale); font-size: 13px; border-radius: 0 6px 6px 0; }
+.aa-selected b { color: var(--aa-blue); }
+.aa-outline { padding: 6px 20px 18px; min-width: 0; }
+.aa.aa-narrow .aa-grid { grid-template-columns: 1fr; }
+.aa.aa-narrow .aa-fig { position: static; border-right: 0; border-bottom: 1px solid var(--aa-line); padding: 12px; }
+.aa.aa-nofig .aa-grid { grid-template-columns: 1fr; }
+.aa.aa-nofig .aa-fig { display: none; }
+
+/* bands */
+.aa-band { border-bottom: 1px solid var(--aa-line); padding: 4px 0 10px; }
+.aa-band:last-child { border-bottom: 0; }
+.aa .aa-band-h { display: flex; align-items: baseline; gap: 8px; width: 100%; padding: 10px 0 6px; font-size: 11.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--aa-gold); font-weight: 700; }
+.aa-band-h .aa-chev { display: inline-block; width: 1em; transition: transform .15s; color: var(--aa-blue); }
+.aa-band-h[aria-expanded="true"] .aa-chev { transform: rotate(90deg); }
+.aa-band-h small { letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--aa-muted); font-size: 12.5px; }
+.aa-band-b[hidden] { display: none; }
+
+/* model */
+.aa-member { margin: 2px 0 10px; }
+.aa-member h4 { margin: 4px 0 4px; font-family: var(--aa-serif); font-size: 15.5px; color: var(--aa-blue); font-weight: 600; }
+.aa-member h4 small { font-family: var(--aa-sans); font-weight: 400; color: var(--aa-muted); font-size: 12.5px; }
+.aa-defs { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0; font-size: 14px; }
+.aa-defs dt { font-family: var(--aa-serif); font-style: italic; color: var(--aa-blue); white-space: nowrap; }
+.aa-defs dt sub { font-size: 70%; font-style: normal; }
+.aa-defs dd { margin: 0; }
+.aa-defs code, .aa-formal { font-family: var(--aa-mono); font-size: 12px; color: var(--aa-muted); }
+.aa-defs .aa-def { display: none; }
+.aa[data-depth="full"] .aa-defs .aa-def { display: block; }
+.aa-group { grid-column: 1 / -1; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--aa-muted); margin-top: 6px; }
+
+/* the argument */
+.aa-node { margin: 0; }
+.aa-row { display: grid; grid-template-columns: 1.15em minmax(2.2em, max-content) 1fr auto 1.2em 1.5em; column-gap: 8px; align-items: baseline; padding: 6px 6px 6px 2px; border-radius: 6px; border-left: 3px solid transparent; }
+.aa-row:hover { background: var(--aa-sand); }
+.aa-node.is-selected > .aa-row { background: var(--aa-pale); border-left-color: var(--aa-gold-soft); }
+.aa-node.is-cited > .aa-row { box-shadow: inset 0 0 0 1.5px var(--aa-gold-soft); }
+.aa .aa-tog { width: 1.15em; color: var(--aa-blue); font-size: 12px; line-height: 1.6; }
+.aa-tog .aa-chev { display: inline-block; transition: transform .15s; }
+.aa-tog[aria-expanded="true"] .aa-chev { transform: rotate(90deg); }
+.aa-num { font-size: 12px; font-weight: 700; color: var(--aa-gold); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.aa-main { min-width: 0; }
+.aa .aa-claim { display: block; width: 100%; font-family: var(--aa-serif); font-size: 15.5px; line-height: 1.4; color: var(--aa-ink); }
+.aa .aa-kind-sub-argument > .aa-row .aa-claim, .aa .aa-kind-case > .aa-row .aa-claim, .aa .aa-kind-conclusion > .aa-row .aa-claim { font-weight: 600; color: var(--aa-blue); }
+.aa .aa-kind-supposition > .aa-row .aa-claim { font-style: italic; }
+.aa-case-tag { font-family: var(--aa-sans); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--aa-gold); margin-right: 6px; font-weight: 700; }
+.aa-sub { margin-top: 2px; font-size: 12.5px; color: var(--aa-muted); display: flex; flex-wrap: wrap; gap: 2px 12px; align-items: baseline; }
+.aa-not { font-family: "STIX Two Math", "STIX Two Text", "Cambria Math", "Apple Symbols", var(--aa-serif); font-size: 14px; color: var(--aa-blue); overflow-wrap: anywhere; letter-spacing: .01em; }
+.aa-when { font-style: italic; }
+.aa .aa-ref { display: inline-block; padding: 0 6px; margin: 0 1px; border: 1px solid var(--aa-line); border-radius: 9px; font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--aa-blue); background: var(--aa-paper); line-height: 1.5; }
+.aa .aa-ref:hover { border-color: var(--aa-gold-soft); background: var(--aa-pale); }
+.aa-ref.is-plain { border-style: dashed; cursor: default; }
+.aa-rule { font-size: 12px; font-style: italic; color: var(--aa-gold); white-space: nowrap; text-align: right; }
+.aa-mark { font-size: 14px; color: var(--aa-blue); text-align: center; }
+.aa-mark.is-gap, .aa-mark.is-false { color: #a23b2a; font-weight: 700; }
+.aa .aa-more { width: 1.5em; text-align: center; color: var(--aa-muted); font-size: 15px; line-height: 1; border-radius: 4px; }
+.aa .aa-more[aria-expanded="true"] { color: var(--aa-blue); background: var(--aa-pale); }
+.aa-children { margin-left: 0.62em; padding-left: 0.9em; border-left: 1px solid var(--aa-line); }
+.aa-children[hidden], .aa-detail[hidden] { display: none; }
+.aa-distinction { margin: 4px 0 2px 0.2em; font-size: 12.5px; color: var(--aa-muted); font-style: italic; }
+.aa[data-depth="overview"] .aa-sub { display: none; }
+.aa-detail { margin: 0 0 8px calc(1.15em + 2.2em + 16px); padding: 8px 12px; background: var(--aa-sand); border-radius: 6px; font-size: 13px; }
+.aa-detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0; }
+.aa-detail dt { color: var(--aa-muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; padding-top: 2px; }
+.aa-detail dd { margin: 0; overflow-wrap: anywhere; }
+.aa-detail q { font-family: var(--aa-serif); quotes: "“" "”"; }
+.aa-detail .aa-warn { color: #a23b2a; }
+
+/* conclusion and checks */
+.aa-therefore .aa-row { background: var(--aa-blue); color: #fff; padding: 10px 10px 10px 8px; grid-template-columns: 1.15em minmax(2.2em, max-content) 1fr auto 1.2em 1.5em; }
+.aa-therefore .aa-claim, .aa .aa-therefore .aa-kind-conclusion > .aa-row .aa-claim { color: #fff; }
+.aa-therefore .aa-num, .aa-therefore .aa-rule { color: var(--aa-gold-soft); }
+.aa-therefore .aa-not, .aa-therefore .aa-sub, .aa-therefore .aa-mark { color: #d9dfe8; }
+.aa-therefore .aa-more { color: #d9dfe8; }
+.aa-therefore .aa-node + .aa-node { margin-top: 6px; }
+.aa-therefore .aa-node.is-selected > .aa-row { background: var(--aa-blue); border-left-color: var(--aa-gold-soft); }
+.aa-checks { font-size: 13.5px; }
+.aa-checks ul { margin: 4px 0 0; padding-left: 1.1em; }
+.aa-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 2px 0 8px; font-size: 12.5px; color: var(--aa-muted); }
+.aa-legend b { color: var(--aa-blue); font-weight: 600; margin-right: 4px; }
+.aa-comp { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 13px; }
+.aa-comp td, .aa-comp th { border-top: 1px solid var(--aa-line); padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
+.aa-comp th { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--aa-muted); font-weight: 600; }
+
+/* the figure's transport inside the element */
+.aa .astra-transport { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--aa-muted); }
+.aa .astra-btn { border: 1px solid var(--aa-line); background: var(--aa-sand); color: var(--aa-blue); border-radius: 6px; width: 36px; height: 28px; text-align: center; }
+.aa .astra-slider { flex: 1; accent-color: var(--aa-gold); }
+.aa .astra-readout { min-width: 9em; text-align: right; font-variant-numeric: tabular-nums; }
+.aa .astra-morph-label { min-width: 2em; text-align: center; color: var(--aa-blue); font-weight: 600; }
+.aa .astra-steps { display: none; }
+
+@media print {
+  .aa { border: 0; } .aa-bar, .aa .astra-transport, .aa-tog, .aa-more { display: none !important; }
+  .aa-fig { position: static; } .aa-children[hidden] { display: block !important; }
+}
+</style>
+<style>body{margin:0;background:#f6f1e7;font-family:var(--fv-sans, system-ui)} .aa-page{max-width:1240px;margin:0 auto;padding:18px}</style>
+<script>
+  window.addEventListener('error', e => { document.documentElement.dataset.renderError = String(e.message || e); });
+</script>
+<!-- famulus:publisher:start -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="publisher" content="OpenScienceTechnology GmbH">
+<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/arguments/euler-tide-force-emendation/", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
+<!-- famulus:publisher:end -->
+</head><body><p style="margin:10px 18px;font:15px sans-serif"><a href="../../index.html#arguments" style="color:#8c6d2a">← Famulus Astra</a></p>
+<div class="aa-page"><astra-argument id="arg" depth="overview"></astra-argument></div>
+<script type="application/json" id="astra-argument-data">{"format": "astra-argument/1", "notation": "astra/1", "id": "euler-tide-force-emendation", "address": "fr:astra/euler-tide-force-emendation", "title": "The emended second-order term of Opera omnia II 31, tested", "author": "Gerd Graßhoff", "witness": [{"address": "fr:enestroem/E57/0018/p07", "note": "§27: the MR component as printed in Opera omnia II 31, with note 5"}], "attributed": ["Leonhard Euler"], "context": {"id": "euler-tide-force", "kind": "model", "title": "Euler's geometry of the tide-raising force", "address": "fr:astra/euler-tide-force"}, "check": {"level": "grounded", "complete": false, "levels": ["well-formed", "grounded", "true", "justified", "conclusive"], "passed": ["well-formed", "grounded"], "failures": {"true": ["conclusion: approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x + y * y) / (2 * a * a * a * a * rho)) fails (not of order 2: relative difference 2.0e-02 at ratio 0.01, 2.0e-03 at ratio 0.001, 2.0e-04 at ratio 0.0001)"], "conclusive": ["the conclusion does not hold"]}}, "model": [{"prefix": "", "id": "euler-tide-force", "address": "fr:astra/euler-tide-force", "title": "Euler's geometry of the tide-raising force", "attributed": "Leonhard Euler", "frame": "geocentric", "parameters": [{"name": "a", "symbol": "a", "unit": "length", "meaning": "distance CS of the luminary from the centre of the earth", "range": "(30, 1000)"}, {"name": "rho", "symbol": "ρ", "unit": "length", "meaning": "distance CM of the particle from the centre of the earth", "range": "(0.5, 2)"}, {"name": "Sf", "symbol": "S", "unit": "quantity", "meaning": "absolute force of the luminary: its accelerating force at the distance of one semidiameter of the earth", "range": null}], "variables": [{"name": "phi", "symbol": "φ", "meaning": "the angle ACM between the line to the luminary and the line to the particle", "law": null}], "objects": [{"name": "C", "symbol": "C", "kind": "point", "defined_by": "observer()", "meaning": "centre of the earth"}, {"name": "S", "symbol": "S", "kind": "point", "defined_by": "C + polar(a, 90°)", "meaning": "the sun or the moon"}, {"name": "A", "symbol": "A", "kind": "point", "defined_by": "C + polar(rho, 90°)", "meaning": "the point of the sphere through M that has the luminary in its zenith"}, {"name": "B", "symbol": "B", "kind": "point", "defined_by": "C - polar(rho, 90°)", "meaning": "the point that has it in its nadir"}, {"name": "D", "symbol": "D", "kind": "point", "defined_by": "C + polar(rho, 180°)", "meaning": "a point that has it in the horizon"}, {"name": "E", "symbol": "E", "kind": "point", "defined_by": "C + polar(rho, 0°)", "meaning": "the opposite point that has it in the horizon"}, {"name": "shell", "symbol": "shell", "kind": "circle", "defined_by": "circle(C, rho)", "meaning": "the sphere about C through the particle"}, {"name": "M", "symbol": "M", "kind": "point", "defined_by": "C + polar(rho, 90° + phi)", "meaning": "a particle of the earth"}, {"name": "P", "symbol": "P", "kind": "point", "defined_by": "foot(M, line(C, S))", "meaning": "foot of the perpendicular from M on CS"}], "observables": [{"name": "dir", "symbol": "CS", "defined_by": "direction(C, S)", "meaning": "direction of the luminary from the centre"}, {"name": "x", "symbol": "x", "defined_by": "rho * cos(phi)", "meaning": "CP, counted towards the luminary"}, {"name": "y", "symbol": "y", "defined_by": "rho * sin(phi)", "meaning": "PM, counted towards D"}, {"name": "dist", "symbol": "dist", "defined_by": "distance(M, S)", "meaning": "SM, the distance of the particle from the luminary"}, {"name": "fM", "symbol": "fM", "defined_by": "Sf / (dist * dist)", "meaning": "accelerating force on the particle towards S"}, {"name": "fC", "symbol": "fC", "defined_by": "Sf / (a * a)", "meaning": "accelerating force on the centre towards S"}, {"name": "tMC", "symbol": "tMC", "defined_by": "fM * cos(direction(M, S) - direction(M, C)) - fC * cos(direction(C, S) - direction(M, C))", "meaning": "the force on the particle less the force on the centre, along MC, towards the centre"}, {"name": "tMR", "symbol": "tMR", "defined_by": "fM * cos(direction(M, S) - (direction(M, C) + 90°)) - fC * cos(direction(C, S) - (direction(M, C) + 90°))", "meaning": "the same along MR, normal to MC, towards the side of the luminary"}]}], "identified": [], "hypotheses": [], "constructions": [], "argument": [{"id": "exact", "number": "1", "kind": "step", "depth": 0, "claim": "§26: Euler's exact component along MR", "notation": "tMR = S·a·y / (dist³·ρ) − S·y / (a²·ρ)", "formal": "equal(tMR, Sf * a * y / (dist * dist * dist * rho) - Sf * y / (a * a * rho))", "from": [{"kind": "construction", "ref": "tMR", "label": "constr. tMR"}, {"kind": "construction", "ref": "fM", "label": "constr. fM"}, {"kind": "construction", "ref": "fC", "label": "constr. fC"}, {"kind": "construction", "ref": "dist", "label": "constr. dist"}, {"kind": "construction", "ref": "x", "label": "constr. x"}, {"kind": "construction", "ref": "y", "label": "constr. y"}, {"kind": "construction", "ref": "M", "label": "constr. M"}, {"kind": "construction", "ref": "S", "label": "constr. S"}], "by": {"rule": "construction", "kind": "construction", "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "read off the construction", "grade": "construction", "mark": "◦", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 8.001062707927623e-13, "points": [], "segments": [], "children": []}], "conclusion": {"id": "conclusion", "number": "∴", "kind": "conclusion", "depth": 0, "claim": "3Sy/(a³√(x²+y²)) · (x + (4xx + yy)/2a), as emended", "notation": "tMR ≈ 3·S·x·y / (a³·ρ) + 3·S·y·(4·x² + y²) / (2·a⁴·ρ)   (to second order in ρ / a)", "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x + y * y) / (2 * a * a * a * a * rho))", "from": [{"kind": "step", "ref": "exact", "label": "1"}], "by": {"rule": "expansion", "kind": "approximation", "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "false", "grade": "", "mark": "✗", "note": "not of order 2: relative difference 2.0e-02 at ratio 0.01, 2.0e-03 at ratio 0.001, 2.0e-04 at ratio 0.0001", "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 0.00019996465060075237, "points": [], "segments": [], "children": []}, "further_conclusions": [], "equivalence": null, "computations": [], "checks": {"steps": 1, "by_status": {"read off the construction": 1}, "configurations": 3456, "degenerate_states": [], "notes": []}, "figure": null, "depths": ["overview", "steps", "full"]}</script>
+<script>
+// astra-argument.bundle.js — astra-runtime and <astra-argument> in one classic script. Generated by
+// famulus_astronomica.argument_page.bundle_js(); edit web/astra-runtime and web/astra-argument instead.
+(function () {
+'use strict';
+// astra-runtime — animates an astra/1 figure in the browser. Dependency-free ES module.
+//
+// It evaluates the context's ops (the same op-set as famulus_astronomica/evaluate.py, spec/ops.yaml) for the
+// figure's parameter values in a state, and redraws the figure's body with the placement rules of svg/scene.py.
+// The projection comes from the figure bundle, so the browser figure and the static SVG are the same drawing.
+//
+//   import { mount } from './astra-runtime.js';
+//   const ctl = mount(svgElement, bundle, { transport: divElement });
+//   ctl.seek(u); ctl.play(); ctl.pause(); ctl.set('e', 15); ctl.morph(0.3); ctl.step('d6'); ctl.state();
+//
+// A state is {<kinematic variable>: degrees} or {t: days}. The animation runs the figure's one kinematic variable
+// through a revolution from the depicted state (several variables: time through the period).
+// URL parameters: ?t=<seconds> renders the still at that scene time and never starts; ?static holds the depicted
+// state; ?theme=light|dark sets data-theme; ?morph=0..1 (superpositions) shows the first member, both, or the
+// second; ?step=<name> (figures of derivations) shows what that step is about. prefers-reduced-motion: reduce
+// also holds the still. The element gets data-ink (an estimate of the inked share of the canvas); errors set
+// data-render-error on <html>, as famulus-viz render_check expects.
+
+const RAD = Math.PI / 180;
+const EM = 15.0;
+const POINT_R = 3.2;
+const TEXT = '\ufe0e';
+const SIGNS = [...'♈♉♊♋♌♍♎♏♐♑♒♓'].map(g => g + TEXT);
+const CARDINAL = { 0: SIGNS[0], 90: SIGNS[3], 180: SIGNS[6], 270: SIGNS[9] };
+
+function norm360(a) { a = a % 360; return a < 0 ? a + 360 : a; }
+function norm180(a) { a = norm360(a); return a > 180 ? a - 360 : a; }
+
+const isVec = v => Array.isArray(v) && v.length === 2;
+const polar = (r, deg) => [r * Math.cos(deg * RAD), r * Math.sin(deg * RAD)];
+const NAN2 = [NaN, NaN];
+const COINCIDENT = 1e-9;   // two points closer than this have no line and no direction between them
+
+function line(p, q) {
+  const dx = q[0] - p[0], dy = q[1] - p[1], n = Math.hypot(dx, dy);
+  return n < COINCIDENT ? [p[0], p[1], NaN, NaN] : [p[0], p[1], dx / n, dy / n];
+}
+function xcl(c, l, branch) {
+  const [cx, cy, r] = c, [px, py, dx, dy] = l;
+  const fx = px - cx, fy = py - cy;
+  const b = 2 * (fx * dx + fy * dy), cc = fx * fx + fy * fy - r * r;
+  let disc = b * b - 4 * cc;
+  if (disc < -1e-12) return NAN2;
+  disc = Math.max(disc, 0);
+  const s = Math.sqrt(disc);
+  const t = branch > 0 ? (-b + s) / 2 : (-b - s) / 2;
+  return [px + t * dx, py + t * dy];
+}
+function xcc(a, b, branch) {
+  const [ax, ay, ra] = a, [bx, by, rb] = b;
+  const dx = bx - ax, dy = by - ay, d = Math.hypot(dx, dy);
+  if (d === 0 || d > ra + rb + 1e-12 || d < Math.abs(ra - rb) - 1e-12) return NAN2;
+  const x = (d * d + ra * ra - rb * rb) / (2 * d);
+  const h = Math.sqrt(Math.max(ra * ra - x * x, 0));
+  const ux = dx / d, uy = dy / d, mx = ax + x * ux, my = ay + x * uy;
+  return [mx - branch * h * uy, my + branch * h * ux];
+}
+function foot(p, l) {
+  const [px, py, dx, dy] = l, t = (p[0] - px) * dx + (p[1] - py) * dy;
+  return [px + t * dx, py + t * dy];
+}
+function rotate(p, about, deg) {
+  const c = Math.cos(deg * RAD), s = Math.sin(deg * RAD), x = p[0] - about[0], y = p[1] - about[1];
+  return [about[0] + x * c - y * s, about[1] + x * s + y * c];
+}
+function reflect(p, l) { const f = foot(p, l); return [2 * f[0] - p[0], 2 * f[1] - p[1]]; }
+function ellipseFrame(e) {
+  const [f1x, f1y, f2x, f2y, a] = e;
+  const cx = (f1x + f2x) / 2, cy = (f1y + f2y) / 2;
+  const c = Math.hypot(f2x - f1x, f2y - f1y) / 2, b = Math.sqrt(Math.max(a * a - c * c, 0));
+  const ang = c > 0 ? Math.atan2(f2y - f1y, f2x - f1x) / RAD : 0;
+  return { centre: [cx, cy], a, b, ang };
+}
+function onEllipse(e, deg) {
+  const f = ellipseFrame(e);
+  return rotate([f.centre[0] + f.a * Math.cos(deg * RAD), f.centre[1] + f.b * Math.sin(deg * RAD)], f.centre, f.ang);
+}
+function xel(e, l, branch) {
+  const f = ellipseFrame(e);
+  const p = rotate([l[0], l[1]], f.centre, -f.ang), d = rotate([l[0] + l[2], l[1] + l[3]], f.centre, -f.ang);
+  const px = p[0] - f.centre[0], py = p[1] - f.centre[1], dx = d[0] - p[0], dy = d[1] - p[1];
+  const A = dx * dx / (f.a * f.a) + dy * dy / (f.b * f.b);
+  const B = 2 * (px * dx / (f.a * f.a) + py * dy / (f.b * f.b));
+  const C = px * px / (f.a * f.a) + py * py / (f.b * f.b) - 1;
+  const disc = B * B - 4 * A * C;
+  if (disc < -1e-12 || A === 0) return NAN2;
+  const s = Math.sqrt(Math.max(disc, 0));
+  const t = branch > 0 ? (-B + s) / (2 * A) : (-B - s) / (2 * A);
+  return rotate([f.centre[0] + px + t * dx, f.centre[1] + py + t * dy], f.centre, f.ang);
+}
+function tangent(p, c, branch) {
+  const [cx, cy, r] = c, dx = p[0] - cx, dy = p[1] - cy, d = Math.hypot(dx, dy);
+  if (d < r - 1e-12 || d === 0) return NAN2;
+  const ang = Math.acos(Math.min(1, r / d)) / RAD, base = Math.atan2(dy, dx) / RAD;
+  const v = polar(r, base + branch * ang);
+  return [cx + v[0], cy + v[1]];
+}
+const direction = (p, q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < COINCIDENT ? NaN : norm360(Math.atan2(q[1] - p[1], q[0] - p[0]) / RAD);
+function keplerE(M, e) {
+  const m = norm360(M) * RAD;
+  let E = e < 0.8 ? m : Math.PI;
+  for (let i = 0; i < 30; i++) {
+    const f = E - e * Math.sin(E) - m;
+    E -= f / (1 - e * Math.cos(E));
+    if (Math.abs(f) < 1e-14) break;
+  }
+  return norm360(E / RAD);
+}
+function trueAnom(E, e) {
+  const Er = E * RAD;
+  const nu = 2 * Math.atan2(Math.sqrt(1 + e) * Math.sin(Er / 2), Math.sqrt(1 - e) * Math.cos(Er / 2));
+  return norm360(nu / RAD);
+}
+function resCollinear(p, q, r) {
+  const ax = q[0] - p[0], ay = q[1] - p[1], bx = r[0] - q[0], by = r[1] - q[1];
+  const na = Math.hypot(ax, ay), nb = Math.hypot(bx, by);
+  return na === 0 || nb === 0 ? 0 : Math.abs(ax * by - ay * bx) / (na * nb);
+}
+
+const OPS = {
+  const: v => v,
+  id: v => v,
+  add: (a, b) => isVec(a) && isVec(b) ? [a[0] + b[0], a[1] + b[1]] : a + b,
+  sub: (a, b) => isVec(a) && isVec(b) ? [a[0] - b[0], a[1] - b[1]] : a - b,
+  mul: (a, b) => isVec(a) ? [a[0] * b, a[1] * b] : isVec(b) ? [b[0] * a, b[1] * a] : a * b,
+  div: (a, b) => b !== 0 ? a / b : NaN,
+  neg: a => isVec(a) ? [-a[0], -a[1]] : -a,
+  abs: Math.abs,
+  norm360, norm180,
+  polar,
+  observer: () => [0, 0],
+  circle: (c, r) => [c[0], c[1], r],
+  line,
+  ray: (p, deg) => [p[0], p[1], Math.cos(deg * RAD), Math.sin(deg * RAD)],
+  x_cl: xcl, x_cc: xcc, foot,
+  midpoint: (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2],
+  rotate, reflect,
+  ellipse: (f1, f2, a) => [f1[0], f1[1], f2[0], f2[1], a],
+  on_ellipse: onEllipse, x_el: xel, tangent, direction,
+  distance: (p, q) => Math.hypot(q[0] - p[0], q[1] - p[1]),
+  seen_from: (q, c, deg) => xcl(c, [q[0], q[1], Math.cos(deg * RAD), Math.sin(deg * RAD)], 1),
+  kepler_E: keplerE, true_anom: trueAnom,
+  sin: a => Math.sin(a * RAD), cos: a => Math.cos(a * RAD), tan: a => Math.tan(a * RAD),
+  atan2: (y, x) => Math.atan2(y, x) / RAD,
+  asin: v => Math.asin(Math.max(-1, Math.min(1, v))) / RAD,
+  sqrt: v => v >= 0 ? Math.sqrt(v) : NaN,
+  res_parallel: (l1, l2) => Math.abs(l1[2] * l2[3] - l1[3] * l2[2]),
+  res_collinear: resCollinear,
+  res_perp: (l1, l2) => Math.abs(l1[2] * l2[2] + l1[3] * l2[3]),
+  res_on: (p, c) => Math.abs(Math.hypot(p[0] - c[0], p[1] - c[1]) - c[2]),
+};
+
+// The configuration of a context under parameter values in a state (evaluate.py: configuration). A parameter
+// without value is null; it is an error as soon as something other than a range or a law (ids `_aux…`) needs it.
+function configuration(ops, params, state) {
+  const env = {};
+  let missing = false;
+  for (const op of ops) {
+    const k = op.op;
+    if (k === 'const') env[op.id] = op.args[0];
+    else if (k === 'param') {
+      if (op.id in params) env[op.id] = params[op.id]; else { env[op.id] = null; missing = true; }
+    } else if (k === 'var') {
+      if (op.id in state) env[op.id] = state[op.id];
+      else if (op.args.length && 't' in state && op.args[0] in env) {
+        if (env[op.args[0]] === null || env[op.args[1]] === null) throw new Error(`the state gives a time, but the law of ${op.id} lacks a parameter value`);
+        env[op.id] = norm360(env[op.args[1]] + env[op.args[0]] * state.t);
+      } else throw new Error(`the state does not fix ${op.id}`);
+    } else {
+      const vals = op.args.map(a => env[a]);
+      if (missing && vals.some(v => v === null)) {
+        if (!op.id.startsWith('_aux')) throw new Error(`a parameter needed by ${op.id} has no value`);
+        env[op.id] = null;
+        continue;
+      }
+      const fn = OPS[k];
+      if (!fn) throw new Error('unknown op ' + k);
+      env[op.id] = fn(...vals);
+    }
+  }
+  return env;
+}
+
+const isNaNValue = v => typeof v === 'number' ? Number.isNaN(v) : Array.isArray(v) && v.some(x => Number.isNaN(x));
+
+// ── projection (svg/transform.py) ──────────────────────────────────────────
+function project(proj, p) {
+  const phi = (90 - proj.up) * RAD;
+  const x = p[0] * Math.cos(phi) - p[1] * Math.sin(phi), y = p[0] * Math.sin(phi) + p[1] * Math.cos(phi);
+  return [proj.tx + proj.scale * x, proj.ty - proj.scale * y];
+}
+const screenAngle = (proj, deg) => -(deg + (90 - proj.up));
+const screenDir = (proj, deg) => { const s = screenAngle(proj, deg) * RAD; return [Math.cos(s), Math.sin(s)]; };
+
+// ── drawing (svg/render.py, one to one) ────────────────────────────────────
+const f2 = x => x.toFixed(2);
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function rich(str) {
+  const i = String(str).indexOf('_');
+  if (i < 0) return esc(str);
+  return `${esc(str.slice(0, i))}<tspan class="sub" dy="0.35em" font-size="70%">${esc(str.slice(i + 1))}</tspan>`;
+}
+function text(x, y, str, cls, id, anchor = 'middle') {
+  return `<text id="astra-${id}-text" class="${cls}" x="${f2(x)}" y="${f2(y)}" text-anchor="${anchor}" dominant-baseline="middle">${rich(str)}</text>`;
+}
+function arcSpan(a1, a2, value) {
+  const sweep = norm360(a2 - a1), v = norm360(value);
+  if (Math.abs(norm180(sweep - v)) < 0.5) return [a1, sweep, false];
+  if (Math.abs(norm180(360 - sweep - v)) < 0.5) return [a2, 360 - sweep, true];
+  return sweep <= 180 ? [a1, sweep, false] : [a2, 360 - sweep, true];
+}
+function arcPath(cx, cy, r, a1, a2, proj, sweepGiven) {
+  const sweep = sweepGiven === undefined ? norm360(a2 - a1) : sweepGiven;
+  const s1 = screenAngle(proj, a1) * RAD, s2 = screenAngle(proj, a1 + sweep) * RAD;
+  const large = sweep > 180 ? 1 : 0;
+  return `M ${f2(cx + r * Math.cos(s1))} ${f2(cy + r * Math.sin(s1))} A ${f2(r)} ${f2(r)} 0 ${large} 0 ${f2(cx + r * Math.cos(s2))} ${f2(cy + r * Math.sin(s2))}`;
+}
+const armAngle = (arm, env, v) => 'fixed' in arm ? arm.fixed : 'point' in arm
+  ? Math.atan2(env[arm.point][1] - v[1], env[arm.point][0] - v[0]) / RAD : env[arm.angle];
+
+const ahead = state => 't' in state ? { ...state, t: state.t + 0.01 } : Object.fromEntries(Object.entries(state).map(([k, v]) => [k, v + 0.05]));
+
+function renderBody(bundle, state, stepName) {
+  const proj = bundle.projection;
+  const env = configuration(bundle.ops, bundle.params, state);
+  const scene = bundle.scene;
+  const hl = stepName ? (bundle.steps || []).find(s => s.name === stepName) : null;
+  const hlPoints = new Set(hl ? hl.points : []);
+  const hlSegs = new Set(hl ? hl.segments.map(pq => [...pq].sort().join('|')) : []);
+  const isHl = (p, q) => hlSegs.has([p, q].sort().join('|'));
+  const raw = [];
+  let currentOwner = '';
+  const out = { push(item) { if (currentOwner && item.startsWith('<') && !item.includes(' data-owner=')) item = item.replace(' ', ` data-owner="${currentOwner}" `); raw.push(item); }, join(sep) { return raw.join(sep); } };
+  let ink = 0;
+  const rFit = proj.scale * proj.r_fit;
+  const cX = proj.width / 2, cY = proj.height / 2;
+  const P = name => isNaNValue(env[name]) ? null : project(proj, env[name]);
+  const seg = (id, cls, p, q) => { ink += Math.hypot(q[0] - p[0], q[1] - p[1]) * 1.5; return `<line id="astra-${id}" class="${cls}" x1="${f2(p[0])}" y1="${f2(p[1])}" x2="${f2(q[0])}" y2="${f2(q[1])}"/>`; };
+  const tx = (...a) => { ink += 8 * EM * String(a[2]).length; return text(...a); };
+
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind === 'segment') {
+      const p = P(d.p), q = P(d.q), on = isHl(d.p, d.q);
+      if (d.step_only && !on) continue;
+      if (p && q) out.push(seg(d.id, on ? 'astra-step' : d.dashed ? 'astra-aux astra-dashed' : 'astra-construct', p, q));
+    } else if (d.kind === 'zodiac') {
+      const c = env[d.circle], o = P(d.point);
+      if (!o || isNaNValue(c)) continue;
+      const r = proj.scale * c[2], om = env[d.point];
+      const degs = d.full ? [...Array(12).keys()].map(i => i * 30) : [0, 90, 180, 270];
+      for (const deg of degs) {
+        const [dx, dy] = screenDir(proj, deg);
+        const hit = xcl(c, [om[0], om[1], Math.cos(deg * RAD), Math.sin(deg * RAD)], 1);
+        if (isNaNValue(hit)) continue;
+        const [ex, ey] = project(proj, hit), cc = [ex - r * dx, ey - r * dy];
+        if (deg in CARDINAL) {
+          out.push(seg(`${d.id}-${deg}`, 'astra-aux astra-dashed', o, [ex, ey]));
+          out.push(`<circle id="astra-${d.id}-${deg}-pt" class="astra-point" cx="${f2(ex)}" cy="${f2(ey)}" r="${POINT_R}"/>`);
+        } else out.push(seg(`${d.id}-${deg}-tick`, 'astra-aux', [cc[0] + (r - 6) * dx, cc[1] + (r - 6) * dy], [ex, ey]));
+        out.push(tx(ex + 1.3 * EM * dx, ey + 1.3 * EM * dy, CARDINAL[deg] || SIGNS[deg / 30], 'astra-zodiac', `${d.id}-${deg}`));
+      }
+    }
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind === 'circle') {
+      const c = env[d.ref]; if (isNaNValue(c)) continue;
+      const [cx, cy] = project(proj, [c[0], c[1]]), r = proj.scale * c[2];
+      ink += 2 * Math.PI * r * 1.5;
+      out.push(`<circle id="astra-${d.id}" class="astra-construct" cx="${f2(cx)}" cy="${f2(cy)}" r="${f2(r)}"/>`);
+    } else if (d.kind === 'ellipse') {
+      const e = env[d.ref]; if (isNaNValue(e)) continue;
+      const f = ellipseFrame(e), [cx, cy] = project(proj, f.centre), rot = screenAngle(proj, f.ang);
+      ink += 2 * Math.PI * proj.scale * f.a * 1.5;
+      out.push(`<ellipse id="astra-${d.id}" class="astra-ellipse" cx="${f2(cx)}" cy="${f2(cy)}" rx="${f2(proj.scale * f.a)}" ry="${f2(proj.scale * f.b)}" transform="rotate(${f2(rot)} ${f2(cx)} ${f2(cy)})"/>`);
+    }
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'length') continue;
+    const p = P(d.p), q = P(d.q); if (!p || !q) continue;
+    out.push(seg(d.id, isHl(d.p, d.q) ? 'astra-step' : 'astra-construct', p, q));
+    const mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2, dx = q[0] - p[0], dy = q[1] - p[1], n = Math.hypot(dx, dy) || 1;
+    let nx = dy / n, ny = -dx / n;
+    if (d.side === 'right') { nx = -nx; ny = -ny; }
+    out.push(tx(mx + 0.7 * EM * nx, my + 0.7 * EM * ny, d.text, 'astra-label var', d.id));
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'angle') continue;
+    const v = env[d.vertex]; if (isNaNValue(v)) continue;
+    const a1 = armAngle(d.from, env, v), a2 = armAngle(d.to, env, v);
+    const [start, sweep, rev] = arcSpan(a1, a2, env[d.ref]);
+    const [vx, vy] = project(proj, v), r = 0.16 * rFit * (1 + 0.22 * d.rank);
+    const marker = d.arrow ? (rev ? ' marker-start="url(#astra-arrow-gold)"' : ' marker-end="url(#astra-arrow-gold)"') : '';
+    out.push(`<path id="astra-${d.id}" class="astra-angle" d="${arcPath(vx, vy, r, start, start + sweep, proj, sweep)}"${marker}/>`);
+    const [bx, by] = screenDir(proj, start + sweep / 2);
+    const lr = sweep >= 12 ? r + 0.9 * EM : 1.8 * r + 0.5 * EM;
+    ink += r * sweep * RAD * 1.5;
+    out.push(tx(vx + lr * bx, vy + lr * by, d.text, 'astra-label astra-angle-label', d.id));
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'motion') continue;
+    const c = env[d.circle], p = env[d.point]; if (isNaNValue(c) || isNaNValue(p)) continue;
+    const ang = Math.atan2(p[1] - c[1], p[0] - c[0]) / RAD;
+    const env2 = configuration(bundle.ops, bundle.params, ahead(state)), p2 = env2[d.point], c2 = env2[d.circle];
+    const ang2 = Math.atan2(p2[1] - c2[1], p2[0] - c2[0]) / RAD;
+    const sense = ((ang2 - ang + 540) % 360 - 180) >= 0 ? 1 : -1;
+    const [cx, cy] = project(proj, [c[0], c[1]]), r = proj.scale * c[2];
+    const a1 = ang + sense * 6, a2 = ang + sense * 28;
+    const path = sense > 0 ? arcPath(cx, cy, r, a1, a2, proj) : arcPath(cx, cy, r, a2, a1, proj);
+    const marker = sense > 0 ? 'marker-end="url(#astra-arrow-gold)"' : 'marker-start="url(#astra-arrow-gold)"';
+    ink += r * 22 * RAD * 1.5;
+    out.push(`<path id="astra-${d.id}" class="astra-motion" d="${path}" ${marker}/>`);
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'direction') continue;
+    const o = P(d.point); if (!o) continue;
+    const [dx, dy] = screenDir(proj, env[d.ref]), L = 1.15 * rFit;
+    out.push(`<line id="astra-${d.id}" class="${d.dashed ? 'astra-aux astra-dashed' : 'astra-aux'}" x1="${f2(o[0])}" y1="${f2(o[1])}" x2="${f2(o[0] + L * dx)}" y2="${f2(o[1] + L * dy)}" marker-end="url(#astra-arrow-ink)"/>`);
+    ink += L;
+    out.push(tx(o[0] + (L + 1.1 * EM) * dx, o[1] + (L + 1.1 * EM) * dy, d.text, 'astra-label var', d.id));
+  }
+  const placed = [];
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'point') continue;
+    const p = P(d.ref); if (!p) continue;
+    if (placed.some(q => Math.hypot(p[0] - q[0], p[1] - q[1]) < 0.6)) continue;
+    placed.push(p);
+    out.push(`<circle id="astra-${d.id}" class="${hlPoints.has(d.ref) ? 'astra-point astra-step-point' : 'astra-point'}" cx="${f2(p[0])}" cy="${f2(p[1])}" r="${POINT_R}"/>`);
+    let ox = p[0] - cX, oy = p[1] - cY, n = Math.hypot(ox, oy);
+    if (n < 0.08 * rFit) { ox = 1; oy = 0.35; n = Math.hypot(ox, oy); }
+    out.push(tx(p[0] + EM * ox / n, p[1] + EM * oy / n, d.text, 'astra-label', d.id));
+  }
+  return { html: out.join('\n'), ink: ink / (proj.width * proj.height), env };
+}
+
+// ── mounting ───────────────────────────────────────────────────────────────
+function mount(svg, bundle, opts = {}) {
+  const q = new URLSearchParams(location.search);
+  const theme = q.get('theme');
+  if (theme) document.documentElement.dataset.theme = theme, svg.dataset.theme = theme;
+  const body = svg.querySelector('#astra-body');
+  const anim = bundle.animation;
+  const speed = bundle.speed_s || 24;
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hold = q.has('static') || q.has('t') || reduced;
+  const params = Object.assign({}, bundle.params);
+  let u = q.has('t') ? (parseFloat(q.get('t')) / speed) % 1 : 0;      // fraction of a revolution after the depicted state
+  let playing = false, last = null, raf = 0;
+  const listeners = new Set();
+  const members = (bundle.members || []).length === 2 ? bundle.members : null;
+  let morph = q.has('morph') ? Math.max(0, Math.min(1, parseFloat(q.get('morph')))) : 0.5;
+  let step = q.get('step') || null;
+
+  const stateAt = x => anim.mode === 'var'
+    ? { [anim.name]: norm360(anim.start + 360 * x) }
+    : { t: anim.start + x * (anim.period_days || 1) };
+
+  function applyMorph() {
+    if (!members) return;
+    const wa = Math.min(1, 2 * (1 - morph)), wb = Math.min(1, 2 * morph);
+    for (const el of body.querySelectorAll('[data-owner]')) {
+      const o = el.getAttribute('data-owner');
+      if (o === members[0]) el.style.opacity = wa.toFixed(3);
+      else if (o === members[1]) el.style.opacity = wb.toFixed(3);
+    }
+  }
+  function draw() {
+    try {
+      const st = stateAt(u);
+      const r = renderBody(Object.assign({}, bundle, { params }), st, step);
+      body.innerHTML = r.html;
+      applyMorph();
+      svg.dataset.ink = r.ink.toFixed(4);
+      svg.dataset.state = Object.entries(st).map(([k, v]) => `${k}=${v.toFixed(4)}`).join(', ');
+      const bad = Object.entries(r.env).find(([k, v]) => !k.startsWith('_') && v !== null && isNaNValue(v));
+      if (bad) document.documentElement.dataset.renderError = `construction failed at ${svg.dataset.state}: ${bad[0]}`;
+      for (const fn of listeners) fn(ctl.state());
+    } catch (e) {
+      document.documentElement.dataset.renderError = String(e.message || e);
+      throw e;
+    }
+  }
+  function tick(now) {
+    if (!playing) return;
+    if (last !== null) u = (u + (now - last) / 1000 / speed) % 1;
+    last = now;
+    draw();
+    raf = requestAnimationFrame(tick);
+  }
+  const ctl = {
+    seek(x) { u = ((x % 1) + 1) % 1; draw(); },
+    play() { if (playing || hold) return; playing = true; last = null; raf = requestAnimationFrame(tick); },
+    pause() { playing = false; cancelAnimationFrame(raf); },
+    toggle() { playing ? ctl.pause() : ctl.play(); },
+    set(name, value) { params[name] = value; draw(); },
+    morph(v) { morph = Math.max(0, Math.min(1, v)); applyMorph(); for (const fn of listeners) fn(ctl.state()); },
+    step(name) { step = name || null; draw(); },
+    state() { return { u, state: stateAt(u), speed, playing, params: Object.assign({}, params), morph, members, step }; },
+    onChange(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+  };
+  draw();
+  if (opts.transport) transport(opts.transport, ctl, bundle);
+  if (!hold && opts.autoplay !== false && !step) ctl.play();
+  document.addEventListener('visibilitychange', () => { if (document.hidden) ctl.pause(); });
+  return ctl;
+}
+
+function transport(el, ctl, bundle) {
+  const anim = bundle.animation;
+  el.className = 'astra-transport';
+  el.innerHTML = `
+    <button type="button" class="astra-btn" data-act="toggle" aria-label="play or pause">▶</button>
+    <input type="range" class="astra-slider" min="0" max="1000" value="0" aria-label="state">
+    <span class="astra-readout"></span>`;
+  const btn = el.querySelector('[data-act=toggle]'), slider = el.querySelector('input'), readout = el.querySelector('.astra-readout');
+  btn.addEventListener('click', () => ctl.toggle());
+  slider.addEventListener('input', () => { ctl.pause(); ctl.seek(slider.value / 1000); });
+  let anchor = el;
+  const st0 = ctl.state();
+  if (st0.members) {
+    // a second slider fades between the two members of the superposition: the shared observer stays, one
+    // construction fades out as the other fades in
+    const row = document.createElement('div');
+    row.className = 'astra-transport astra-morph';
+    row.innerHTML = `<span class="astra-morph-label">${st0.members[0]}</span>
+      <input type="range" class="astra-slider" min="0" max="1000" value="${Math.round(st0.morph * 1000)}" aria-label="fade between the two models">
+      <span class="astra-morph-label">${st0.members[1]}</span>`;
+    anchor.after(row); anchor = row;
+    row.querySelector('input').addEventListener('input', e => ctl.morph(e.target.value / 1000));
+  }
+  const steps = bundle.steps || [];
+  if (steps.length) {
+    // one step of the derivation at a time: its proposition, its rule, and what it speaks of in the figure
+    const row = document.createElement('div');
+    row.className = 'astra-transport astra-steps';
+    row.innerHTML = `<button type="button" class="astra-btn" data-act="prev" aria-label="previous step">‹</button>
+      <span class="astra-step-text"></span>
+      <button type="button" class="astra-btn" data-act="next" aria-label="next step">›</button>`;
+    anchor.after(row);
+    const text = row.querySelector('.astra-step-text');
+    let i = Math.max(-1, steps.findIndex(s => s.name === st0.step));
+    const show = () => {
+      const s = i >= 0 ? steps[i] : null;
+      text.textContent = s ? `${s.name}: ${s.text}${s.rule ? ' — by ' + s.rule : ''} (${s.status})` : 'the steps of the derivation';
+      ctl.pause(); ctl.step(s ? s.name : null);
+    };
+    row.querySelector('[data-act=prev]').addEventListener('click', () => { i = Math.max(-1, i - 1); show(); });
+    row.querySelector('[data-act=next]').addEventListener('click', () => { i = Math.min(steps.length - 1, i + 1); show(); });
+    if (i >= 0) show(); else text.textContent = 'the steps of the derivation';
+  }
+  ctl.onChange(s => {
+    btn.textContent = s.playing ? '❚❚' : '▶';
+    slider.value = Math.round(s.u * 1000);
+    if (anim.mode === 'var') {
+      const v = s.state[anim.name];
+      let txt = `${anim.display} = ${v.toFixed(1)}°`;
+      if (anim.period_days) txt += ` · t = ${(norm360(v - anim.epoch) / 360 * anim.period_days).toFixed(1)} d`;
+      readout.textContent = txt;
+    } else readout.textContent = `t = ${s.state.t.toFixed(1)} d`;
+  });
+  ctl.seek(ctl.state().u);
+}
+
+{
+// <astra-argument> — the interactive display of a geometrical argument (astra-argument/1).
+//
+//   <astra-argument src="argument.json" depth="steps"></astra-argument>      or     el.data = {...}
+//
+// The element shows, in this order, the model, what is given, the argument as a numbered outline with its
+// sub-arguments and cases indented, the conclusion, and what the checks say. One control sets the depth
+// (Overview · Steps · Full); every block and every step also opens and closes by itself. Selecting a step shows
+// in the figure what it speaks of. Dependency-free; the figure uses astra-runtime's `mount`.
+//
+// Attributes: src, depth (overview | steps | full), figure ("off" hides it). Methods: select(id), setDepth(d).
+// Events: `step-select` (detail: {id, number}), `depth-change`. Deep link: #step=<id or number>.
+
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// a display symbol: `λ_D` becomes λ with a subscript D
+const sym = s => { const t = esc(s), i = t.indexOf('_'); return i < 0 ? t : `${t.slice(0, i)}<sub>${t.slice(i + 1)}</sub>`; };
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const STATUS_TITLE = {
+  'justified': 'an instance of the rule it names, its hypotheses cited, its configuration conditions holding',
+  'justified by cases': 'reached in every case; the cases cover every configuration',
+  'read off the construction': 'read off the cited constructions: it holds without any hypothesis',
+  'by calculation': 'follows from the cited equalities by calculation; confirmed numerically',
+  'by expansion': 'agrees to the stated order in the small ratio',
+  'true, not justified': 'true, but the rule it names does not license it: a gap in the reasoning',
+  'false': 'does not hold',
+};
+const LEGEND = [['✓', 'an instance of the rule named'], ['◦', 'read off the construction'], ['≈', 'by calculation or expansion'], ['?', 'true, not justified'], ['✗', 'false']];
+
+class AstraArgument extends HTMLElement {
+  static get observedAttributes() { return ['src', 'depth']; }
+
+  constructor() {
+    super();
+    this._data = null;
+    this._depth = 'steps';
+    this._open = new Set();      // nodes whose children are shown
+    this._detail = new Set();    // nodes whose detail is shown
+    this._bands = new Set(['given', 'argument', 'therefore']);
+    this._selected = null;
+    this._ctl = null;
+  }
+
+  connectedCallback() {
+    if (this.hasAttribute('depth')) this._depth = this.getAttribute('depth');
+    if (this._data) this._render();
+    else if (this.getAttribute('src')) this._load(this.getAttribute('src'));
+    else this._inline();
+    this._ro = new ResizeObserver(() => this._fit());
+    this._ro.observe(this);
+  }
+  disconnectedCallback() { if (this._ro) this._ro.disconnect(); }
+  attributeChangedCallback(name, old, value) {
+    if (old === value || !this.isConnected) return;
+    if (name === 'src' && value) this._load(value);
+    if (name === 'depth' && value) this.setDepth(value);
+  }
+
+  set data(d) { this._data = d; this._reset(); if (this.isConnected) this._render(); }
+  get data() { return this._data; }
+
+  // The document as a child <script type="application/json">: the form in which a page that is one file (a notebook
+  // segment, a published issue) carries it. While the page is still being parsed the child may not be there yet.
+  _inline() {
+    const s = this.querySelector(':scope > script[type="application/json"]');
+    if (s) { try { this.data = JSON.parse(s.textContent); } catch (e) { this.innerHTML = `<div class="aa"><p style="padding:16px">The embedded document cannot be read: ${esc(e.message)}</p></div>`; } return; }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => { if (!this._data) this._inline(); }, { once: true });
+  }
+
+  async _load(url) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`${url}: ${r.status}`);
+      this.data = await r.json();
+    } catch (e) {
+      this.innerHTML = `<div class="aa"><p style="padding:16px">The argument could not be loaded: ${esc(e.message)}</p></div>`;
+    }
+  }
+
+  // ── state ──
+  _nodes() {
+    const out = [];
+    const walk = n => { out.push(n); (n.children || []).forEach(walk); };
+    (this._data.argument || []).forEach(walk);
+    if (this._data.conclusion) out.push(this._data.conclusion);
+    (this._data.further_conclusions || []).forEach(n => out.push(n));
+    return out;
+  }
+  _reset() {
+    const nodes = this._data ? this._nodes() : [];
+    this._open.clear(); this._detail.clear();
+    if (this._depth !== 'overview') nodes.forEach(n => { if ((n.children || []).length) this._open.add(n.id); });
+    if (this._depth === 'full') nodes.forEach(n => this._detail.add(n.id));
+    this._bands = new Set(['given', 'argument', 'therefore']);
+    if (this._depth === 'full') { this._bands.add('model'); this._bands.add('checks'); }
+  }
+  setDepth(d) {
+    if (!['overview', 'steps', 'full'].includes(d)) return;
+    this._depth = d; this._reset(); this._renderOutline();
+    this.dispatchEvent(new CustomEvent('depth-change', { detail: { depth: d } }));
+  }
+  select(idOrNumber) {
+    const n = this._nodes().find(x => x.id === idOrNumber || x.number === idOrNumber);
+    if (!n) return;
+    this._selected = n.id;
+    // open the way to it
+    const path = this._path(n.id);
+    path.slice(0, -1).forEach(p => this._open.add(p.id));
+    this._renderOutline();
+    if (this._ctl) { this._ctl.pause(); this._ctl.step(n.id); }
+    const box = this.querySelector('.aa-selected');
+    if (box) box.innerHTML = `<b>${esc(n.number)}</b> ${esc(n.claim)}${n.notation && n.notation !== n.claim ? ` — <span class="aa-not">${esc(n.notation)}</span>` : ''}`;
+    this.dispatchEvent(new CustomEvent('step-select', { detail: { id: n.id, number: n.number }, bubbles: true }));
+  }
+  _path(id) {
+    let found = null;
+    const walk = (n, trail) => { const t = trail.concat(n); if (n.id === id) found = t; (n.children || []).forEach(c => walk(c, t)); };
+    (this._data.argument || []).forEach(n => walk(n, []));
+    return found || [];
+  }
+
+  // ── rendering ──
+  _render() {
+    const d = this._data;
+    const who = [];
+    if ((d.attributed || []).length) who.push(`model of <b>${esc(d.attributed.join(', '))}</b>`);
+    (d.witness || []).slice(0, 2).forEach(w => who.push(`witness <b>${esc(w.note || w.address)}</b>`));
+    if (d.author) who.push(`reconstruction <b>${esc(d.author)}</b>`);
+    const lv = d.check.levels.slice(1).map(l => `<span class="${d.check.passed.includes(l) ? 'ok' : 'no'}">${esc(l)}</span>`).join('');
+    this.innerHTML = `<div class="aa" data-depth="${this._depth}">
+      <div class="aa-head"><p class="aa-kicker">Argument · in ${esc(d.context.kind)} ${esc(d.context.title)}</p>
+        <h2 class="aa-title">${esc(d.title)}</h2><p class="aa-who">${who.join(' · ')}</p></div>
+      <div class="aa-bar"><div class="aa-depth" role="group" aria-label="depth of display">
+          ${['overview', 'steps', 'full'].map(x => `<button type="button" data-depth="${x}" aria-pressed="${x === this._depth}">${x[0].toUpperCase() + x.slice(1)}</button>`).join('')}
+        </div><div class="aa-levels" title="what the checks say of this argument">${lv}</div></div>
+      <div class="aa-grid"><div class="aa-fig"></div><div class="aa-outline"></div></div></div>`;
+    this.querySelector('.aa-depth').addEventListener('click', e => { const b = e.target.closest('button[data-depth]'); if (b) this.setDepth(b.dataset.depth); });
+    this._renderFigure();
+    this._renderOutline();
+    this._fit();
+    const m = (location.hash || '').match(/step=([^&]+)/);
+    if (m) this.select(decodeURIComponent(m[1]));
+  }
+
+  _renderFigure() {
+    const d = this._data, root = this.querySelector('.aa'), box = this.querySelector('.aa-fig');
+    if (!d.figure || this.getAttribute('figure') === 'off') { root.classList.add('aa-nofig'); return; }
+    const drawn = Object.entries(d.figure.drawn || {});
+    box.innerHTML = `${d.figure.svg}<div class="aa-transport"></div>
+      <p class="aa-selected">Select a step to see in the figure what it speaks of.</p>
+      ${drawn.length ? `<p class="aa-fig-note">Drawn with ${esc(drawn.map(([k, v]) => `${k} = ${v}`).join(', '))}: drawing values, not attested ones.</p>` : ''}`;
+    const svg = box.querySelector('svg');
+    try { this._ctl = mount(svg, d.figure.bundle, { transport: box.querySelector('.aa-transport'), autoplay: false }); }
+    catch (e) { this._ctl = null; }
+  }
+
+  _refs(n) {
+    if (!(n.from || []).length) return '';
+    return `<span class="aa-from">from ${n.from.map(p => p.kind === 'step' || p.kind === 'hypothesis'
+      ? `<button type="button" class="aa-ref" data-ref="${esc(p.ref)}" aria-label="premise ${esc(p.label)}">${esc(p.label)}</button>`
+      : `<span class="aa-ref is-plain">${esc(p.label)}</span>`).join('')}</span>`;
+  }
+
+  _node(n, level) {
+    const kids = n.children || [];
+    const open = this._open.has(n.id), det = this._detail.has(n.id);
+    const markCls = n.status === 'false' ? ' is-false' : n.status === 'true, not justified' ? ' is-gap' : '';
+    const when = n.when ? `<span class="aa-when">when ${esc(n.when.join('; '))}</span>` : '';
+    const notation = n.notation && n.notation !== n.claim ? `<span class="aa-not">${esc(n.notation)}</span>` : '';
+    const sub = (notation || when || (n.from || []).length) ? `<div class="aa-sub">${when}${notation}${this._refs(n)}</div>` : '';
+    const tag = n.kind === 'case' ? '<span class="aa-case-tag">Case</span>' : n.kind === 'supposition' ? '<span class="aa-case-tag">Suppose</span>' : '';
+    const dist = n.distinction && open ? `<p class="aa-distinction">Argued ${esc(n.distinction)}.</p>` : '';
+    return `<div class="aa-node aa-kind-${n.kind}${this._selected === n.id ? ' is-selected' : ''}" data-id="${esc(n.id)}" data-level="${level}">
+      <div class="aa-row">
+        ${kids.length ? `<button type="button" class="aa-tog" aria-expanded="${open}" aria-label="${open ? 'Close' : 'Open'} ${esc(n.number)}"><span class="aa-chev">▸</span></button>` : '<span></span>'}
+        <span class="aa-num">${esc(n.number)}</span>
+        <div class="aa-main"><button type="button" class="aa-select aa-claim" aria-label="${esc(n.number)}: ${esc(n.claim)}. Show it in the figure">${tag}${esc(n.claim)}</button>${sub}</div>
+        <span class="aa-rule">${n.by ? esc(n.by.rule) : ''}</span>
+        <span class="aa-mark${markCls}" title="${esc(n.status)}: ${esc(STATUS_TITLE[n.status] || '')}">${esc(n.mark)}</span>
+        <button type="button" class="aa-more" aria-expanded="${det}" aria-label="Details of ${esc(n.number)}">⋯</button>
+      </div>
+      ${det ? this._detailHtml(n) : ''}
+      ${kids.length ? `<div class="aa-children"${open ? '' : ' hidden'}>${dist}${kids.map(c => this._node(c, level + 1)).join('')}</div>` : ''}
+    </div>`;
+  }
+
+  _detailHtml(n) {
+    const rows = [];
+    rows.push(['status', `${esc(n.status)}${n.note ? ` — ${esc(n.note)}` : ''}`]);
+    if (n.by && n.by.statement) rows.push(['rule', `<q>${esc(n.by.statement)}</q>${n.by.printed ? ` Heath, ${esc(n.by.printed)}.` : ''}${n.by.case ? ` Case used: ${esc(n.by.case)}.` : ''}${n.by.rests_on ? ` Rests on ${esc(n.by.rests_on)}.` : ''}`]);
+    if (n.binding) rows.push(['binding', esc(Object.entries(n.binding).map(([k, v]) => `${k} = ${v}`).join(', '))]);
+    if (n.conditions) rows.push(['the figure supplies', esc(n.conditions.join('; '))]);
+    if (n.degenerate_at) rows.push(['degenerate at', `<span class="aa-warn">${esc(n.degenerate_at.join(', '))}</span>`]);
+    if (n.undefined_at) rows.push(['undefined at', esc(n.undefined_at.join(', '))]);
+    if (n.equal_at) rows.push(['equal, not less, at', esc(n.equal_at.join(', '))]);
+    if (n.needs) rows.push(['needs', esc(n.needs.join(', '))]);
+    rows.push(['formal', `<span class="aa-formal">${esc(n.formal)}</span>`]);
+    if (typeof n.residual === 'number' && n.grade !== 'approximation' && !n.formal.startsWith('less(')) rows.push(['residual', n.residual.toExponential(1)]);
+    return `<div class="aa-detail"><dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl></div>`;
+  }
+
+  _band(key, title, hint, body) {
+    const open = this._bands.has(key);
+    return `<section class="aa-band" data-band="${key}"><button type="button" class="aa-band-h" aria-expanded="${open}"><span class="aa-chev">▸</span>${esc(title)} <small>${hint}</small></button>
+      <div class="aa-band-b"${open ? '' : ' hidden'}>${body}</div></section>`;
+  }
+
+  _modelHtml() {
+    const d = this._data;
+    const dl = (title, items, f) => items.length ? `<div class="aa-group">${title}</div>` + items.map(f).join('') : '';
+    return d.model.map(m => `<div class="aa-member"><h4>${m.prefix ? esc(m.prefix) + ' — ' : ''}${esc(m.title)} <small>${m.attributed ? 'of ' + esc(m.attributed) : ''}</small></h4>
+      <dl class="aa-defs">
+        ${dl('parameters', m.parameters, p => `<dt>${sym(p.symbol)}</dt><dd>${esc(p.meaning)}${p.range ? ` <code class="aa-def">${esc(p.unit)}, in ${esc(p.range)}</code>` : ''}</dd>`)}
+        ${dl('what varies', m.variables, v => `<dt>${sym(v.symbol)}</dt><dd>${esc(v.meaning)}${v.law ? ` <code class="aa-def">${esc(v.law)}</code>` : ''}</dd>`)}
+        ${dl('construction', m.objects, o => `<dt>${sym(o.symbol)}</dt><dd>${esc(o.meaning)} <code class="aa-def">${esc(o.defined_by)}</code></dd>`)}
+        ${dl('what is observed', m.observables, o => `<dt>${sym(o.symbol)}</dt><dd>${esc(o.meaning)} <code class="aa-def">${esc(o.defined_by)}</code></dd>`)}
+      </dl></div>`).join('')
+      + ((d.identified || []).length ? `<p class="aa-fig-note">In one plane, with ${esc(d.identified.map(i => i.meaning || i.name).join(', '))}.</p>` : '');
+  }
+
+  _renderOutline() {
+    const d = this._data, out = this.querySelector('.aa-outline');
+    if (!out) return;
+    this.querySelector('.aa').dataset.depth = this._depth;
+    this.querySelectorAll('.aa-depth button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.depth === this._depth)));
+    const nObj = d.model.reduce((a, m) => a + m.objects.length, 0);
+    let html = this._band('model', 'Model', `${d.model.length > 1 ? d.model.length + ' models superposed, ' : ''}${nObj} constructed objects`, this._modelHtml());
+    if ((d.hypotheses || []).length || (d.constructions || []).length) {
+      const g = (d.hypotheses || []).map(h => `<div class="aa-node" data-id="${esc(h.id)}"><div class="aa-row"><span></span><span class="aa-num">${esc(h.number)}</span>
+          <div class="aa-main"><div class="aa-claim">${esc(h.claim)}</div><div class="aa-sub"><span class="aa-not">${esc(h.notation)}</span></div></div><span></span><span></span><span></span></div></div>`).join('')
+        + (d.constructions || []).map(c => `<div class="aa-node"><div class="aa-row"><span></span><span class="aa-num">${esc(c.symbol)}</span>
+          <div class="aa-main"><div class="aa-claim">${esc(c.meaning)}</div><div class="aa-sub"><span class="aa-not">${esc(c.defined_by)}</span></div></div><span class="aa-rule">auxiliary construction</span><span></span><span></span></div></div>`).join('');
+      html += this._band('given', 'Given', [(d.hypotheses || []).length ? plural(d.hypotheses.length, 'hypothesis', 'hypotheses') : '', (d.constructions || []).length ? plural(d.constructions.length, 'auxiliary construction', 'auxiliary constructions') : ''].filter(Boolean).join(', '), g);
+    }
+    const all = this._nodes();
+    html += this._band('argument', 'Argument', `${plural(all.filter(n => n.kind === 'step').length, 'step', 'steps')} in ${plural(all.filter(n => n.kind === 'sub-argument' || n.kind === 'case').length, 'block', 'blocks')}`, d.argument.map(n => this._node(n, 0)).join(''));
+    const concl = [d.conclusion].concat(d.further_conclusions || []).filter(Boolean);
+    if (concl.length) html += this._band('therefore', 'Therefore', d.equivalence ? `the two models are equivalent in ${esc(d.equivalence.in)}` : '', `<div class="aa-therefore">${concl.map(n => this._node(n, 0)).join('')}</div>`);
+    const c = d.checks, st = Object.entries(c.by_status || {}).map(([k, v]) => `${v} ${esc(k)}`).join(', ');
+    const comp = (d.computations || []).length ? `<table class="aa-comp"><tr><th>computed</th><th>value</th><th>reported</th><th></th></tr>${d.computations.map(x =>
+      `<tr><td>${esc(x.meaning || x.name)}</td><td>${esc(x.value || '—')}</td><td>${esc(x.reported || '—')}</td><td>${esc(x.verdict)}${x.difference && x.verdict === 'discrepancy' ? ' ' + esc(x.difference) : ''}</td></tr>`).join('')}</table>` : '';
+    html += this._band('checks', 'What the checks say', `${esc(d.check.level)}`, `<div class="aa-checks">
+      <div class="aa-legend">${LEGEND.map(([m, t]) => `<span><b>${m}</b>${t}</span>`).join('')}</div>
+      <p>${c.steps} steps: ${st}. Tested in ${c.configurations} configurations of the parameter space and the states.</p>
+      ${(c.degenerate_states || []).length ? `<p>Degenerate states not covered: ${esc(c.degenerate_states.join(', '))}.</p>` : '<p>No state is left uncovered.</p>'}
+      ${Object.keys(d.check.failures || {}).length ? `<ul>${Object.entries(d.check.failures).map(([k, v]) => v.map(x => `<li class="aa-warn"><b>${esc(k)}</b>: ${esc(x)}</li>`).join('')).join('')}</ul>` : ''}
+      ${(c.notes || []).length ? `<ul>${c.notes.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${comp}</div>`);
+    out.innerHTML = html;
+    if (!this._wired) { this._wire(); this._wired = true; }
+  }
+
+  _wire() {
+    this.addEventListener('click', e => {
+      const bandH = e.target.closest('.aa-band-h');
+      if (bandH) { const k = bandH.parentElement.dataset.band; this._bands.has(k) ? this._bands.delete(k) : this._bands.add(k); this._renderOutline(); return; }
+      const node = e.target.closest('.aa-node'); if (!node || !node.dataset.id) return;
+      const id = node.dataset.id;
+      const ref = e.target.closest('.aa-ref[data-ref]');
+      if (ref) { this.select(ref.dataset.ref); const t = this.querySelector(`.aa-node[data-id="${CSS.escape(ref.dataset.ref)}"]`); if (t) t.scrollIntoView({ block: 'nearest' }); return; }
+      if (e.target.closest('.aa-tog')) { this._open.has(id) ? this._open.delete(id) : this._open.add(id); this._renderOutline(); this._focus(id, '.aa-tog'); return; }
+      if (e.target.closest('.aa-more')) { this._detail.has(id) ? this._detail.delete(id) : this._detail.add(id); this._renderOutline(); this._focus(id, '.aa-more'); return; }
+      if (e.target.closest('.aa-select')) { this.select(id); this._focus(id, '.aa-select'); }
+    });
+    const cite = (e, on) => { const r = e.target.closest && e.target.closest('.aa-ref[data-ref]'); if (!r) return;
+      const t = this.querySelector(`.aa-node[data-id="${CSS.escape(r.dataset.ref)}"]`); if (t) t.classList.toggle('is-cited', on); };
+    this.addEventListener('mouseover', e => cite(e, true));
+    this.addEventListener('mouseout', e => cite(e, false));
+    this.addEventListener('focusin', e => cite(e, true));
+    this.addEventListener('focusout', e => cite(e, false));
+  }
+  _focus(id, sel) { const el = this.querySelector(`.aa-node[data-id="${CSS.escape(id)}"] > .aa-row ${sel}`); if (el) el.focus({ preventScroll: true }); }
+  _fit() { const root = this.querySelector('.aa'); if (root) root.classList.toggle('aa-narrow', this.clientWidth < 820); }
+}
+
+if (!customElements.get('astra-argument')) customElements.define('astra-argument', AstraArgument);
+
+}
+})();
+
+</script>
+<script>
+  const el = document.getElementById('arg');
+  const q = new URLSearchParams(location.search);
+  if (q.get('depth')) el.setAttribute('depth', q.get('depth'));
+  el.data = JSON.parse(document.getElementById('astra-argument-data').textContent);
+  if (q.get('select')) el.select(q.get('select'));
+</script>
+<!-- famulus:publisher:start -->
+<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a href="/impressum/">Legal notice</a> · <a href="/datenschutz/">Privacy</a></p>
+<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
+<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/arguments/euler-tide-force-emendation/&amp;m=" width="1" height="1" alt=""></noscript>
+<!-- famulus:publisher:end -->
+</body></html>

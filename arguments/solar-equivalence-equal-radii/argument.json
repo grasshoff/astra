@@ -1,0 +1,4944 @@
+{
+ "format": "astra-argument/1",
+ "notation": "astra/1",
+ "id": "solar-equivalence-equal-radii",
+ "address": "fr:astra/solar-equivalence-equal-radii",
+ "title": "The two forms place the sun at the same point when R' = R and r = e",
+ "author": "Gerd Graßhoff",
+ "witness": [
+  {
+   "address": "fr:kepler-sec/Swerdlow2026/0049/p04",
+   "note": "the parallelogram OESC, p. 19"
+  },
+  {
+   "address": "fr:kepler-sec/Swerdlow2026/0050/fig01",
+   "note": "Fig. 1.2"
+  }
+ ],
+ "attributed": [
+  "Ptolemy"
+ ],
+ "context": {
+  "id": "solar-eccentric-epicyclic",
+  "kind": "superposition",
+  "title": "Eccentric and epicyclic form of Ptolemy's solar model, superposed",
+  "address": "fr:astra/solar-eccentric-epicyclic"
+ },
+ "check": {
+  "level": "conclusive",
+  "complete": true,
+  "levels": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "passed": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "failures": {}
+ },
+ "model": [
+  {
+   "prefix": "Ecc",
+   "id": "solar-eccentric",
+   "address": "fr:astra/solar-eccentric",
+   "title": "Ptolemy's solar model, eccentric form",
+   "attributed": "Ptolemy",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "Ecc.R",
+     "symbol": "R",
+     "unit": "length",
+     "meaning": "radius of the eccentric",
+     "range": "(1, 1000)"
+    },
+    {
+     "name": "Ecc.e",
+     "symbol": "e",
+     "unit": "length",
+     "meaning": "eccentricity, the distance OE",
+     "range": "(0, R / 2)"
+    },
+    {
+     "name": "lamA",
+     "symbol": "λ_A",
+     "unit": "angle",
+     "meaning": "longitude of the apogee",
+     "range": null
+    },
+    {
+     "name": "T",
+     "symbol": "T",
+     "unit": "time",
+     "meaning": "tropical year",
+     "range": "(300, 400)"
+    },
+    {
+     "name": "kappa_0",
+     "symbol": "κ̄_0",
+     "unit": "angle",
+     "meaning": "mean anomaly at t = 0",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "kappa_bar",
+     "symbol": "κ̄",
+     "meaning": "mean anomaly about E, counted from the apogee",
+     "law": "uniform in time, period T"
+    }
+   ],
+   "objects": [
+    {
+     "name": "O",
+     "symbol": "O",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "earth"
+    },
+    {
+     "name": "Ecc.E",
+     "symbol": "E",
+     "kind": "point",
+     "defined_by": "O + polar(e, lamA)",
+     "meaning": "centre of the eccentric"
+    },
+    {
+     "name": "Ecc.ecc",
+     "symbol": "ecc",
+     "kind": "circle",
+     "defined_by": "circle(E, R)",
+     "meaning": "the eccentric"
+    },
+    {
+     "name": "Ecc.A",
+     "symbol": "A",
+     "kind": "point",
+     "defined_by": "E + polar(R, lamA)",
+     "meaning": "apogee"
+    },
+    {
+     "name": "Ecc.B",
+     "symbol": "B",
+     "kind": "point",
+     "defined_by": "E - polar(R, lamA)",
+     "meaning": "perigee"
+    },
+    {
+     "name": "Ecc.S",
+     "symbol": "S",
+     "kind": "point",
+     "defined_by": "E + polar(R, lamA + kappa_bar)",
+     "meaning": "sun"
+    }
+   ],
+   "observables": [
+    {
+     "name": "Ecc.lam_bar",
+     "symbol": "λ̄_S",
+     "defined_by": "direction(E, S)",
+     "meaning": "mean longitude"
+    },
+    {
+     "name": "Ecc.lam",
+     "symbol": "λ_S",
+     "defined_by": "direction(O, S)",
+     "meaning": "true longitude"
+    },
+    {
+     "name": "Ecc.kappa",
+     "symbol": "κ",
+     "defined_by": "lam - lamA",
+     "meaning": "true anomaly about O"
+    },
+    {
+     "name": "Ecc.c",
+     "symbol": "c",
+     "defined_by": "lam_bar - lam",
+     "meaning": "equation of centre, mean minus true longitude"
+    }
+   ]
+  },
+  {
+   "prefix": "Epi",
+   "id": "solar-epicyclic",
+   "address": "fr:astra/solar-epicyclic",
+   "title": "Ptolemy's solar model, epicyclic form",
+   "attributed": "Ptolemy",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "Epi.R'",
+     "symbol": "R′",
+     "unit": "length",
+     "meaning": "radius of the deferent, the circle about O",
+     "range": "(1, 1000)"
+    },
+    {
+     "name": "Epi.r",
+     "symbol": "r",
+     "unit": "length",
+     "meaning": "radius of the epicycle",
+     "range": "(0, R' / 2)"
+    },
+    {
+     "name": "lamA",
+     "symbol": "λ_A",
+     "unit": "angle",
+     "meaning": "longitude of the apogee",
+     "range": null
+    },
+    {
+     "name": "T",
+     "symbol": "T",
+     "unit": "time",
+     "meaning": "tropical year",
+     "range": "(300, 400)"
+    },
+    {
+     "name": "kappa_0",
+     "symbol": "κ̄_0",
+     "unit": "angle",
+     "meaning": "mean anomaly at t = 0",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "kappa_bar",
+     "symbol": "κ̄",
+     "meaning": "mean anomaly: the motion of C about O, and of the sun about C in the opposite sense",
+     "law": "uniform in time, period T"
+    }
+   ],
+   "objects": [
+    {
+     "name": "O",
+     "symbol": "O",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "earth"
+    },
+    {
+     "name": "Epi.def",
+     "symbol": "def",
+     "kind": "circle",
+     "defined_by": "circle(O, R')",
+     "meaning": "the deferent"
+    },
+    {
+     "name": "Epi.A'",
+     "symbol": "A′",
+     "kind": "point",
+     "defined_by": "O + polar(R', lamA)",
+     "meaning": "apogee of the deferent"
+    },
+    {
+     "name": "Epi.B'",
+     "symbol": "B′",
+     "kind": "point",
+     "defined_by": "O - polar(R', lamA)",
+     "meaning": "perigee of the deferent"
+    },
+    {
+     "name": "Epi.C",
+     "symbol": "C",
+     "kind": "point",
+     "defined_by": "O + polar(R', lamA + kappa_bar)",
+     "meaning": "centre of the epicycle"
+    },
+    {
+     "name": "Epi.epi",
+     "symbol": "epi",
+     "kind": "circle",
+     "defined_by": "circle(C, r)",
+     "meaning": "the epicycle"
+    },
+    {
+     "name": "Epi.S'",
+     "symbol": "S′",
+     "kind": "point",
+     "defined_by": "C + polar(r, lamA)",
+     "meaning": "sun"
+    }
+   ],
+   "observables": [
+    {
+     "name": "Epi.lam",
+     "symbol": "λ_S",
+     "defined_by": "direction(O, S')",
+     "meaning": "true longitude"
+    }
+   ]
+  }
+ ],
+ "identified": [
+  {
+   "name": "O",
+   "meaning": "one earth"
+  },
+  {
+   "name": "λ_A",
+   "meaning": "one apsidal direction"
+  },
+  {
+   "name": "T",
+   "meaning": "one year"
+  },
+  {
+   "name": "κ̄_0",
+   "meaning": "one epoch"
+  },
+  {
+   "name": "κ̄",
+   "meaning": "one mean anomaly"
+  }
+ ],
+ "hypotheses": [
+  {
+   "id": "h1",
+   "number": "H1",
+   "claim": "the deferent has the radius of the eccentric",
+   "notation": "R′ = R",
+   "formal": "equal(Epi.R', Ecc.R)"
+  },
+  {
+   "id": "h2",
+   "number": "H2",
+   "claim": "the epicycle has the eccentricity as its radius",
+   "notation": "r = e",
+   "formal": "equal(Epi.r, Ecc.e)"
+  }
+ ],
+ "constructions": [],
+ "argument": [
+  {
+   "id": "same",
+   "number": "1",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "the sun of the eccentric form and the sun of the epicyclic form are one point",
+   "notation": "S = S′",
+   "formal": "coincident(Ecc.S, Epi.S')",
+   "from": [],
+   "by": {
+    "rule": "cases",
+    "kind": "cases",
+    "statement": "The claim is reached in every case, and the cases cover every configuration.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "justified by cases",
+   "grade": "cases",
+   "mark": "✓",
+   "note": null,
+   "when": null,
+   "distinction": "by the position of the sun: off the apsidal line, at the apogee, at the perigee",
+   "binding": null,
+   "hypotheses_met_by": {
+    "the cases": "generic, apogee, perigee"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": [
+    "H1",
+    "H2"
+   ],
+   "residual": 0.0,
+   "points": [
+    "Ecc.S",
+    "Epi.S'"
+   ],
+   "segments": [],
+   "children": [
+    {
+     "id": "d3",
+     "number": "1.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "S lies on the eccentric",
+     "notation": "ES = R",
+     "formal": "equal(distance(Ecc.E, Ecc.S), Ecc.R)",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "Ecc.S",
+       "label": "constr. S"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 3.1292641347229285e-16,
+     "points": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "d4",
+     "number": "1.2",
+     "kind": "step",
+     "depth": 1,
+     "claim": "C lies on the deferent",
+     "notation": "OC = R′",
+     "formal": "equal(distance(O, Epi.C), Epi.R')",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "Epi.C",
+       "label": "constr. C"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 2.1568279288555653e-16,
+     "points": [
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Epi.C"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "d8",
+     "number": "1.3",
+     "kind": "step",
+     "depth": 1,
+     "claim": "OE is the eccentricity",
+     "notation": "OE = e",
+     "formal": "equal(distance(O, Ecc.E), Ecc.e)",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "Ecc.E",
+       "label": "constr. E"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 7.17496237301884e-17,
+     "points": [
+      "Ecc.E",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "d9",
+     "number": "1.4",
+     "kind": "step",
+     "depth": 1,
+     "claim": "S' lies on the epicycle",
+     "notation": "CS′ = r",
+     "formal": "equal(distance(Epi.C, Epi.S'), Epi.r)",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "Epi.S'",
+       "label": "constr. S′"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 1.764438818322971e-16,
+     "points": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "segments": [
+      [
+       "Epi.C",
+       "Epi.S'"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "generic",
+     "number": "1.5",
+     "kind": "case",
+     "depth": 1,
+     "claim": "off the apsidal line, OESC is a parallelogram",
+     "notation": "S = S′",
+     "formal": "coincident(Ecc.S, Epi.S')",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "d12",
+       "label": "1.5.7"
+      }
+     ],
+     "by": null,
+     "status": "justified",
+     "grade": "rule",
+     "mark": "✓",
+     "note": "it is d12",
+     "when": [
+      "OES a triangle"
+     ],
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": {
+      "the proposition": "1.5.7"
+     },
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": [
+      "H1",
+      "H2"
+     ],
+     "residual": 0.0,
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": [],
+     "children": [
+      {
+       "id": "sides",
+       "number": "1.5.1",
+       "kind": "sub-argument",
+       "depth": 2,
+       "claim": "ES and OC are parallel",
+       "notation": "ES ∥ OC",
+       "formal": "parallel(line(Ecc.E, Ecc.S), line(O, Epi.C))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "d2",
+         "label": "1.5.1.2"
+        }
+       ],
+       "by": null,
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": "it is d2",
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": {
+        "the proposition": "1.5.1.2"
+       },
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.6653345369377348e-16,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "Epi.C",
+        "O"
+       ],
+       "segments": [
+        [
+         "Ecc.E",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Epi.C"
+        ]
+       ],
+       "children": [
+        {
+         "id": "d1",
+         "number": "1.5.1.1",
+         "kind": "step",
+         "depth": 3,
+         "claim": "both angles are the mean anomaly κ̄, counted from the apsidal line",
+         "notation": "∠AES = ∠A′OC",
+         "formal": "equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C))",
+         "from": [
+          {
+           "kind": "construction",
+           "ref": "Ecc.A",
+           "label": "constr. A"
+          },
+          {
+           "kind": "construction",
+           "ref": "Ecc.S",
+           "label": "constr. S"
+          },
+          {
+           "kind": "construction",
+           "ref": "Epi.A'",
+           "label": "constr. A′"
+          },
+          {
+           "kind": "construction",
+           "ref": "Epi.C",
+           "label": "constr. C"
+          }
+         ],
+         "by": {
+          "rule": "construction",
+          "kind": "construction",
+          "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+          "locus": null,
+          "printed": null,
+          "rests_on": null,
+          "case": null
+         },
+         "status": "read off the construction",
+         "grade": "construction",
+         "mark": "◦",
+         "note": null,
+         "when": null,
+         "distinction": null,
+         "binding": null,
+         "hypotheses_met_by": null,
+         "conditions": null,
+         "degenerate_at": null,
+         "equal_at": null,
+         "undefined_at": null,
+         "needs": null,
+         "residual": 5.684341886080802e-14,
+         "points": [
+          "Ecc.A",
+          "Ecc.E",
+          "Ecc.S",
+          "Epi.A'",
+          "Epi.C",
+          "O"
+         ],
+         "segments": [
+          [
+           "Ecc.E",
+           "Ecc.A"
+          ],
+          [
+           "Ecc.E",
+           "Ecc.S"
+          ],
+          [
+           "O",
+           "Epi.A'"
+          ],
+          [
+           "O",
+           "Epi.C"
+          ]
+         ],
+         "children": []
+        },
+        {
+         "id": "d2",
+         "number": "1.5.1.2",
+         "kind": "step",
+         "depth": 3,
+         "claim": "the apsidal line falls on ES and OC and makes equal angles with them on the same side",
+         "notation": "ES ∥ OC",
+         "formal": "parallel(line(Ecc.E, Ecc.S), line(O, Epi.C))",
+         "from": [
+          {
+           "kind": "step",
+           "ref": "d1",
+           "label": "1.5.1.1"
+          }
+         ],
+         "by": {
+          "rule": "Elements I.28",
+          "kind": "proposition",
+          "statement": "If a straight line falling on two straight lines make the exterior angle equal to the interior and opposite angle on the same side, or the interior angles on the same side equal to two right angles, the straight lines will be parallel to one another.",
+          "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0318",
+          "printed": "vol. I, p. 309",
+          "rests_on": null,
+          "case": "exterior angle equal to the interior and opposite angle on the same side"
+         },
+         "status": "justified",
+         "grade": "rule",
+         "mark": "✓",
+         "note": null,
+         "when": null,
+         "distinction": null,
+         "binding": {
+          "V1": "E",
+          "P": "S",
+          "V2": "O",
+          "Q": "C",
+          "T1": "A",
+          "T2": "A′"
+         },
+         "hypotheses_met_by": {
+          "equal(angle(T1, V1, P), angle(T2, V2, Q))": "1.5.1.1"
+         },
+         "conditions": [
+          "E ≠ O",
+          "A, E, O on one line",
+          "A′, E, O on one line",
+          "EA and OA′ point the same way",
+          "S, C on one side of EO"
+         ],
+         "degenerate_at": null,
+         "equal_at": null,
+         "undefined_at": null,
+         "needs": null,
+         "residual": 1.6653345369377348e-16,
+         "points": [
+          "Ecc.E",
+          "Ecc.S",
+          "Epi.C",
+          "O"
+         ],
+         "segments": [
+          [
+           "Ecc.E",
+           "Ecc.S"
+          ],
+          [
+           "O",
+           "Epi.C"
+          ]
+         ],
+         "children": []
+        }
+       ]
+      },
+      {
+       "id": "d5",
+       "number": "1.5.2",
+       "kind": "step",
+       "depth": 2,
+       "claim": "ES = R = R' = OC",
+       "notation": "ES = OC",
+       "formal": "equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "d3",
+         "label": "1.1"
+        },
+        {
+         "kind": "step",
+         "ref": "d4",
+         "label": "1.2"
+        },
+        {
+         "kind": "hypothesis",
+         "ref": "h1",
+         "label": "H1"
+        }
+       ],
+       "by": {
+        "rule": "common notion 1",
+        "kind": "equality",
+        "statement": "Things which are equal to the same thing are also equal to one another.",
+        "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164",
+        "printed": "vol. I, p. 155",
+        "rests_on": null,
+        "case": null
+       },
+       "status": "justified",
+       "grade": "equality",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1"
+       ],
+       "residual": 2.711849435905736e-16,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "Epi.C",
+        "O"
+       ],
+       "segments": [
+        [
+         "Ecc.E",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Epi.C"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "joins",
+       "number": "1.5.3",
+       "kind": "sub-argument",
+       "depth": 2,
+       "claim": "OE and CS are parallel: OESC is a parallelogram",
+       "notation": "OE ∥ CS",
+       "formal": "parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "d6",
+         "label": "1.5.3.1"
+        }
+       ],
+       "by": null,
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": "it is d6",
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": {
+        "the proposition": "1.5.3.1"
+       },
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1"
+       ],
+       "residual": 1.609823385706477e-15,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "Epi.C",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.E"
+        ],
+        [
+         "Epi.C",
+         "Ecc.S"
+        ]
+       ],
+       "children": [
+        {
+         "id": "d6",
+         "number": "1.5.3.1",
+         "kind": "step",
+         "depth": 3,
+         "claim": "the lines joining the ends of the equal and parallel ES and OC",
+         "notation": "OE ∥ CS",
+         "formal": "parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))",
+         "from": [
+          {
+           "kind": "step",
+           "ref": "sides",
+           "label": "1.5.1"
+          },
+          {
+           "kind": "step",
+           "ref": "d5",
+           "label": "1.5.2"
+          }
+         ],
+         "by": {
+          "rule": "Elements I.33",
+          "kind": "proposition",
+          "statement": "The straight lines joining equal and parallel straight lines (at the extremities which are) in the same directions (respectively) are themselves also equal and parallel.",
+          "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0331",
+          "printed": "vol. I, p. 322",
+          "rests_on": null,
+          "case": null
+         },
+         "status": "justified",
+         "grade": "rule",
+         "mark": "✓",
+         "note": null,
+         "when": null,
+         "distinction": null,
+         "binding": {
+          "A": "O",
+          "C": "E",
+          "B": "C",
+          "D": "S"
+         },
+         "hypotheses_met_by": {
+          "parallel(line(A, B), line(C, D))": "1.5.1",
+          "equal(distance(A, B), distance(C, D))": "1.5.2"
+         },
+         "conditions": [
+          "OC and ES point the same way",
+          "OCE a triangle"
+         ],
+         "degenerate_at": null,
+         "equal_at": null,
+         "undefined_at": null,
+         "needs": [
+          "H1"
+         ],
+         "residual": 1.609823385706477e-15,
+         "points": [
+          "Ecc.E",
+          "Ecc.S",
+          "Epi.C",
+          "O"
+         ],
+         "segments": [
+          [
+           "O",
+           "Ecc.E"
+          ],
+          [
+           "Epi.C",
+           "Ecc.S"
+          ]
+         ],
+         "children": []
+        }
+       ]
+      },
+      {
+       "id": "d7",
+       "number": "1.5.4",
+       "kind": "step",
+       "depth": 2,
+       "claim": "and they are equal",
+       "notation": "OE = CS",
+       "formal": "equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "sides",
+         "label": "1.5.1"
+        },
+        {
+         "kind": "step",
+         "ref": "d5",
+         "label": "1.5.2"
+        }
+       ],
+       "by": {
+        "rule": "Elements I.33",
+        "kind": "proposition",
+        "statement": "The straight lines joining equal and parallel straight lines (at the extremities which are) in the same directions (respectively) are themselves also equal and parallel.",
+        "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0331",
+        "printed": "vol. I, p. 322",
+        "rests_on": null,
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "C": "E",
+        "B": "C",
+        "D": "S"
+       },
+       "hypotheses_met_by": {
+        "parallel(line(A, B), line(C, D))": "1.5.1",
+        "equal(distance(A, B), distance(C, D))": "1.5.2"
+       },
+       "conditions": [
+        "OC and ES point the same way",
+        "OCE a triangle"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1"
+       ],
+       "residual": 1.6129653301339695e-16,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "Epi.C",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.E"
+        ],
+        [
+         "Epi.C",
+         "Ecc.S"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "d10",
+       "number": "1.5.5",
+       "kind": "step",
+       "depth": 2,
+       "claim": "CS = OE = e = r = CS'",
+       "notation": "CS = CS′",
+       "formal": "equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S'))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "d7",
+         "label": "1.5.4"
+        },
+        {
+         "kind": "step",
+         "ref": "d8",
+         "label": "1.3"
+        },
+        {
+         "kind": "hypothesis",
+         "ref": "h2",
+         "label": "H2"
+        },
+        {
+         "kind": "step",
+         "ref": "d9",
+         "label": "1.4"
+        }
+       ],
+       "by": {
+        "rule": "common notion 1",
+        "kind": "equality",
+        "statement": "Things which are equal to the same thing are also equal to one another.",
+        "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164",
+        "printed": "vol. I, p. 155",
+        "rests_on": null,
+        "case": null
+       },
+       "status": "justified",
+       "grade": "equality",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1",
+        "H2"
+       ],
+       "residual": 0.0,
+       "points": [
+        "Ecc.S",
+        "Epi.C",
+        "Epi.S'"
+       ],
+       "segments": [
+        [
+         "Epi.C",
+         "Ecc.S"
+        ],
+        [
+         "Epi.C",
+         "Epi.S'"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "d11",
+       "number": "1.5.6",
+       "kind": "step",
+       "depth": 2,
+       "claim": "the radius of the epicycle keeps the direction of the apsidal line",
+       "notation": "CS′ ∥ OE",
+       "formal": "parallel(line(Epi.C, Epi.S'), line(O, Ecc.E))",
+       "from": [
+        {
+         "kind": "construction",
+         "ref": "Epi.S'",
+         "label": "constr. S′"
+        },
+        {
+         "kind": "construction",
+         "ref": "Ecc.E",
+         "label": "constr. E"
+        }
+       ],
+       "by": {
+        "rule": "construction",
+        "kind": "construction",
+        "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+        "locus": null,
+        "printed": null,
+        "rests_on": null,
+        "case": null
+       },
+       "status": "read off the construction",
+       "grade": "construction",
+       "mark": "◦",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.609823385706477e-15,
+       "points": [
+        "Ecc.E",
+        "Epi.C",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "Epi.C",
+         "Epi.S'"
+        ],
+        [
+         "O",
+         "Ecc.E"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "d12",
+       "number": "1.5.7",
+       "kind": "step",
+       "depth": 2,
+       "claim": "S and S' lie from C along the parallel to OE, the same way, at the same distance",
+       "notation": "S = S′",
+       "formal": "coincident(Ecc.S, Epi.S')",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "joins",
+         "label": "1.5.3"
+        },
+        {
+         "kind": "step",
+         "ref": "d11",
+         "label": "1.5.6"
+        },
+        {
+         "kind": "step",
+         "ref": "d10",
+         "label": "1.5.5"
+        }
+       ],
+       "by": {
+        "rule": "lemma same ray",
+        "kind": "lemma",
+        "statement": "Two points that lie from a point C in the same direction along parallels to one line, at equal distances from C, coincide.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Elements I.30 (the two parallels through C are one line) and the uniqueness of the point cut off on a ray at a given distance (I.3)",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "X": "S",
+        "Y": "S′",
+        "C": "C",
+        "M": "O",
+        "N": "E"
+       },
+       "hypotheses_met_by": {
+        "parallel(line(C, X), line(M, N))": "1.5.3",
+        "parallel(line(C, Y), line(M, N))": "1.5.6",
+        "equal(distance(C, X), distance(C, Y))": "1.5.5"
+       },
+       "conditions": [
+        "CS and CS′ point the same way"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1",
+        "H2"
+       ],
+       "residual": 0.0,
+       "points": [
+        "Ecc.S",
+        "Epi.S'"
+       ],
+       "segments": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": "apogee",
+     "number": "1.6",
+     "kind": "case",
+     "depth": 1,
+     "claim": "at the apogee the four points lie on the apsidal line, E between O and S",
+     "notation": "S = S′",
+     "formal": "coincident(Ecc.S, Epi.S')",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "a7",
+       "label": "1.6.7"
+      }
+     ],
+     "by": null,
+     "status": "justified",
+     "grade": "rule",
+     "mark": "✓",
+     "note": "it is a7",
+     "when": [
+      "O, E, S on one line",
+      "E between O and S"
+     ],
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": {
+      "the proposition": "1.6.7"
+     },
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": [
+      "H1",
+      "H2"
+     ],
+     "residual": 0.0,
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": [],
+     "children": [
+      {
+       "id": "a1",
+       "number": "1.6.1",
+       "kind": "step",
+       "depth": 2,
+       "claim": "OS = OE + ES",
+       "notation": "OS = OE + ES",
+       "formal": "equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E, Ecc.S))",
+       "from": [],
+       "by": {
+        "rule": "lemma segment addition",
+        "kind": "lemma",
+        "statement": "If B lies between A and C on one line, AC is AB and BC together.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Common Notion 4 (things which coincide are equal) with the definition of a whole and its parts; the configuration is the hypothesis",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "C": "S",
+        "B": "E"
+       },
+       "hypotheses_met_by": null,
+       "conditions": [
+        "O, E, S on one line",
+        "E between O and S"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 3.1006507107623527e-16,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Ecc.E"
+        ],
+        [
+         "Ecc.E",
+         "Ecc.S"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "a2",
+       "number": "1.6.2",
+       "kind": "step",
+       "depth": 2,
+       "claim": "OS' = OC + CS'",
+       "notation": "OS′ = OC + CS′",
+       "formal": "equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C, Epi.S'))",
+       "from": [],
+       "by": {
+        "rule": "lemma segment addition",
+        "kind": "lemma",
+        "statement": "If B lies between A and C on one line, AC is AB and BC together.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Common Notion 4 (things which coincide are equal) with the definition of a whole and its parts; the configuration is the hypothesis",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "C": "S′",
+        "B": "C"
+       },
+       "hypotheses_met_by": null,
+       "conditions": [
+        "O, C, S′ on one line",
+        "C between O and S′"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 2.8820899233700175e-16,
+       "points": [
+        "Epi.C",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Epi.S'"
+        ],
+        [
+         "O",
+         "Epi.C"
+        ],
+        [
+         "Epi.C",
+         "Epi.S'"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "a3",
+       "number": "1.6.3",
+       "kind": "step",
+       "depth": 2,
+       "claim": "e + R = R' + r",
+       "notation": "OS = OS′",
+       "formal": "equal(distance(O, Ecc.S), distance(O, Epi.S'))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "a1",
+         "label": "1.6.1"
+        },
+        {
+         "kind": "step",
+         "ref": "a2",
+         "label": "1.6.2"
+        },
+        {
+         "kind": "step",
+         "ref": "d3",
+         "label": "1.1"
+        },
+        {
+         "kind": "step",
+         "ref": "d4",
+         "label": "1.2"
+        },
+        {
+         "kind": "step",
+         "ref": "d8",
+         "label": "1.3"
+        },
+        {
+         "kind": "step",
+         "ref": "d9",
+         "label": "1.4"
+        },
+        {
+         "kind": "hypothesis",
+         "ref": "h1",
+         "label": "H1"
+        },
+        {
+         "kind": "hypothesis",
+         "ref": "h2",
+         "label": "H2"
+        }
+       ],
+       "by": {
+        "rule": "algebra",
+        "kind": "calculation",
+        "statement": "The proposition follows from the cited equalities by calculation.",
+        "locus": null,
+        "printed": null,
+        "rests_on": null,
+        "case": null
+       },
+       "status": "by calculation",
+       "grade": "calculation",
+       "mark": "≈",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1",
+        "H2"
+       ],
+       "residual": 0.0,
+       "points": [
+        "Ecc.S",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Epi.S'"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "a4",
+       "number": "1.6.4",
+       "kind": "step",
+       "depth": 2,
+       "claim": "S lies on the apsidal line",
+       "notation": "OS ∥ OE",
+       "formal": "parallel(line(O, Ecc.S), line(O, Ecc.E))",
+       "from": [
+        {
+         "kind": "case",
+         "ref": "apogee",
+         "label": "the case"
+        }
+       ],
+       "by": {
+        "rule": "lemma one line",
+        "kind": "lemma",
+        "statement": "Three points on one line give lines from one of them to the other two that are parallel (they are one line).",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Definition I.23 read with coincident lines counted as parallel, as the predicate `parallel` does",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "B": "S",
+        "C": "E"
+       },
+       "hypotheses_met_by": {
+        "collinear(A, B, C)": "1.6"
+       },
+       "conditions": [
+        "O ≠ S",
+        "O ≠ E"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.1102230246251565e-16,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Ecc.E"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "a5",
+       "number": "1.6.5",
+       "kind": "step",
+       "depth": 2,
+       "claim": "and so does S'",
+       "notation": "O, E, S′ on one line",
+       "formal": "collinear(O, Ecc.E, Epi.S')",
+       "from": [
+        {
+         "kind": "construction",
+         "ref": "Epi.C",
+         "label": "constr. C"
+        },
+        {
+         "kind": "construction",
+         "ref": "Epi.S'",
+         "label": "constr. S′"
+        },
+        {
+         "kind": "construction",
+         "ref": "Ecc.E",
+         "label": "constr. E"
+        }
+       ],
+       "by": {
+        "rule": "construction",
+        "kind": "construction",
+        "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+        "locus": null,
+        "printed": null,
+        "rests_on": null,
+        "case": null
+       },
+       "status": "read off the construction",
+       "grade": "construction",
+       "mark": "◦",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.8905339497243897e-16,
+       "points": [
+        "Ecc.E",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [],
+       "children": []
+      },
+      {
+       "id": "a6",
+       "number": "1.6.6",
+       "kind": "step",
+       "depth": 2,
+       "claim": "OS′ ∥ OE",
+       "notation": "OS′ ∥ OE",
+       "formal": "parallel(line(O, Epi.S'), line(O, Ecc.E))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "a5",
+         "label": "1.6.5"
+        }
+       ],
+       "by": {
+        "rule": "lemma one line",
+        "kind": "lemma",
+        "statement": "Three points on one line give lines from one of them to the other two that are parallel (they are one line).",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Definition I.23 read with coincident lines counted as parallel, as the predicate `parallel` does",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "B": "S′",
+        "C": "E"
+       },
+       "hypotheses_met_by": {
+        "collinear(A, B, C)": "1.6.5"
+       },
+       "conditions": [
+        "O ≠ S′",
+        "O ≠ E"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.1102230246251565e-16,
+       "points": [
+        "Ecc.E",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Epi.S'"
+        ],
+        [
+         "O",
+         "Ecc.E"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "a7",
+       "number": "1.6.7",
+       "kind": "step",
+       "depth": 2,
+       "claim": "S and S' lie from O along the apsidal line, the same way, at the same distance",
+       "notation": "S = S′",
+       "formal": "coincident(Ecc.S, Epi.S')",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "a4",
+         "label": "1.6.4"
+        },
+        {
+         "kind": "step",
+         "ref": "a6",
+         "label": "1.6.6"
+        },
+        {
+         "kind": "step",
+         "ref": "a3",
+         "label": "1.6.3"
+        }
+       ],
+       "by": {
+        "rule": "lemma same ray",
+        "kind": "lemma",
+        "statement": "Two points that lie from a point C in the same direction along parallels to one line, at equal distances from C, coincide.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Elements I.30 (the two parallels through C are one line) and the uniqueness of the point cut off on a ray at a given distance (I.3)",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "X": "S",
+        "Y": "S′",
+        "C": "O",
+        "M": "O",
+        "N": "E"
+       },
+       "hypotheses_met_by": {
+        "parallel(line(C, X), line(M, N))": "1.6.4",
+        "parallel(line(C, Y), line(M, N))": "1.6.6",
+        "equal(distance(C, X), distance(C, Y))": "1.6.3"
+       },
+       "conditions": [
+        "OS and OS′ point the same way"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1",
+        "H2"
+       ],
+       "residual": 0.0,
+       "points": [
+        "Ecc.S",
+        "Epi.S'"
+       ],
+       "segments": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": "perigee",
+     "number": "1.7",
+     "kind": "case",
+     "depth": 1,
+     "claim": "at the perigee the four points lie on the apsidal line, O between E and S",
+     "notation": "S = S′",
+     "formal": "coincident(Ecc.S, Epi.S')",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "p7",
+       "label": "1.7.7"
+      }
+     ],
+     "by": null,
+     "status": "justified",
+     "grade": "rule",
+     "mark": "✓",
+     "note": "it is p7",
+     "when": [
+      "O, E, S on one line",
+      "O between E and S"
+     ],
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": {
+      "the proposition": "1.7.7"
+     },
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": [
+      "H1",
+      "H2"
+     ],
+     "residual": 0.0,
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": [],
+     "children": [
+      {
+       "id": "p1",
+       "number": "1.7.1",
+       "kind": "step",
+       "depth": 2,
+       "claim": "ES = EO + OS",
+       "notation": "ES = EO + OS",
+       "formal": "equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O, Ecc.S))",
+       "from": [],
+       "by": {
+        "rule": "lemma segment addition",
+        "kind": "lemma",
+        "statement": "If B lies between A and C on one line, AC is AB and BC together.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Common Notion 4 (things which coincide are equal) with the definition of a whole and its parts; the configuration is the hypothesis",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "E",
+        "C": "S",
+        "B": "O"
+       },
+       "hypotheses_met_by": null,
+       "conditions": [
+        "E, O, S on one line",
+        "O between E and S"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.5646320673614643e-16,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "O"
+       ],
+       "segments": [
+        [
+         "Ecc.E",
+         "Ecc.S"
+        ],
+        [
+         "Ecc.E",
+         "O"
+        ],
+        [
+         "O",
+         "Ecc.S"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "p2",
+       "number": "1.7.2",
+       "kind": "step",
+       "depth": 2,
+       "claim": "CO = CS' + S'O",
+       "notation": "CO = CS′ + S′O",
+       "formal": "equal(distance(Epi.C, O), distance(Epi.C, Epi.S') + distance(Epi.S', O))",
+       "from": [],
+       "by": {
+        "rule": "lemma segment addition",
+        "kind": "lemma",
+        "statement": "If B lies between A and C on one line, AC is AB and BC together.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Common Notion 4 (things which coincide are equal) with the definition of a whole and its parts; the configuration is the hypothesis",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "C",
+        "C": "O",
+        "B": "S′"
+       },
+       "hypotheses_met_by": null,
+       "conditions": [
+        "C, S′, O on one line",
+        "S′ between C and O"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.5646320673614643e-16,
+       "points": [
+        "Epi.C",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "Epi.C",
+         "O"
+        ],
+        [
+         "Epi.C",
+         "Epi.S'"
+        ],
+        [
+         "Epi.S'",
+         "O"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "p3",
+       "number": "1.7.3",
+       "kind": "step",
+       "depth": 2,
+       "claim": "R − e = R' − r",
+       "notation": "OS = OS′",
+       "formal": "equal(distance(O, Ecc.S), distance(O, Epi.S'))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "p1",
+         "label": "1.7.1"
+        },
+        {
+         "kind": "step",
+         "ref": "p2",
+         "label": "1.7.2"
+        },
+        {
+         "kind": "step",
+         "ref": "d3",
+         "label": "1.1"
+        },
+        {
+         "kind": "step",
+         "ref": "d4",
+         "label": "1.2"
+        },
+        {
+         "kind": "step",
+         "ref": "d8",
+         "label": "1.3"
+        },
+        {
+         "kind": "step",
+         "ref": "d9",
+         "label": "1.4"
+        },
+        {
+         "kind": "hypothesis",
+         "ref": "h1",
+         "label": "H1"
+        },
+        {
+         "kind": "hypothesis",
+         "ref": "h2",
+         "label": "H2"
+        }
+       ],
+       "by": {
+        "rule": "algebra",
+        "kind": "calculation",
+        "statement": "The proposition follows from the cited equalities by calculation.",
+        "locus": null,
+        "printed": null,
+        "rests_on": null,
+        "case": null
+       },
+       "status": "by calculation",
+       "grade": "calculation",
+       "mark": "≈",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1",
+        "H2"
+       ],
+       "residual": 0.0,
+       "points": [
+        "Ecc.S",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Epi.S'"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "p4",
+       "number": "1.7.4",
+       "kind": "step",
+       "depth": 2,
+       "claim": "S lies on the apsidal line",
+       "notation": "OS ∥ OE",
+       "formal": "parallel(line(O, Ecc.S), line(O, Ecc.E))",
+       "from": [
+        {
+         "kind": "case",
+         "ref": "perigee",
+         "label": "the case"
+        }
+       ],
+       "by": {
+        "rule": "lemma one line",
+        "kind": "lemma",
+        "statement": "Three points on one line give lines from one of them to the other two that are parallel (they are one line).",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Definition I.23 read with coincident lines counted as parallel, as the predicate `parallel` does",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "B": "S",
+        "C": "E"
+       },
+       "hypotheses_met_by": {
+        "collinear(A, B, C)": "1.7"
+       },
+       "conditions": [
+        "O ≠ S",
+        "O ≠ E"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.6653345369377348e-15,
+       "points": [
+        "Ecc.E",
+        "Ecc.S",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Ecc.S"
+        ],
+        [
+         "O",
+         "Ecc.E"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "p5",
+       "number": "1.7.5",
+       "kind": "step",
+       "depth": 2,
+       "claim": "and so does S'",
+       "notation": "O, E, S′ on one line",
+       "formal": "collinear(O, Ecc.E, Epi.S')",
+       "from": [
+        {
+         "kind": "construction",
+         "ref": "Epi.C",
+         "label": "constr. C"
+        },
+        {
+         "kind": "construction",
+         "ref": "Epi.S'",
+         "label": "constr. S′"
+        },
+        {
+         "kind": "construction",
+         "ref": "Ecc.E",
+         "label": "constr. E"
+        }
+       ],
+       "by": {
+        "rule": "construction",
+        "kind": "construction",
+        "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+        "locus": null,
+        "printed": null,
+        "rests_on": null,
+        "case": null
+       },
+       "status": "read off the construction",
+       "grade": "construction",
+       "mark": "◦",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": null,
+       "hypotheses_met_by": null,
+       "conditions": null,
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.0231223668758433e-15,
+       "points": [
+        "Ecc.E",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [],
+       "children": []
+      },
+      {
+       "id": "p6",
+       "number": "1.7.6",
+       "kind": "step",
+       "depth": 2,
+       "claim": "OS′ ∥ OE",
+       "notation": "OS′ ∥ OE",
+       "formal": "parallel(line(O, Epi.S'), line(O, Ecc.E))",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "p5",
+         "label": "1.7.5"
+        }
+       ],
+       "by": {
+        "rule": "lemma one line",
+        "kind": "lemma",
+        "statement": "Three points on one line give lines from one of them to the other two that are parallel (they are one line).",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Definition I.23 read with coincident lines counted as parallel, as the predicate `parallel` does",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "A": "O",
+        "B": "S′",
+        "C": "E"
+       },
+       "hypotheses_met_by": {
+        "collinear(A, B, C)": "1.7.5"
+       },
+       "conditions": [
+        "O ≠ S′",
+        "O ≠ E"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": null,
+       "residual": 1.6653345369377348e-15,
+       "points": [
+        "Ecc.E",
+        "Epi.S'",
+        "O"
+       ],
+       "segments": [
+        [
+         "O",
+         "Epi.S'"
+        ],
+        [
+         "O",
+         "Ecc.E"
+        ]
+       ],
+       "children": []
+      },
+      {
+       "id": "p7",
+       "number": "1.7.7",
+       "kind": "step",
+       "depth": 2,
+       "claim": "S and S' lie from O along the apsidal line, the same way, at the same distance",
+       "notation": "S = S′",
+       "formal": "coincident(Ecc.S, Epi.S')",
+       "from": [
+        {
+         "kind": "step",
+         "ref": "p4",
+         "label": "1.7.4"
+        },
+        {
+         "kind": "step",
+         "ref": "p6",
+         "label": "1.7.6"
+        },
+        {
+         "kind": "step",
+         "ref": "p3",
+         "label": "1.7.3"
+        }
+       ],
+       "by": {
+        "rule": "lemma same ray",
+        "kind": "lemma",
+        "statement": "Two points that lie from a point C in the same direction along parallels to one line, at equal distances from C, coincide.",
+        "locus": null,
+        "printed": null,
+        "rests_on": "Elements I.30 (the two parallels through C are one line) and the uniqueness of the point cut off on a ray at a given distance (I.3)",
+        "case": null
+       },
+       "status": "justified",
+       "grade": "rule",
+       "mark": "✓",
+       "note": null,
+       "when": null,
+       "distinction": null,
+       "binding": {
+        "X": "S",
+        "Y": "S′",
+        "C": "O",
+        "M": "O",
+        "N": "E"
+       },
+       "hypotheses_met_by": {
+        "parallel(line(C, X), line(M, N))": "1.7.4",
+        "parallel(line(C, Y), line(M, N))": "1.7.6",
+        "equal(distance(C, X), distance(C, Y))": "1.7.3"
+       },
+       "conditions": [
+        "OS and OS′ point the same way"
+       ],
+       "degenerate_at": null,
+       "equal_at": null,
+       "undefined_at": null,
+       "needs": [
+        "H1",
+        "H2"
+       ],
+       "residual": 0.0,
+       "points": [
+        "Ecc.S",
+        "Epi.S'"
+       ],
+       "segments": [],
+       "children": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "conclusion": {
+  "id": "conclusion",
+  "number": "∴",
+  "kind": "conclusion",
+  "depth": 0,
+  "claim": "in every state the two forms have the sun at one point",
+  "notation": "S = S′",
+  "formal": "coincident(Ecc.S, Epi.S')",
+  "from": [
+   {
+    "kind": "step",
+    "ref": "same",
+    "label": "1"
+   }
+  ],
+  "by": null,
+  "status": "justified",
+  "grade": "rule",
+  "mark": "✓",
+  "note": "it is same",
+  "when": null,
+  "distinction": null,
+  "binding": null,
+  "hypotheses_met_by": {
+   "the proposition": "1"
+  },
+  "conditions": null,
+  "degenerate_at": null,
+  "equal_at": null,
+  "undefined_at": null,
+  "needs": [
+   "H1",
+   "H2"
+  ],
+  "residual": 0.0,
+  "points": [
+   "Ecc.S",
+   "Epi.S'"
+  ],
+  "segments": [],
+  "children": []
+ },
+ "further_conclusions": [],
+ "equivalence": {
+  "a": "Ecc",
+  "b": "Epi",
+  "in": "position",
+  "model_a": "solar-eccentric",
+  "model_b": "solar-epicyclic",
+  "under": [
+   "equal(Epi.R', Ecc.R)",
+   "equal(Epi.r, Ecc.e)"
+  ],
+  "proposition": "coincident(Ecc.S, Epi.S')"
+ },
+ "computations": [],
+ "checks": {
+  "steps": 26,
+  "by_status": {
+   "read off the construction": 8,
+   "justified": 16,
+   "by calculation": 2
+  },
+  "configurations": 3456,
+  "degenerate_states": [],
+  "notes": []
+ },
+ "figure": {
+  "id": "solar-fig-equal-radii-steps",
+  "address": "fr:astra/solar-fig-equal-radii-steps",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-solar-fig-equal-radii-steps\" class=\"astra-figure\" viewBox=\"0 0 720.00 720.04\" width=\"720.00\" height=\"720.04\" role=\"img\" aria-label=\"The parallelogram OESC: the steps of the equivalence\" data-figure=\"solar-fig-equal-radii-steps\" data-state=\"kappa_bar=41.0000\" data-theme=\"light\">\n<title>The parallelogram OESC: the steps of the equivalence</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line data-owner=\"Ecc\" id=\"astra-segment0\" class=\"astra-construct\" x1=\"360.00\" y1=\"57.60\" x2=\"360.00\" y2=\"535.13\"/>\n<circle data-owner=\"Ecc\" id=\"astra-Ecc.ecc\" class=\"astra-construct\" cx=\"360.00\" cy=\"296.37\" r=\"238.77\"/>\n<circle data-owner=\"Epi\" id=\"astra-Epi.def\" class=\"astra-construct\" cx=\"360.00\" cy=\"360.04\" r=\"238.77\"/>\n<circle data-owner=\"Epi\" id=\"astra-Epi.epi\" class=\"astra-construct\" cx=\"203.36\" cy=\"179.84\" r=\"63.67\"/>\n<line data-owner=\"Ecc\" id=\"astra-length1\" class=\"astra-construct\" x1=\"360.00\" y1=\"296.37\" x2=\"203.36\" y2=\"116.17\"/>\n<text data-owner=\"Ecc\" id=\"astra-length1-text\" class=\"astra-label var\" x=\"273.75\" y=\"213.15\" text-anchor=\"middle\" dominant-baseline=\"middle\">R</text>\n<line data-owner=\"Epi\" id=\"astra-length2\" class=\"astra-construct\" x1=\"360.00\" y1=\"360.04\" x2=\"203.36\" y2=\"179.84\"/>\n<text data-owner=\"Epi\" id=\"astra-length2-text\" class=\"astra-label var\" x=\"289.60\" y=\"263.05\" text-anchor=\"middle\" dominant-baseline=\"middle\">R′</text>\n<line data-owner=\"Ecc\" id=\"astra-length3\" class=\"astra-construct\" x1=\"360.00\" y1=\"360.04\" x2=\"360.00\" y2=\"296.37\"/>\n<text data-owner=\"Ecc\" id=\"astra-length3-text\" class=\"astra-label var\" x=\"349.50\" y=\"328.20\" text-anchor=\"middle\" dominant-baseline=\"middle\">e</text>\n<line data-owner=\"Epi\" id=\"astra-length4\" class=\"astra-construct\" x1=\"203.36\" y1=\"179.84\" x2=\"203.36\" y2=\"116.17\"/>\n<text data-owner=\"Epi\" id=\"astra-length4-text\" class=\"astra-label var\" x=\"213.86\" y=\"148.00\" text-anchor=\"middle\" dominant-baseline=\"middle\">r</text>\n<circle id=\"astra-O\" class=\"astra-point\" cx=\"360.00\" cy=\"360.04\" r=\"3.2\"/>\n<text id=\"astra-O-text\" class=\"astra-label\" x=\"374.16\" y=\"364.99\" text-anchor=\"middle\" dominant-baseline=\"middle\">O</text>\n<circle data-owner=\"Ecc\" id=\"astra-Ecc.E\" class=\"astra-point\" cx=\"360.00\" cy=\"296.37\" r=\"3.2\"/>\n<text data-owner=\"Ecc\" id=\"astra-Ecc.E-text\" class=\"astra-label\" x=\"360.00\" y=\"281.37\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n<circle data-owner=\"Ecc\" id=\"astra-Ecc.A\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text data-owner=\"Ecc\" id=\"astra-Ecc.A-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle data-owner=\"Ecc\" id=\"astra-Ecc.B\" class=\"astra-point\" cx=\"360.00\" cy=\"535.13\" r=\"3.2\"/>\n<text data-owner=\"Ecc\" id=\"astra-Ecc.B-text\" class=\"astra-label\" x=\"360.00\" y=\"550.13\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle data-owner=\"Ecc\" id=\"astra-Ecc.S\" class=\"astra-point\" cx=\"203.36\" cy=\"116.17\" r=\"3.2\"/>\n<text data-owner=\"Ecc\" id=\"astra-Ecc.S-text\" class=\"astra-label\" x=\"195.25\" y=\"103.55\" text-anchor=\"middle\" dominant-baseline=\"middle\">S</text>\n<circle data-owner=\"Epi\" id=\"astra-Epi.A'\" class=\"astra-point\" cx=\"360.00\" cy=\"121.27\" r=\"3.2\"/>\n<text data-owner=\"Epi\" id=\"astra-Epi.A'-text\" class=\"astra-label\" x=\"360.00\" y=\"106.27\" text-anchor=\"middle\" dominant-baseline=\"middle\">A′</text>\n<circle data-owner=\"Epi\" id=\"astra-Epi.B'\" class=\"astra-point\" cx=\"360.00\" cy=\"598.80\" r=\"3.2\"/>\n<text data-owner=\"Epi\" id=\"astra-Epi.B'-text\" class=\"astra-label\" x=\"360.00\" y=\"613.80\" text-anchor=\"middle\" dominant-baseline=\"middle\">B′</text>\n<circle data-owner=\"Epi\" id=\"astra-Epi.C\" class=\"astra-point\" cx=\"203.36\" cy=\"179.84\" r=\"3.2\"/>\n<text data-owner=\"Epi\" id=\"astra-Epi.C-text\" class=\"astra-label\" x=\"193.51\" y=\"168.52\" text-anchor=\"middle\" dominant-baseline=\"middle\">C</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"710.04\">drawn with e = 16, r = 16</text>\n</svg>\n",
+  "bundle": {
+   "id": "solar-fig-equal-radii-steps",
+   "title": "The parallelogram OESC: the steps of the equivalence",
+   "of": "solar-equivalence-equal-radii",
+   "notation": "astra/1",
+   "ops": [
+    {
+     "id": "Ecc.R",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "Ecc.e",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "lamA",
+     "op": "param",
+     "args": [],
+     "type": "angle"
+    },
+    {
+     "id": "T",
+     "op": "param",
+     "args": [],
+     "type": "time"
+    },
+    {
+     "id": "kappa_0",
+     "op": "param",
+     "args": [],
+     "type": "angle"
+    },
+    {
+     "id": "Epi.R'",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "Epi.r",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "_aux1",
+     "op": "const",
+     "args": [
+      1.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux2",
+     "op": "const",
+     "args": [
+      1000.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux3",
+     "op": "const",
+     "args": [
+      0.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux4",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_aux5",
+     "op": "div",
+     "args": [
+      "Ecc.R",
+      "_aux4"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux6",
+     "op": "const",
+     "args": [
+      300.0
+     ],
+     "type": "time"
+    },
+    {
+     "id": "_aux7",
+     "op": "const",
+     "args": [
+      400.0
+     ],
+     "type": "time"
+    },
+    {
+     "id": "_aux8",
+     "op": "const",
+     "args": [
+      1.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux9",
+     "op": "const",
+     "args": [
+      1000.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux10",
+     "op": "const",
+     "args": [
+      0.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux11",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_aux12",
+     "op": "div",
+     "args": [
+      "Epi.R'",
+      "_aux11"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux13",
+     "op": "const",
+     "args": [
+      360.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_aux14",
+     "op": "div",
+     "args": [
+      "_aux13",
+      "T"
+     ],
+     "type": "rate"
+    },
+    {
+     "id": "kappa_bar",
+     "op": "var",
+     "args": [
+      "_aux14",
+      "kappa_0"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t15",
+     "op": "observer",
+     "args": [],
+     "type": "point"
+    },
+    {
+     "id": "O",
+     "op": "id",
+     "args": [
+      "_t15"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t16",
+     "op": "polar",
+     "args": [
+      "Ecc.e",
+      "lamA"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t17",
+     "op": "add",
+     "args": [
+      "O",
+      "_t16"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Ecc.E",
+     "op": "id",
+     "args": [
+      "_t17"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t18",
+     "op": "circle",
+     "args": [
+      "Ecc.E",
+      "Ecc.R"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "Ecc.ecc",
+     "op": "id",
+     "args": [
+      "_t18"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "_t19",
+     "op": "polar",
+     "args": [
+      "Ecc.R",
+      "lamA"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t20",
+     "op": "add",
+     "args": [
+      "Ecc.E",
+      "_t19"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Ecc.A",
+     "op": "id",
+     "args": [
+      "_t20"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t21",
+     "op": "polar",
+     "args": [
+      "Ecc.R",
+      "lamA"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t22",
+     "op": "sub",
+     "args": [
+      "Ecc.E",
+      "_t21"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Ecc.B",
+     "op": "id",
+     "args": [
+      "_t22"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t23",
+     "op": "add",
+     "args": [
+      "lamA",
+      "kappa_bar"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t24",
+     "op": "polar",
+     "args": [
+      "Ecc.R",
+      "_t23"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t25",
+     "op": "add",
+     "args": [
+      "Ecc.E",
+      "_t24"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Ecc.S",
+     "op": "id",
+     "args": [
+      "_t25"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t26",
+     "op": "direction",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "Ecc.lam_bar",
+     "op": "id",
+     "args": [
+      "_t26"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t27",
+     "op": "direction",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "Ecc.lam",
+     "op": "id",
+     "args": [
+      "_t27"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t28",
+     "op": "sub",
+     "args": [
+      "Ecc.lam",
+      "lamA"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "Ecc.kappa",
+     "op": "id",
+     "args": [
+      "_t28"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t29",
+     "op": "sub",
+     "args": [
+      "Ecc.lam_bar",
+      "Ecc.lam"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "Ecc.c",
+     "op": "id",
+     "args": [
+      "_t29"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t30",
+     "op": "add",
+     "args": [
+      "lamA",
+      "kappa_bar"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t31",
+     "op": "sub",
+     "args": [
+      "Ecc.lam_bar",
+      "_t30"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t32",
+     "op": "norm180",
+     "args": [
+      "_t31"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t33",
+     "op": "abs",
+     "args": [
+      "_t32"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t34",
+     "op": "sub",
+     "args": [
+      "kappa_bar",
+      "Ecc.c"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t35",
+     "op": "sub",
+     "args": [
+      "Ecc.kappa",
+      "_t34"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t36",
+     "op": "norm180",
+     "args": [
+      "_t35"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t37",
+     "op": "abs",
+     "args": [
+      "_t36"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t38",
+     "op": "sub",
+     "args": [
+      "Ecc.lam_bar",
+      "Ecc.c"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t39",
+     "op": "sub",
+     "args": [
+      "Ecc.lam",
+      "_t38"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t40",
+     "op": "norm180",
+     "args": [
+      "_t39"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t41",
+     "op": "abs",
+     "args": [
+      "_t40"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t42",
+     "op": "res_collinear",
+     "args": [
+      "Ecc.A",
+      "Ecc.E",
+      "Ecc.B"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t43",
+     "op": "res_collinear",
+     "args": [
+      "Ecc.A",
+      "O",
+      "Ecc.B"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t44",
+     "op": "circle",
+     "args": [
+      "O",
+      "Epi.R'"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "Epi.def",
+     "op": "id",
+     "args": [
+      "_t44"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "_t45",
+     "op": "polar",
+     "args": [
+      "Epi.R'",
+      "lamA"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t46",
+     "op": "add",
+     "args": [
+      "O",
+      "_t45"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Epi.A'",
+     "op": "id",
+     "args": [
+      "_t46"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t47",
+     "op": "polar",
+     "args": [
+      "Epi.R'",
+      "lamA"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t48",
+     "op": "sub",
+     "args": [
+      "O",
+      "_t47"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Epi.B'",
+     "op": "id",
+     "args": [
+      "_t48"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t49",
+     "op": "add",
+     "args": [
+      "lamA",
+      "kappa_bar"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t50",
+     "op": "polar",
+     "args": [
+      "Epi.R'",
+      "_t49"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t51",
+     "op": "add",
+     "args": [
+      "O",
+      "_t50"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Epi.C",
+     "op": "id",
+     "args": [
+      "_t51"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t52",
+     "op": "circle",
+     "args": [
+      "Epi.C",
+      "Epi.r"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "Epi.epi",
+     "op": "id",
+     "args": [
+      "_t52"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "_t53",
+     "op": "polar",
+     "args": [
+      "Epi.r",
+      "lamA"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t54",
+     "op": "add",
+     "args": [
+      "Epi.C",
+      "_t53"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "Epi.S'",
+     "op": "id",
+     "args": [
+      "_t54"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t55",
+     "op": "direction",
+     "args": [
+      "O",
+      "Epi.S'"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "Epi.lam",
+     "op": "id",
+     "args": [
+      "_t55"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t56",
+     "op": "line",
+     "args": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t57",
+     "op": "line",
+     "args": [
+      "O",
+      "Epi.A'"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t58",
+     "op": "res_parallel",
+     "args": [
+      "_t56",
+      "_t57"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t59",
+     "op": "res_collinear",
+     "args": [
+      "Epi.A'",
+      "O",
+      "Epi.B'"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_fix_h1",
+     "op": "id",
+     "args": [
+      "Ecc.R"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_fix_h2",
+     "op": "id",
+     "args": [
+      "Ecc.e"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t60",
+     "op": "sub",
+     "args": [
+      "Epi.R'",
+      "Ecc.R"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t61",
+     "op": "abs",
+     "args": [
+      "_t60"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t62",
+     "op": "sub",
+     "args": [
+      "Epi.r",
+      "Ecc.e"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t63",
+     "op": "abs",
+     "args": [
+      "_t62"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t64",
+     "op": "distance",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t65",
+     "op": "sub",
+     "args": [
+      "_t64",
+      "Ecc.R"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t66",
+     "op": "abs",
+     "args": [
+      "_t65"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t67",
+     "op": "distance",
+     "args": [
+      "O",
+      "Epi.C"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t68",
+     "op": "sub",
+     "args": [
+      "_t67",
+      "Epi.R'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t69",
+     "op": "abs",
+     "args": [
+      "_t68"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t70",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t71",
+     "op": "sub",
+     "args": [
+      "_t70",
+      "Ecc.e"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t72",
+     "op": "abs",
+     "args": [
+      "_t71"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t73",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t74",
+     "op": "sub",
+     "args": [
+      "_t73",
+      "Epi.r"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t75",
+     "op": "abs",
+     "args": [
+      "_t74"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t76",
+     "op": "direction",
+     "args": [
+      "Ecc.E",
+      "Ecc.A"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t77",
+     "op": "direction",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t78",
+     "op": "sub",
+     "args": [
+      "_t77",
+      "_t76"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t79",
+     "op": "norm180",
+     "args": [
+      "_t78"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t80",
+     "op": "abs",
+     "args": [
+      "_t79"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t81",
+     "op": "direction",
+     "args": [
+      "O",
+      "Epi.A'"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t82",
+     "op": "direction",
+     "args": [
+      "O",
+      "Epi.C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t83",
+     "op": "sub",
+     "args": [
+      "_t82",
+      "_t81"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t84",
+     "op": "norm180",
+     "args": [
+      "_t83"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t85",
+     "op": "abs",
+     "args": [
+      "_t84"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t86",
+     "op": "sub",
+     "args": [
+      "_t80",
+      "_t85"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t87",
+     "op": "norm180",
+     "args": [
+      "_t86"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t88",
+     "op": "abs",
+     "args": [
+      "_t87"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t89",
+     "op": "line",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t90",
+     "op": "line",
+     "args": [
+      "O",
+      "Epi.C"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t91",
+     "op": "res_parallel",
+     "args": [
+      "_t89",
+      "_t90"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t92",
+     "op": "line",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t93",
+     "op": "line",
+     "args": [
+      "O",
+      "Epi.C"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t94",
+     "op": "res_parallel",
+     "args": [
+      "_t92",
+      "_t93"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t95",
+     "op": "distance",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t96",
+     "op": "distance",
+     "args": [
+      "O",
+      "Epi.C"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t97",
+     "op": "sub",
+     "args": [
+      "_t95",
+      "_t96"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t98",
+     "op": "abs",
+     "args": [
+      "_t97"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t99",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t100",
+     "op": "line",
+     "args": [
+      "Epi.C",
+      "Ecc.S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t101",
+     "op": "res_parallel",
+     "args": [
+      "_t99",
+      "_t100"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t102",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t103",
+     "op": "line",
+     "args": [
+      "Epi.C",
+      "Ecc.S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t104",
+     "op": "res_parallel",
+     "args": [
+      "_t102",
+      "_t103"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t105",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t106",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t107",
+     "op": "sub",
+     "args": [
+      "_t105",
+      "_t106"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t108",
+     "op": "abs",
+     "args": [
+      "_t107"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t109",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t110",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t111",
+     "op": "sub",
+     "args": [
+      "_t109",
+      "_t110"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t112",
+     "op": "abs",
+     "args": [
+      "_t111"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t113",
+     "op": "line",
+     "args": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t114",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t115",
+     "op": "res_parallel",
+     "args": [
+      "_t113",
+      "_t114"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t116",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t117",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t118",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t119",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t120",
+     "op": "distance",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t121",
+     "op": "add",
+     "args": [
+      "_t119",
+      "_t120"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t122",
+     "op": "sub",
+     "args": [
+      "_t118",
+      "_t121"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t123",
+     "op": "abs",
+     "args": [
+      "_t122"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t124",
+     "op": "distance",
+     "args": [
+      "O",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t125",
+     "op": "distance",
+     "args": [
+      "O",
+      "Epi.C"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t126",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t127",
+     "op": "add",
+     "args": [
+      "_t125",
+      "_t126"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t128",
+     "op": "sub",
+     "args": [
+      "_t124",
+      "_t127"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t129",
+     "op": "abs",
+     "args": [
+      "_t128"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t130",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t131",
+     "op": "distance",
+     "args": [
+      "O",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t132",
+     "op": "sub",
+     "args": [
+      "_t130",
+      "_t131"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t133",
+     "op": "abs",
+     "args": [
+      "_t132"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t134",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t135",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t136",
+     "op": "res_parallel",
+     "args": [
+      "_t134",
+      "_t135"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t137",
+     "op": "res_collinear",
+     "args": [
+      "O",
+      "Ecc.E",
+      "Epi.S'"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t138",
+     "op": "line",
+     "args": [
+      "O",
+      "Epi.S'"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t139",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t140",
+     "op": "res_parallel",
+     "args": [
+      "_t138",
+      "_t139"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t141",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t142",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t143",
+     "op": "distance",
+     "args": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t144",
+     "op": "distance",
+     "args": [
+      "Ecc.E",
+      "O"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t145",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t146",
+     "op": "add",
+     "args": [
+      "_t144",
+      "_t145"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t147",
+     "op": "sub",
+     "args": [
+      "_t143",
+      "_t146"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t148",
+     "op": "abs",
+     "args": [
+      "_t147"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t149",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "O"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t150",
+     "op": "distance",
+     "args": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t151",
+     "op": "distance",
+     "args": [
+      "Epi.S'",
+      "O"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t152",
+     "op": "add",
+     "args": [
+      "_t150",
+      "_t151"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t153",
+     "op": "sub",
+     "args": [
+      "_t149",
+      "_t152"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t154",
+     "op": "abs",
+     "args": [
+      "_t153"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t155",
+     "op": "distance",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t156",
+     "op": "distance",
+     "args": [
+      "O",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t157",
+     "op": "sub",
+     "args": [
+      "_t155",
+      "_t156"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t158",
+     "op": "abs",
+     "args": [
+      "_t157"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t159",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t160",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t161",
+     "op": "res_parallel",
+     "args": [
+      "_t159",
+      "_t160"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t162",
+     "op": "res_collinear",
+     "args": [
+      "O",
+      "Ecc.E",
+      "Epi.S'"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t163",
+     "op": "line",
+     "args": [
+      "O",
+      "Epi.S'"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t164",
+     "op": "line",
+     "args": [
+      "O",
+      "Ecc.E"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t165",
+     "op": "res_parallel",
+     "args": [
+      "_t163",
+      "_t164"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t166",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t167",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t168",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t169",
+     "op": "distance",
+     "args": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "type": "length"
+    }
+   ],
+   "params": {
+    "Ecc.R": 60.0,
+    "lamA": 65.5,
+    "T": 365.24666666666667,
+    "kappa_0": 0.0,
+    "Epi.R'": 60.0,
+    "Ecc.e": 16.0,
+    "Epi.r": 16.0
+   },
+   "state": {
+    "kappa_bar": 41.0
+   },
+   "animation": {
+    "mode": "var",
+    "name": "kappa_bar",
+    "display": "κ̄",
+    "start": 41.0,
+    "period_days": 365.24666666666667,
+    "epoch": 0.0
+   },
+   "speed_s": 24.0,
+   "scene": [
+    {
+     "kind": "point",
+     "id": "O",
+     "ref": "O",
+     "text": "O",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "Ecc.E",
+     "ref": "Ecc.E",
+     "text": "E",
+     "owner": "Ecc",
+     "aux": false
+    },
+    {
+     "kind": "circle",
+     "id": "Ecc.ecc",
+     "ref": "Ecc.ecc",
+     "owner": "Ecc"
+    },
+    {
+     "kind": "point",
+     "id": "Ecc.A",
+     "ref": "Ecc.A",
+     "text": "A",
+     "owner": "Ecc",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "Ecc.B",
+     "ref": "Ecc.B",
+     "text": "B",
+     "owner": "Ecc",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "Ecc.S",
+     "ref": "Ecc.S",
+     "text": "S",
+     "owner": "Ecc",
+     "aux": false
+    },
+    {
+     "kind": "circle",
+     "id": "Epi.def",
+     "ref": "Epi.def",
+     "owner": "Epi"
+    },
+    {
+     "kind": "point",
+     "id": "Epi.A'",
+     "ref": "Epi.A'",
+     "text": "A′",
+     "owner": "Epi",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "Epi.B'",
+     "ref": "Epi.B'",
+     "text": "B′",
+     "owner": "Epi",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "Epi.C",
+     "ref": "Epi.C",
+     "text": "C",
+     "owner": "Epi",
+     "aux": false
+    },
+    {
+     "kind": "circle",
+     "id": "Epi.epi",
+     "ref": "Epi.epi",
+     "owner": "Epi"
+    },
+    {
+     "kind": "point",
+     "id": "Epi.S'",
+     "ref": "Epi.S'",
+     "text": "S′",
+     "owner": "Epi",
+     "aux": false
+    },
+    {
+     "kind": "segment",
+     "id": "segment0",
+     "p": "Ecc.A",
+     "q": "Ecc.B",
+     "dashed": false,
+     "owner": "Ecc"
+    },
+    {
+     "kind": "length",
+     "id": "length1",
+     "p": "Ecc.E",
+     "q": "Ecc.S",
+     "side": "left",
+     "text": "R",
+     "ref": "Ecc.R",
+     "owner": "Ecc"
+    },
+    {
+     "kind": "length",
+     "id": "length2",
+     "p": "O",
+     "q": "Epi.C",
+     "side": "right",
+     "text": "R′",
+     "ref": "Epi.R'",
+     "owner": "Epi"
+    },
+    {
+     "kind": "length",
+     "id": "length3",
+     "p": "O",
+     "q": "Ecc.E",
+     "side": "left",
+     "text": "e",
+     "ref": "Ecc.e",
+     "owner": "Ecc"
+    },
+    {
+     "kind": "length",
+     "id": "length4",
+     "p": "Epi.C",
+     "q": "Epi.S'",
+     "side": "right",
+     "text": "r",
+     "ref": "Epi.r",
+     "owner": "Epi"
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg0",
+     "p": "Ecc.E",
+     "q": "Ecc.A",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg1",
+     "p": "O",
+     "q": "Epi.A'",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg2",
+     "p": "Epi.C",
+     "q": "Ecc.S",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg3",
+     "p": "O",
+     "q": "Ecc.S",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg4",
+     "p": "O",
+     "q": "Epi.S'",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    }
+   ],
+   "projection": {
+    "up": 65.5,
+    "scale": 3.979425857236452,
+    "tx": 360.0,
+    "ty": 360.0363651499703,
+    "width": 720.0,
+    "height": 720.0363651499704,
+    "r_fit": 75.99086170938347
+   },
+   "members": [
+    "Ecc",
+    "Epi"
+   ],
+   "steps": [
+    {
+     "name": "h1",
+     "text": "equal(Epi.R', Ecc.R)",
+     "status": "given",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "h2",
+     "text": "equal(Epi.r, Ecc.e)",
+     "status": "given",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "same",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified by cases",
+     "rule": "cases",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "d3",
+     "text": "equal(distance(Ecc.E, Ecc.S), Ecc.R)",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Ecc.E",
+      "Ecc.S"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ]
+     ]
+    },
+    {
+     "name": "d4",
+     "text": "equal(distance(O, Epi.C), Epi.R')",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Epi.C"
+      ]
+     ]
+    },
+    {
+     "name": "d8",
+     "text": "equal(distance(O, Ecc.E), Ecc.e)",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Ecc.E",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ]
+    },
+    {
+     "name": "d9",
+     "text": "equal(distance(Epi.C, Epi.S'), Epi.r)",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "segments": [
+      [
+       "Epi.C",
+       "Epi.S'"
+      ]
+     ]
+    },
+    {
+     "name": "generic",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "sides",
+     "text": "parallel(line(Ecc.E, Ecc.S), line(O, Epi.C))",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Epi.C"
+      ]
+     ]
+    },
+    {
+     "name": "d1",
+     "text": "equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Ecc.A",
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.A'",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.A"
+      ],
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Epi.A'"
+      ],
+      [
+       "O",
+       "Epi.C"
+      ]
+     ]
+    },
+    {
+     "name": "d2",
+     "text": "parallel(line(Ecc.E, Ecc.S), line(O, Epi.C))",
+     "status": "justified",
+     "rule": "Elements I.28",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Epi.C"
+      ]
+     ]
+    },
+    {
+     "name": "d5",
+     "text": "equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C))",
+     "status": "justified",
+     "rule": "common notion 1",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Epi.C"
+      ]
+     ]
+    },
+    {
+     "name": "joins",
+     "text": "parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.E"
+      ],
+      [
+       "Epi.C",
+       "Ecc.S"
+      ]
+     ]
+    },
+    {
+     "name": "d6",
+     "text": "parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))",
+     "status": "justified",
+     "rule": "Elements I.33",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.E"
+      ],
+      [
+       "Epi.C",
+       "Ecc.S"
+      ]
+     ]
+    },
+    {
+     "name": "d7",
+     "text": "equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S))",
+     "status": "justified",
+     "rule": "Elements I.33",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "Epi.C",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.E"
+      ],
+      [
+       "Epi.C",
+       "Ecc.S"
+      ]
+     ]
+    },
+    {
+     "name": "d10",
+     "text": "equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S'))",
+     "status": "justified",
+     "rule": "common notion 1",
+     "points": [
+      "Ecc.S",
+      "Epi.C",
+      "Epi.S'"
+     ],
+     "segments": [
+      [
+       "Epi.C",
+       "Ecc.S"
+      ],
+      [
+       "Epi.C",
+       "Epi.S'"
+      ]
+     ]
+    },
+    {
+     "name": "d11",
+     "text": "parallel(line(Epi.C, Epi.S'), line(O, Ecc.E))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Ecc.E",
+      "Epi.C",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "Epi.C",
+       "Epi.S'"
+      ],
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ]
+    },
+    {
+     "name": "d12",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "lemma same ray",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "apogee",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "a1",
+     "text": "equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E, Ecc.S))",
+     "status": "justified",
+     "rule": "lemma segment addition",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Ecc.E"
+      ],
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ]
+     ]
+    },
+    {
+     "name": "a2",
+     "text": "equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C, Epi.S'))",
+     "status": "justified",
+     "rule": "lemma segment addition",
+     "points": [
+      "Epi.C",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Epi.S'"
+      ],
+      [
+       "O",
+       "Epi.C"
+      ],
+      [
+       "Epi.C",
+       "Epi.S'"
+      ]
+     ]
+    },
+    {
+     "name": "a3",
+     "text": "equal(distance(O, Ecc.S), distance(O, Epi.S'))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [
+      "Ecc.S",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Epi.S'"
+      ]
+     ]
+    },
+    {
+     "name": "a4",
+     "text": "parallel(line(O, Ecc.S), line(O, Ecc.E))",
+     "status": "justified",
+     "rule": "lemma one line",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ]
+    },
+    {
+     "name": "a5",
+     "text": "collinear(O, Ecc.E, Epi.S')",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Ecc.E",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": []
+    },
+    {
+     "name": "a6",
+     "text": "parallel(line(O, Epi.S'), line(O, Ecc.E))",
+     "status": "justified",
+     "rule": "lemma one line",
+     "points": [
+      "Ecc.E",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Epi.S'"
+      ],
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ]
+    },
+    {
+     "name": "a7",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "lemma same ray",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "perigee",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "p1",
+     "text": "equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O, Ecc.S))",
+     "status": "justified",
+     "rule": "lemma segment addition",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "O"
+     ],
+     "segments": [
+      [
+       "Ecc.E",
+       "Ecc.S"
+      ],
+      [
+       "Ecc.E",
+       "O"
+      ],
+      [
+       "O",
+       "Ecc.S"
+      ]
+     ]
+    },
+    {
+     "name": "p2",
+     "text": "equal(distance(Epi.C, O), distance(Epi.C, Epi.S') + distance(Epi.S', O))",
+     "status": "justified",
+     "rule": "lemma segment addition",
+     "points": [
+      "Epi.C",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "Epi.C",
+       "O"
+      ],
+      [
+       "Epi.C",
+       "Epi.S'"
+      ],
+      [
+       "Epi.S'",
+       "O"
+      ]
+     ]
+    },
+    {
+     "name": "p3",
+     "text": "equal(distance(O, Ecc.S), distance(O, Epi.S'))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [
+      "Ecc.S",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Epi.S'"
+      ]
+     ]
+    },
+    {
+     "name": "p4",
+     "text": "parallel(line(O, Ecc.S), line(O, Ecc.E))",
+     "status": "justified",
+     "rule": "lemma one line",
+     "points": [
+      "Ecc.E",
+      "Ecc.S",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Ecc.S"
+      ],
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ]
+    },
+    {
+     "name": "p5",
+     "text": "collinear(O, Ecc.E, Epi.S')",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "Ecc.E",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": []
+    },
+    {
+     "name": "p6",
+     "text": "parallel(line(O, Epi.S'), line(O, Ecc.E))",
+     "status": "justified",
+     "rule": "lemma one line",
+     "points": [
+      "Ecc.E",
+      "Epi.S'",
+      "O"
+     ],
+     "segments": [
+      [
+       "O",
+       "Epi.S'"
+      ],
+      [
+       "O",
+       "Ecc.E"
+      ]
+     ]
+    },
+    {
+     "name": "p7",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "lemma same ray",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    },
+    {
+     "name": "conclusion",
+     "text": "coincident(Ecc.S, Epi.S')",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "Ecc.S",
+      "Epi.S'"
+     ],
+     "segments": []
+    }
+   ],
+   "drawn": {
+    "Ecc.e": "16",
+    "Epi.r": "16"
+   },
+   "parametrisation": "solar-eccentric-epicyclic.equal-radii"
+  },
+  "drawn": {
+   "Ecc.e": "16",
+   "Epi.r": "16"
+  }
+ },
+ "depths": [
+  "overview",
+  "steps",
+  "full"
+ ]
+}

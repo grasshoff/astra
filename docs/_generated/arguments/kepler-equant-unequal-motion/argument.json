@@ -1,0 +1,3626 @@
+{
+ "format": "astra-argument/1",
+ "notation": "astra/1",
+ "id": "kepler-equant-unequal-motion",
+ "address": "fr:astra/kepler-equant-unequal-motion",
+ "title": "About the centre of its circle the planet moves unequally: the arc DE is less than the arc EF, and both are passed in equal times",
+ "author": "Gerd Graßhoff",
+ "witness": [
+  {
+   "address": "fr:kepler-prim/kgw-03/0071/p05",
+   "note": "Astronomia nova ch. 4"
+  },
+  {
+   "address": "fr:kepler-sec/Kepler1992/0147/p02",
+   "note": "Donahue's translation"
+  }
+ ],
+ "attributed": [
+  "Ptolemy"
+ ],
+ "context": {
+  "id": "kepler-equant",
+  "kind": "model",
+  "title": "The equant model of the first inequality",
+  "address": "fr:astra/kepler-equant"
+ },
+ "check": {
+  "level": "conclusive",
+  "complete": true,
+  "levels": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "passed": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "failures": {}
+ },
+ "model": [
+  {
+   "prefix": "",
+   "id": "kepler-equant",
+   "address": "fr:astra/kepler-equant",
+   "title": "The equant model of the first inequality",
+   "attributed": "Ptolemy",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "R",
+     "symbol": "R",
+     "unit": "length",
+     "meaning": "radius of the eccentric circle about B",
+     "range": "(10, 1000)"
+    },
+    {
+     "name": "e",
+     "symbol": "e",
+     "unit": "length",
+     "meaning": "eccentricity BA: the distance of the eye from the centre",
+     "range": "(0, R / 3)"
+    },
+    {
+     "name": "q",
+     "symbol": "q",
+     "unit": "length",
+     "meaning": "the distance BC of the equant point from the centre",
+     "range": "(0, R / 3)"
+    },
+    {
+     "name": "lamD",
+     "symbol": "λ_D",
+     "unit": "angle",
+     "meaning": "direction of the apogee",
+     "range": null
+    },
+    {
+     "name": "T",
+     "symbol": "T",
+     "unit": "time",
+     "meaning": "period of the planet about the equant point",
+     "range": "(100, 20000)"
+    },
+    {
+     "name": "theta_0",
+     "symbol": "θ_0",
+     "unit": "angle",
+     "meaning": "the angle at the equant point at t = 0",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "theta",
+     "symbol": "θ",
+     "meaning": "the angle DCE at the equant point, counted from the apogee",
+     "law": "uniform in time, period T"
+    }
+   ],
+   "objects": [
+    {
+     "name": "A",
+     "symbol": "A",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "the eye"
+    },
+    {
+     "name": "B",
+     "symbol": "B",
+     "kind": "point",
+     "defined_by": "A + polar(e, lamD)",
+     "meaning": "centre of the eccentric"
+    },
+    {
+     "name": "C",
+     "symbol": "C",
+     "kind": "point",
+     "defined_by": "B + polar(q, lamD)",
+     "meaning": "the equant point"
+    },
+    {
+     "name": "orb",
+     "symbol": "orb",
+     "kind": "circle",
+     "defined_by": "circle(B, R)",
+     "meaning": "the eccentric, the circle the planet traverses"
+    },
+    {
+     "name": "D",
+     "symbol": "D",
+     "kind": "point",
+     "defined_by": "B + polar(R, lamD)",
+     "meaning": "apogee"
+    },
+    {
+     "name": "F",
+     "symbol": "F",
+     "kind": "point",
+     "defined_by": "B - polar(R, lamD)",
+     "meaning": "perigee"
+    },
+    {
+     "name": "E",
+     "symbol": "E",
+     "kind": "point",
+     "defined_by": "seen_from(C, orb, lamD + theta)",
+     "meaning": "the planet: where the line from C at the angle θ meets the circle"
+    }
+   ],
+   "observables": [
+    {
+     "name": "lam",
+     "symbol": "λ",
+     "defined_by": "direction(A, E)",
+     "meaning": "longitude of the planet as seen from A"
+    },
+    {
+     "name": "atC",
+     "symbol": "atC",
+     "defined_by": "angle(D, C, E)",
+     "meaning": "the angle DCE at the equant point"
+    },
+    {
+     "name": "atB",
+     "symbol": "atB",
+     "defined_by": "angle(D, B, E)",
+     "meaning": "the angle DBE at the centre: the arc DE the planet has traversed"
+    }
+   ]
+  }
+ ],
+ "identified": [],
+ "hypotheses": [
+  {
+   "id": "h1",
+   "number": "H1",
+   "claim": "the equant point lies as far above the centre as the eye lies below it: BC = BA",
+   "notation": "q = e",
+   "formal": "equal(q, e)"
+  }
+ ],
+ "constructions": [],
+ "argument": [
+  {
+   "id": "lag",
+   "number": "1",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "the angle DBE at the centre is less than the angle DCE at the equant point",
+   "notation": "∠DBE < ∠DCE",
+   "formal": "less(angle(D, B, E), angle(D, C, E))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "k4",
+     "label": "1.4"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is k4",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "1.4"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": [
+    "θ = 0°",
+    "θ = 180°"
+   ],
+   "undefined_at": null,
+   "needs": null,
+   "residual": 2.842170943040401e-14,
+   "points": [
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   "segments": [
+    [
+     "B",
+     "D"
+    ],
+    [
+     "B",
+     "E"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "C",
+     "E"
+    ]
+   ],
+   "children": [
+    {
+     "id": "k1",
+     "number": "1.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "DCE is the exterior angle of the triangle CBE, equal to the interior angles CBE and CEB",
+     "notation": "∠ECD = ∠CEB + ∠EBC",
+     "formal": "equal(angle(E, C, D), angle(C, E, B) + angle(E, B, C))",
+     "from": [],
+     "by": {
+      "rule": "Elements I.32",
+      "kind": "proposition",
+      "statement": "In any triangle, if one of the sides be produced, the exterior angle is equal to the two interior and opposite angles, and the three interior angles of the triangle are equal to two right angles.",
+      "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0325",
+      "printed": "vol. I, p. 316",
+      "rests_on": null,
+      "case": "the exterior angle"
+     },
+     "status": "justified",
+     "grade": "rule",
+     "mark": "✓",
+     "note": "configuration conditions fail there: noncollinear(E, B, C)",
+     "when": null,
+     "distinction": null,
+     "binding": {
+      "A": "E",
+      "C": "C",
+      "D": "D",
+      "B": "B"
+     },
+     "hypotheses_met_by": null,
+     "conditions": [
+      "EBC a triangle",
+      "B, C, D on one line",
+      "C between B and D"
+     ],
+     "degenerate_at": [
+      "θ = 0°",
+      "θ = 180°"
+     ],
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 1.1368683772161603e-13,
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "E",
+       "C"
+      ],
+      [
+       "E",
+       "B"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "k2",
+     "number": "1.2",
+     "kind": "step",
+     "depth": 1,
+     "claim": "the part CEB taken away, the remainder CBE is less than DCE",
+     "notation": "∠EBC < ∠ECD",
+     "formal": "less(angle(E, B, C), angle(E, C, D))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "k1",
+       "label": "1.1"
+      }
+     ],
+     "by": {
+      "rule": "common notion 5",
+      "kind": "part",
+      "statement": "The whole is greater than the part.",
+      "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164",
+      "printed": "vol. I, p. 155",
+      "rests_on": null,
+      "case": null
+     },
+     "status": "justified",
+     "grade": "rule",
+     "mark": "✓",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": [
+      "θ = 0°",
+      "θ = 180°"
+     ],
+     "undefined_at": null,
+     "needs": null,
+     "residual": 5.684341886080802e-14,
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "k3",
+     "number": "1.3",
+     "kind": "step",
+     "depth": 1,
+     "claim": "CBE or DBE: C and D lie from B on one ray",
+     "notation": "∠EBC = ∠DBE",
+     "formal": "equal(angle(E, B, C), angle(D, B, E))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "C",
+       "label": "constr. C"
+      },
+      {
+       "kind": "construction",
+       "ref": "D",
+       "label": "constr. D"
+      },
+      {
+       "kind": "construction",
+       "ref": "E",
+       "label": "constr. E"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 8.526512829121202e-14,
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "k4",
+     "number": "1.4",
+     "kind": "step",
+     "depth": 1,
+     "claim": "∠DBE < ∠DCE",
+     "notation": "∠DBE < ∠DCE",
+     "formal": "less(angle(D, B, E), angle(D, C, E))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "k2",
+       "label": "1.2"
+      },
+      {
+       "kind": "step",
+       "ref": "k3",
+       "label": "1.3"
+      }
+     ],
+     "by": {
+      "rule": "common notion 1",
+      "kind": "equality",
+      "statement": "Things which are equal to the same thing are also equal to one another.",
+      "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164",
+      "printed": "vol. I, p. 155",
+      "rests_on": null,
+      "case": null
+     },
+     "status": "justified",
+     "grade": "equality",
+     "mark": "✓",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": [
+      "θ = 0°",
+      "θ = 180°"
+     ],
+     "undefined_at": null,
+     "needs": null,
+     "residual": 2.842170943040401e-14,
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ]
+     ],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "k5",
+   "number": "2",
+   "kind": "step",
+   "depth": 0,
+   "claim": "BE stands on the apsidal line at B: DBE and EBF make two right angles",
+   "notation": "∠DBE + ∠EBF = 180°",
+   "formal": "equal(angle(D, B, E) + angle(E, B, F), 180°)",
+   "from": [],
+   "by": {
+    "rule": "Elements I.13",
+    "kind": "proposition",
+    "statement": "If a straight line set up on a straight line make angles, it will make either two right angles or angles equal to two right angles.",
+    "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0284",
+    "printed": "vol. I, p. 275",
+    "rests_on": null,
+    "case": null
+   },
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": {
+    "P": "D",
+    "V": "B",
+    "X": "E",
+    "Q": "F"
+   },
+   "hypotheses_met_by": null,
+   "conditions": [
+    "D, B, F on one line",
+    "B between D and F",
+    "B ≠ E"
+   ],
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.1368683772161603e-13,
+   "points": [
+    "B",
+    "D",
+    "E",
+    "F"
+   ],
+   "segments": [
+    [
+     "B",
+     "D"
+    ],
+    [
+     "B",
+     "E"
+    ],
+    [
+     "B",
+     "E"
+    ],
+    [
+     "B",
+     "F"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "k6",
+   "number": "3",
+   "kind": "step",
+   "depth": 0,
+   "claim": "CE stands on the apsidal line at C: DCE and ECF make two right angles",
+   "notation": "∠DCE + ∠ECF = 180°",
+   "formal": "equal(angle(D, C, E) + angle(E, C, F), 180°)",
+   "from": [],
+   "by": {
+    "rule": "Elements I.13",
+    "kind": "proposition",
+    "statement": "If a straight line set up on a straight line make angles, it will make either two right angles or angles equal to two right angles.",
+    "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0284",
+    "printed": "vol. I, p. 275",
+    "rests_on": null,
+    "case": null
+   },
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": {
+    "P": "D",
+    "V": "C",
+    "X": "E",
+    "Q": "F"
+   },
+   "hypotheses_met_by": null,
+   "conditions": [
+    "D, C, F on one line",
+    "C between D and F",
+    "C ≠ E"
+   ],
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.1368683772161603e-13,
+   "points": [
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "segments": [
+    [
+     "C",
+     "D"
+    ],
+    [
+     "C",
+     "E"
+    ],
+    [
+     "C",
+     "E"
+    ],
+    [
+     "C",
+     "F"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "lead",
+   "number": "4",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "so the angle FBE is greater than the angle FCE",
+   "notation": "∠ECF < ∠EBF",
+   "formal": "less(angle(E, C, F), angle(E, B, F))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "k7",
+     "label": "4.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is k7",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "4.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": [
+    "θ = 0°",
+    "θ = 180°"
+   ],
+   "undefined_at": null,
+   "needs": null,
+   "residual": 2.842170943040401e-14,
+   "points": [
+    "B",
+    "C",
+    "E",
+    "F"
+   ],
+   "segments": [
+    [
+     "C",
+     "E"
+    ],
+    [
+     "C",
+     "F"
+    ],
+    [
+     "B",
+     "E"
+    ],
+    [
+     "B",
+     "F"
+    ]
+   ],
+   "children": [
+    {
+     "id": "k7",
+     "number": "4.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "∠ECF < ∠EBF",
+     "notation": "∠ECF < ∠EBF",
+     "formal": "less(angle(E, C, F), angle(E, B, F))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "lag",
+       "label": "1"
+      },
+      {
+       "kind": "step",
+       "ref": "k5",
+       "label": "2"
+      },
+      {
+       "kind": "step",
+       "ref": "k6",
+       "label": "3"
+      }
+     ],
+     "by": {
+      "rule": "algebra",
+      "kind": "calculation",
+      "statement": "The proposition follows from the cited equalities by calculation.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by calculation",
+     "grade": "calculation",
+     "mark": "≈",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": [
+      "θ = 0°",
+      "θ = 180°"
+     ],
+     "undefined_at": null,
+     "needs": null,
+     "residual": 2.842170943040401e-14,
+     "points": [
+      "B",
+      "C",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "quadrant",
+   "number": "5",
+   "kind": "supposition",
+   "depth": 0,
+   "claim": "let DCE be a right angle, and so ECF: two quarters of the period",
+   "notation": "∠DCE a right angle",
+   "formal": "right_angle(D, C, E)",
+   "from": [],
+   "by": null,
+   "status": "supposed",
+   "grade": "",
+   "mark": "·",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": null,
+   "points": [
+    "C",
+    "D",
+    "E"
+   ],
+   "segments": [],
+   "children": []
+  },
+  {
+   "id": "unequal",
+   "number": "6",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "the arc DE, which measures the angle DBE, is less than the arc EF, which measures the angle EBF",
+   "notation": "∠DBE < ∠EBF",
+   "formal": "less(angle(D, B, E), angle(E, B, F))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "k9",
+     "label": "6.2"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is k9",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "6.2"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 0.0,
+   "points": [
+    "B",
+    "D",
+    "E",
+    "F"
+   ],
+   "segments": [
+    [
+     "B",
+     "D"
+    ],
+    [
+     "B",
+     "E"
+    ],
+    [
+     "B",
+     "E"
+    ],
+    [
+     "B",
+     "F"
+    ]
+   ],
+   "children": [
+    {
+     "id": "k8",
+     "number": "6.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "the angles at C are equal: they are made in equal times",
+     "notation": "∠DCE = ∠ECF",
+     "formal": "equal(angle(D, C, E), angle(E, C, F))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "quadrant",
+       "label": "5"
+      },
+      {
+       "kind": "step",
+       "ref": "k6",
+       "label": "3"
+      }
+     ],
+     "by": {
+      "rule": "algebra",
+      "kind": "calculation",
+      "statement": "The proposition follows from the cited equalities by calculation.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by calculation",
+     "grade": "calculation",
+     "mark": "≈",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 2.2737367544323206e-13,
+     "points": [
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "F"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "k9",
+     "number": "6.2",
+     "kind": "step",
+     "depth": 1,
+     "claim": "DBE < DCE = ECF < EBF",
+     "notation": "∠DBE < ∠EBF",
+     "formal": "less(angle(D, B, E), angle(E, B, F))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "lag",
+       "label": "1"
+      },
+      {
+       "kind": "step",
+       "ref": "lead",
+       "label": "4"
+      },
+      {
+       "kind": "step",
+       "ref": "k8",
+       "label": "6.1"
+      }
+     ],
+     "by": {
+      "rule": "algebra",
+      "kind": "calculation",
+      "statement": "The proposition follows from the cited equalities by calculation.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by calculation",
+     "grade": "calculation",
+     "mark": "≈",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0,
+     "points": [
+      "B",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ],
+     "children": []
+    }
+   ]
+  }
+ ],
+ "conclusion": {
+  "id": "conclusion",
+  "number": "∴",
+  "kind": "conclusion",
+  "depth": 0,
+  "claim": "in equal times the planet passes the lesser arc DE and the greater arc EF: the orb is now slow, now fast",
+  "notation": "∠DBE < ∠EBF",
+  "formal": "less(angle(D, B, E), angle(E, B, F))",
+  "from": [
+   {
+    "kind": "step",
+    "ref": "unequal",
+    "label": "6"
+   }
+  ],
+  "by": null,
+  "status": "justified",
+  "grade": "rule",
+  "mark": "✓",
+  "note": "it is unequal",
+  "when": null,
+  "distinction": null,
+  "binding": null,
+  "hypotheses_met_by": {
+   "the proposition": "6"
+  },
+  "conditions": null,
+  "degenerate_at": null,
+  "equal_at": null,
+  "undefined_at": null,
+  "needs": null,
+  "residual": 0.0,
+  "points": [
+   "B",
+   "D",
+   "E",
+   "F"
+  ],
+  "segments": [
+   [
+    "B",
+    "D"
+   ],
+   [
+    "B",
+    "E"
+   ],
+   [
+    "B",
+    "E"
+   ],
+   [
+    "B",
+    "F"
+   ]
+  ],
+  "children": []
+ },
+ "further_conclusions": [],
+ "equivalence": null,
+ "computations": [],
+ "checks": {
+  "steps": 9,
+  "by_status": {
+   "justified": 5,
+   "read off the construction": 1,
+   "by calculation": 3
+  },
+  "configurations": 3456,
+  "degenerate_states": [
+   "θ = 0°",
+   "θ = 180°"
+  ],
+  "notes": [
+   "given h1 (equal(q, e)) is not needed for the conclusion",
+   "degenerate states, in which a step's rule does not apply, a term is undefined or an inequality becomes an equality: theta = 0°; theta = 180°. The derivation does not cover them; the conclusion is true there as well (numerically)"
+  ]
+ },
+ "figure": {
+  "id": "kepler-fig-ch4",
+  "address": "fr:astra/kepler-fig-ch4",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-kepler-fig-ch4\" class=\"astra-figure\" viewBox=\"0 0 720.00 720.00\" width=\"720.00\" height=\"720.00\" role=\"img\" aria-label=\"Kepler's figure for the equant: DCE a right angle\" data-figure=\"kepler-fig-ch4\" data-state=\"theta=90.0000\" data-theme=\"light\">\n<title>Kepler's figure for the equant: DCE a right angle</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment0\" class=\"astra-construct\" x1=\"360.00\" y1=\"57.60\" x2=\"360.00\" y2=\"662.40\"/>\n<line id=\"astra-segment1\" class=\"astra-construct\" x1=\"360.00\" y1=\"294.48\" x2=\"64.78\" y2=\"294.48\"/>\n<line id=\"astra-segment2\" class=\"astra-construct\" x1=\"360.00\" y1=\"360.00\" x2=\"64.78\" y2=\"294.48\"/>\n<line id=\"astra-segment3\" class=\"astra-construct\" x1=\"360.00\" y1=\"425.52\" x2=\"64.78\" y2=\"294.48\"/>\n<circle id=\"astra-orb\" class=\"astra-construct\" cx=\"360.00\" cy=\"360.00\" r=\"302.40\"/>\n<path id=\"astra-angle4\" class=\"astra-angle\" d=\"M 360.00 246.10 A 48.38 48.38 0 0 0 311.62 294.48\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle4-text\" class=\"astra-label astra-angle-label\" x=\"316.24\" y=\"250.72\" text-anchor=\"middle\" dominant-baseline=\"middle\">θ</text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"425.52\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"440.52\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"360.00\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"374.16\" y=\"364.96\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle id=\"astra-C\" class=\"astra-point\" cx=\"360.00\" cy=\"294.48\" r=\"3.2\"/>\n<text id=\"astra-C-text\" class=\"astra-label\" x=\"360.00\" y=\"279.48\" text-anchor=\"middle\" dominant-baseline=\"middle\">C</text>\n<circle id=\"astra-D\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-D-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">D</text>\n<circle id=\"astra-F\" class=\"astra-point\" cx=\"360.00\" cy=\"662.40\" r=\"3.2\"/>\n<text id=\"astra-F-text\" class=\"astra-label\" x=\"360.00\" y=\"677.40\" text-anchor=\"middle\" dominant-baseline=\"middle\">F</text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"64.78\" cy=\"294.48\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"50.14\" y=\"291.23\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"710.00\">drawn with R = 60, e = 13, q = 13, λ_D = 90°</text>\n</svg>\n",
+  "bundle": {
+   "id": "kepler-fig-ch4",
+   "title": "Kepler's figure for the equant: DCE a right angle",
+   "of": "kepler-equant-unequal-motion",
+   "notation": "astra/1",
+   "ops": [
+    {
+     "id": "R",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "e",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "q",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "lamD",
+     "op": "param",
+     "args": [],
+     "type": "angle"
+    },
+    {
+     "id": "T",
+     "op": "param",
+     "args": [],
+     "type": "time"
+    },
+    {
+     "id": "theta_0",
+     "op": "param",
+     "args": [],
+     "type": "angle"
+    },
+    {
+     "id": "_aux1",
+     "op": "const",
+     "args": [
+      10.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux2",
+     "op": "const",
+     "args": [
+      1000.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux3",
+     "op": "const",
+     "args": [
+      0.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux4",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_aux5",
+     "op": "div",
+     "args": [
+      "R",
+      "_aux4"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux6",
+     "op": "const",
+     "args": [
+      0.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux7",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_aux8",
+     "op": "div",
+     "args": [
+      "R",
+      "_aux7"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux9",
+     "op": "const",
+     "args": [
+      100.0
+     ],
+     "type": "time"
+    },
+    {
+     "id": "_aux10",
+     "op": "const",
+     "args": [
+      20000.0
+     ],
+     "type": "time"
+    },
+    {
+     "id": "_aux11",
+     "op": "const",
+     "args": [
+      360.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_aux12",
+     "op": "div",
+     "args": [
+      "_aux11",
+      "T"
+     ],
+     "type": "rate"
+    },
+    {
+     "id": "theta",
+     "op": "var",
+     "args": [
+      "_aux12",
+      "theta_0"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t13",
+     "op": "observer",
+     "args": [],
+     "type": "point"
+    },
+    {
+     "id": "A",
+     "op": "id",
+     "args": [
+      "_t13"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t14",
+     "op": "polar",
+     "args": [
+      "e",
+      "lamD"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t15",
+     "op": "add",
+     "args": [
+      "A",
+      "_t14"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "B",
+     "op": "id",
+     "args": [
+      "_t15"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t16",
+     "op": "polar",
+     "args": [
+      "q",
+      "lamD"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t17",
+     "op": "add",
+     "args": [
+      "B",
+      "_t16"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "C",
+     "op": "id",
+     "args": [
+      "_t17"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t18",
+     "op": "circle",
+     "args": [
+      "B",
+      "R"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "orb",
+     "op": "id",
+     "args": [
+      "_t18"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "_t19",
+     "op": "polar",
+     "args": [
+      "R",
+      "lamD"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t20",
+     "op": "add",
+     "args": [
+      "B",
+      "_t19"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "D",
+     "op": "id",
+     "args": [
+      "_t20"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t21",
+     "op": "polar",
+     "args": [
+      "R",
+      "lamD"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t22",
+     "op": "sub",
+     "args": [
+      "B",
+      "_t21"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "F",
+     "op": "id",
+     "args": [
+      "_t22"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t23",
+     "op": "add",
+     "args": [
+      "lamD",
+      "theta"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t24",
+     "op": "seen_from",
+     "args": [
+      "C",
+      "orb",
+      "_t23"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "E",
+     "op": "id",
+     "args": [
+      "_t24"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t25",
+     "op": "direction",
+     "args": [
+      "A",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "lam",
+     "op": "id",
+     "args": [
+      "_t25"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t26",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t27",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t28",
+     "op": "sub",
+     "args": [
+      "_t27",
+      "_t26"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t29",
+     "op": "norm180",
+     "args": [
+      "_t28"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t30",
+     "op": "abs",
+     "args": [
+      "_t29"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "atC",
+     "op": "id",
+     "args": [
+      "_t30"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t31",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t32",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t33",
+     "op": "sub",
+     "args": [
+      "_t32",
+      "_t31"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t34",
+     "op": "norm180",
+     "args": [
+      "_t33"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t35",
+     "op": "abs",
+     "args": [
+      "_t34"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "atB",
+     "op": "id",
+     "args": [
+      "_t35"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t36",
+     "op": "res_on",
+     "args": [
+      "E",
+      "orb"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t37",
+     "op": "res_collinear",
+     "args": [
+      "F",
+      "A",
+      "D"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_fix_h1",
+     "op": "id",
+     "args": [
+      "e"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t38",
+     "op": "sub",
+     "args": [
+      "q",
+      "e"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t39",
+     "op": "abs",
+     "args": [
+      "_t38"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t40",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t41",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t42",
+     "op": "sub",
+     "args": [
+      "_t41",
+      "_t40"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t43",
+     "op": "norm180",
+     "args": [
+      "_t42"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t44",
+     "op": "abs",
+     "args": [
+      "_t43"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t45",
+     "op": "direction",
+     "args": [
+      "E",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t46",
+     "op": "direction",
+     "args": [
+      "E",
+      "B"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t47",
+     "op": "sub",
+     "args": [
+      "_t46",
+      "_t45"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t48",
+     "op": "norm180",
+     "args": [
+      "_t47"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t49",
+     "op": "abs",
+     "args": [
+      "_t48"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t50",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t51",
+     "op": "direction",
+     "args": [
+      "B",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t52",
+     "op": "sub",
+     "args": [
+      "_t51",
+      "_t50"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t53",
+     "op": "norm180",
+     "args": [
+      "_t52"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t54",
+     "op": "abs",
+     "args": [
+      "_t53"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t55",
+     "op": "add",
+     "args": [
+      "_t49",
+      "_t54"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t56",
+     "op": "sub",
+     "args": [
+      "_t44",
+      "_t55"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t57",
+     "op": "norm180",
+     "args": [
+      "_t56"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t58",
+     "op": "abs",
+     "args": [
+      "_t57"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t59",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t60",
+     "op": "direction",
+     "args": [
+      "B",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t61",
+     "op": "sub",
+     "args": [
+      "_t60",
+      "_t59"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t62",
+     "op": "norm180",
+     "args": [
+      "_t61"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t63",
+     "op": "abs",
+     "args": [
+      "_t62"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t64",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t65",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t66",
+     "op": "sub",
+     "args": [
+      "_t65",
+      "_t64"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t67",
+     "op": "norm180",
+     "args": [
+      "_t66"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t68",
+     "op": "abs",
+     "args": [
+      "_t67"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t69",
+     "op": "sub",
+     "args": [
+      "_t63",
+      "_t68"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t70",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t71",
+     "op": "direction",
+     "args": [
+      "B",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t72",
+     "op": "sub",
+     "args": [
+      "_t71",
+      "_t70"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t73",
+     "op": "norm180",
+     "args": [
+      "_t72"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t74",
+     "op": "abs",
+     "args": [
+      "_t73"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t75",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t76",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t77",
+     "op": "sub",
+     "args": [
+      "_t76",
+      "_t75"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t78",
+     "op": "norm180",
+     "args": [
+      "_t77"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t79",
+     "op": "abs",
+     "args": [
+      "_t78"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t80",
+     "op": "sub",
+     "args": [
+      "_t74",
+      "_t79"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t81",
+     "op": "norm180",
+     "args": [
+      "_t80"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t82",
+     "op": "abs",
+     "args": [
+      "_t81"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t83",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t84",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t85",
+     "op": "sub",
+     "args": [
+      "_t84",
+      "_t83"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t86",
+     "op": "norm180",
+     "args": [
+      "_t85"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t87",
+     "op": "abs",
+     "args": [
+      "_t86"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t88",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t89",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t90",
+     "op": "sub",
+     "args": [
+      "_t89",
+      "_t88"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t91",
+     "op": "norm180",
+     "args": [
+      "_t90"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t92",
+     "op": "abs",
+     "args": [
+      "_t91"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t93",
+     "op": "sub",
+     "args": [
+      "_t87",
+      "_t92"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t94",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t95",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t96",
+     "op": "sub",
+     "args": [
+      "_t95",
+      "_t94"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t97",
+     "op": "norm180",
+     "args": [
+      "_t96"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t98",
+     "op": "abs",
+     "args": [
+      "_t97"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t99",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t100",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t101",
+     "op": "sub",
+     "args": [
+      "_t100",
+      "_t99"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t102",
+     "op": "norm180",
+     "args": [
+      "_t101"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t103",
+     "op": "abs",
+     "args": [
+      "_t102"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t104",
+     "op": "sub",
+     "args": [
+      "_t98",
+      "_t103"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t105",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t106",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t107",
+     "op": "sub",
+     "args": [
+      "_t106",
+      "_t105"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t108",
+     "op": "norm180",
+     "args": [
+      "_t107"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t109",
+     "op": "abs",
+     "args": [
+      "_t108"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t110",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t111",
+     "op": "direction",
+     "args": [
+      "B",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t112",
+     "op": "sub",
+     "args": [
+      "_t111",
+      "_t110"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t113",
+     "op": "norm180",
+     "args": [
+      "_t112"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t114",
+     "op": "abs",
+     "args": [
+      "_t113"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t115",
+     "op": "add",
+     "args": [
+      "_t109",
+      "_t114"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t116",
+     "op": "const",
+     "args": [
+      180.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t117",
+     "op": "sub",
+     "args": [
+      "_t115",
+      "_t116"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t118",
+     "op": "norm180",
+     "args": [
+      "_t117"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t119",
+     "op": "abs",
+     "args": [
+      "_t118"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t120",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t121",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t122",
+     "op": "sub",
+     "args": [
+      "_t121",
+      "_t120"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t123",
+     "op": "norm180",
+     "args": [
+      "_t122"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t124",
+     "op": "abs",
+     "args": [
+      "_t123"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t125",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t126",
+     "op": "direction",
+     "args": [
+      "C",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t127",
+     "op": "sub",
+     "args": [
+      "_t126",
+      "_t125"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t128",
+     "op": "norm180",
+     "args": [
+      "_t127"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t129",
+     "op": "abs",
+     "args": [
+      "_t128"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t130",
+     "op": "add",
+     "args": [
+      "_t124",
+      "_t129"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t131",
+     "op": "const",
+     "args": [
+      180.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t132",
+     "op": "sub",
+     "args": [
+      "_t130",
+      "_t131"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t133",
+     "op": "norm180",
+     "args": [
+      "_t132"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t134",
+     "op": "abs",
+     "args": [
+      "_t133"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t135",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t136",
+     "op": "direction",
+     "args": [
+      "C",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t137",
+     "op": "sub",
+     "args": [
+      "_t136",
+      "_t135"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t138",
+     "op": "norm180",
+     "args": [
+      "_t137"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t139",
+     "op": "abs",
+     "args": [
+      "_t138"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t140",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t141",
+     "op": "direction",
+     "args": [
+      "B",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t142",
+     "op": "sub",
+     "args": [
+      "_t141",
+      "_t140"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t143",
+     "op": "norm180",
+     "args": [
+      "_t142"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t144",
+     "op": "abs",
+     "args": [
+      "_t143"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t145",
+     "op": "sub",
+     "args": [
+      "_t139",
+      "_t144"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t146",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t147",
+     "op": "direction",
+     "args": [
+      "C",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t148",
+     "op": "sub",
+     "args": [
+      "_t147",
+      "_t146"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t149",
+     "op": "norm180",
+     "args": [
+      "_t148"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t150",
+     "op": "abs",
+     "args": [
+      "_t149"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t151",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t152",
+     "op": "direction",
+     "args": [
+      "B",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t153",
+     "op": "sub",
+     "args": [
+      "_t152",
+      "_t151"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t154",
+     "op": "norm180",
+     "args": [
+      "_t153"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t155",
+     "op": "abs",
+     "args": [
+      "_t154"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t156",
+     "op": "sub",
+     "args": [
+      "_t150",
+      "_t155"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t157",
+     "op": "direction",
+     "args": [
+      "C",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t158",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t159",
+     "op": "sub",
+     "args": [
+      "_t158",
+      "_t157"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t160",
+     "op": "norm180",
+     "args": [
+      "_t159"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t161",
+     "op": "abs",
+     "args": [
+      "_t160"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t162",
+     "op": "direction",
+     "args": [
+      "C",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t163",
+     "op": "direction",
+     "args": [
+      "C",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t164",
+     "op": "sub",
+     "args": [
+      "_t163",
+      "_t162"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t165",
+     "op": "norm180",
+     "args": [
+      "_t164"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t166",
+     "op": "abs",
+     "args": [
+      "_t165"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t167",
+     "op": "sub",
+     "args": [
+      "_t161",
+      "_t166"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t168",
+     "op": "norm180",
+     "args": [
+      "_t167"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t169",
+     "op": "abs",
+     "args": [
+      "_t168"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t170",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t171",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t172",
+     "op": "sub",
+     "args": [
+      "_t171",
+      "_t170"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t173",
+     "op": "norm180",
+     "args": [
+      "_t172"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t174",
+     "op": "abs",
+     "args": [
+      "_t173"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t175",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t176",
+     "op": "direction",
+     "args": [
+      "B",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t177",
+     "op": "sub",
+     "args": [
+      "_t176",
+      "_t175"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t178",
+     "op": "norm180",
+     "args": [
+      "_t177"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t179",
+     "op": "abs",
+     "args": [
+      "_t178"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t180",
+     "op": "sub",
+     "args": [
+      "_t174",
+      "_t179"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t181",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t182",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t183",
+     "op": "sub",
+     "args": [
+      "_t182",
+      "_t181"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t184",
+     "op": "norm180",
+     "args": [
+      "_t183"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t185",
+     "op": "abs",
+     "args": [
+      "_t184"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t186",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t187",
+     "op": "direction",
+     "args": [
+      "B",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t188",
+     "op": "sub",
+     "args": [
+      "_t187",
+      "_t186"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t189",
+     "op": "norm180",
+     "args": [
+      "_t188"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t190",
+     "op": "abs",
+     "args": [
+      "_t189"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t191",
+     "op": "sub",
+     "args": [
+      "_t185",
+      "_t190"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t192",
+     "op": "direction",
+     "args": [
+      "B",
+      "D"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t193",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t194",
+     "op": "sub",
+     "args": [
+      "_t193",
+      "_t192"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t195",
+     "op": "norm180",
+     "args": [
+      "_t194"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t196",
+     "op": "abs",
+     "args": [
+      "_t195"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t197",
+     "op": "direction",
+     "args": [
+      "B",
+      "E"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t198",
+     "op": "direction",
+     "args": [
+      "B",
+      "F"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t199",
+     "op": "sub",
+     "args": [
+      "_t198",
+      "_t197"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t200",
+     "op": "norm180",
+     "args": [
+      "_t199"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t201",
+     "op": "abs",
+     "args": [
+      "_t200"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t202",
+     "op": "sub",
+     "args": [
+      "_t196",
+      "_t201"
+     ],
+     "type": "angle"
+    }
+   ],
+   "params": {
+    "R": 60.0,
+    "e": 13.0,
+    "q": 13.0,
+    "lamD": 90.0
+   },
+   "state": {
+    "theta": 90.0
+   },
+   "animation": {
+    "mode": "var",
+    "name": "theta",
+    "display": "θ",
+    "start": 90.0
+   },
+   "speed_s": 30.0,
+   "scene": [
+    {
+     "kind": "point",
+     "id": "A",
+     "ref": "A",
+     "text": "A",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "B",
+     "ref": "B",
+     "text": "B",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "C",
+     "ref": "C",
+     "text": "C",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "circle",
+     "id": "orb",
+     "ref": "orb",
+     "owner": ""
+    },
+    {
+     "kind": "point",
+     "id": "D",
+     "ref": "D",
+     "text": "D",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "F",
+     "ref": "F",
+     "text": "F",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "E",
+     "ref": "E",
+     "text": "E",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "segment",
+     "id": "segment0",
+     "p": "D",
+     "q": "F",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "segment1",
+     "p": "C",
+     "q": "E",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "segment2",
+     "p": "B",
+     "q": "E",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "segment3",
+     "p": "A",
+     "q": "E",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "angle",
+     "id": "angle4",
+     "vertex": "C",
+     "from": {
+      "point": "D"
+     },
+     "to": {
+      "point": "E"
+     },
+     "rank": 0,
+     "arrow": true,
+     "text": "θ",
+     "ref": "theta",
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg0",
+     "p": "B",
+     "q": "D",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg1",
+     "p": "C",
+     "q": "D",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg2",
+     "p": "B",
+     "q": "C",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg3",
+     "p": "B",
+     "q": "F",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg4",
+     "p": "C",
+     "q": "F",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    }
+   ],
+   "projection": {
+    "up": 90.0,
+    "scale": 5.04,
+    "tx": 360.0,
+    "ty": 425.52,
+    "width": 720.0,
+    "height": 720.0,
+    "r_fit": 60.0
+   },
+   "members": [],
+   "steps": [
+    {
+     "name": "h1",
+     "text": "equal(q, e)",
+     "status": "given",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "lag",
+     "text": "less(angle(D, B, E), angle(D, C, E))",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ]
+     ]
+    },
+    {
+     "name": "k1",
+     "text": "equal(angle(E, C, D), angle(C, E, B) + angle(E, B, C))",
+     "status": "justified",
+     "rule": "Elements I.32",
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "E",
+       "C"
+      ],
+      [
+       "E",
+       "B"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ]
+    },
+    {
+     "name": "k2",
+     "text": "less(angle(E, B, C), angle(E, C, D))",
+     "status": "justified",
+     "rule": "common notion 5",
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ]
+     ]
+    },
+    {
+     "name": "k3",
+     "text": "equal(angle(E, B, C), angle(D, B, E))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ]
+     ]
+    },
+    {
+     "name": "k4",
+     "text": "less(angle(D, B, E), angle(D, C, E))",
+     "status": "justified",
+     "rule": "common notion 1",
+     "points": [
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ]
+     ]
+    },
+    {
+     "name": "k5",
+     "text": "equal(angle(D, B, E) + angle(E, B, F), 180°)",
+     "status": "justified",
+     "rule": "Elements I.13",
+     "points": [
+      "B",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "k6",
+     "text": "equal(angle(D, C, E) + angle(E, C, F), 180°)",
+     "status": "justified",
+     "rule": "Elements I.13",
+     "points": [
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "lead",
+     "text": "less(angle(E, C, F), angle(E, B, F))",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "B",
+      "C",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "k7",
+     "text": "less(angle(E, C, F), angle(E, B, F))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [
+      "B",
+      "C",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "quadrant",
+     "text": "right_angle(D, C, E)",
+     "status": "supposed",
+     "rule": "",
+     "points": [
+      "C",
+      "D",
+      "E"
+     ],
+     "segments": []
+    },
+    {
+     "name": "unequal",
+     "text": "less(angle(D, B, E), angle(E, B, F))",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "B",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "k8",
+     "text": "equal(angle(D, C, E), angle(E, C, F))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "C",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "k9",
+     "text": "less(angle(D, B, E), angle(E, B, F))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [
+      "B",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ]
+    },
+    {
+     "name": "conclusion",
+     "text": "less(angle(D, B, E), angle(E, B, F))",
+     "status": "justified",
+     "rule": "",
+     "points": [
+      "B",
+      "D",
+      "E",
+      "F"
+     ],
+     "segments": [
+      [
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ]
+     ]
+    }
+   ],
+   "drawn": {
+    "R": "60",
+    "e": "13",
+    "q": "13",
+    "lamD": "90°"
+   },
+   "parametrisation": ""
+  },
+  "drawn": {
+   "R": "60",
+   "e": "13",
+   "q": "13",
+   "lamD": "90°"
+  }
+ },
+ "depths": [
+  "overview",
+  "steps",
+  "full"
+ ]
+}

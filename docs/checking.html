@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.6">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Checking – Famulus Astronomica</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-35fc0813589bbfbfa0b8ec974497eeb2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-0cbc0a97c17d6307c44ca4293ecb409e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="_generated/famulus-tokens.css">
+<style>.astra-embed{border:1px solid #efe9db;border-radius:8px;width:100%;height:940px;background:#fafaf5}
+figure.astra svg{max-width:100%;height:auto}</style>
+
+
+<!-- famulus:publisher:start -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="publisher" content="OpenScienceTechnology GmbH">
+<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/checking.html", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
+<!-- famulus:publisher:end -->
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Famulus Astronomica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./language.html"> 
+<span class="menu-text">Language</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./kinds.html"> 
+<span class="menu-text">Model · values · state</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./superposition.html"> 
+<span class="menu-text">Superposition</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./derivations.html"> 
+<span class="menu-text">Derivations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./arguments.html"> 
+<span class="menu-text">Arguments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./expositions.html"> 
+<span class="menu-text">Expositions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./models.html"> 
+<span class="menu-text">Texts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./checking.html" aria-current="page"> 
+<span class="menu-text">Checking</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./outputs.html"> 
+<span class="menu-text">Outputs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./runtime.html"> 
+<span class="menu-text">Runtime</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./diff.html"> 
+<span class="menu-text">Comparison</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./representation.html"> 
+<span class="menu-text">Representation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reading.html"> 
+<span class="menu-text">Deep reading</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./design.html"> 
+<span class="menu-text">Design notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model" id="toc-model" class="nav-link active" data-scroll-target="#model">Model</a></li>
+  <li><a href="#parametrisation" id="toc-parametrisation" class="nav-link" data-scroll-target="#parametrisation">Parametrisation</a></li>
+  <li><a href="#superposition-figure" id="toc-superposition-figure" class="nav-link" data-scroll-target="#superposition-figure">Superposition, figure</a></li>
+  <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation">Derivation</a></li>
+  <li><a href="#exit-code" id="toc-exit-code" class="nav-link" data-scroll-target="#exit-code">Exit code</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Checking</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><code>famulus-astra check</code> says what can be said of each kind of text. Levels presuppose one another; the report names the level reached, every failed check with its reason and every gap. Nothing passes by default.</p>
+<pre><code>$ famulus-astra check</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>text</th>
+<th>kind</th>
+<th>check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>fr:astra/euler-fig-3</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/euler-tide-force</code></td>
+<td>model</td>
+<td>✓ documented</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/euler-tide-force-emendation</code></td>
+<td>derivation</td>
+<td>✗ grounded</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/euler-tide-force-resolution</code></td>
+<td>derivation</td>
+<td>✓ conclusive</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/kepler-equant</code></td>
+<td>model</td>
+<td>✓ documented</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/kepler-equant-unequal-motion</code></td>
+<td>derivation</td>
+<td>✓ conclusive</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/kepler-fig-ch2-eccentric</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/kepler-fig-ch2-epicycle</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/kepler-fig-ch4</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-eccentric</code></td>
+<td>model</td>
+<td>✓ documented</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-eccentric-epicyclic</code></td>
+<td>superposition</td>
+<td>✓ consistent</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-eccentric-epicyclic.equal-radii</code></td>
+<td>parametrisation</td>
+<td>✓ attested</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-eccentric-epicyclic.proportional</code></td>
+<td>parametrisation</td>
+<td>✓ attested</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-eccentric.battani</code></td>
+<td>parametrisation</td>
+<td>✗ well-formed</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-eccentric.ptolemy</code></td>
+<td>parametrisation</td>
+<td>✓ attested</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-epicyclic</code></td>
+<td>model</td>
+<td>✓ documented</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-equation-of-centre</code></td>
+<td>derivation</td>
+<td>✓ conclusive</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-equivalence-equal-radii</code></td>
+<td>derivation</td>
+<td>✓ conclusive</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-equivalence-proportional</code></td>
+<td>derivation</td>
+<td>✓ conclusive</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-fig-1-2</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-fig-1-3</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-fig-1-4</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-fig-eccentric</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-fig-epicyclic</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-fig-equal-radii-steps</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="even">
+<td><code>fr:astra/solar-fig-equation</code></td>
+<td>figure</td>
+<td>✓ labelled</td>
+</tr>
+<tr class="odd">
+<td><code>fr:astra/solar-parameters-from-seasons</code></td>
+<td>derivation</td>
+<td>✓ conclusive</td>
+</tr>
+</tbody>
+</table>
+<section id="model" class="level2">
+<h2 class="anchored" data-anchor-id="model">Model</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>level</th>
+<th>what is checked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>well-formed</strong></td>
+<td>the text parses; names are unique and defined before use; types match; no value, no source, no statement of another kind</td>
+</tr>
+<tr class="even">
+<td><strong>constructible</strong></td>
+<td>every object has a solution in every sampled configuration of the parameter space and the states</td>
+</tr>
+<tr class="odd">
+<td><strong>astronomical</strong></td>
+<td>one observer; a body; an observable direction from the observer to the body; a declared frame</td>
+</tr>
+<tr class="even">
+<td><strong>kinematic</strong></td>
+<td>a kinematic variable that reaches a body through the construction</td>
+</tr>
+<tr class="odd">
+<td><strong>consistent</strong></td>
+<td>the stated propositions hold in every sampled configuration</td>
+</tr>
+<tr class="even">
+<td><strong>documented</strong></td>
+<td><code>attributed</code>, <code>witness</code>, <code>author</code>; a meaning for every symbol and object</td>
+</tr>
+</tbody>
+</table>
+<pre><code>solar-eccentric: model, level documented (6/6)
+  ✓ well-formed
+  ✓ constructible
+  ✓ astronomical
+  ✓ kinematic
+  ✓ consistent
+  ✓ documented
+  ✓ p1: equal(lam_bar, lamA + kappa_bar)  max residual 5.7e-14 over 3456 configurations
+  ✓ p2: equal(kappa, kappa_bar - c)  max residual 1.1e-13 over 3456 configurations
+  ✓ p5: equal(lam, lam_bar - c)  max residual 5.7e-14 over 3456 configurations
+  ✓ p3: collinear(A, E, B)  max residual 1.5e-16 over 3456 configurations
+  ✓ p4: collinear(A, O, B)  max residual 1.3e-16 over 3456 configurations</code></pre>
+</section>
+<section id="parametrisation" class="level2">
+<h2 class="anchored" data-anchor-id="parametrisation">Parametrisation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>level</th>
+<th>what is checked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>complete</strong></td>
+<td>every parameter of the model has a value</td>
+</tr>
+<tr class="even">
+<td><strong>admissible</strong></td>
+<td>every value lies in its range</td>
+</tr>
+<tr class="odd">
+<td><strong>attested</strong></td>
+<td>every value has a <code>source fr:…</code> or a <code>gap "…"</code>; whose values they are and who wrote the text is said</td>
+</tr>
+</tbody>
+</table>
+<pre><code>solar-eccentric.battani: parametrisation, level well-formed (1/4)
+  ✓ well-formed
+  ✗ complete
+      T (tropical year) has no value
+      kappa_0 (mean anomaly at t = 0) has no value
+  · admissible (not reached)
+  · attested (not reached)
+  gap: R = 60: the norm R = 60 is not repeated in the paragraph; e is given in its units</code></pre>
+</section>
+<section id="superposition-figure" class="level2">
+<h2 class="anchored" data-anchor-id="superposition-figure">Superposition, figure</h2>
+<p>A superposition is checked as a model, with <strong>superposed</strong> in place of the astronomical levels: the members’ observers are identified. A figure is <strong>drawable</strong> when its values and state give every drawn object a place, and <strong>labelled</strong> when every drawn object has a meaning or a symbol.</p>
+</section>
+<section id="derivation" class="level2">
+<h2 class="anchored" data-anchor-id="derivation">Derivation</h2>
+<p>grounded · true · justified · conclusive — see <a href="./derivations.html">Derivations</a>.</p>
+<pre><code>solar-equivalence-equal-radii: derivation in solar-eccentric-epicyclic, level conclusive (5/5)
+  ✓ well-formed
+  ✓ grounded
+  ✓ true
+  ✓ justified
+  ✓ conclusive
+  given     h1: equal(Epi.R', Ecc.R)
+  given     h2: equal(Epi.r, Ecc.e)
+  ✓ same: coincident(Ecc.S, Epi.S') by cases — justified by cases
+    ✓ d3: equal(distance(Ecc.E, Ecc.S), Ecc.R) from def Ecc.S by construction — read off the construction
+    ✓ d4: equal(distance(O, Epi.C), Epi.R') from def Epi.C by construction — read off the construction
+    ✓ d8: equal(distance(O, Ecc.E), Ecc.e) from def Ecc.E by construction — read off the construction
+    ✓ d9: equal(distance(Epi.C, Epi.S'), Epi.r) from def Epi.S' by construction — read off the construction
+    ✓ generic: coincident(Ecc.S, Epi.S') from d12 — justified (it is d12)
+      ✓ sides: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) from d2 — justified (it is d2)
+        ✓ d1: equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C)) from def Ecc.A, def Ecc.S, def Epi.A', def Epi.C by construction — read off the construction
+        ✓ d2: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) from d1 by Elements I.28 — justified
+      ✓ d5: equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C)) from d3, d4, h1 by common notion 1 — justified
+      ✓ joins: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from d6 — justified (it is d6)
+        ✓ d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from sides, d5 by Elements I.33 — justified
+      ✓ d7: equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S)) from sides, d5 by Elements I.33 — justified
+      ✓ d10: equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S')) from d7, d8, h2, d9 by common notion 1 — justified
+      ✓ d11: parallel(line(Epi.C, Epi.S'), line(O, Ecc.E)) from def Epi.S', def Ecc.E by construction — read off the construction
+      ✓ d12: coincident(Ecc.S, Epi.S') from joins, d11, d10 by lemma same ray — justified
+    ✓ apogee: coincident(Ecc.S, Epi.S') from a7 — justified (it is a7)
+      ✓ a1: equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E, Ecc.S)) by lemma segment addition — justified
+      ✓ a2: equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C, Epi.S')) by lemma segment addition — justified
+      ✓ a3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from a1, a2, d3, d4, d8, d9, h1, h2 by algebra — by calculation
+      ✓ a4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from apogee by lemma one line — justified
+      ✓ a5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E by construction — read off the construction
+      ✓ a6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from a5 by lemma one line — justified
+      ✓ a7: coincident(Ecc.S, Epi.S') from a4, a6, a3 by lemma same ray — justified
+    ✓ perigee: coincident(Ecc.S, Epi.S') from p7 — justified (it is p7)
+      ✓ p1: equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O, Ecc.S)) by lemma segment addition — justified
+      ✓ p2: equal(distance(Epi.C, O), distance(Epi.C, Epi.S') + distance(Epi.S', O)) by lemma segment addition — justified
+      ✓ p3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from p1, p2, d3, d4, d8, d9, h1, h2 by algebra — by calculation
+      ✓ p4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from perigee by lemma one line — justified
+      ✓ p5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E by construction — read off the construction
+      ✓ p6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from p5 by lemma one line — justified
+      ✓ p7: coincident(Ecc.S, Epi.S') from p4, p6, p3 by lemma same ray — justified
+  ✓ conclusion: coincident(Ecc.S, Epi.S') from same — justified (it is same)</code></pre>
+</section>
+<section id="exit-code" class="level2">
+<h2 class="anchored" data-anchor-id="exit-code">Exit code</h2>
+<p><code>famulus-astra check &lt;id&gt;</code> exits 1 unless the text passes all its levels (<code>--allow-incomplete</code> lifts that), so it can gate a build. <code>--json</code> gives the report as data (<code>build/&lt;id&gt;/check.json</code>).</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<!-- famulus:publisher:start -->
+<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a href="/impressum/">Legal notice</a> · <a href="/datenschutz/">Privacy</a></p>
+<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
+<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/checking.html&amp;m=" width="1" height="1" alt=""></noscript>
+<!-- famulus:publisher:end -->
+</body></html>

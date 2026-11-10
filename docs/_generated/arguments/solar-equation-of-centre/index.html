@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The equation of centre is the angle at the sun, with tan c = e sin κ̄ / (R + e cos κ̄)</title>
+<style>/* generated from tokens/famulus.json by famulus_visualization.tokens — do not edit */
+:root {
+  --fv-oxford: #002147;
+  --fv-oxford-deep: #00152e;
+  --fv-oxford-700: #042b5b;
+  --fv-oxford-300: #2c5282;
+  --fv-oxford-100: #dbe3ee;
+  --fv-gold: #cfb53b;
+  --fv-gold-deep: #8c6d2a;
+  --fv-gold-100: #f3ead0;
+  --fv-paper: #fafaf5;
+  --fv-sandstone: #fbf8f2;
+  --fv-sandstone-dark: #efe9db;
+  --fv-line: #cdbfa4;
+  --fv-ink: #1a1a1a;
+  --fv-muted: #5c5348;
+  --fv-white: #ffffff;
+  --fv-cat-0: #002147;
+  --fv-cat-1: #8c6d2a;
+  --fv-cat-2: #3f7686;
+  --fv-cat-3: #9a4f3c;
+  --fv-cat-4: #5f6b3a;
+  --fv-cat-5: #7a4a6a;
+  --fv-cat-6: #5c5348;
+  --fv-seq-0: #f3f6fa;
+  --fv-seq-1: #dbe3ee;
+  --fv-seq-2: #a9bcd6;
+  --fv-seq-3: #6f8fb8;
+  --fv-seq-4: #2c5282;
+  --fv-seq-5: #042b5b;
+  --fv-seq-6: #002147;
+  --fv-div-0: #002147;
+  --fv-div-1: #2c5282;
+  --fv-div-2: #a9bcd6;
+  --fv-div-3: #fafaf5;
+  --fv-div-4: #e6d6a8;
+  --fv-div-5: #b8953f;
+  --fv-div-6: #8c6d2a;
+  --fv-highlight: #cfb53b;
+  --fv-context: #cdbfa4;
+  --fv-sans: "Source Sans 3", "Inter", "Helvetica Neue", "Arial", sans-serif;
+  --fv-mono: "Fira Code", "JetBrains Mono", "Menlo", monospace;
+  --fv-size-small: 11px;
+  --fv-size-tick: 12px;
+  --fv-size-label: 13px;
+  --fv-size-caption: 12px;
+  --fv-size-title: 15px;
+  --fv-stroke-hairline: 1px;
+  --fv-stroke-grid: 0.75px;
+  --fv-stroke-line: 1.5px;
+  --fv-stroke-edge: 2px;
+  --fv-stroke-accent: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fv-oxford: #8fb0dc;
+    --fv-oxford-deep: #00152e;
+    --fv-oxford-700: #b9cde8;
+    --fv-oxford-300: #6d93c7;
+    --fv-oxford-100: #22324d;
+    --fv-gold: #d9c25e;
+    --fv-gold-deep: #c4a15a;
+    --fv-gold-100: #3b3420;
+    --fv-paper: #0d1624;
+    --fv-sandstone: #152238;
+    --fv-sandstone-dark: #efe9db;
+    --fv-line: #3a4a63;
+    --fv-ink: #ece6d8;
+    --fv-muted: #a89f90;
+    --fv-white: #ffffff;
+    --fv-surface: #152238;
+    --fv-cat-0: #8fb0dc;
+    --fv-cat-1: #d9c25e;
+    --fv-cat-2: #7fb3c2;
+    --fv-cat-3: #d0907c;
+    --fv-cat-4: #a9b67a;
+    --fv-cat-5: #c193b3;
+    --fv-cat-6: #a89f90;
+  }
+}
+:root[data-theme="dark"] {
+  --fv-oxford: #8fb0dc;
+  --fv-oxford-deep: #00152e;
+  --fv-oxford-700: #b9cde8;
+  --fv-oxford-300: #6d93c7;
+  --fv-oxford-100: #22324d;
+  --fv-gold: #d9c25e;
+  --fv-gold-deep: #c4a15a;
+  --fv-gold-100: #3b3420;
+  --fv-paper: #0d1624;
+  --fv-sandstone: #152238;
+  --fv-sandstone-dark: #efe9db;
+  --fv-line: #3a4a63;
+  --fv-ink: #ece6d8;
+  --fv-muted: #a89f90;
+  --fv-white: #ffffff;
+  --fv-surface: #152238;
+  --fv-cat-0: #8fb0dc;
+  --fv-cat-1: #d9c25e;
+  --fv-cat-2: #7fb3c2;
+  --fv-cat-3: #d0907c;
+  --fv-cat-4: #a9b67a;
+  --fv-cat-5: #c193b3;
+  --fv-cat-6: #a89f90;
+}
+
+.astra-figure { background: var(--fv-paper); }
+.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }
+.astra-dashed { stroke-dasharray: 5 4; }
+.astra-claim { stroke: var(--fv-gold-deep); }
+.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }
+.astra-label.var { font-style: italic; }
+.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }
+.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }
+.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-hidden { display: none; }
+.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }
+.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }
+.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }
+/* <astra-argument> — the display of a geometrical argument (astra-argument/1).
+   Colours come from the famulus tokens (--fv-*) where a page loads them; the fallbacks make the element
+   self-sufficient, e.g. inside ai-viewer, which has its own variables. One colour has one meaning:
+   gold marks what the selected step speaks of. */
+astra-argument { display: block; }
+.aa {
+  --aa-blue: var(--fv-oxford, #002147); --aa-gold: var(--fv-gold-deep, #8c6d2a); --aa-gold-soft: #c4a15a;
+  --aa-pale: #f3ead0; --aa-paper: var(--fv-paper, #fffdf8); --aa-ink: var(--fv-ink, #1b2733);
+  --aa-muted: var(--fv-muted, #5c5348); --aa-line: var(--fv-line, #e3d9c6); --aa-sand: #f6f1e7;
+  --aa-serif: "Source Serif 4", "Source Serif Pro", Palatino, Georgia, serif;
+  --aa-sans: var(--fv-sans, "Source Sans 3", "Helvetica Neue", Arial, sans-serif);
+  --aa-mono: var(--fv-mono, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace);
+  color: var(--aa-ink); background: var(--aa-paper); font-family: var(--aa-sans); font-size: 15px; line-height: 1.45;
+  border: 1px solid var(--aa-line); border-radius: 10px; overflow: hidden;
+}
+.aa * { box-sizing: border-box; }
+.aa button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.aa button:focus-visible { outline: 2px solid var(--aa-gold-soft); outline-offset: 2px; border-radius: 4px; }
+
+/* head */
+.aa-head { padding: 18px 22px 14px; border-bottom: 3px solid var(--aa-gold-soft); background: var(--aa-blue); color: #fff; }
+.aa-kicker { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--aa-gold-soft); margin: 0 0 4px; }
+.aa-title { font-family: var(--aa-serif); font-size: 21px; line-height: 1.25; font-weight: 600; margin: 0; }
+.aa-who { margin: 8px 0 0; font-size: 12.5px; color: #d9dfe8; }
+.aa-who b { color: #fff; font-weight: 600; }
+.aa-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 10px 22px; background: var(--aa-sand); border-bottom: 1px solid var(--aa-line); }
+.aa-depth { display: inline-flex; border: 1px solid var(--aa-blue); border-radius: 7px; overflow: hidden; }
+.aa .aa-depth button { padding: 5px 13px; font-size: 13px; color: var(--aa-blue); border-right: 1px solid var(--aa-blue); }
+.aa .aa-depth button:last-child { border-right: 0; }
+.aa .aa-depth button[aria-pressed="true"] { background: var(--aa-blue); color: #fff; }
+.aa-levels { font-size: 12.5px; color: var(--aa-muted); margin-left: auto; }
+.aa-levels span { margin-left: 10px; white-space: nowrap; }
+.aa-levels .ok::before { content: "✓ "; color: var(--aa-gold); }
+.aa-levels .no::before { content: "✗ "; color: #a23b2a; }
+
+/* layout */
+.aa-grid { display: grid; grid-template-columns: minmax(280px, 42%) 1fr; }
+.aa-fig { position: sticky; top: 0; align-self: start; padding: 14px 14px 10px 18px; border-right: 1px solid var(--aa-line); }
+/* the figure's tokens, in their light values: set here so that the element looks the same in any host */
+.aa-fig { --fv-paper: #fafaf5; --fv-oxford: #002147; --fv-ink: #1a1a1a; --fv-muted: #5c5348; --fv-gold-deep: #8c6d2a; --fv-line: #cdbfa4;
+  --fv-stroke-line: 1.5px; --fv-stroke-hairline: 1px; --fv-size-title: 15px; --fv-size-caption: 12px;
+  --fv-sans: "Source Sans 3", "Inter", "Helvetica Neue", Arial, sans-serif; }
+.aa-fig svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+.aa-fig-note { font-size: 12px; color: var(--aa-muted); margin: 6px 2px 0; }
+.aa-selected { min-height: 2.6em; margin: 8px 2px 0; padding: 7px 10px; border-left: 3px solid var(--aa-gold-soft); background: var(--aa-pale); font-size: 13px; border-radius: 0 6px 6px 0; }
+.aa-selected b { color: var(--aa-blue); }
+.aa-outline { padding: 6px 20px 18px; min-width: 0; }
+.aa.aa-narrow .aa-grid { grid-template-columns: 1fr; }
+.aa.aa-narrow .aa-fig { position: static; border-right: 0; border-bottom: 1px solid var(--aa-line); padding: 12px; }
+.aa.aa-nofig .aa-grid { grid-template-columns: 1fr; }
+.aa.aa-nofig .aa-fig { display: none; }
+
+/* bands */
+.aa-band { border-bottom: 1px solid var(--aa-line); padding: 4px 0 10px; }
+.aa-band:last-child { border-bottom: 0; }
+.aa .aa-band-h { display: flex; align-items: baseline; gap: 8px; width: 100%; padding: 10px 0 6px; font-size: 11.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--aa-gold); font-weight: 700; }
+.aa-band-h .aa-chev { display: inline-block; width: 1em; transition: transform .15s; color: var(--aa-blue); }
+.aa-band-h[aria-expanded="true"] .aa-chev { transform: rotate(90deg); }
+.aa-band-h small { letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--aa-muted); font-size: 12.5px; }
+.aa-band-b[hidden] { display: none; }
+
+/* model */
+.aa-member { margin: 2px 0 10px; }
+.aa-member h4 { margin: 4px 0 4px; font-family: var(--aa-serif); font-size: 15.5px; color: var(--aa-blue); font-weight: 600; }
+.aa-member h4 small { font-family: var(--aa-sans); font-weight: 400; color: var(--aa-muted); font-size: 12.5px; }
+.aa-defs { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0; font-size: 14px; }
+.aa-defs dt { font-family: var(--aa-serif); font-style: italic; color: var(--aa-blue); white-space: nowrap; }
+.aa-defs dt sub { font-size: 70%; font-style: normal; }
+.aa-defs dd { margin: 0; }
+.aa-defs code, .aa-formal { font-family: var(--aa-mono); font-size: 12px; color: var(--aa-muted); }
+.aa-defs .aa-def { display: none; }
+.aa[data-depth="full"] .aa-defs .aa-def { display: block; }
+.aa-group { grid-column: 1 / -1; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--aa-muted); margin-top: 6px; }
+
+/* the argument */
+.aa-node { margin: 0; }
+.aa-row { display: grid; grid-template-columns: 1.15em minmax(2.2em, max-content) 1fr auto 1.2em 1.5em; column-gap: 8px; align-items: baseline; padding: 6px 6px 6px 2px; border-radius: 6px; border-left: 3px solid transparent; }
+.aa-row:hover { background: var(--aa-sand); }
+.aa-node.is-selected > .aa-row { background: var(--aa-pale); border-left-color: var(--aa-gold-soft); }
+.aa-node.is-cited > .aa-row { box-shadow: inset 0 0 0 1.5px var(--aa-gold-soft); }
+.aa .aa-tog { width: 1.15em; color: var(--aa-blue); font-size: 12px; line-height: 1.6; }
+.aa-tog .aa-chev { display: inline-block; transition: transform .15s; }
+.aa-tog[aria-expanded="true"] .aa-chev { transform: rotate(90deg); }
+.aa-num { font-size: 12px; font-weight: 700; color: var(--aa-gold); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.aa-main { min-width: 0; }
+.aa .aa-claim { display: block; width: 100%; font-family: var(--aa-serif); font-size: 15.5px; line-height: 1.4; color: var(--aa-ink); }
+.aa .aa-kind-sub-argument > .aa-row .aa-claim, .aa .aa-kind-case > .aa-row .aa-claim, .aa .aa-kind-conclusion > .aa-row .aa-claim { font-weight: 600; color: var(--aa-blue); }
+.aa .aa-kind-supposition > .aa-row .aa-claim { font-style: italic; }
+.aa-case-tag { font-family: var(--aa-sans); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--aa-gold); margin-right: 6px; font-weight: 700; }
+.aa-sub { margin-top: 2px; font-size: 12.5px; color: var(--aa-muted); display: flex; flex-wrap: wrap; gap: 2px 12px; align-items: baseline; }
+.aa-not { font-family: "STIX Two Math", "STIX Two Text", "Cambria Math", "Apple Symbols", var(--aa-serif); font-size: 14px; color: var(--aa-blue); overflow-wrap: anywhere; letter-spacing: .01em; }
+.aa-when { font-style: italic; }
+.aa .aa-ref { display: inline-block; padding: 0 6px; margin: 0 1px; border: 1px solid var(--aa-line); border-radius: 9px; font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--aa-blue); background: var(--aa-paper); line-height: 1.5; }
+.aa .aa-ref:hover { border-color: var(--aa-gold-soft); background: var(--aa-pale); }
+.aa-ref.is-plain { border-style: dashed; cursor: default; }
+.aa-rule { font-size: 12px; font-style: italic; color: var(--aa-gold); white-space: nowrap; text-align: right; }
+.aa-mark { font-size: 14px; color: var(--aa-blue); text-align: center; }
+.aa-mark.is-gap, .aa-mark.is-false { color: #a23b2a; font-weight: 700; }
+.aa .aa-more { width: 1.5em; text-align: center; color: var(--aa-muted); font-size: 15px; line-height: 1; border-radius: 4px; }
+.aa .aa-more[aria-expanded="true"] { color: var(--aa-blue); background: var(--aa-pale); }
+.aa-children { margin-left: 0.62em; padding-left: 0.9em; border-left: 1px solid var(--aa-line); }
+.aa-children[hidden], .aa-detail[hidden] { display: none; }
+.aa-distinction { margin: 4px 0 2px 0.2em; font-size: 12.5px; color: var(--aa-muted); font-style: italic; }
+.aa[data-depth="overview"] .aa-sub { display: none; }
+.aa-detail { margin: 0 0 8px calc(1.15em + 2.2em + 16px); padding: 8px 12px; background: var(--aa-sand); border-radius: 6px; font-size: 13px; }
+.aa-detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0; }
+.aa-detail dt { color: var(--aa-muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; padding-top: 2px; }
+.aa-detail dd { margin: 0; overflow-wrap: anywhere; }
+.aa-detail q { font-family: var(--aa-serif); quotes: "“" "”"; }
+.aa-detail .aa-warn { color: #a23b2a; }
+
+/* conclusion and checks */
+.aa-therefore .aa-row { background: var(--aa-blue); color: #fff; padding: 10px 10px 10px 8px; grid-template-columns: 1.15em minmax(2.2em, max-content) 1fr auto 1.2em 1.5em; }
+.aa-therefore .aa-claim, .aa .aa-therefore .aa-kind-conclusion > .aa-row .aa-claim { color: #fff; }
+.aa-therefore .aa-num, .aa-therefore .aa-rule { color: var(--aa-gold-soft); }
+.aa-therefore .aa-not, .aa-therefore .aa-sub, .aa-therefore .aa-mark { color: #d9dfe8; }
+.aa-therefore .aa-more { color: #d9dfe8; }
+.aa-therefore .aa-node + .aa-node { margin-top: 6px; }
+.aa-therefore .aa-node.is-selected > .aa-row { background: var(--aa-blue); border-left-color: var(--aa-gold-soft); }
+.aa-checks { font-size: 13.5px; }
+.aa-checks ul { margin: 4px 0 0; padding-left: 1.1em; }
+.aa-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 2px 0 8px; font-size: 12.5px; color: var(--aa-muted); }
+.aa-legend b { color: var(--aa-blue); font-weight: 600; margin-right: 4px; }
+.aa-comp { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 13px; }
+.aa-comp td, .aa-comp th { border-top: 1px solid var(--aa-line); padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
+.aa-comp th { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--aa-muted); font-weight: 600; }
+
+/* the figure's transport inside the element */
+.aa .astra-transport { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--aa-muted); }
+.aa .astra-btn { border: 1px solid var(--aa-line); background: var(--aa-sand); color: var(--aa-blue); border-radius: 6px; width: 36px; height: 28px; text-align: center; }
+.aa .astra-slider { flex: 1; accent-color: var(--aa-gold); }
+.aa .astra-readout { min-width: 9em; text-align: right; font-variant-numeric: tabular-nums; }
+.aa .astra-morph-label { min-width: 2em; text-align: center; color: var(--aa-blue); font-weight: 600; }
+.aa .astra-steps { display: none; }
+
+@media print {
+  .aa { border: 0; } .aa-bar, .aa .astra-transport, .aa-tog, .aa-more { display: none !important; }
+  .aa-fig { position: static; } .aa-children[hidden] { display: block !important; }
+}
+</style>
+<style>body{margin:0;background:#f6f1e7;font-family:var(--fv-sans, system-ui)} .aa-page{max-width:1240px;margin:0 auto;padding:18px}</style>
+<script>
+  window.addEventListener('error', e => { document.documentElement.dataset.renderError = String(e.message || e); });
+</script>
+<!-- famulus:publisher:start -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="publisher" content="OpenScienceTechnology GmbH">
+<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/_generated/arguments/solar-equation-of-centre/", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
+<!-- famulus:publisher:end -->
+</head><body>
+<div class="aa-page"><astra-argument id="arg" depth="steps"></astra-argument></div>
+<script type="application/json" id="astra-argument-data">{"format": "astra-argument/1", "notation": "astra/1", "id": "solar-equation-of-centre", "address": "fr:astra/solar-equation-of-centre", "title": "The equation of centre is the angle at the sun, with tan c = e sin κ̄ / (R + e cos κ̄)", "author": "Gerd Graßhoff", "witness": [{"address": "fr:kepler-sec/Swerdlow2026/0052/p03", "note": "the formula, p. 22"}, {"address": "fr:kepler-sec/Swerdlow2026/0052/p05", "note": "the maximum, p. 22"}], "attributed": ["Ptolemy"], "context": {"id": "solar-eccentric", "kind": "model", "title": "Ptolemy's solar model, eccentric form", "address": "fr:astra/solar-eccentric"}, "check": {"level": "conclusive", "complete": true, "levels": ["well-formed", "grounded", "true", "justified", "conclusive"], "passed": ["well-formed", "grounded", "true", "justified", "conclusive"], "failures": {}}, "model": [{"prefix": "", "id": "solar-eccentric", "address": "fr:astra/solar-eccentric", "title": "Ptolemy's solar model, eccentric form", "attributed": "Ptolemy", "frame": "geocentric", "parameters": [{"name": "R", "symbol": "R", "unit": "length", "meaning": "radius of the eccentric", "range": "(1, 1000)"}, {"name": "e", "symbol": "e", "unit": "length", "meaning": "eccentricity, the distance OE", "range": "(0, R / 2)"}, {"name": "lamA", "symbol": "λ_A", "unit": "angle", "meaning": "longitude of the apogee", "range": null}, {"name": "T", "symbol": "T", "unit": "time", "meaning": "tropical year", "range": "(300, 400)"}, {"name": "kappa_0", "symbol": "κ̄_0", "unit": "angle", "meaning": "mean anomaly at t = 0", "range": null}], "variables": [{"name": "kappa_bar", "symbol": "κ̄", "meaning": "mean anomaly about E, counted from the apogee", "law": "uniform in time, period T"}], "objects": [{"name": "O", "symbol": "O", "kind": "point", "defined_by": "observer()", "meaning": "earth"}, {"name": "E", "symbol": "E", "kind": "point", "defined_by": "O + polar(e, lamA)", "meaning": "centre of the eccentric"}, {"name": "ecc", "symbol": "ecc", "kind": "circle", "defined_by": "circle(E, R)", "meaning": "the eccentric"}, {"name": "A", "symbol": "A", "kind": "point", "defined_by": "E + polar(R, lamA)", "meaning": "apogee"}, {"name": "B", "symbol": "B", "kind": "point", "defined_by": "E - polar(R, lamA)", "meaning": "perigee"}, {"name": "S", "symbol": "S", "kind": "point", "defined_by": "E + polar(R, lamA + kappa_bar)", "meaning": "sun"}], "observables": [{"name": "lam_bar", "symbol": "λ̄_S", "defined_by": "direction(E, S)", "meaning": "mean longitude"}, {"name": "lam", "symbol": "λ_S", "defined_by": "direction(O, S)", "meaning": "true longitude"}, {"name": "kappa", "symbol": "κ", "defined_by": "lam - lamA", "meaning": "true anomaly about O"}, {"name": "c", "symbol": "c", "defined_by": "lam_bar - lam", "meaning": "equation of centre, mean minus true longitude"}]}], "identified": [], "hypotheses": [], "constructions": [{"name": "F", "symbol": "F", "defined_by": "foot(O, line(E, S))", "meaning": "foot of the perpendicular from the earth on ES"}], "argument": [{"id": "d1", "number": "1", "kind": "step", "depth": 0, "claim": "OE produced to the apogee: the exterior angle at E of the triangle OES", "notation": "∠SEA = ∠ESO + ∠SOE", "formal": "equal(angle(S, E, A), angle(E, S, O) + angle(S, O, E))", "from": [{"kind": "construction", "ref": "A", "label": "constr. A"}], "by": {"rule": "Elements I.32", "kind": "proposition", "statement": "In any triangle, if one of the sides be produced, the exterior angle is equal to the two interior and opposite angles, and the three interior angles of the triangle are equal to two right angles.", "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0325", "printed": "vol. I, p. 316", "rests_on": null, "case": "the exterior angle"}, "status": "justified", "grade": "rule", "mark": "✓", "note": "configuration conditions fail there: noncollinear(S, O, E)", "when": null, "distinction": null, "binding": {"A": "S", "C": "E", "D": "A", "B": "O"}, "hypotheses_met_by": null, "conditions": ["SOE a triangle", "O, E, A on one line", "E between O and A"], "degenerate_at": ["κ̄ = 0°", "κ̄ = 180°"], "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.1368683772161603e-13, "points": ["A", "E", "O", "S"], "segments": [["E", "S"], ["E", "A"], ["S", "E"], ["S", "O"], ["O", "S"], ["O", "E"]], "children": []}, {"id": "d2", "number": "2", "kind": "step", "depth": 0, "claim": "the exterior angle is κ̄ and the angle at O is κ, so the angle at S is κ̄ − κ = c", "notation": "|c| = ∠OSE", "formal": "equal(abs(norm180(c)), angle(O, S, E))", "from": [{"kind": "step", "ref": "d1", "label": "1"}, {"kind": "proposition", "ref": "p1", "label": "stated p1"}, {"kind": "proposition", "ref": "p2", "label": "stated p2"}], "by": {"rule": "algebra", "kind": "calculation", "statement": "The proposition follows from the cited equalities by calculation.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "by calculation", "grade": "calculation", "mark": "≈", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.1368683772161603e-13, "points": ["E", "O", "S"], "segments": [["S", "O"], ["S", "E"]], "children": []}, {"id": "d3", "number": "3", "kind": "step", "depth": 0, "claim": "OF ⊥ ES", "notation": "OF ⊥ ES", "formal": "perpendicular(line(O, F), line(E, S))", "from": [{"kind": "construction", "ref": "F", "label": "aux. F"}], "by": {"rule": "construction", "kind": "construction", "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "read off the construction", "grade": "construction", "mark": "◦", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": ["κ̄ = 0°", "κ̄ = 180°"], "needs": null, "residual": 4.6074255521944e-15, "points": ["E", "F", "O", "S"], "segments": [["O", "F"], ["E", "S"]], "children": []}, {"id": "d4", "number": "4", "kind": "step", "depth": 0, "claim": "OF = OE·sin(∠OEF)", "notation": "OF = OE·sin(∠OEF)", "formal": "equal(distance(O, F), distance(O, E) * sin(angle(O, E, F)))", "from": [{"kind": "step", "ref": "d3", "label": "3"}], "by": {"rule": "trigonometry sine", "kind": "definition", "statement": "In a right triangle the side opposite an acute angle is the hypotenuse times the sine of that angle.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "justified", "grade": "rule", "mark": "✓", "note": "configuration conditions fail there: distinct(E, F), distinct(O, F)", "when": null, "distinction": null, "binding": {"X": "O", "F": "F", "Y": "E", "Z": "S"}, "hypotheses_met_by": {"perpendicular(line(X, F), line(Y, Z))": "3"}, "conditions": ["E, S, F on one line", "E ≠ F", "O ≠ F"], "degenerate_at": ["κ̄ = 0°", "κ̄ = 90°", "κ̄ = 180°", "κ̄ = 270°"], "equal_at": null, "undefined_at": ["κ̄ = 270°", "κ̄ = 90°"], "needs": null, "residual": 6.022589254229732e-16, "points": ["E", "F", "O"], "segments": [["O", "F"], ["O", "E"], ["E", "O"], ["E", "F"]], "children": []}, {"id": "d5", "number": "5", "kind": "step", "depth": 0, "claim": "OE = e", "notation": "OE = e", "formal": "equal(distance(O, E), e)", "from": [{"kind": "construction", "ref": "E", "label": "constr. E"}], "by": {"rule": "construction", "kind": "construction", "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "read off the construction", "grade": "construction", "mark": "◦", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 7.17496237301884e-17, "points": ["E", "O"], "segments": [["O", "E"]], "children": []}, {"id": "d6", "number": "6", "kind": "step", "depth": 0, "claim": "the angle OEF is κ̄ or its supplement, according to the side of E on which F falls", "notation": "sin(∠OEF) = |sin(κ̄)|", "formal": "equal(sin(angle(O, E, F)), abs(sin(kappa_bar)))", "from": [{"kind": "construction", "ref": "E", "label": "constr. E"}, {"kind": "construction", "ref": "S", "label": "constr. S"}, {"kind": "construction", "ref": "F", "label": "aux. F"}], "by": {"rule": "construction", "kind": "construction", "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "read off the construction", "grade": "construction", "mark": "◦", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": ["κ̄ = 270°", "κ̄ = 90°"], "needs": null, "residual": 2.123301534595612e-15, "points": ["E", "F", "O"], "segments": [["E", "O"], ["E", "F"]], "children": []}, {"id": "d7", "number": "7", "kind": "step", "depth": 0, "claim": "OF = e·|sin(κ̄)|", "notation": "OF = e·|sin(κ̄)|", "formal": "equal(distance(O, F), e * abs(sin(kappa_bar)))", "from": [{"kind": "step", "ref": "d4", "label": "4"}, {"kind": "step", "ref": "d5", "label": "5"}, {"kind": "step", "ref": "d6", "label": "6"}], "by": {"rule": "algebra", "kind": "calculation", "statement": "The proposition follows from the cited equalities by calculation.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "by calculation", "grade": "calculation", "mark": "≈", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 8.541853207862127e-16, "points": ["F", "O"], "segments": [["O", "F"]], "children": []}, {"id": "d8", "number": "8", "kind": "step", "depth": 0, "claim": "F lies on SE produced beyond E for κ̄ within 90° of the apogee, between S and E otherwise: SF = SE ± EF", "notation": "SF = R + e·cos(κ̄)", "formal": "equal(distance(S, F), R + e * cos(kappa_bar))", "from": [{"kind": "construction", "ref": "E", "label": "constr. E"}, {"kind": "construction", "ref": "S", "label": "constr. S"}, {"kind": "construction", "ref": "F", "label": "aux. F"}], "by": {"rule": "construction", "kind": "construction", "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "read off the construction", "grade": "construction", "mark": "◦", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 8.541853207862127e-16, "points": ["F", "S"], "segments": [["S", "F"]], "children": []}, {"id": "d9", "number": "9", "kind": "step", "depth": 0, "claim": "tan(∠OSF) = OF / SF", "notation": "tan(∠OSF) = OF / SF", "formal": "equal(tan(angle(O, S, F)), distance(O, F) / distance(S, F))", "from": [{"kind": "step", "ref": "d3", "label": "3"}], "by": {"rule": "trigonometry tangent", "kind": "definition", "statement": "In a right triangle the tangent of an acute angle is the opposite side over the adjacent side.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "justified", "grade": "rule", "mark": "✓", "note": "configuration conditions fail there: distinct(O, F)", "when": null, "distinction": null, "binding": {"X": "O", "Y": "S", "F": "F", "Z": "E"}, "hypotheses_met_by": {"perpendicular(line(X, F), line(Y, Z))": "3"}, "conditions": ["S, E, F on one line", "S ≠ F", "O ≠ F"], "degenerate_at": ["κ̄ = 0°", "κ̄ = 180°"], "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.4432899320127035e-15, "points": ["F", "O", "S"], "segments": [["S", "O"], ["S", "F"], ["O", "F"], ["S", "F"]], "children": []}, {"id": "d10", "number": "10", "kind": "step", "depth": 0, "claim": "F and E lie from S on one ray", "notation": "∠OSF = ∠OSE", "formal": "equal(angle(O, S, F), angle(O, S, E))", "from": [{"kind": "construction", "ref": "F", "label": "aux. F"}, {"kind": "construction", "ref": "E", "label": "constr. E"}, {"kind": "construction", "ref": "S", "label": "constr. S"}], "by": {"rule": "construction", "kind": "construction", "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "read off the construction", "grade": "construction", "mark": "◦", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 5.684341886080802e-14, "points": ["E", "F", "O", "S"], "segments": [["S", "O"], ["S", "F"], ["S", "O"], ["S", "E"]], "children": []}, {"id": "d11", "number": "11", "kind": "step", "depth": 0, "claim": "OF = OS·sin(∠OSF)", "notation": "OF = OS·sin(∠OSF)", "formal": "equal(distance(O, F), distance(O, S) * sin(angle(O, S, F)))", "from": [{"kind": "step", "ref": "d3", "label": "3"}], "by": {"rule": "trigonometry sine", "kind": "definition", "statement": "In a right triangle the side opposite an acute angle is the hypotenuse times the sine of that angle.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "justified", "grade": "rule", "mark": "✓", "note": "configuration conditions fail there: distinct(O, F)", "when": null, "distinction": null, "binding": {"X": "O", "F": "F", "Y": "S", "Z": "E"}, "hypotheses_met_by": {"perpendicular(line(X, F), line(Y, Z))": "3"}, "conditions": ["S, E, F on one line", "S ≠ F", "O ≠ F"], "degenerate_at": ["κ̄ = 0°", "κ̄ = 180°"], "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.7213311615402804e-15, "points": ["F", "O", "S"], "segments": [["O", "F"], ["O", "S"], ["S", "O"], ["S", "F"]], "children": []}, {"id": "d12", "number": "12", "kind": "step", "depth": 0, "claim": "OS·OS = OF·OF + SF·SF", "notation": "OS·OS = OF·OF + SF·SF", "formal": "equal(distance(O, S) * distance(O, S), distance(O, F) * distance(O, F) + distance(S, F) * distance(S, F))", "from": [{"kind": "step", "ref": "d3", "label": "3"}], "by": {"rule": "Elements I.47", "kind": "proposition", "statement": "In right-angled triangles the square on the side subtending the right angle is equal to the squares on the sides containing the right angle.", "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0358", "printed": "vol. I, p. 349", "rests_on": null, "case": null}, "status": "justified", "grade": "rule", "mark": "✓", "note": "configuration conditions fail there: distinct(O, F)", "when": null, "distinction": null, "binding": {"X": "O", "Y": "S", "F": "F", "Z": "E"}, "hypotheses_met_by": {"perpendicular(line(X, F), line(Y, Z))": "3"}, "conditions": ["S, E, F on one line", "S ≠ F", "O ≠ F"], "degenerate_at": ["κ̄ = 0°", "κ̄ = 180°"], "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.0953243118171238e-15, "points": ["F", "O", "S"], "segments": [["O", "S"], ["O", "S"], ["O", "F"], ["O", "F"], ["S", "F"], ["S", "F"]], "children": []}], "conclusion": {"id": "conclusion", "number": "∴", "kind": "conclusion", "depth": 0, "claim": "tan c = e sin κ̄ / (R + e cos κ̄), in absolute value", "notation": "tan(|c|) = e·|sin(κ̄)| / (R + e·cos(κ̄))", "formal": "equal(tan(abs(norm180(c))), e * abs(sin(kappa_bar)) / (R + e * cos(kappa_bar)))", "from": [{"kind": "step", "ref": "d2", "label": "2"}, {"kind": "step", "ref": "d9", "label": "9"}, {"kind": "step", "ref": "d10", "label": "10"}, {"kind": "step", "ref": "d7", "label": "7"}, {"kind": "step", "ref": "d8", "label": "8"}], "by": {"rule": "algebra", "kind": "calculation", "statement": "The proposition follows from the cited equalities by calculation.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "by calculation", "grade": "calculation", "mark": "≈", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.4988010832439613e-15, "points": [], "segments": [], "children": []}, "further_conclusions": [{"id": "conclusion2", "number": "∴", "kind": "conclusion", "depth": 0, "claim": "sin c = e sin κ̄ / (R² + e² + 2Re cos κ̄)^½, in absolute value", "notation": "sin(|c|) = e·|sin(κ̄)| / √(R² + e² + 2·R·e·cos(κ̄))", "formal": "equal(sin(abs(norm180(c))), e * abs(sin(kappa_bar)) / sqrt(R * R + e * e + 2 * R * e * cos(kappa_bar)))", "from": [{"kind": "step", "ref": "d2", "label": "2"}, {"kind": "step", "ref": "d10", "label": "10"}, {"kind": "step", "ref": "d11", "label": "11"}, {"kind": "step", "ref": "d12", "label": "12"}, {"kind": "step", "ref": "d7", "label": "7"}, {"kind": "step", "ref": "d8", "label": "8"}], "by": {"rule": "algebra", "kind": "calculation", "statement": "The proposition follows from the cited equalities by calculation.", "locus": null, "printed": null, "rests_on": null, "case": null}, "status": "by calculation", "grade": "calculation", "mark": "≈", "note": null, "when": null, "distinction": null, "binding": null, "hypotheses_met_by": null, "conditions": null, "degenerate_at": null, "equal_at": null, "undefined_at": null, "needs": null, "residual": 1.27675647831893e-15, "points": [], "segments": [], "children": []}], "equivalence": null, "computations": [{"name": "c_max", "quantity": "max angle(O, S, E)", "meaning": "Ptolemy's maximum equation", "with": "solar-eccentric.ptolemy", "value": "2;23°", "at": "κ̄ = 267;37°", "reported": "2;23°", "verdict": "confirmed", "difference": "+0;0,17", "source": "fr:kepler-sec/Swerdlow2026/0052/p05"}, {"name": "c_max_battani", "quantity": "max angle(O, S, E)", "meaning": "al-Battānī's maximum equation", "with": "solar-eccentric.battani", "value": "1;59,9°", "at": "κ̄ = 268;1°", "reported": "1;59,10°", "verdict": "discrepancy", "difference": "−0;0,0,55", "source": "fr:kepler-sec/Swerdlow2026/0052/p06"}], "checks": {"steps": 12, "by_status": {"justified": 5, "by calculation": 2, "read off the construction": 5}, "configurations": 3456, "degenerate_states": ["κ̄ = 0°", "κ̄ = 180°", "κ̄ = 270°", "κ̄ = 90°"], "notes": ["d2 rests on the stated proposition p1 (equal(lam_bar, lamA + kappa_bar)), which is checked numerically, not derived", "d2 rests on the stated proposition p2 (equal(kappa, kappa_bar - c)), which is checked numerically, not derived", "degenerate states, in which a step's rule does not apply, a term is undefined or an inequality becomes an equality: kappa_bar = 0°; kappa_bar = 180°; kappa_bar = 270°; kappa_bar = 90°. The derivation does not cover them; the conclusion is true there as well (numerically)", "c_max_battani: computed 1;59,9°, reported 1;59,10° (difference −0;0,0,55)"]}, "figure": {"id": "solar-fig-equation", "address": "fr:astra/solar-fig-equation", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-solar-fig-equation\" class=\"astra-figure\" viewBox=\"0 0 720.00 720.00\" width=\"720.00\" height=\"720.00\" role=\"img\" aria-label=\"The equation of centre: the perpendicular from the earth on ES\" data-figure=\"solar-fig-equation\" data-state=\"kappa_bar=52.0000\" data-theme=\"light\">\n<title>The equation of centre: the perpendicular from the earth on ES<\/title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n<\/style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/><\/marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/><\/marker>\n<\/defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment4\" class=\"astra-construct\" x1=\"360.00\" y1=\"57.60\" x2=\"360.00\" y2=\"662.40\"/>\n<line id=\"astra-segment5\" class=\"astra-aux astra-dashed\" x1=\"360.00\" y1=\"448.20\" x2=\"402.79\" y2=\"393.43\"/>\n<line id=\"astra-segment6\" class=\"astra-aux astra-dashed\" x1=\"360.00\" y1=\"360.00\" x2=\"402.79\" y2=\"393.43\"/>\n<line id=\"astra-segment7\" class=\"astra-construct\" x1=\"360.00\" y1=\"448.20\" x2=\"121.71\" y2=\"173.82\"/>\n<circle id=\"astra-ecc\" class=\"astra-construct\" cx=\"360.00\" cy=\"360.00\" r=\"302.40\"/>\n<line id=\"astra-length2\" class=\"astra-construct\" x1=\"360.00\" y1=\"360.00\" x2=\"121.71\" y2=\"173.82\"/>\n<text id=\"astra-length2-text\" class=\"astra-label var\" x=\"234.39\" y=\"275.19\" text-anchor=\"middle\" dominant-baseline=\"middle\">R<\/text>\n<line id=\"astra-length3\" class=\"astra-construct\" x1=\"360.00\" y1=\"448.20\" x2=\"360.00\" y2=\"360.00\"/>\n<text id=\"astra-length3-text\" class=\"astra-label var\" x=\"349.50\" y=\"404.10\" text-anchor=\"middle\" dominant-baseline=\"middle\">e<\/text>\n<path id=\"astra-angle0\" class=\"astra-angle\" d=\"M 360.00 311.62 A 48.38 48.38 0 0 0 321.87 330.21\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle0-text\" class=\"astra-label astra-angle-label\" x=\"332.87\" y=\"304.38\" text-anchor=\"middle\" dominant-baseline=\"middle\">κ̄<\/text>\n<path id=\"astra-angle1\" class=\"astra-angle\" d=\"M 153.43 210.35 A 48.38 48.38 0 0 0 159.83 203.61\"/>\n<text id=\"astra-angle1-text\" class=\"astra-label astra-angle-label\" x=\"190.30\" y=\"238.95\" text-anchor=\"middle\" dominant-baseline=\"middle\">c<\/text>\n<circle id=\"astra-O\" class=\"astra-point\" cx=\"360.00\" cy=\"448.20\" r=\"3.2\"/>\n<text id=\"astra-O-text\" class=\"astra-label\" x=\"360.00\" y=\"463.20\" text-anchor=\"middle\" dominant-baseline=\"middle\">O<\/text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"360.00\" cy=\"360.00\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"374.16\" y=\"364.96\" text-anchor=\"middle\" dominant-baseline=\"middle\">E<\/text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">A<\/text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"662.40\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"360.00\" y=\"677.40\" text-anchor=\"middle\" dominant-baseline=\"middle\">B<\/text>\n<circle id=\"astra-S\" class=\"astra-point\" cx=\"121.71\" cy=\"173.82\" r=\"3.2\"/>\n<text id=\"astra-S-text\" class=\"astra-label\" x=\"109.89\" y=\"164.59\" text-anchor=\"middle\" dominant-baseline=\"middle\">S<\/text>\n<circle id=\"astra-F\" class=\"astra-point\" cx=\"402.79\" cy=\"393.43\" r=\"3.2\"/>\n<text id=\"astra-F-text\" class=\"astra-label\" x=\"414.61\" y=\"402.67\" text-anchor=\"middle\" dominant-baseline=\"middle\">F<\/text>\n<\/g>\n<text class=\"astra-caption\" x=\"12\" y=\"710.00\">drawn with e = 17;30<\/text>\n<\/svg>\n", "bundle": {"id": "solar-fig-equation", "title": "The equation of centre: the perpendicular from the earth on ES", "of": "solar-equation-of-centre", "notation": "astra/1", "ops": [{"id": "R", "op": "param", "args": [], "type": "length"}, {"id": "e", "op": "param", "args": [], "type": "length"}, {"id": "lamA", "op": "param", "args": [], "type": "angle"}, {"id": "T", "op": "param", "args": [], "type": "time"}, {"id": "kappa_0", "op": "param", "args": [], "type": "angle"}, {"id": "_aux1", "op": "const", "args": [1.0], "type": "length"}, {"id": "_aux2", "op": "const", "args": [1000.0], "type": "length"}, {"id": "_aux3", "op": "const", "args": [0.0], "type": "length"}, {"id": "_aux4", "op": "const", "args": [2.0], "type": "number"}, {"id": "_aux5", "op": "div", "args": ["R", "_aux4"], "type": "length"}, {"id": "_aux6", "op": "const", "args": [300.0], "type": "time"}, {"id": "_aux7", "op": "const", "args": [400.0], "type": "time"}, {"id": "_aux8", "op": "const", "args": [360.0], "type": "angle"}, {"id": "_aux9", "op": "div", "args": ["_aux8", "T"], "type": "rate"}, {"id": "kappa_bar", "op": "var", "args": ["_aux9", "kappa_0"], "type": "angle"}, {"id": "_t10", "op": "observer", "args": [], "type": "point"}, {"id": "O", "op": "id", "args": ["_t10"], "type": "point"}, {"id": "_t11", "op": "polar", "args": ["e", "lamA"], "type": "vector"}, {"id": "_t12", "op": "add", "args": ["O", "_t11"], "type": "point"}, {"id": "E", "op": "id", "args": ["_t12"], "type": "point"}, {"id": "_t13", "op": "circle", "args": ["E", "R"], "type": "circle"}, {"id": "ecc", "op": "id", "args": ["_t13"], "type": "circle"}, {"id": "_t14", "op": "polar", "args": ["R", "lamA"], "type": "vector"}, {"id": "_t15", "op": "add", "args": ["E", "_t14"], "type": "point"}, {"id": "A", "op": "id", "args": ["_t15"], "type": "point"}, {"id": "_t16", "op": "polar", "args": ["R", "lamA"], "type": "vector"}, {"id": "_t17", "op": "sub", "args": ["E", "_t16"], "type": "point"}, {"id": "B", "op": "id", "args": ["_t17"], "type": "point"}, {"id": "_t18", "op": "add", "args": ["lamA", "kappa_bar"], "type": "angle"}, {"id": "_t19", "op": "polar", "args": ["R", "_t18"], "type": "vector"}, {"id": "_t20", "op": "add", "args": ["E", "_t19"], "type": "point"}, {"id": "S", "op": "id", "args": ["_t20"], "type": "point"}, {"id": "_t21", "op": "direction", "args": ["E", "S"], "type": "angle"}, {"id": "lam_bar", "op": "id", "args": ["_t21"], "type": "angle"}, {"id": "_t22", "op": "direction", "args": ["O", "S"], "type": "angle"}, {"id": "lam", "op": "id", "args": ["_t22"], "type": "angle"}, {"id": "_t23", "op": "sub", "args": ["lam", "lamA"], "type": "angle"}, {"id": "kappa", "op": "id", "args": ["_t23"], "type": "angle"}, {"id": "_t24", "op": "sub", "args": ["lam_bar", "lam"], "type": "angle"}, {"id": "c", "op": "id", "args": ["_t24"], "type": "angle"}, {"id": "_t25", "op": "add", "args": ["lamA", "kappa_bar"], "type": "angle"}, {"id": "_t26", "op": "sub", "args": ["lam_bar", "_t25"], "type": "angle"}, {"id": "_t27", "op": "norm180", "args": ["_t26"], "type": "angle"}, {"id": "_t28", "op": "abs", "args": ["_t27"], "type": "angle"}, {"id": "_t29", "op": "sub", "args": ["kappa_bar", "c"], "type": "angle"}, {"id": "_t30", "op": "sub", "args": ["kappa", "_t29"], "type": "angle"}, {"id": "_t31", "op": "norm180", "args": ["_t30"], "type": "angle"}, {"id": "_t32", "op": "abs", "args": ["_t31"], "type": "angle"}, {"id": "_t33", "op": "sub", "args": ["lam_bar", "c"], "type": "angle"}, {"id": "_t34", "op": "sub", "args": ["lam", "_t33"], "type": "angle"}, {"id": "_t35", "op": "norm180", "args": ["_t34"], "type": "angle"}, {"id": "_t36", "op": "abs", "args": ["_t35"], "type": "angle"}, {"id": "_t37", "op": "res_collinear", "args": ["A", "E", "B"], "type": "number"}, {"id": "_t38", "op": "res_collinear", "args": ["A", "O", "B"], "type": "number"}, {"id": "_t39", "op": "line", "args": ["E", "S"], "type": "line"}, {"id": "_t40", "op": "foot", "args": ["O", "_t39"], "type": "point"}, {"id": "F", "op": "id", "args": ["_t40"], "type": "point"}, {"id": "_t41", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t42", "op": "direction", "args": ["S", "E"], "type": "angle"}, {"id": "_t43", "op": "sub", "args": ["_t42", "_t41"], "type": "angle"}, {"id": "_t44", "op": "norm180", "args": ["_t43"], "type": "angle"}, {"id": "_t45", "op": "abs", "args": ["_t44"], "type": "angle"}, {"id": "_compute_c_max", "op": "id", "args": ["_t45"], "type": "angle"}, {"id": "_t46", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t47", "op": "direction", "args": ["S", "E"], "type": "angle"}, {"id": "_t48", "op": "sub", "args": ["_t47", "_t46"], "type": "angle"}, {"id": "_t49", "op": "norm180", "args": ["_t48"], "type": "angle"}, {"id": "_t50", "op": "abs", "args": ["_t49"], "type": "angle"}, {"id": "_compute_c_max_battani", "op": "id", "args": ["_t50"], "type": "angle"}, {"id": "_t51", "op": "direction", "args": ["E", "S"], "type": "angle"}, {"id": "_t52", "op": "direction", "args": ["E", "A"], "type": "angle"}, {"id": "_t53", "op": "sub", "args": ["_t52", "_t51"], "type": "angle"}, {"id": "_t54", "op": "norm180", "args": ["_t53"], "type": "angle"}, {"id": "_t55", "op": "abs", "args": ["_t54"], "type": "angle"}, {"id": "_t56", "op": "direction", "args": ["S", "E"], "type": "angle"}, {"id": "_t57", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t58", "op": "sub", "args": ["_t57", "_t56"], "type": "angle"}, {"id": "_t59", "op": "norm180", "args": ["_t58"], "type": "angle"}, {"id": "_t60", "op": "abs", "args": ["_t59"], "type": "angle"}, {"id": "_t61", "op": "direction", "args": ["O", "S"], "type": "angle"}, {"id": "_t62", "op": "direction", "args": ["O", "E"], "type": "angle"}, {"id": "_t63", "op": "sub", "args": ["_t62", "_t61"], "type": "angle"}, {"id": "_t64", "op": "norm180", "args": ["_t63"], "type": "angle"}, {"id": "_t65", "op": "abs", "args": ["_t64"], "type": "angle"}, {"id": "_t66", "op": "add", "args": ["_t60", "_t65"], "type": "angle"}, {"id": "_t67", "op": "sub", "args": ["_t55", "_t66"], "type": "angle"}, {"id": "_t68", "op": "norm180", "args": ["_t67"], "type": "angle"}, {"id": "_t69", "op": "abs", "args": ["_t68"], "type": "angle"}, {"id": "_t70", "op": "norm180", "args": ["c"], "type": "angle"}, {"id": "_t71", "op": "abs", "args": ["_t70"], "type": "angle"}, {"id": "_t72", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t73", "op": "direction", "args": ["S", "E"], "type": "angle"}, {"id": "_t74", "op": "sub", "args": ["_t73", "_t72"], "type": "angle"}, {"id": "_t75", "op": "norm180", "args": ["_t74"], "type": "angle"}, {"id": "_t76", "op": "abs", "args": ["_t75"], "type": "angle"}, {"id": "_t77", "op": "sub", "args": ["_t71", "_t76"], "type": "angle"}, {"id": "_t78", "op": "norm180", "args": ["_t77"], "type": "angle"}, {"id": "_t79", "op": "abs", "args": ["_t78"], "type": "angle"}, {"id": "_t80", "op": "line", "args": ["O", "F"], "type": "line"}, {"id": "_t81", "op": "line", "args": ["E", "S"], "type": "line"}, {"id": "_t82", "op": "res_perp", "args": ["_t80", "_t81"], "type": "number"}, {"id": "_t83", "op": "distance", "args": ["O", "F"], "type": "length"}, {"id": "_t84", "op": "distance", "args": ["O", "E"], "type": "length"}, {"id": "_t85", "op": "direction", "args": ["E", "O"], "type": "angle"}, {"id": "_t86", "op": "direction", "args": ["E", "F"], "type": "angle"}, {"id": "_t87", "op": "sub", "args": ["_t86", "_t85"], "type": "angle"}, {"id": "_t88", "op": "norm180", "args": ["_t87"], "type": "angle"}, {"id": "_t89", "op": "abs", "args": ["_t88"], "type": "angle"}, {"id": "_t90", "op": "sin", "args": ["_t89"], "type": "number"}, {"id": "_t91", "op": "mul", "args": ["_t84", "_t90"], "type": "length"}, {"id": "_t92", "op": "sub", "args": ["_t83", "_t91"], "type": "length"}, {"id": "_t93", "op": "abs", "args": ["_t92"], "type": "length"}, {"id": "_t94", "op": "distance", "args": ["O", "E"], "type": "length"}, {"id": "_t95", "op": "sub", "args": ["_t94", "e"], "type": "length"}, {"id": "_t96", "op": "abs", "args": ["_t95"], "type": "length"}, {"id": "_t97", "op": "direction", "args": ["E", "O"], "type": "angle"}, {"id": "_t98", "op": "direction", "args": ["E", "F"], "type": "angle"}, {"id": "_t99", "op": "sub", "args": ["_t98", "_t97"], "type": "angle"}, {"id": "_t100", "op": "norm180", "args": ["_t99"], "type": "angle"}, {"id": "_t101", "op": "abs", "args": ["_t100"], "type": "angle"}, {"id": "_t102", "op": "sin", "args": ["_t101"], "type": "number"}, {"id": "_t103", "op": "sin", "args": ["kappa_bar"], "type": "number"}, {"id": "_t104", "op": "abs", "args": ["_t103"], "type": "number"}, {"id": "_t105", "op": "sub", "args": ["_t102", "_t104"], "type": "number"}, {"id": "_t106", "op": "abs", "args": ["_t105"], "type": "number"}, {"id": "_t107", "op": "distance", "args": ["O", "F"], "type": "length"}, {"id": "_t108", "op": "sin", "args": ["kappa_bar"], "type": "number"}, {"id": "_t109", "op": "abs", "args": ["_t108"], "type": "number"}, {"id": "_t110", "op": "mul", "args": ["e", "_t109"], "type": "length"}, {"id": "_t111", "op": "sub", "args": ["_t107", "_t110"], "type": "length"}, {"id": "_t112", "op": "abs", "args": ["_t111"], "type": "length"}, {"id": "_t113", "op": "distance", "args": ["S", "F"], "type": "length"}, {"id": "_t114", "op": "cos", "args": ["kappa_bar"], "type": "number"}, {"id": "_t115", "op": "mul", "args": ["e", "_t114"], "type": "length"}, {"id": "_t116", "op": "add", "args": ["R", "_t115"], "type": "length"}, {"id": "_t117", "op": "sub", "args": ["_t113", "_t116"], "type": "length"}, {"id": "_t118", "op": "abs", "args": ["_t117"], "type": "length"}, {"id": "_t119", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t120", "op": "direction", "args": ["S", "F"], "type": "angle"}, {"id": "_t121", "op": "sub", "args": ["_t120", "_t119"], "type": "angle"}, {"id": "_t122", "op": "norm180", "args": ["_t121"], "type": "angle"}, {"id": "_t123", "op": "abs", "args": ["_t122"], "type": "angle"}, {"id": "_t124", "op": "tan", "args": ["_t123"], "type": "number"}, {"id": "_t125", "op": "distance", "args": ["O", "F"], "type": "length"}, {"id": "_t126", "op": "distance", "args": ["S", "F"], "type": "length"}, {"id": "_t127", "op": "div", "args": ["_t125", "_t126"], "type": "number"}, {"id": "_t128", "op": "sub", "args": ["_t124", "_t127"], "type": "number"}, {"id": "_t129", "op": "abs", "args": ["_t128"], "type": "number"}, {"id": "_t130", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t131", "op": "direction", "args": ["S", "F"], "type": "angle"}, {"id": "_t132", "op": "sub", "args": ["_t131", "_t130"], "type": "angle"}, {"id": "_t133", "op": "norm180", "args": ["_t132"], "type": "angle"}, {"id": "_t134", "op": "abs", "args": ["_t133"], "type": "angle"}, {"id": "_t135", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t136", "op": "direction", "args": ["S", "E"], "type": "angle"}, {"id": "_t137", "op": "sub", "args": ["_t136", "_t135"], "type": "angle"}, {"id": "_t138", "op": "norm180", "args": ["_t137"], "type": "angle"}, {"id": "_t139", "op": "abs", "args": ["_t138"], "type": "angle"}, {"id": "_t140", "op": "sub", "args": ["_t134", "_t139"], "type": "angle"}, {"id": "_t141", "op": "norm180", "args": ["_t140"], "type": "angle"}, {"id": "_t142", "op": "abs", "args": ["_t141"], "type": "angle"}, {"id": "_t143", "op": "distance", "args": ["O", "F"], "type": "length"}, {"id": "_t144", "op": "distance", "args": ["O", "S"], "type": "length"}, {"id": "_t145", "op": "direction", "args": ["S", "O"], "type": "angle"}, {"id": "_t146", "op": "direction", "args": ["S", "F"], "type": "angle"}, {"id": "_t147", "op": "sub", "args": ["_t146", "_t145"], "type": "angle"}, {"id": "_t148", "op": "norm180", "args": ["_t147"], "type": "angle"}, {"id": "_t149", "op": "abs", "args": ["_t148"], "type": "angle"}, {"id": "_t150", "op": "sin", "args": ["_t149"], "type": "number"}, {"id": "_t151", "op": "mul", "args": ["_t144", "_t150"], "type": "length"}, {"id": "_t152", "op": "sub", "args": ["_t143", "_t151"], "type": "length"}, {"id": "_t153", "op": "abs", "args": ["_t152"], "type": "length"}, {"id": "_t154", "op": "distance", "args": ["O", "S"], "type": "length"}, {"id": "_t155", "op": "distance", "args": ["O", "S"], "type": "length"}, {"id": "_t156", "op": "mul", "args": ["_t154", "_t155"], "type": "length2"}, {"id": "_t157", "op": "distance", "args": ["O", "F"], "type": "length"}, {"id": "_t158", "op": "distance", "args": ["O", "F"], "type": "length"}, {"id": "_t159", "op": "mul", "args": ["_t157", "_t158"], "type": "length2"}, {"id": "_t160", "op": "distance", "args": ["S", "F"], "type": "length"}, {"id": "_t161", "op": "distance", "args": ["S", "F"], "type": "length"}, {"id": "_t162", "op": "mul", "args": ["_t160", "_t161"], "type": "length2"}, {"id": "_t163", "op": "add", "args": ["_t159", "_t162"], "type": "length2"}, {"id": "_t164", "op": "sub", "args": ["_t156", "_t163"], "type": "length2"}, {"id": "_t165", "op": "abs", "args": ["_t164"], "type": "length2"}, {"id": "_t166", "op": "norm180", "args": ["c"], "type": "angle"}, {"id": "_t167", "op": "abs", "args": ["_t166"], "type": "angle"}, {"id": "_t168", "op": "sin", "args": ["_t167"], "type": "number"}, {"id": "_t169", "op": "sin", "args": ["kappa_bar"], "type": "number"}, {"id": "_t170", "op": "abs", "args": ["_t169"], "type": "number"}, {"id": "_t171", "op": "mul", "args": ["e", "_t170"], "type": "length"}, {"id": "_t172", "op": "mul", "args": ["R", "R"], "type": "length2"}, {"id": "_t173", "op": "mul", "args": ["e", "e"], "type": "length2"}, {"id": "_t174", "op": "add", "args": ["_t172", "_t173"], "type": "length2"}, {"id": "_t175", "op": "const", "args": [2.0], "type": "number"}, {"id": "_t176", "op": "mul", "args": ["_t175", "R"], "type": "length"}, {"id": "_t177", "op": "mul", "args": ["_t176", "e"], "type": "length2"}, {"id": "_t178", "op": "cos", "args": ["kappa_bar"], "type": "number"}, {"id": "_t179", "op": "mul", "args": ["_t177", "_t178"], "type": "length2"}, {"id": "_t180", "op": "add", "args": ["_t174", "_t179"], "type": "length2"}, {"id": "_t181", "op": "sqrt", "args": ["_t180"], "type": "length"}, {"id": "_t182", "op": "div", "args": ["_t171", "_t181"], "type": "number"}, {"id": "_t183", "op": "sub", "args": ["_t168", "_t182"], "type": "number"}, {"id": "_t184", "op": "abs", "args": ["_t183"], "type": "number"}, {"id": "_t185", "op": "norm180", "args": ["c"], "type": "angle"}, {"id": "_t186", "op": "abs", "args": ["_t185"], "type": "angle"}, {"id": "_t187", "op": "tan", "args": ["_t186"], "type": "number"}, {"id": "_t188", "op": "sin", "args": ["kappa_bar"], "type": "number"}, {"id": "_t189", "op": "abs", "args": ["_t188"], "type": "number"}, {"id": "_t190", "op": "mul", "args": ["e", "_t189"], "type": "length"}, {"id": "_t191", "op": "cos", "args": ["kappa_bar"], "type": "number"}, {"id": "_t192", "op": "mul", "args": ["e", "_t191"], "type": "length"}, {"id": "_t193", "op": "add", "args": ["R", "_t192"], "type": "length"}, {"id": "_t194", "op": "div", "args": ["_t190", "_t193"], "type": "number"}, {"id": "_t195", "op": "sub", "args": ["_t187", "_t194"], "type": "number"}, {"id": "_t196", "op": "abs", "args": ["_t195"], "type": "number"}], "params": {"R": 60.0, "lamA": 65.5, "T": 365.24666666666667, "kappa_0": 0.0, "e": 17.5}, "state": {"kappa_bar": 52.0}, "animation": {"mode": "var", "name": "kappa_bar", "display": "κ̄", "start": 52.0, "period_days": 365.24666666666667, "epoch": 0.0}, "speed_s": 24.0, "scene": [{"kind": "point", "id": "O", "ref": "O", "text": "O", "owner": "", "aux": false}, {"kind": "point", "id": "E", "ref": "E", "text": "E", "owner": "", "aux": false}, {"kind": "circle", "id": "ecc", "ref": "ecc", "owner": ""}, {"kind": "point", "id": "A", "ref": "A", "text": "A", "owner": "", "aux": false}, {"kind": "point", "id": "B", "ref": "B", "text": "B", "owner": "", "aux": false}, {"kind": "point", "id": "S", "ref": "S", "text": "S", "owner": "", "aux": false}, {"kind": "point", "id": "F", "ref": "F", "text": "F", "owner": "", "aux": true}, {"kind": "angle", "id": "angle0", "vertex": "E", "from": {"point": "A"}, "to": {"point": "S"}, "rank": 0, "arrow": true, "text": "κ̄", "ref": "kappa_bar", "owner": ""}, {"kind": "angle", "id": "angle1", "vertex": "S", "from": {"point": "O"}, "to": {"point": "E"}, "rank": 0, "arrow": false, "text": "c", "ref": "c", "owner": ""}, {"kind": "length", "id": "length2", "p": "E", "q": "S", "side": "left", "text": "R", "ref": "R", "owner": ""}, {"kind": "length", "id": "length3", "p": "O", "q": "E", "side": "left", "text": "e", "ref": "e", "owner": ""}, {"kind": "segment", "id": "segment4", "p": "A", "q": "B", "dashed": false, "owner": ""}, {"kind": "segment", "id": "segment5", "p": "O", "q": "F", "dashed": true, "owner": ""}, {"kind": "segment", "id": "segment6", "p": "E", "q": "F", "dashed": true, "owner": ""}, {"kind": "segment", "id": "segment7", "p": "O", "q": "S", "dashed": false, "owner": ""}, {"kind": "segment", "id": "stepseg0", "p": "E", "q": "A", "dashed": true, "owner": "", "step_only": true}, {"kind": "segment", "id": "stepseg1", "p": "S", "q": "F", "dashed": true, "owner": "", "step_only": true}], "projection": {"up": 65.5, "scale": 5.04, "tx": 360.0, "ty": 448.2, "width": 720.0, "height": 720.0, "r_fit": 60.0}, "members": [], "steps": [{"name": "d1", "text": "equal(angle(S, E, A), angle(E, S, O) + angle(S, O, E))", "status": "justified", "rule": "Elements I.32", "points": ["A", "E", "O", "S"], "segments": [["E", "S"], ["E", "A"], ["S", "E"], ["S", "O"], ["O", "S"], ["O", "E"]]}, {"name": "d2", "text": "equal(abs(norm180(c)), angle(O, S, E))", "status": "by calculation", "rule": "algebra", "points": ["E", "O", "S"], "segments": [["S", "O"], ["S", "E"]]}, {"name": "d3", "text": "perpendicular(line(O, F), line(E, S))", "status": "read off the construction", "rule": "construction", "points": ["E", "F", "O", "S"], "segments": [["O", "F"], ["E", "S"]]}, {"name": "d4", "text": "equal(distance(O, F), distance(O, E) * sin(angle(O, E, F)))", "status": "justified", "rule": "trigonometry sine", "points": ["E", "F", "O"], "segments": [["O", "F"], ["O", "E"], ["E", "O"], ["E", "F"]]}, {"name": "d5", "text": "equal(distance(O, E), e)", "status": "read off the construction", "rule": "construction", "points": ["E", "O"], "segments": [["O", "E"]]}, {"name": "d6", "text": "equal(sin(angle(O, E, F)), abs(sin(kappa_bar)))", "status": "read off the construction", "rule": "construction", "points": ["E", "F", "O"], "segments": [["E", "O"], ["E", "F"]]}, {"name": "d7", "text": "equal(distance(O, F), e * abs(sin(kappa_bar)))", "status": "by calculation", "rule": "algebra", "points": ["F", "O"], "segments": [["O", "F"]]}, {"name": "d8", "text": "equal(distance(S, F), R + e * cos(kappa_bar))", "status": "read off the construction", "rule": "construction", "points": ["F", "S"], "segments": [["S", "F"]]}, {"name": "d9", "text": "equal(tan(angle(O, S, F)), distance(O, F) / distance(S, F))", "status": "justified", "rule": "trigonometry tangent", "points": ["F", "O", "S"], "segments": [["S", "O"], ["S", "F"], ["O", "F"], ["S", "F"]]}, {"name": "d10", "text": "equal(angle(O, S, F), angle(O, S, E))", "status": "read off the construction", "rule": "construction", "points": ["E", "F", "O", "S"], "segments": [["S", "O"], ["S", "F"], ["S", "O"], ["S", "E"]]}, {"name": "d11", "text": "equal(distance(O, F), distance(O, S) * sin(angle(O, S, F)))", "status": "justified", "rule": "trigonometry sine", "points": ["F", "O", "S"], "segments": [["O", "F"], ["O", "S"], ["S", "O"], ["S", "F"]]}, {"name": "d12", "text": "equal(distance(O, S) * distance(O, S), distance(O, F) * distance(O, F) + distance(S, F) * distance(S, F))", "status": "justified", "rule": "Elements I.47", "points": ["F", "O", "S"], "segments": [["O", "S"], ["O", "S"], ["O", "F"], ["O", "F"], ["S", "F"], ["S", "F"]]}, {"name": "conclusion2", "text": "equal(sin(abs(norm180(c))), e * abs(sin(kappa_bar)) / sqrt(R * R + e * e + 2 * R * e * cos(kappa_bar)))", "status": "by calculation", "rule": "algebra", "points": [], "segments": []}, {"name": "conclusion", "text": "equal(tan(abs(norm180(c))), e * abs(sin(kappa_bar)) / (R + e * cos(kappa_bar)))", "status": "by calculation", "rule": "algebra", "points": [], "segments": []}], "drawn": {"e": "17;30"}, "parametrisation": "solar-eccentric.ptolemy"}, "drawn": {"e": "17;30"}}, "depths": ["overview", "steps", "full"]}</script>
+<script>
+// astra-argument.bundle.js — astra-runtime and <astra-argument> in one classic script. Generated by
+// famulus_astronomica.argument_page.bundle_js(); edit web/astra-runtime and web/astra-argument instead.
+(function () {
+'use strict';
+// astra-runtime — animates an astra/1 figure in the browser. Dependency-free ES module.
+//
+// It evaluates the context's ops (the same op-set as famulus_astronomica/evaluate.py, spec/ops.yaml) for the
+// figure's parameter values in a state, and redraws the figure's body with the placement rules of svg/scene.py.
+// The projection comes from the figure bundle, so the browser figure and the static SVG are the same drawing.
+//
+//   import { mount } from './astra-runtime.js';
+//   const ctl = mount(svgElement, bundle, { transport: divElement });
+//   ctl.seek(u); ctl.play(); ctl.pause(); ctl.set('e', 15); ctl.morph(0.3); ctl.step('d6'); ctl.state();
+//
+// A state is {<kinematic variable>: degrees} or {t: days}. The animation runs the figure's one kinematic variable
+// through a revolution from the depicted state (several variables: time through the period).
+// URL parameters: ?t=<seconds> renders the still at that scene time and never starts; ?static holds the depicted
+// state; ?theme=light|dark sets data-theme; ?morph=0..1 (superpositions) shows the first member, both, or the
+// second; ?step=<name> (figures of derivations) shows what that step is about. prefers-reduced-motion: reduce
+// also holds the still. The element gets data-ink (an estimate of the inked share of the canvas); errors set
+// data-render-error on <html>, as famulus-viz render_check expects.
+
+const RAD = Math.PI / 180;
+const EM = 15.0;
+const POINT_R = 3.2;
+const TEXT = '\ufe0e';
+const SIGNS = [...'♈♉♊♋♌♍♎♏♐♑♒♓'].map(g => g + TEXT);
+const CARDINAL = { 0: SIGNS[0], 90: SIGNS[3], 180: SIGNS[6], 270: SIGNS[9] };
+
+function norm360(a) { a = a % 360; return a < 0 ? a + 360 : a; }
+function norm180(a) { a = norm360(a); return a > 180 ? a - 360 : a; }
+
+const isVec = v => Array.isArray(v) && v.length === 2;
+const polar = (r, deg) => [r * Math.cos(deg * RAD), r * Math.sin(deg * RAD)];
+const NAN2 = [NaN, NaN];
+const COINCIDENT = 1e-9;   // two points closer than this have no line and no direction between them
+
+function line(p, q) {
+  const dx = q[0] - p[0], dy = q[1] - p[1], n = Math.hypot(dx, dy);
+  return n < COINCIDENT ? [p[0], p[1], NaN, NaN] : [p[0], p[1], dx / n, dy / n];
+}
+function xcl(c, l, branch) {
+  const [cx, cy, r] = c, [px, py, dx, dy] = l;
+  const fx = px - cx, fy = py - cy;
+  const b = 2 * (fx * dx + fy * dy), cc = fx * fx + fy * fy - r * r;
+  let disc = b * b - 4 * cc;
+  if (disc < -1e-12) return NAN2;
+  disc = Math.max(disc, 0);
+  const s = Math.sqrt(disc);
+  const t = branch > 0 ? (-b + s) / 2 : (-b - s) / 2;
+  return [px + t * dx, py + t * dy];
+}
+function xcc(a, b, branch) {
+  const [ax, ay, ra] = a, [bx, by, rb] = b;
+  const dx = bx - ax, dy = by - ay, d = Math.hypot(dx, dy);
+  if (d === 0 || d > ra + rb + 1e-12 || d < Math.abs(ra - rb) - 1e-12) return NAN2;
+  const x = (d * d + ra * ra - rb * rb) / (2 * d);
+  const h = Math.sqrt(Math.max(ra * ra - x * x, 0));
+  const ux = dx / d, uy = dy / d, mx = ax + x * ux, my = ay + x * uy;
+  return [mx - branch * h * uy, my + branch * h * ux];
+}
+function foot(p, l) {
+  const [px, py, dx, dy] = l, t = (p[0] - px) * dx + (p[1] - py) * dy;
+  return [px + t * dx, py + t * dy];
+}
+function rotate(p, about, deg) {
+  const c = Math.cos(deg * RAD), s = Math.sin(deg * RAD), x = p[0] - about[0], y = p[1] - about[1];
+  return [about[0] + x * c - y * s, about[1] + x * s + y * c];
+}
+function reflect(p, l) { const f = foot(p, l); return [2 * f[0] - p[0], 2 * f[1] - p[1]]; }
+function ellipseFrame(e) {
+  const [f1x, f1y, f2x, f2y, a] = e;
+  const cx = (f1x + f2x) / 2, cy = (f1y + f2y) / 2;
+  const c = Math.hypot(f2x - f1x, f2y - f1y) / 2, b = Math.sqrt(Math.max(a * a - c * c, 0));
+  const ang = c > 0 ? Math.atan2(f2y - f1y, f2x - f1x) / RAD : 0;
+  return { centre: [cx, cy], a, b, ang };
+}
+function onEllipse(e, deg) {
+  const f = ellipseFrame(e);
+  return rotate([f.centre[0] + f.a * Math.cos(deg * RAD), f.centre[1] + f.b * Math.sin(deg * RAD)], f.centre, f.ang);
+}
+function xel(e, l, branch) {
+  const f = ellipseFrame(e);
+  const p = rotate([l[0], l[1]], f.centre, -f.ang), d = rotate([l[0] + l[2], l[1] + l[3]], f.centre, -f.ang);
+  const px = p[0] - f.centre[0], py = p[1] - f.centre[1], dx = d[0] - p[0], dy = d[1] - p[1];
+  const A = dx * dx / (f.a * f.a) + dy * dy / (f.b * f.b);
+  const B = 2 * (px * dx / (f.a * f.a) + py * dy / (f.b * f.b));
+  const C = px * px / (f.a * f.a) + py * py / (f.b * f.b) - 1;
+  const disc = B * B - 4 * A * C;
+  if (disc < -1e-12 || A === 0) return NAN2;
+  const s = Math.sqrt(Math.max(disc, 0));
+  const t = branch > 0 ? (-B + s) / (2 * A) : (-B - s) / (2 * A);
+  return rotate([f.centre[0] + px + t * dx, f.centre[1] + py + t * dy], f.centre, f.ang);
+}
+function tangent(p, c, branch) {
+  const [cx, cy, r] = c, dx = p[0] - cx, dy = p[1] - cy, d = Math.hypot(dx, dy);
+  if (d < r - 1e-12 || d === 0) return NAN2;
+  const ang = Math.acos(Math.min(1, r / d)) / RAD, base = Math.atan2(dy, dx) / RAD;
+  const v = polar(r, base + branch * ang);
+  return [cx + v[0], cy + v[1]];
+}
+const direction = (p, q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < COINCIDENT ? NaN : norm360(Math.atan2(q[1] - p[1], q[0] - p[0]) / RAD);
+function keplerE(M, e) {
+  const m = norm360(M) * RAD;
+  let E = e < 0.8 ? m : Math.PI;
+  for (let i = 0; i < 30; i++) {
+    const f = E - e * Math.sin(E) - m;
+    E -= f / (1 - e * Math.cos(E));
+    if (Math.abs(f) < 1e-14) break;
+  }
+  return norm360(E / RAD);
+}
+function trueAnom(E, e) {
+  const Er = E * RAD;
+  const nu = 2 * Math.atan2(Math.sqrt(1 + e) * Math.sin(Er / 2), Math.sqrt(1 - e) * Math.cos(Er / 2));
+  return norm360(nu / RAD);
+}
+function resCollinear(p, q, r) {
+  const ax = q[0] - p[0], ay = q[1] - p[1], bx = r[0] - q[0], by = r[1] - q[1];
+  const na = Math.hypot(ax, ay), nb = Math.hypot(bx, by);
+  return na === 0 || nb === 0 ? 0 : Math.abs(ax * by - ay * bx) / (na * nb);
+}
+
+const OPS = {
+  const: v => v,
+  id: v => v,
+  add: (a, b) => isVec(a) && isVec(b) ? [a[0] + b[0], a[1] + b[1]] : a + b,
+  sub: (a, b) => isVec(a) && isVec(b) ? [a[0] - b[0], a[1] - b[1]] : a - b,
+  mul: (a, b) => isVec(a) ? [a[0] * b, a[1] * b] : isVec(b) ? [b[0] * a, b[1] * a] : a * b,
+  div: (a, b) => b !== 0 ? a / b : NaN,
+  neg: a => isVec(a) ? [-a[0], -a[1]] : -a,
+  abs: Math.abs,
+  norm360, norm180,
+  polar,
+  observer: () => [0, 0],
+  circle: (c, r) => [c[0], c[1], r],
+  line,
+  ray: (p, deg) => [p[0], p[1], Math.cos(deg * RAD), Math.sin(deg * RAD)],
+  x_cl: xcl, x_cc: xcc, foot,
+  midpoint: (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2],
+  rotate, reflect,
+  ellipse: (f1, f2, a) => [f1[0], f1[1], f2[0], f2[1], a],
+  on_ellipse: onEllipse, x_el: xel, tangent, direction,
+  distance: (p, q) => Math.hypot(q[0] - p[0], q[1] - p[1]),
+  seen_from: (q, c, deg) => xcl(c, [q[0], q[1], Math.cos(deg * RAD), Math.sin(deg * RAD)], 1),
+  kepler_E: keplerE, true_anom: trueAnom,
+  sin: a => Math.sin(a * RAD), cos: a => Math.cos(a * RAD), tan: a => Math.tan(a * RAD),
+  atan2: (y, x) => Math.atan2(y, x) / RAD,
+  asin: v => Math.asin(Math.max(-1, Math.min(1, v))) / RAD,
+  sqrt: v => v >= 0 ? Math.sqrt(v) : NaN,
+  res_parallel: (l1, l2) => Math.abs(l1[2] * l2[3] - l1[3] * l2[2]),
+  res_collinear: resCollinear,
+  res_perp: (l1, l2) => Math.abs(l1[2] * l2[2] + l1[3] * l2[3]),
+  res_on: (p, c) => Math.abs(Math.hypot(p[0] - c[0], p[1] - c[1]) - c[2]),
+};
+
+// The configuration of a context under parameter values in a state (evaluate.py: configuration). A parameter
+// without value is null; it is an error as soon as something other than a range or a law (ids `_aux…`) needs it.
+function configuration(ops, params, state) {
+  const env = {};
+  let missing = false;
+  for (const op of ops) {
+    const k = op.op;
+    if (k === 'const') env[op.id] = op.args[0];
+    else if (k === 'param') {
+      if (op.id in params) env[op.id] = params[op.id]; else { env[op.id] = null; missing = true; }
+    } else if (k === 'var') {
+      if (op.id in state) env[op.id] = state[op.id];
+      else if (op.args.length && 't' in state && op.args[0] in env) {
+        if (env[op.args[0]] === null || env[op.args[1]] === null) throw new Error(`the state gives a time, but the law of ${op.id} lacks a parameter value`);
+        env[op.id] = norm360(env[op.args[1]] + env[op.args[0]] * state.t);
+      } else throw new Error(`the state does not fix ${op.id}`);
+    } else {
+      const vals = op.args.map(a => env[a]);
+      if (missing && vals.some(v => v === null)) {
+        if (!op.id.startsWith('_aux')) throw new Error(`a parameter needed by ${op.id} has no value`);
+        env[op.id] = null;
+        continue;
+      }
+      const fn = OPS[k];
+      if (!fn) throw new Error('unknown op ' + k);
+      env[op.id] = fn(...vals);
+    }
+  }
+  return env;
+}
+
+const isNaNValue = v => typeof v === 'number' ? Number.isNaN(v) : Array.isArray(v) && v.some(x => Number.isNaN(x));
+
+// ── projection (svg/transform.py) ──────────────────────────────────────────
+function project(proj, p) {
+  const phi = (90 - proj.up) * RAD;
+  const x = p[0] * Math.cos(phi) - p[1] * Math.sin(phi), y = p[0] * Math.sin(phi) + p[1] * Math.cos(phi);
+  return [proj.tx + proj.scale * x, proj.ty - proj.scale * y];
+}
+const screenAngle = (proj, deg) => -(deg + (90 - proj.up));
+const screenDir = (proj, deg) => { const s = screenAngle(proj, deg) * RAD; return [Math.cos(s), Math.sin(s)]; };
+
+// ── drawing (svg/render.py, one to one) ────────────────────────────────────
+const f2 = x => x.toFixed(2);
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function rich(str) {
+  const i = String(str).indexOf('_');
+  if (i < 0) return esc(str);
+  return `${esc(str.slice(0, i))}<tspan class="sub" dy="0.35em" font-size="70%">${esc(str.slice(i + 1))}</tspan>`;
+}
+function text(x, y, str, cls, id, anchor = 'middle') {
+  return `<text id="astra-${id}-text" class="${cls}" x="${f2(x)}" y="${f2(y)}" text-anchor="${anchor}" dominant-baseline="middle">${rich(str)}</text>`;
+}
+function arcSpan(a1, a2, value) {
+  const sweep = norm360(a2 - a1), v = norm360(value);
+  if (Math.abs(norm180(sweep - v)) < 0.5) return [a1, sweep, false];
+  if (Math.abs(norm180(360 - sweep - v)) < 0.5) return [a2, 360 - sweep, true];
+  return sweep <= 180 ? [a1, sweep, false] : [a2, 360 - sweep, true];
+}
+function arcPath(cx, cy, r, a1, a2, proj, sweepGiven) {
+  const sweep = sweepGiven === undefined ? norm360(a2 - a1) : sweepGiven;
+  const s1 = screenAngle(proj, a1) * RAD, s2 = screenAngle(proj, a1 + sweep) * RAD;
+  const large = sweep > 180 ? 1 : 0;
+  return `M ${f2(cx + r * Math.cos(s1))} ${f2(cy + r * Math.sin(s1))} A ${f2(r)} ${f2(r)} 0 ${large} 0 ${f2(cx + r * Math.cos(s2))} ${f2(cy + r * Math.sin(s2))}`;
+}
+const armAngle = (arm, env, v) => 'fixed' in arm ? arm.fixed : 'point' in arm
+  ? Math.atan2(env[arm.point][1] - v[1], env[arm.point][0] - v[0]) / RAD : env[arm.angle];
+
+const ahead = state => 't' in state ? { ...state, t: state.t + 0.01 } : Object.fromEntries(Object.entries(state).map(([k, v]) => [k, v + 0.05]));
+
+function renderBody(bundle, state, stepName) {
+  const proj = bundle.projection;
+  const env = configuration(bundle.ops, bundle.params, state);
+  const scene = bundle.scene;
+  const hl = stepName ? (bundle.steps || []).find(s => s.name === stepName) : null;
+  const hlPoints = new Set(hl ? hl.points : []);
+  const hlSegs = new Set(hl ? hl.segments.map(pq => [...pq].sort().join('|')) : []);
+  const isHl = (p, q) => hlSegs.has([p, q].sort().join('|'));
+  const raw = [];
+  let currentOwner = '';
+  const out = { push(item) { if (currentOwner && item.startsWith('<') && !item.includes(' data-owner=')) item = item.replace(' ', ` data-owner="${currentOwner}" `); raw.push(item); }, join(sep) { return raw.join(sep); } };
+  let ink = 0;
+  const rFit = proj.scale * proj.r_fit;
+  const cX = proj.width / 2, cY = proj.height / 2;
+  const P = name => isNaNValue(env[name]) ? null : project(proj, env[name]);
+  const seg = (id, cls, p, q) => { ink += Math.hypot(q[0] - p[0], q[1] - p[1]) * 1.5; return `<line id="astra-${id}" class="${cls}" x1="${f2(p[0])}" y1="${f2(p[1])}" x2="${f2(q[0])}" y2="${f2(q[1])}"/>`; };
+  const tx = (...a) => { ink += 8 * EM * String(a[2]).length; return text(...a); };
+
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind === 'segment') {
+      const p = P(d.p), q = P(d.q), on = isHl(d.p, d.q);
+      if (d.step_only && !on) continue;
+      if (p && q) out.push(seg(d.id, on ? 'astra-step' : d.dashed ? 'astra-aux astra-dashed' : 'astra-construct', p, q));
+    } else if (d.kind === 'zodiac') {
+      const c = env[d.circle], o = P(d.point);
+      if (!o || isNaNValue(c)) continue;
+      const r = proj.scale * c[2], om = env[d.point];
+      const degs = d.full ? [...Array(12).keys()].map(i => i * 30) : [0, 90, 180, 270];
+      for (const deg of degs) {
+        const [dx, dy] = screenDir(proj, deg);
+        const hit = xcl(c, [om[0], om[1], Math.cos(deg * RAD), Math.sin(deg * RAD)], 1);
+        if (isNaNValue(hit)) continue;
+        const [ex, ey] = project(proj, hit), cc = [ex - r * dx, ey - r * dy];
+        if (deg in CARDINAL) {
+          out.push(seg(`${d.id}-${deg}`, 'astra-aux astra-dashed', o, [ex, ey]));
+          out.push(`<circle id="astra-${d.id}-${deg}-pt" class="astra-point" cx="${f2(ex)}" cy="${f2(ey)}" r="${POINT_R}"/>`);
+        } else out.push(seg(`${d.id}-${deg}-tick`, 'astra-aux', [cc[0] + (r - 6) * dx, cc[1] + (r - 6) * dy], [ex, ey]));
+        out.push(tx(ex + 1.3 * EM * dx, ey + 1.3 * EM * dy, CARDINAL[deg] || SIGNS[deg / 30], 'astra-zodiac', `${d.id}-${deg}`));
+      }
+    }
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind === 'circle') {
+      const c = env[d.ref]; if (isNaNValue(c)) continue;
+      const [cx, cy] = project(proj, [c[0], c[1]]), r = proj.scale * c[2];
+      ink += 2 * Math.PI * r * 1.5;
+      out.push(`<circle id="astra-${d.id}" class="astra-construct" cx="${f2(cx)}" cy="${f2(cy)}" r="${f2(r)}"/>`);
+    } else if (d.kind === 'ellipse') {
+      const e = env[d.ref]; if (isNaNValue(e)) continue;
+      const f = ellipseFrame(e), [cx, cy] = project(proj, f.centre), rot = screenAngle(proj, f.ang);
+      ink += 2 * Math.PI * proj.scale * f.a * 1.5;
+      out.push(`<ellipse id="astra-${d.id}" class="astra-ellipse" cx="${f2(cx)}" cy="${f2(cy)}" rx="${f2(proj.scale * f.a)}" ry="${f2(proj.scale * f.b)}" transform="rotate(${f2(rot)} ${f2(cx)} ${f2(cy)})"/>`);
+    }
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'length') continue;
+    const p = P(d.p), q = P(d.q); if (!p || !q) continue;
+    out.push(seg(d.id, isHl(d.p, d.q) ? 'astra-step' : 'astra-construct', p, q));
+    const mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2, dx = q[0] - p[0], dy = q[1] - p[1], n = Math.hypot(dx, dy) || 1;
+    let nx = dy / n, ny = -dx / n;
+    if (d.side === 'right') { nx = -nx; ny = -ny; }
+    out.push(tx(mx + 0.7 * EM * nx, my + 0.7 * EM * ny, d.text, 'astra-label var', d.id));
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'angle') continue;
+    const v = env[d.vertex]; if (isNaNValue(v)) continue;
+    const a1 = armAngle(d.from, env, v), a2 = armAngle(d.to, env, v);
+    const [start, sweep, rev] = arcSpan(a1, a2, env[d.ref]);
+    const [vx, vy] = project(proj, v), r = 0.16 * rFit * (1 + 0.22 * d.rank);
+    const marker = d.arrow ? (rev ? ' marker-start="url(#astra-arrow-gold)"' : ' marker-end="url(#astra-arrow-gold)"') : '';
+    out.push(`<path id="astra-${d.id}" class="astra-angle" d="${arcPath(vx, vy, r, start, start + sweep, proj, sweep)}"${marker}/>`);
+    const [bx, by] = screenDir(proj, start + sweep / 2);
+    const lr = sweep >= 12 ? r + 0.9 * EM : 1.8 * r + 0.5 * EM;
+    ink += r * sweep * RAD * 1.5;
+    out.push(tx(vx + lr * bx, vy + lr * by, d.text, 'astra-label astra-angle-label', d.id));
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'motion') continue;
+    const c = env[d.circle], p = env[d.point]; if (isNaNValue(c) || isNaNValue(p)) continue;
+    const ang = Math.atan2(p[1] - c[1], p[0] - c[0]) / RAD;
+    const env2 = configuration(bundle.ops, bundle.params, ahead(state)), p2 = env2[d.point], c2 = env2[d.circle];
+    const ang2 = Math.atan2(p2[1] - c2[1], p2[0] - c2[0]) / RAD;
+    const sense = ((ang2 - ang + 540) % 360 - 180) >= 0 ? 1 : -1;
+    const [cx, cy] = project(proj, [c[0], c[1]]), r = proj.scale * c[2];
+    const a1 = ang + sense * 6, a2 = ang + sense * 28;
+    const path = sense > 0 ? arcPath(cx, cy, r, a1, a2, proj) : arcPath(cx, cy, r, a2, a1, proj);
+    const marker = sense > 0 ? 'marker-end="url(#astra-arrow-gold)"' : 'marker-start="url(#astra-arrow-gold)"';
+    ink += r * 22 * RAD * 1.5;
+    out.push(`<path id="astra-${d.id}" class="astra-motion" d="${path}" ${marker}/>`);
+  }
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'direction') continue;
+    const o = P(d.point); if (!o) continue;
+    const [dx, dy] = screenDir(proj, env[d.ref]), L = 1.15 * rFit;
+    out.push(`<line id="astra-${d.id}" class="${d.dashed ? 'astra-aux astra-dashed' : 'astra-aux'}" x1="${f2(o[0])}" y1="${f2(o[1])}" x2="${f2(o[0] + L * dx)}" y2="${f2(o[1] + L * dy)}" marker-end="url(#astra-arrow-ink)"/>`);
+    ink += L;
+    out.push(tx(o[0] + (L + 1.1 * EM) * dx, o[1] + (L + 1.1 * EM) * dy, d.text, 'astra-label var', d.id));
+  }
+  const placed = [];
+  for (const d of scene) {
+    currentOwner = d.owner || '';
+    if (d.kind !== 'point') continue;
+    const p = P(d.ref); if (!p) continue;
+    if (placed.some(q => Math.hypot(p[0] - q[0], p[1] - q[1]) < 0.6)) continue;
+    placed.push(p);
+    out.push(`<circle id="astra-${d.id}" class="${hlPoints.has(d.ref) ? 'astra-point astra-step-point' : 'astra-point'}" cx="${f2(p[0])}" cy="${f2(p[1])}" r="${POINT_R}"/>`);
+    let ox = p[0] - cX, oy = p[1] - cY, n = Math.hypot(ox, oy);
+    if (n < 0.08 * rFit) { ox = 1; oy = 0.35; n = Math.hypot(ox, oy); }
+    out.push(tx(p[0] + EM * ox / n, p[1] + EM * oy / n, d.text, 'astra-label', d.id));
+  }
+  return { html: out.join('\n'), ink: ink / (proj.width * proj.height), env };
+}
+
+// ── mounting ───────────────────────────────────────────────────────────────
+function mount(svg, bundle, opts = {}) {
+  const q = new URLSearchParams(location.search);
+  const theme = q.get('theme');
+  if (theme) document.documentElement.dataset.theme = theme, svg.dataset.theme = theme;
+  const body = svg.querySelector('#astra-body');
+  const anim = bundle.animation;
+  const speed = bundle.speed_s || 24;
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hold = q.has('static') || q.has('t') || reduced;
+  const params = Object.assign({}, bundle.params);
+  let u = q.has('t') ? (parseFloat(q.get('t')) / speed) % 1 : 0;      // fraction of a revolution after the depicted state
+  let playing = false, last = null, raf = 0;
+  const listeners = new Set();
+  const members = (bundle.members || []).length === 2 ? bundle.members : null;
+  let morph = q.has('morph') ? Math.max(0, Math.min(1, parseFloat(q.get('morph')))) : 0.5;
+  let step = q.get('step') || null;
+
+  const stateAt = x => anim.mode === 'var'
+    ? { [anim.name]: norm360(anim.start + 360 * x) }
+    : { t: anim.start + x * (anim.period_days || 1) };
+
+  function applyMorph() {
+    if (!members) return;
+    const wa = Math.min(1, 2 * (1 - morph)), wb = Math.min(1, 2 * morph);
+    for (const el of body.querySelectorAll('[data-owner]')) {
+      const o = el.getAttribute('data-owner');
+      if (o === members[0]) el.style.opacity = wa.toFixed(3);
+      else if (o === members[1]) el.style.opacity = wb.toFixed(3);
+    }
+  }
+  function draw() {
+    try {
+      const st = stateAt(u);
+      const r = renderBody(Object.assign({}, bundle, { params }), st, step);
+      body.innerHTML = r.html;
+      applyMorph();
+      svg.dataset.ink = r.ink.toFixed(4);
+      svg.dataset.state = Object.entries(st).map(([k, v]) => `${k}=${v.toFixed(4)}`).join(', ');
+      const bad = Object.entries(r.env).find(([k, v]) => !k.startsWith('_') && v !== null && isNaNValue(v));
+      if (bad) document.documentElement.dataset.renderError = `construction failed at ${svg.dataset.state}: ${bad[0]}`;
+      for (const fn of listeners) fn(ctl.state());
+    } catch (e) {
+      document.documentElement.dataset.renderError = String(e.message || e);
+      throw e;
+    }
+  }
+  function tick(now) {
+    if (!playing) return;
+    if (last !== null) u = (u + (now - last) / 1000 / speed) % 1;
+    last = now;
+    draw();
+    raf = requestAnimationFrame(tick);
+  }
+  const ctl = {
+    seek(x) { u = ((x % 1) + 1) % 1; draw(); },
+    play() { if (playing || hold) return; playing = true; last = null; raf = requestAnimationFrame(tick); },
+    pause() { playing = false; cancelAnimationFrame(raf); },
+    toggle() { playing ? ctl.pause() : ctl.play(); },
+    set(name, value) { params[name] = value; draw(); },
+    morph(v) { morph = Math.max(0, Math.min(1, v)); applyMorph(); for (const fn of listeners) fn(ctl.state()); },
+    step(name) { step = name || null; draw(); },
+    state() { return { u, state: stateAt(u), speed, playing, params: Object.assign({}, params), morph, members, step }; },
+    onChange(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+  };
+  draw();
+  if (opts.transport) transport(opts.transport, ctl, bundle);
+  if (!hold && opts.autoplay !== false && !step) ctl.play();
+  document.addEventListener('visibilitychange', () => { if (document.hidden) ctl.pause(); });
+  return ctl;
+}
+
+function transport(el, ctl, bundle) {
+  const anim = bundle.animation;
+  el.className = 'astra-transport';
+  el.innerHTML = `
+    <button type="button" class="astra-btn" data-act="toggle" aria-label="play or pause">▶</button>
+    <input type="range" class="astra-slider" min="0" max="1000" value="0" aria-label="state">
+    <span class="astra-readout"></span>`;
+  const btn = el.querySelector('[data-act=toggle]'), slider = el.querySelector('input'), readout = el.querySelector('.astra-readout');
+  btn.addEventListener('click', () => ctl.toggle());
+  slider.addEventListener('input', () => { ctl.pause(); ctl.seek(slider.value / 1000); });
+  let anchor = el;
+  const st0 = ctl.state();
+  if (st0.members) {
+    // a second slider fades between the two members of the superposition: the shared observer stays, one
+    // construction fades out as the other fades in
+    const row = document.createElement('div');
+    row.className = 'astra-transport astra-morph';
+    row.innerHTML = `<span class="astra-morph-label">${st0.members[0]}</span>
+      <input type="range" class="astra-slider" min="0" max="1000" value="${Math.round(st0.morph * 1000)}" aria-label="fade between the two models">
+      <span class="astra-morph-label">${st0.members[1]}</span>`;
+    anchor.after(row); anchor = row;
+    row.querySelector('input').addEventListener('input', e => ctl.morph(e.target.value / 1000));
+  }
+  const steps = bundle.steps || [];
+  if (steps.length) {
+    // one step of the derivation at a time: its proposition, its rule, and what it speaks of in the figure
+    const row = document.createElement('div');
+    row.className = 'astra-transport astra-steps';
+    row.innerHTML = `<button type="button" class="astra-btn" data-act="prev" aria-label="previous step">‹</button>
+      <span class="astra-step-text"></span>
+      <button type="button" class="astra-btn" data-act="next" aria-label="next step">›</button>`;
+    anchor.after(row);
+    const text = row.querySelector('.astra-step-text');
+    let i = Math.max(-1, steps.findIndex(s => s.name === st0.step));
+    const show = () => {
+      const s = i >= 0 ? steps[i] : null;
+      text.textContent = s ? `${s.name}: ${s.text}${s.rule ? ' — by ' + s.rule : ''} (${s.status})` : 'the steps of the derivation';
+      ctl.pause(); ctl.step(s ? s.name : null);
+    };
+    row.querySelector('[data-act=prev]').addEventListener('click', () => { i = Math.max(-1, i - 1); show(); });
+    row.querySelector('[data-act=next]').addEventListener('click', () => { i = Math.min(steps.length - 1, i + 1); show(); });
+    if (i >= 0) show(); else text.textContent = 'the steps of the derivation';
+  }
+  ctl.onChange(s => {
+    btn.textContent = s.playing ? '❚❚' : '▶';
+    slider.value = Math.round(s.u * 1000);
+    if (anim.mode === 'var') {
+      const v = s.state[anim.name];
+      let txt = `${anim.display} = ${v.toFixed(1)}°`;
+      if (anim.period_days) txt += ` · t = ${(norm360(v - anim.epoch) / 360 * anim.period_days).toFixed(1)} d`;
+      readout.textContent = txt;
+    } else readout.textContent = `t = ${s.state.t.toFixed(1)} d`;
+  });
+  ctl.seek(ctl.state().u);
+}
+
+{
+// <astra-argument> — the interactive display of a geometrical argument (astra-argument/1).
+//
+//   <astra-argument src="argument.json" depth="steps"></astra-argument>      or     el.data = {...}
+//
+// The element shows, in this order, the model, what is given, the argument as a numbered outline with its
+// sub-arguments and cases indented, the conclusion, and what the checks say. One control sets the depth
+// (Overview · Steps · Full); every block and every step also opens and closes by itself. Selecting a step shows
+// in the figure what it speaks of. Dependency-free; the figure uses astra-runtime's `mount`.
+//
+// Attributes: src, depth (overview | steps | full), figure ("off" hides it). Methods: select(id), setDepth(d).
+// Events: `step-select` (detail: {id, number}), `depth-change`. Deep link: #step=<id or number>.
+
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// a display symbol: `λ_D` becomes λ with a subscript D
+const sym = s => { const t = esc(s), i = t.indexOf('_'); return i < 0 ? t : `${t.slice(0, i)}<sub>${t.slice(i + 1)}</sub>`; };
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const STATUS_TITLE = {
+  'justified': 'an instance of the rule it names, its hypotheses cited, its configuration conditions holding',
+  'justified by cases': 'reached in every case; the cases cover every configuration',
+  'read off the construction': 'read off the cited constructions: it holds without any hypothesis',
+  'by calculation': 'follows from the cited equalities by calculation; confirmed numerically',
+  'by expansion': 'agrees to the stated order in the small ratio',
+  'true, not justified': 'true, but the rule it names does not license it: a gap in the reasoning',
+  'false': 'does not hold',
+};
+const LEGEND = [['✓', 'an instance of the rule named'], ['◦', 'read off the construction'], ['≈', 'by calculation or expansion'], ['?', 'true, not justified'], ['✗', 'false']];
+
+class AstraArgument extends HTMLElement {
+  static get observedAttributes() { return ['src', 'depth']; }
+
+  constructor() {
+    super();
+    this._data = null;
+    this._depth = 'steps';
+    this._open = new Set();      // nodes whose children are shown
+    this._detail = new Set();    // nodes whose detail is shown
+    this._bands = new Set(['given', 'argument', 'therefore']);
+    this._selected = null;
+    this._ctl = null;
+  }
+
+  connectedCallback() {
+    if (this.hasAttribute('depth')) this._depth = this.getAttribute('depth');
+    if (this._data) this._render();
+    else if (this.getAttribute('src')) this._load(this.getAttribute('src'));
+    this._ro = new ResizeObserver(() => this._fit());
+    this._ro.observe(this);
+  }
+  disconnectedCallback() { if (this._ro) this._ro.disconnect(); }
+  attributeChangedCallback(name, old, value) {
+    if (old === value || !this.isConnected) return;
+    if (name === 'src' && value) this._load(value);
+    if (name === 'depth' && value) this.setDepth(value);
+  }
+
+  set data(d) { this._data = d; this._reset(); if (this.isConnected) this._render(); }
+  get data() { return this._data; }
+
+  async _load(url) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`${url}: ${r.status}`);
+      this.data = await r.json();
+    } catch (e) {
+      this.innerHTML = `<div class="aa"><p style="padding:16px">The argument could not be loaded: ${esc(e.message)}</p></div>`;
+    }
+  }
+
+  // ── state ──
+  _nodes() {
+    const out = [];
+    const walk = n => { out.push(n); (n.children || []).forEach(walk); };
+    (this._data.argument || []).forEach(walk);
+    if (this._data.conclusion) out.push(this._data.conclusion);
+    (this._data.further_conclusions || []).forEach(n => out.push(n));
+    return out;
+  }
+  _reset() {
+    const nodes = this._data ? this._nodes() : [];
+    this._open.clear(); this._detail.clear();
+    if (this._depth !== 'overview') nodes.forEach(n => { if ((n.children || []).length) this._open.add(n.id); });
+    if (this._depth === 'full') nodes.forEach(n => this._detail.add(n.id));
+    this._bands = new Set(['given', 'argument', 'therefore']);
+    if (this._depth === 'full') { this._bands.add('model'); this._bands.add('checks'); }
+  }
+  setDepth(d) {
+    if (!['overview', 'steps', 'full'].includes(d)) return;
+    this._depth = d; this._reset(); this._renderOutline();
+    this.dispatchEvent(new CustomEvent('depth-change', { detail: { depth: d } }));
+  }
+  select(idOrNumber) {
+    const n = this._nodes().find(x => x.id === idOrNumber || x.number === idOrNumber);
+    if (!n) return;
+    this._selected = n.id;
+    // open the way to it
+    const path = this._path(n.id);
+    path.slice(0, -1).forEach(p => this._open.add(p.id));
+    this._renderOutline();
+    if (this._ctl) { this._ctl.pause(); this._ctl.step(n.id); }
+    const box = this.querySelector('.aa-selected');
+    if (box) box.innerHTML = `<b>${esc(n.number)}</b> ${esc(n.claim)}${n.notation && n.notation !== n.claim ? ` — <span class="aa-not">${esc(n.notation)}</span>` : ''}`;
+    this.dispatchEvent(new CustomEvent('step-select', { detail: { id: n.id, number: n.number }, bubbles: true }));
+  }
+  _path(id) {
+    let found = null;
+    const walk = (n, trail) => { const t = trail.concat(n); if (n.id === id) found = t; (n.children || []).forEach(c => walk(c, t)); };
+    (this._data.argument || []).forEach(n => walk(n, []));
+    return found || [];
+  }
+
+  // ── rendering ──
+  _render() {
+    const d = this._data;
+    const who = [];
+    if ((d.attributed || []).length) who.push(`model of <b>${esc(d.attributed.join(', '))}</b>`);
+    (d.witness || []).slice(0, 2).forEach(w => who.push(`witness <b>${esc(w.note || w.address)}</b>`));
+    if (d.author) who.push(`reconstruction <b>${esc(d.author)}</b>`);
+    const lv = d.check.levels.slice(1).map(l => `<span class="${d.check.passed.includes(l) ? 'ok' : 'no'}">${esc(l)}</span>`).join('');
+    this.innerHTML = `<div class="aa" data-depth="${this._depth}">
+      <div class="aa-head"><p class="aa-kicker">Argument · in ${esc(d.context.kind)} ${esc(d.context.title)}</p>
+        <h2 class="aa-title">${esc(d.title)}</h2><p class="aa-who">${who.join(' · ')}</p></div>
+      <div class="aa-bar"><div class="aa-depth" role="group" aria-label="depth of display">
+          ${['overview', 'steps', 'full'].map(x => `<button type="button" data-depth="${x}" aria-pressed="${x === this._depth}">${x[0].toUpperCase() + x.slice(1)}</button>`).join('')}
+        </div><div class="aa-levels" title="what the checks say of this argument">${lv}</div></div>
+      <div class="aa-grid"><div class="aa-fig"></div><div class="aa-outline"></div></div></div>`;
+    this.querySelector('.aa-depth').addEventListener('click', e => { const b = e.target.closest('button[data-depth]'); if (b) this.setDepth(b.dataset.depth); });
+    this._renderFigure();
+    this._renderOutline();
+    this._fit();
+    const m = (location.hash || '').match(/step=([^&]+)/);
+    if (m) this.select(decodeURIComponent(m[1]));
+  }
+
+  _renderFigure() {
+    const d = this._data, root = this.querySelector('.aa'), box = this.querySelector('.aa-fig');
+    if (!d.figure || this.getAttribute('figure') === 'off') { root.classList.add('aa-nofig'); return; }
+    const drawn = Object.entries(d.figure.drawn || {});
+    box.innerHTML = `${d.figure.svg}<div class="aa-transport"></div>
+      <p class="aa-selected">Select a step to see in the figure what it speaks of.</p>
+      ${drawn.length ? `<p class="aa-fig-note">Drawn with ${esc(drawn.map(([k, v]) => `${k} = ${v}`).join(', '))}: drawing values, not attested ones.</p>` : ''}`;
+    const svg = box.querySelector('svg');
+    try { this._ctl = mount(svg, d.figure.bundle, { transport: box.querySelector('.aa-transport'), autoplay: false }); }
+    catch (e) { this._ctl = null; }
+  }
+
+  _refs(n) {
+    if (!(n.from || []).length) return '';
+    return `<span class="aa-from">from ${n.from.map(p => p.kind === 'step' || p.kind === 'hypothesis'
+      ? `<button type="button" class="aa-ref" data-ref="${esc(p.ref)}" aria-label="premise ${esc(p.label)}">${esc(p.label)}</button>`
+      : `<span class="aa-ref is-plain">${esc(p.label)}</span>`).join('')}</span>`;
+  }
+
+  _node(n, level) {
+    const kids = n.children || [];
+    const open = this._open.has(n.id), det = this._detail.has(n.id);
+    const markCls = n.status === 'false' ? ' is-false' : n.status === 'true, not justified' ? ' is-gap' : '';
+    const when = n.when ? `<span class="aa-when">when ${esc(n.when.join('; '))}</span>` : '';
+    const notation = n.notation && n.notation !== n.claim ? `<span class="aa-not">${esc(n.notation)}</span>` : '';
+    const sub = (notation || when || (n.from || []).length) ? `<div class="aa-sub">${when}${notation}${this._refs(n)}</div>` : '';
+    const tag = n.kind === 'case' ? '<span class="aa-case-tag">Case</span>' : n.kind === 'supposition' ? '<span class="aa-case-tag">Suppose</span>' : '';
+    const dist = n.distinction && open ? `<p class="aa-distinction">Argued ${esc(n.distinction)}.</p>` : '';
+    return `<div class="aa-node aa-kind-${n.kind}${this._selected === n.id ? ' is-selected' : ''}" data-id="${esc(n.id)}" data-level="${level}">
+      <div class="aa-row">
+        ${kids.length ? `<button type="button" class="aa-tog" aria-expanded="${open}" aria-label="${open ? 'Close' : 'Open'} ${esc(n.number)}"><span class="aa-chev">▸</span></button>` : '<span></span>'}
+        <span class="aa-num">${esc(n.number)}</span>
+        <div class="aa-main"><button type="button" class="aa-select aa-claim" aria-label="${esc(n.number)}: ${esc(n.claim)}. Show it in the figure">${tag}${esc(n.claim)}</button>${sub}</div>
+        <span class="aa-rule">${n.by ? esc(n.by.rule) : ''}</span>
+        <span class="aa-mark${markCls}" title="${esc(n.status)}: ${esc(STATUS_TITLE[n.status] || '')}">${esc(n.mark)}</span>
+        <button type="button" class="aa-more" aria-expanded="${det}" aria-label="Details of ${esc(n.number)}">⋯</button>
+      </div>
+      ${det ? this._detailHtml(n) : ''}
+      ${kids.length ? `<div class="aa-children"${open ? '' : ' hidden'}>${dist}${kids.map(c => this._node(c, level + 1)).join('')}</div>` : ''}
+    </div>`;
+  }
+
+  _detailHtml(n) {
+    const rows = [];
+    rows.push(['status', `${esc(n.status)}${n.note ? ` — ${esc(n.note)}` : ''}`]);
+    if (n.by && n.by.statement) rows.push(['rule', `<q>${esc(n.by.statement)}</q>${n.by.printed ? ` Heath, ${esc(n.by.printed)}.` : ''}${n.by.case ? ` Case used: ${esc(n.by.case)}.` : ''}${n.by.rests_on ? ` Rests on ${esc(n.by.rests_on)}.` : ''}`]);
+    if (n.binding) rows.push(['binding', esc(Object.entries(n.binding).map(([k, v]) => `${k} = ${v}`).join(', '))]);
+    if (n.conditions) rows.push(['the figure supplies', esc(n.conditions.join('; '))]);
+    if (n.degenerate_at) rows.push(['degenerate at', `<span class="aa-warn">${esc(n.degenerate_at.join(', '))}</span>`]);
+    if (n.undefined_at) rows.push(['undefined at', esc(n.undefined_at.join(', '))]);
+    if (n.equal_at) rows.push(['equal, not less, at', esc(n.equal_at.join(', '))]);
+    if (n.needs) rows.push(['needs', esc(n.needs.join(', '))]);
+    rows.push(['formal', `<span class="aa-formal">${esc(n.formal)}</span>`]);
+    if (typeof n.residual === 'number' && n.grade !== 'approximation' && !n.formal.startsWith('less(')) rows.push(['residual', n.residual.toExponential(1)]);
+    return `<div class="aa-detail"><dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl></div>`;
+  }
+
+  _band(key, title, hint, body) {
+    const open = this._bands.has(key);
+    return `<section class="aa-band" data-band="${key}"><button type="button" class="aa-band-h" aria-expanded="${open}"><span class="aa-chev">▸</span>${esc(title)} <small>${hint}</small></button>
+      <div class="aa-band-b"${open ? '' : ' hidden'}>${body}</div></section>`;
+  }
+
+  _modelHtml() {
+    const d = this._data;
+    const dl = (title, items, f) => items.length ? `<div class="aa-group">${title}</div>` + items.map(f).join('') : '';
+    return d.model.map(m => `<div class="aa-member"><h4>${m.prefix ? esc(m.prefix) + ' — ' : ''}${esc(m.title)} <small>${m.attributed ? 'of ' + esc(m.attributed) : ''}</small></h4>
+      <dl class="aa-defs">
+        ${dl('parameters', m.parameters, p => `<dt>${sym(p.symbol)}</dt><dd>${esc(p.meaning)}${p.range ? ` <code class="aa-def">${esc(p.unit)}, in ${esc(p.range)}</code>` : ''}</dd>`)}
+        ${dl('what varies', m.variables, v => `<dt>${sym(v.symbol)}</dt><dd>${esc(v.meaning)}${v.law ? ` <code class="aa-def">${esc(v.law)}</code>` : ''}</dd>`)}
+        ${dl('construction', m.objects, o => `<dt>${sym(o.symbol)}</dt><dd>${esc(o.meaning)} <code class="aa-def">${esc(o.defined_by)}</code></dd>`)}
+        ${dl('what is observed', m.observables, o => `<dt>${sym(o.symbol)}</dt><dd>${esc(o.meaning)} <code class="aa-def">${esc(o.defined_by)}</code></dd>`)}
+      </dl></div>`).join('')
+      + ((d.identified || []).length ? `<p class="aa-fig-note">In one plane, with ${esc(d.identified.map(i => i.meaning || i.name).join(', '))}.</p>` : '');
+  }
+
+  _renderOutline() {
+    const d = this._data, out = this.querySelector('.aa-outline');
+    if (!out) return;
+    this.querySelector('.aa').dataset.depth = this._depth;
+    this.querySelectorAll('.aa-depth button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.depth === this._depth)));
+    const nObj = d.model.reduce((a, m) => a + m.objects.length, 0);
+    let html = this._band('model', 'Model', `${d.model.length > 1 ? d.model.length + ' models superposed, ' : ''}${nObj} constructed objects`, this._modelHtml());
+    if ((d.hypotheses || []).length || (d.constructions || []).length) {
+      const g = (d.hypotheses || []).map(h => `<div class="aa-node" data-id="${esc(h.id)}"><div class="aa-row"><span></span><span class="aa-num">${esc(h.number)}</span>
+          <div class="aa-main"><div class="aa-claim">${esc(h.claim)}</div><div class="aa-sub"><span class="aa-not">${esc(h.notation)}</span></div></div><span></span><span></span><span></span></div></div>`).join('')
+        + (d.constructions || []).map(c => `<div class="aa-node"><div class="aa-row"><span></span><span class="aa-num">${esc(c.symbol)}</span>
+          <div class="aa-main"><div class="aa-claim">${esc(c.meaning)}</div><div class="aa-sub"><span class="aa-not">${esc(c.defined_by)}</span></div></div><span class="aa-rule">auxiliary construction</span><span></span><span></span></div></div>`).join('');
+      html += this._band('given', 'Given', [(d.hypotheses || []).length ? plural(d.hypotheses.length, 'hypothesis', 'hypotheses') : '', (d.constructions || []).length ? plural(d.constructions.length, 'auxiliary construction', 'auxiliary constructions') : ''].filter(Boolean).join(', '), g);
+    }
+    const all = this._nodes();
+    html += this._band('argument', 'Argument', `${plural(all.filter(n => n.kind === 'step').length, 'step', 'steps')} in ${plural(all.filter(n => n.kind === 'sub-argument' || n.kind === 'case').length, 'block', 'blocks')}`, d.argument.map(n => this._node(n, 0)).join(''));
+    const concl = [d.conclusion].concat(d.further_conclusions || []).filter(Boolean);
+    if (concl.length) html += this._band('therefore', 'Therefore', d.equivalence ? `the two models are equivalent in ${esc(d.equivalence.in)}` : '', `<div class="aa-therefore">${concl.map(n => this._node(n, 0)).join('')}</div>`);
+    const c = d.checks, st = Object.entries(c.by_status || {}).map(([k, v]) => `${v} ${esc(k)}`).join(', ');
+    const comp = (d.computations || []).length ? `<table class="aa-comp"><tr><th>computed</th><th>value</th><th>reported</th><th></th></tr>${d.computations.map(x =>
+      `<tr><td>${esc(x.meaning || x.name)}</td><td>${esc(x.value || '—')}</td><td>${esc(x.reported || '—')}</td><td>${esc(x.verdict)}${x.difference && x.verdict === 'discrepancy' ? ' ' + esc(x.difference) : ''}</td></tr>`).join('')}</table>` : '';
+    html += this._band('checks', 'What the checks say', `${esc(d.check.level)}`, `<div class="aa-checks">
+      <div class="aa-legend">${LEGEND.map(([m, t]) => `<span><b>${m}</b>${t}</span>`).join('')}</div>
+      <p>${c.steps} steps: ${st}. Tested in ${c.configurations} configurations of the parameter space and the states.</p>
+      ${(c.degenerate_states || []).length ? `<p>Degenerate states not covered: ${esc(c.degenerate_states.join(', '))}.</p>` : '<p>No state is left uncovered.</p>'}
+      ${Object.keys(d.check.failures || {}).length ? `<ul>${Object.entries(d.check.failures).map(([k, v]) => v.map(x => `<li class="aa-warn"><b>${esc(k)}</b>: ${esc(x)}</li>`).join('')).join('')}</ul>` : ''}
+      ${(c.notes || []).length ? `<ul>${c.notes.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${comp}</div>`);
+    out.innerHTML = html;
+    if (!this._wired) { this._wire(); this._wired = true; }
+  }
+
+  _wire() {
+    this.addEventListener('click', e => {
+      const bandH = e.target.closest('.aa-band-h');
+      if (bandH) { const k = bandH.parentElement.dataset.band; this._bands.has(k) ? this._bands.delete(k) : this._bands.add(k); this._renderOutline(); return; }
+      const node = e.target.closest('.aa-node'); if (!node || !node.dataset.id) return;
+      const id = node.dataset.id;
+      const ref = e.target.closest('.aa-ref[data-ref]');
+      if (ref) { this.select(ref.dataset.ref); const t = this.querySelector(`.aa-node[data-id="${CSS.escape(ref.dataset.ref)}"]`); if (t) t.scrollIntoView({ block: 'nearest' }); return; }
+      if (e.target.closest('.aa-tog')) { this._open.has(id) ? this._open.delete(id) : this._open.add(id); this._renderOutline(); this._focus(id, '.aa-tog'); return; }
+      if (e.target.closest('.aa-more')) { this._detail.has(id) ? this._detail.delete(id) : this._detail.add(id); this._renderOutline(); this._focus(id, '.aa-more'); return; }
+      if (e.target.closest('.aa-select')) { this.select(id); this._focus(id, '.aa-select'); }
+    });
+    const cite = (e, on) => { const r = e.target.closest && e.target.closest('.aa-ref[data-ref]'); if (!r) return;
+      const t = this.querySelector(`.aa-node[data-id="${CSS.escape(r.dataset.ref)}"]`); if (t) t.classList.toggle('is-cited', on); };
+    this.addEventListener('mouseover', e => cite(e, true));
+    this.addEventListener('mouseout', e => cite(e, false));
+    this.addEventListener('focusin', e => cite(e, true));
+    this.addEventListener('focusout', e => cite(e, false));
+  }
+  _focus(id, sel) { const el = this.querySelector(`.aa-node[data-id="${CSS.escape(id)}"] > .aa-row ${sel}`); if (el) el.focus({ preventScroll: true }); }
+  _fit() { const root = this.querySelector('.aa'); if (root) root.classList.toggle('aa-narrow', this.clientWidth < 820); }
+}
+
+if (!customElements.get('astra-argument')) customElements.define('astra-argument', AstraArgument);
+
+}
+})();
+
+</script>
+<script>
+  const el = document.getElementById('arg');
+  const q = new URLSearchParams(location.search);
+  if (q.get('depth')) el.setAttribute('depth', q.get('depth'));
+  el.data = JSON.parse(document.getElementById('astra-argument-data').textContent);
+  if (q.get('select')) el.select(q.get('select'));
+</script>
+<!-- famulus:publisher:start -->
+<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a href="/impressum/">Legal notice</a> · <a href="/datenschutz/">Privacy</a></p>
+<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
+<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/_generated/arguments/solar-equation-of-centre/&amp;m=" width="1" height="1" alt=""></noscript>
+<!-- famulus:publisher:end -->
+</body></html>

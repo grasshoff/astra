@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.6">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Derivations – Famulus Astronomica</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-35fc0813589bbfbfa0b8ec974497eeb2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-0cbc0a97c17d6307c44ca4293ecb409e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="_generated/famulus-tokens.css">
+<style>.astra-embed{border:1px solid #efe9db;border-radius:8px;width:100%;height:940px;background:#fafaf5}
+figure.astra svg{max-width:100%;height:auto}</style>
+
+
+<!-- famulus:publisher:start -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="publisher" content="OpenScienceTechnology GmbH">
+<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/derivations.html", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
+<!-- famulus:publisher:end -->
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Famulus Astronomica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./language.html"> 
+<span class="menu-text">Language</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./kinds.html"> 
+<span class="menu-text">Model · values · state</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./superposition.html"> 
+<span class="menu-text">Superposition</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./derivations.html" aria-current="page"> 
+<span class="menu-text">Derivations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./arguments.html"> 
+<span class="menu-text">Arguments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./expositions.html"> 
+<span class="menu-text">Expositions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./models.html"> 
+<span class="menu-text">Texts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./checking.html"> 
+<span class="menu-text">Checking</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./outputs.html"> 
+<span class="menu-text">Outputs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./runtime.html"> 
+<span class="menu-text">Runtime</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./diff.html"> 
+<span class="menu-text">Comparison</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./representation.html"> 
+<span class="menu-text">Representation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reading.html"> 
+<span class="menu-text">Deep reading</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./design.html"> 
+<span class="menu-text">Design notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-derivation-that-fig.-1.2-exhibits" id="toc-the-derivation-that-fig.-1.2-exhibits" class="nav-link active" data-scroll-target="#the-derivation-that-fig.-1.2-exhibits">The derivation that Fig. 1.2 exhibits</a>
+  <ul class="collapse">
+  <li><a href="#the-two-forms-place-the-sun-at-the-same-point-when-r-r-and-r-e" id="toc-the-two-forms-place-the-sun-at-the-same-point-when-r-r-and-r-e" class="nav-link" data-scroll-target="#the-two-forms-place-the-sun-at-the-same-point-when-r-r-and-r-e">The two forms place the sun at the same point when R’ = R and r = e</a></li>
+  </ul></li>
+  <li><a href="#four-questions" id="toc-four-questions" class="nav-link" data-scroll-target="#four-questions">Four questions</a></li>
+  <li><a href="#what-the-figure-supplies-configuration-conditions-and-degenerate-states" id="toc-what-the-figure-supplies-configuration-conditions-and-degenerate-states" class="nav-link" data-scroll-target="#what-the-figure-supplies-configuration-conditions-and-degenerate-states">What the figure supplies: configuration conditions and degenerate states</a></li>
+  <li><a href="#sub-arguments-and-cases" id="toc-sub-arguments-and-cases" class="nav-link" data-scroll-target="#sub-arguments-and-cases">Sub-arguments and cases</a></li>
+  <li><a href="#what-the-checks-say-when-something-is-wrong" id="toc-what-the-checks-say-when-something-is-wrong" class="nav-link" data-scroll-target="#what-the-checks-say-when-something-is-wrong">What the checks say when something is wrong</a></li>
+  <li><a href="#the-proportional-case" id="toc-the-proportional-case" class="nav-link" data-scroll-target="#the-proportional-case">The proportional case</a>
+  <ul class="collapse">
+  <li><a href="#the-two-forms-show-the-sun-in-the-same-direction-when-rr-re" id="toc-the-two-forms-show-the-sun-in-the-same-direction-when-rr-re" class="nav-link" data-scroll-target="#the-two-forms-show-the-sun-in-the-same-direction-when-rr-re">The two forms show the sun in the same direction when R’/r = R/e</a></li>
+  </ul></li>
+  <li><a href="#a-derivation-in-one-model-with-an-auxiliary-construction" id="toc-a-derivation-in-one-model-with-an-auxiliary-construction" class="nav-link" data-scroll-target="#a-derivation-in-one-model-with-an-auxiliary-construction">A derivation in one model, with an auxiliary construction</a>
+  <ul class="collapse">
+  <li><a href="#the-equation-of-centre-is-the-angle-at-the-sun-with-tan-c-e-sin-κ-r-e-cos-κ" id="toc-the-equation-of-centre-is-the-angle-at-the-sun-with-tan-c-e-sin-κ-r-e-cos-κ" class="nav-link" data-scroll-target="#the-equation-of-centre-is-the-angle-at-the-sun-with-tan-c-e-sin-κ-r-e-cos-κ">The equation of centre is the angle at the sun, with tan c = e sin κ̄ / (R + e cos κ̄)</a></li>
+  </ul></li>
+  <li><a href="#parameters-determined-from-observations" id="toc-parameters-determined-from-observations" class="nav-link" data-scroll-target="#parameters-determined-from-observations">Parameters determined from observations</a>
+  <ul class="collapse">
+  <li><a href="#the-eccentricity-and-the-apogee-follow-from-the-lengths-of-spring-and-summer" id="toc-the-eccentricity-and-the-apogee-follow-from-the-lengths-of-spring-and-summer" class="nav-link" data-scroll-target="#the-eccentricity-and-the-apogee-follow-from-the-lengths-of-spring-and-summer">The eccentricity and the apogee follow from the lengths of spring and summer</a></li>
+  </ul></li>
+  <li><a href="#the-rules" id="toc-the-rules" class="nav-link" data-scroll-target="#the-rules">The rules</a></li>
+  <li><a href="#what-a-derivation-is-and-is-not" id="toc-what-a-derivation-is-and-is-not" class="nav-link" data-scroll-target="#what-a-derivation-is-and-is-not">What a derivation is and is not</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Derivations</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>After the construction of a model comes the operation of derivation: geometrical reasoning about what has been constructed. A derivation works in a context — a model or a superposition — and consists of operations.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>operation</th>
+<th>what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>given h: equal(&lt;param&gt;, &lt;expr&gt;)</code></td>
+<td>a hypothesis: it restricts the parameter space</td>
+</tr>
+<tr class="even">
+<td><code>construct F = …</code></td>
+<td>an auxiliary construction, added to the context</td>
+</tr>
+<tr class="odd">
+<td><code>derive d: &lt;proposition&gt; from &lt;premises&gt; by &lt;rule&gt;</code></td>
+<td>a proposition derived from named premises by a named rule</td>
+</tr>
+<tr class="even">
+<td><code>show A: &lt;proposition&gt;</code> … <code>qed from &lt;steps&gt;</code></td>
+<td>a sub-argument: the claim first, then the steps that establish it</td>
+</tr>
+<tr class="odd">
+<td><code>cases</code> / <code>case n: when &lt;condition&gt;</code> / <code>qed by cases</code></td>
+<td>a claim argued separately under conditions that together cover every configuration</td>
+</tr>
+<tr class="even">
+<td><code>suppose n: &lt;condition&gt;</code></td>
+<td>restricts the steps that follow to the configurations in which the condition holds</td>
+</tr>
+<tr class="odd">
+<td><code>compute x = …</code></td>
+<td>a quantity under a parametrisation, compared with a reported value</td>
+</tr>
+<tr class="even">
+<td><code>determine p, q from …</code></td>
+<td>parameters determined from observed intervals through the model</td>
+</tr>
+<tr class="odd">
+<td><code>conclude …</code></td>
+<td>the proposition the derivation is for</td>
+</tr>
+</tbody>
+</table>
+<section id="the-derivation-that-fig.-1.2-exhibits" class="level2">
+<h2 class="anchored" data-anchor-id="the-derivation-that-fig.-1.2-exhibits">The derivation that Fig. 1.2 exhibits</h2>
+<p>The page says: “To construct the epicyclic model, complete parallelogram OESC”. It names the figure in which the reasoning can be seen. The reasoning itself, step by step, with the proposition that licenses each step:</p>
+<pre><code># The equivalence of the two forms when the radii are equal: the reasoning that Swerdlow's Fig. 1.2 exhibits.
+# The page (p. 19, scan page 49, paragraph 3): "To construct the epicyclic model, complete parallelogram OESC and
+# let C be the center of an epicycle of radius r = e moving uniformly through κ̄ on a concentric circle about O of
+# radius R' = R while the sun S moves in the opposite direction through κ̄ about C from OC extended to the apogee
+# of the epicycle, so that r is always parallel to the apsidal line AB."
+# The page names the parallelogram. The steps, the propositions that license them, and the two positions in
+# which there is no parallelogram — the sun at the apogee and at the perigee — are set out here.
+derivation solar-equivalence-equal-radii in solar-eccentric-epicyclic "The two forms place the sun at the same point when R' = R and r = e"
+witness fr:kepler-sec/Swerdlow2026/0049/p04 "the parallelogram OESC, p. 19"
+witness fr:kepler-sec/Swerdlow2026/0050/fig01 "Fig. 1.2"
+author "Gerd Graßhoff"
+
+given h1: equal(Epi.R', Ecc.R) "the deferent has the radius of the eccentric"
+given h2: equal(Epi.r, Ecc.e)  "the epicycle has the eccentricity as its radius"
+
+show same: coincident(Ecc.S, Epi.S') "the sun of the eccentric form and the sun of the epicyclic form are one point"
+
+  # what the two constructions give in every position
+  derive d3: equal(distance(Ecc.E, Ecc.S), Ecc.R)   from def Ecc.S by construction  "S lies on the eccentric"
+  derive d4: equal(distance(O, Epi.C), Epi.R')      from def Epi.C by construction  "C lies on the deferent"
+  derive d8: equal(distance(O, Ecc.E), Ecc.e)       from def Ecc.E by construction  "OE is the eccentricity"
+  derive d9: equal(distance(Epi.C, Epi.S'), Epi.r)  from def Epi.S' by construction "S' lies on the epicycle"
+
+  cases "by the position of the sun: off the apsidal line, at the apogee, at the perigee"
+
+  case generic: when noncollinear(O, Ecc.E, Ecc.S) "off the apsidal line, OESC is a parallelogram"
+
+    show sides: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) "ES and OC are parallel"
+      derive d1: equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C)) from def Ecc.A, def Ecc.S, def Epi.A', def Epi.C by construction "both angles are the mean anomaly κ̄, counted from the apsidal line"
+      derive d2: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) from d1 by Elements I.28 "the apsidal line falls on ES and OC and makes equal angles with them on the same side"
+    qed from d2
+
+    derive d5: equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C)) from d3, d4, h1 by common notion 1 "ES = R = R' = OC"
+
+    show joins: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) "OE and CS are parallel: OESC is a parallelogram"
+      derive d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from sides, d5 by Elements I.33 "the lines joining the ends of the equal and parallel ES and OC"
+    qed from d6
+    derive d7: equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S)) from sides, d5 by Elements I.33 "and they are equal"
+
+    derive d10: equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S')) from d7, d8, h2, d9 by common notion 1 "CS = OE = e = r = CS'"
+    derive d11: parallel(line(Epi.C, Epi.S'), line(O, Ecc.E)) from def Epi.S', def Ecc.E by construction "the radius of the epicycle keeps the direction of the apsidal line"
+    derive d12: coincident(Ecc.S, Epi.S') from joins, d11, d10 by lemma same ray "S and S' lie from C along the parallel to OE, the same way, at the same distance"
+  qed from d12
+
+  case apogee: when collinear(O, Ecc.E, Ecc.S), between(Ecc.E, O, Ecc.S) "at the apogee the four points lie on the apsidal line, E between O and S"
+    derive a1: equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E, Ecc.S)) by lemma segment addition "OS = OE + ES"
+    derive a2: equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C, Epi.S')) by lemma segment addition "OS' = OC + CS'"
+    derive a3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from a1, a2, d3, d4, d8, d9, h1, h2 by algebra "e + R = R' + r"
+    derive a4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from apogee by lemma one line "S lies on the apsidal line"
+    derive a5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E by construction "and so does S'"
+    derive a6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from a5 by lemma one line
+    derive a7: coincident(Ecc.S, Epi.S') from a4, a6, a3 by lemma same ray "S and S' lie from O along the apsidal line, the same way, at the same distance"
+  qed from a7
+
+  case perigee: when collinear(O, Ecc.E, Ecc.S), between(O, Ecc.E, Ecc.S) "at the perigee the four points lie on the apsidal line, O between E and S"
+    derive p1: equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O, Ecc.S)) by lemma segment addition "ES = EO + OS"
+    derive p2: equal(distance(Epi.C, O), distance(Epi.C, Epi.S') + distance(Epi.S', O)) by lemma segment addition "CO = CS' + S'O"
+    derive p3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from p1, p2, d3, d4, d8, d9, h1, h2 by algebra "R − e = R' − r"
+    derive p4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from perigee by lemma one line "S lies on the apsidal line"
+    derive p5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E by construction "and so does S'"
+    derive p6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from p5 by lemma one line
+    derive p7: coincident(Ecc.S, Epi.S') from p4, p6, p3 by lemma same ray "S and S' lie from O along the apsidal line, the same way, at the same distance"
+  qed from p7
+
+qed by cases
+
+conclude equivalent(Ecc, Epi, position) from same "in every state the two forms have the sun at one point"</code></pre>
+<figure class="astra figure">
+<iframe class="astra-embed" src="gallery/solar-fig-equal-radii-steps.html?theme=light&amp;step=d6" loading="lazy" title="The steps of the equivalence">
+</iframe>
+<figcaption>
+The superposition as the scene of the derivation. The buttons ‹ › go through the steps; each shows its proposition, its rule and what it speaks of in the figure.
+</figcaption>
+</figure>
+<section id="the-two-forms-place-the-sun-at-the-same-point-when-r-r-and-r-e" class="level3">
+<h3 class="anchored" data-anchor-id="the-two-forms-place-the-sun-at-the-same-point-when-r-r-and-r-e">The two forms place the sun at the same point when R’ = R and r = e</h3>
+<p><code>fr:astra/solar-equivalence-equal-radii</code> · derivation · astra/1</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0049/p04</code> — the parallelogram OESC, p.&nbsp;19</td>
+</tr>
+<tr class="even">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0050/fig01</code> — Fig. 1.2</td>
+</tr>
+<tr class="odd">
+<td>this description by</td>
+<td>Gerd Graßhoff</td>
+</tr>
+<tr class="even">
+<td>in</td>
+<td><code>fr:astra/solar-eccentric-epicyclic</code></td>
+</tr>
+<tr class="odd">
+<td>check</td>
+<td><strong>conclusive</strong> (5/5: ✓ well-formed · ✓ grounded · ✓ true · ✓ justified · ✓ conclusive)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Given</strong></p>
+<ul>
+<li><strong>h1</strong> <code>equal(Epi.R', Ecc.R)</code> — the deferent has the radius of the eccentric</li>
+<li><strong>h2</strong> <code>equal(Epi.r, Ecc.e)</code> — the epicycle has the eccentricity as its radius</li>
+</ul>
+<p><strong>Steps</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>proposition</th>
+<th>from</th>
+<th>by</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>same</strong></td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>—</td>
+<td>cases</td>
+<td>justified by cases</td>
+</tr>
+<tr class="even">
+<td>· d3</td>
+<td><code>equal(distance(Ecc.E, Ecc.S), Ecc.R)</code></td>
+<td>def Ecc.S</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>· d4</td>
+<td><code>equal(distance(O, Epi.C), Epi.R')</code></td>
+<td>def Epi.C</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>· d8</td>
+<td><code>equal(distance(O, Ecc.E), Ecc.e)</code></td>
+<td>def Ecc.E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>· d9</td>
+<td><code>equal(distance(Epi.C, Epi.S'), Epi.r)</code></td>
+<td>def Epi.S’</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>· <em>generic</em></td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>d12</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· · <strong>sides</strong></td>
+<td><code>parallel(line(Ecc.E, Ecc.S), line(O, Epi.C))</code></td>
+<td>d2</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · · d1</td>
+<td><code>equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C))</code></td>
+<td>def Ecc.A, def Ecc.S, def Epi.A’, def Epi.C</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>· · · d2</td>
+<td><code>parallel(line(Ecc.E, Ecc.S), line(O, Epi.C))</code></td>
+<td>d1</td>
+<td>Elements I.28</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · d5</td>
+<td><code>equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C))</code></td>
+<td>d3, d4, h1</td>
+<td>common notion 1</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· · <strong>joins</strong></td>
+<td><code>parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))</code></td>
+<td>d6</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · · d6</td>
+<td><code>parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))</code></td>
+<td>sides, d5</td>
+<td>Elements I.33</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· · d7</td>
+<td><code>equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S))</code></td>
+<td>sides, d5</td>
+<td>Elements I.33</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · d10</td>
+<td><code>equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S'))</code></td>
+<td>d7, d8, h2, d9</td>
+<td>common notion 1</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· · d11</td>
+<td><code>parallel(line(Epi.C, Epi.S'), line(O, Ecc.E))</code></td>
+<td>def Epi.S’, def Ecc.E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>· · d12</td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>joins, d11, d10</td>
+<td>lemma same ray</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· <em>apogee</em></td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>a7</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · a1</td>
+<td><code>equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E, Ecc.S))</code></td>
+<td>—</td>
+<td>lemma segment addition</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· · a2</td>
+<td><code>equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C, Epi.S'))</code></td>
+<td>—</td>
+<td>lemma segment addition</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · a3</td>
+<td><code>equal(distance(O, Ecc.S), distance(O, Epi.S'))</code></td>
+<td>a1, a2, d3, d4, d8, d9, h1, h2</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+<tr class="odd">
+<td>· · a4</td>
+<td><code>parallel(line(O, Ecc.S), line(O, Ecc.E))</code></td>
+<td>apogee</td>
+<td>lemma one line</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · a5</td>
+<td><code>collinear(O, Ecc.E, Epi.S')</code></td>
+<td>def Epi.C, def Epi.S’, def Ecc.E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>· · a6</td>
+<td><code>parallel(line(O, Epi.S'), line(O, Ecc.E))</code></td>
+<td>a5</td>
+<td>lemma one line</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · a7</td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>a4, a6, a3</td>
+<td>lemma same ray</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· <em>perigee</em></td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>p7</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · p1</td>
+<td><code>equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O, Ecc.S))</code></td>
+<td>—</td>
+<td>lemma segment addition</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>· · p2</td>
+<td><code>equal(distance(Epi.C, O), distance(Epi.C, Epi.S') + distance(Epi.S', O))</code></td>
+<td>—</td>
+<td>lemma segment addition</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · p3</td>
+<td><code>equal(distance(O, Ecc.S), distance(O, Epi.S'))</code></td>
+<td>p1, p2, d3, d4, d8, d9, h1, h2</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+<tr class="odd">
+<td>· · p4</td>
+<td><code>parallel(line(O, Ecc.S), line(O, Ecc.E))</code></td>
+<td>perigee</td>
+<td>lemma one line</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · p5</td>
+<td><code>collinear(O, Ecc.E, Epi.S')</code></td>
+<td>def Epi.C, def Epi.S’, def Ecc.E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>· · p6</td>
+<td><code>parallel(line(O, Epi.S'), line(O, Ecc.E))</code></td>
+<td>p5</td>
+<td>lemma one line</td>
+<td>justified</td>
+</tr>
+<tr class="even">
+<td>· · p7</td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>p4, p6, p3</td>
+<td>lemma same ray</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>conclusion</td>
+<td><code>coincident(Ecc.S, Epi.S')</code></td>
+<td>same</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equivalence:</strong> <code>solar-eccentric</code> and <code>solar-epicyclic</code> are equivalent in <strong>position</strong> under <code>equal(Epi.R', Ecc.R)</code>, <code>equal(Epi.r, Ecc.e)</code>.</p>
+<p><strong>Rules used</strong></p>
+<ul>
+<li><strong>cases</strong>: “The claim is reached in every case, and the cases cover every configuration.”</li>
+<li><strong>construction</strong>: “The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.”</li>
+<li><strong>Elements I.28</strong>: “If a straight line falling on two straight lines make the exterior angle equal to the interior and opposite angle on the same side, or the interior angles on the same side equal to two right angles, the straight lines will be parallel to one another.” (vol.&nbsp;I, p.&nbsp;309, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0318</code>)</li>
+<li><strong>common notion 1</strong>: “Things which are equal to the same thing are also equal to one another.” (vol.&nbsp;I, p.&nbsp;155, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164</code>)</li>
+<li><strong>Elements I.33</strong>: “The straight lines joining equal and parallel straight lines (at the extremities which are) in the same directions (respectively) are themselves also equal and parallel.” (vol.&nbsp;I, p.&nbsp;322, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0331</code>)</li>
+<li><strong>lemma same ray</strong>: “Two points that lie from a point C in the same direction along parallels to one line, at equal distances from C, coincide.”</li>
+<li><strong>lemma segment addition</strong>: “If B lies between A and C on one line, AC is AB and BC together.”</li>
+<li><strong>algebra</strong>: “The proposition follows from the cited equalities by calculation.”</li>
+<li><strong>lemma one line</strong>: “Three points on one line give lines from one of them to the other two that are parallel (they are one line).”</li>
+</ul>
+</section>
+</section>
+<section id="four-questions" class="level2">
+<h2 class="anchored" data-anchor-id="four-questions">Four questions</h2>
+<p><strong>Grounded.</strong> Every premise resolves: to a given, an earlier step, the construction of an object (<code>def Ecc.S</code>), or a proposition stated in the model (<code>prop p1</code>).</p>
+<p><strong>True.</strong> Every proposition holds in all sampled configurations that satisfy the givens.</p>
+<p><strong>Justified.</strong> Every step is licensed by its rule, in one of four grades.</p>
+<ul>
+<li><em>An instance of a rule.</em> For <code>d6 … by Elements I.33</code> the matcher binds the proposition’s variables, A = O, B = C, C = E, D = S, so that I.33’s conclusion is the step’s proposition, finds its two hypotheses among the cited premises (d2 and d5), and evaluates its configuration conditions.</li>
+<li><em>Common Notion 1.</em> The two sides of an equality are joined by the cited equalities.</li>
+<li><em>Read off the construction.</em> The proposition speaks only of the cited objects and what they are built from, and holds over the whole parameter space without the givens. ES = R is read off the construction of S.</li>
+<li><em>Calculation.</em> An equality from cited equalities, confirmed numerically; the calculation is not replayed.</li>
+</ul>
+<p><strong>Conclusive.</strong> For every given, the parameter space is sampled with that given lifted. A proposition that then fails needs the given. If the given is not cited on the way to it, it is a tacit premise.</p>
+</section>
+<section id="what-the-figure-supplies-configuration-conditions-and-degenerate-states" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-figure-supplies-configuration-conditions-and-degenerate-states">What the figure supplies: configuration conditions and degenerate states</h2>
+<p>Euclid’s propositions take something from the figure: that points are distinct, that two points lie on the same side of a line, that two segments point the same way. In the rule table these are <em>configuration conditions</em>, and they are evaluated in every sampled configuration. I.33 needs A, B, C not to lie on one line. At κ̄ = 0° and κ̄ = 180° the parallelogram OESC collapses into the apsidal line, and I.33 does not apply. These are the <strong>degenerate states</strong> of the step. The conclusion is true there as well, but the parallelogram does not reach it, and the printed figure, drawn at κ̄ ≈ 41°, does not show that.</p>
+</section>
+<section id="sub-arguments-and-cases" class="level2">
+<h2 class="anchored" data-anchor-id="sub-arguments-and-cases">Sub-arguments and cases</h2>
+<p>The derivation above therefore argues its claim — the two suns are one point — in three <strong>cases</strong>: off the apsidal line by the parallelogram; at the apogee and at the perigee by adding and subtracting lengths along the line. A case has a condition (<code>when noncollinear(O, Ecc.E, Ecc.S)</code>); its steps are checked only in the configurations that satisfy it; <code>qed by cases</code> requires that the cases together cover every configuration and that each reaches the claim. A <strong>sub-argument</strong> (<code>show … qed</code>) states a claim and then the steps for it; its inside cannot be cited from outside, which is what makes an overview possible. A <strong>supposition</strong> (<code>suppose quadrant: right_angle(D, C, E)</code>) restricts the steps after it to one position, as Kepler’s “et sit jam DCE rectus” does. Read as an argument with collapse and expand: <a href="./arguments.html">Arguments</a>.</p>
+</section>
+<section id="what-the-checks-say-when-something-is-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-checks-say-when-something-is-wrong">What the checks say when something is wrong</h2>
+<pre><code># the wrong proposition is cited
+✗ d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) by Elements I.29
+      — true, not justified (the proposition is not a conclusion of the rule)
+
+# a hypothesis of the proposition is not cited
+✗ d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) by Elements I.33
+      — true, not justified (a hypothesis of the rule is not among the cited premises)
+
+# a false proposition
+✗ d12: coincident(Ecc.S, Epi.C) by lemma same ray
+      — false (residual 0.462 of the scale at kappa_bar = 10° for Ecc.R = 224.2, Ecc.e = 103.5, lamA = 80.62, T = 372.7, kappa_0 = 33.21, Epi.R' = 224.2, Epi.r = 103.5)
+
+# a hypothesis is used without being cited
+✗ conclusive: d10 holds only under h2, which is not cited on the way to it (a tacit premise)
+✗ conclusive: d12 holds only under h2, which is not cited on the way to it (a tacit premise)
+
+# a case is left out: the perigee
+✗ justified: same: coincident(Ecc.S, Epi.S') by cases: no case covers kappa_bar = 180°</code></pre>
+</section>
+<section id="the-proportional-case" class="level2">
+<h2 class="anchored" data-anchor-id="the-proportional-case">The proportional case</h2>
+<section id="the-two-forms-show-the-sun-in-the-same-direction-when-rr-re" class="level3">
+<h3 class="anchored" data-anchor-id="the-two-forms-show-the-sun-in-the-same-direction-when-rr-re">The two forms show the sun in the same direction when R’/r = R/e</h3>
+<p><code>fr:astra/solar-equivalence-proportional</code> · derivation · astra/1</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0050/p02</code> — the proportional case, p.&nbsp;20</td>
+</tr>
+<tr class="even">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0051/fig01</code> — Fig. 1.3</td>
+</tr>
+<tr class="odd">
+<td>this description by</td>
+<td>Gerd Graßhoff</td>
+</tr>
+<tr class="even">
+<td>in</td>
+<td><code>fr:astra/solar-eccentric-epicyclic</code></td>
+</tr>
+<tr class="odd">
+<td>check</td>
+<td><strong>conclusive</strong> (5/5: ✓ well-formed · ✓ grounded · ✓ true · ✓ justified · ✓ conclusive)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Given</strong></p>
+<ul>
+<li><strong>h1</strong> <code>equal(Epi.r, Epi.R' * Ecc.e / Ecc.R)</code> — R’/r = R/e</li>
+</ul>
+<p><strong>Steps</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>proposition</th>
+<th>from</th>
+<th>by</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>d1</td>
+<td><code>equal(angle(O, Ecc.E, Ecc.S), angle(Epi.S', Epi.C, O))</code></td>
+<td>def Ecc.E, def Ecc.S, def Epi.C, def Epi.S’</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>d2</td>
+<td><code>equal(distance(O, Ecc.E), Ecc.e)</code></td>
+<td>def Ecc.E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>d3</td>
+<td><code>equal(distance(Ecc.E, Ecc.S), Ecc.R)</code></td>
+<td>def Ecc.S</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>d4</td>
+<td><code>equal(distance(Epi.C, Epi.S'), Epi.r)</code></td>
+<td>def Epi.S’</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>d5</td>
+<td><code>equal(distance(O, Epi.C), Epi.R')</code></td>
+<td>def Epi.C</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>d6</td>
+<td><code>equal(distance(Ecc.E, O) / distance(Ecc.E, Ecc.S), distance(Epi.C, Epi.S') / distance(Epi.C, O))</code></td>
+<td>d2, d3, d4, d5, h1</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+<tr class="odd">
+<td>d7</td>
+<td><code>equal(angle(Ecc.E, O, Ecc.S), angle(Epi.C, Epi.S', O))</code></td>
+<td>d1, d6</td>
+<td>Elements VI.6</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>d8</td>
+<td><code>parallel(line(Epi.C, Epi.S'), line(O, Ecc.E))</code></td>
+<td>def Epi.S’, def Ecc.E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>d9</td>
+<td><code>equal(angle(Epi.C, Epi.S', O), angle(Epi.S', O, Ecc.E))</code></td>
+<td>d8</td>
+<td>Elements I.29</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>d10</td>
+<td><code>equal(angle(Ecc.E, O, Ecc.S), angle(Ecc.E, O, Epi.S'))</code></td>
+<td>d7, d9</td>
+<td>common notion 1</td>
+<td>justified</td>
+</tr>
+<tr class="odd">
+<td>d11</td>
+<td><code>equal(direction(O, Ecc.S), direction(O, Epi.S'))</code></td>
+<td>d10</td>
+<td>lemma same angle</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>conclusion</td>
+<td><code>equal(direction(O, Ecc.S), direction(O, Epi.S'))</code></td>
+<td>d11</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equivalence:</strong> <code>solar-eccentric</code> and <code>solar-epicyclic</code> are equivalent in <strong>direction</strong> under <code>equal(Epi.r, Epi.R' * Ecc.e / Ecc.R)</code>.</p>
+<p><strong>Rules used</strong></p>
+<ul>
+<li><strong>construction</strong>: “The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.”</li>
+<li><strong>algebra</strong>: “The proposition follows from the cited equalities by calculation.”</li>
+<li><strong>Elements VI.6</strong>: “If two triangles have one angle equal to one angle and the sides about the equal angles proportional, the triangles will be equiangular and will have those angles equal which the corresponding sides subtend.” (vol.&nbsp;II, p.&nbsp;204, <code>fr:assyrischeSammlung/The-Thirteen-Books-of-the-Elements--Vol.-2-Books-3-9-by-Thomas-L.-Heath--Euclid/0211</code>)</li>
+<li><strong>Elements I.29</strong>: “A straight line falling on parallel straight lines makes the alternate angles equal to one another, the exterior angle equal to the interior and opposite angle, and the interior angles on the same side equal to two right angles.” (vol.&nbsp;I, p.&nbsp;311, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0320</code>)</li>
+<li><strong>common notion 1</strong>: “Things which are equal to the same thing are also equal to one another.” (vol.&nbsp;I, p.&nbsp;155, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164</code>)</li>
+<li><strong>lemma same angle</strong>: “Two points that subtend equal angles with a ray VP at V and lie on the same side of it are seen from V in the same direction.”</li>
+</ul>
+<p><strong>Notes and gaps</strong></p>
+<ul>
+<li>degenerate states, in which a step’s rule does not apply, a term is undefined or an inequality becomes an equality: kappa_bar = 0°; kappa_bar = 180°. The derivation does not cover them; the conclusion is true there as well (numerically)</li>
+</ul>
+</section>
+</section>
+<section id="a-derivation-in-one-model-with-an-auxiliary-construction" class="level2">
+<h2 class="anchored" data-anchor-id="a-derivation-in-one-model-with-an-auxiliary-construction">A derivation in one model, with an auxiliary construction</h2>
+<p>The page prints tan c = e sin κ̄ / (R + e cos κ̄) and its sine form without a derivation. The one below is supplied by the author of the astra text and says so: the perpendicular from the earth on ES, two right triangles, the exterior angle of the triangle OES.</p>
+<p><img src="_generated/solar-fig-equation.svg" class="astra img-fluid"></p>
+<section id="the-equation-of-centre-is-the-angle-at-the-sun-with-tan-c-e-sin-κ-r-e-cos-κ" class="level3">
+<h3 class="anchored" data-anchor-id="the-equation-of-centre-is-the-angle-at-the-sun-with-tan-c-e-sin-κ-r-e-cos-κ">The equation of centre is the angle at the sun, with tan c = e sin κ̄ / (R + e cos κ̄)</h3>
+<p><code>fr:astra/solar-equation-of-centre</code> · derivation · astra/1</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0052/p03</code> — the formula, p.&nbsp;22</td>
+</tr>
+<tr class="even">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0052/p05</code> — the maximum, p.&nbsp;22</td>
+</tr>
+<tr class="odd">
+<td>this description by</td>
+<td>Gerd Graßhoff</td>
+</tr>
+<tr class="even">
+<td>in</td>
+<td><code>fr:astra/solar-eccentric</code></td>
+</tr>
+<tr class="odd">
+<td>check</td>
+<td><strong>conclusive</strong> (5/5: ✓ well-formed · ✓ grounded · ✓ true · ✓ justified · ✓ conclusive)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constructed</strong></p>
+<ul>
+<li><code>F = foot(O, line(E, S))</code> — foot of the perpendicular from the earth on ES</li>
+</ul>
+<p><strong>Steps</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>proposition</th>
+<th>from</th>
+<th>by</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>d1</td>
+<td><code>equal(angle(S, E, A), angle(E, S, O) + angle(S, O, E))</code></td>
+<td>def A</td>
+<td>Elements I.32</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>d2</td>
+<td><code>equal(abs(norm180(c)), angle(O, S, E))</code></td>
+<td>d1, prop p1, prop p2</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+<tr class="odd">
+<td>d3</td>
+<td><code>perpendicular(line(O, F), line(E, S))</code></td>
+<td>def F</td>
+<td>construction</td>
+<td>read off the construction; undefined at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>d4</td>
+<td><code>equal(distance(O, F), distance(O, E) * sin(angle(O, E, F)))</code></td>
+<td>d3</td>
+<td>trigonometry sine</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 90°, kappa_bar = 180°, kappa_bar = 270°; undefined at kappa_bar = 270°, kappa_bar = 90°</td>
+</tr>
+<tr class="odd">
+<td>d5</td>
+<td><code>equal(distance(O, E), e)</code></td>
+<td>def E</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>d6</td>
+<td><code>equal(sin(angle(O, E, F)), abs(sin(kappa_bar)))</code></td>
+<td>def E, def S, def F</td>
+<td>construction</td>
+<td>read off the construction; undefined at kappa_bar = 270°, kappa_bar = 90°</td>
+</tr>
+<tr class="odd">
+<td>d7</td>
+<td><code>equal(distance(O, F), e * abs(sin(kappa_bar)))</code></td>
+<td>d4, d5, d6</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+<tr class="even">
+<td>d8</td>
+<td><code>equal(distance(S, F), R + e * cos(kappa_bar))</code></td>
+<td>def E, def S, def F</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>d9</td>
+<td><code>equal(tan(angle(O, S, F)), distance(O, F) / distance(S, F))</code></td>
+<td>d3</td>
+<td>trigonometry tangent</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>d10</td>
+<td><code>equal(angle(O, S, F), angle(O, S, E))</code></td>
+<td>def F, def E, def S</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="odd">
+<td>d11</td>
+<td><code>equal(distance(O, F), distance(O, S) * sin(angle(O, S, F)))</code></td>
+<td>d3</td>
+<td>trigonometry sine</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="even">
+<td>d12</td>
+<td><code>equal(distance(O, S) * distance(O, S), distance(O, F) * distance(O, F) + distance(S, F) * distance(S, F))</code></td>
+<td>d3</td>
+<td>Elements I.47</td>
+<td>justified; degenerate at kappa_bar = 0°, kappa_bar = 180°</td>
+</tr>
+<tr class="odd">
+<td>conclusion2</td>
+<td><code>equal(sin(abs(norm180(c))), e * abs(sin(kappa_bar)) / sqrt(R * R + e * e + 2 * R * e * cos(kappa_bar)))</code></td>
+<td>d2, d10, d11, d12, d7, d8</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+<tr class="even">
+<td>conclusion</td>
+<td><code>equal(tan(abs(norm180(c))), e * abs(sin(kappa_bar)) / (R + e * cos(kappa_bar)))</code></td>
+<td>d2, d9, d10, d7, d8</td>
+<td>algebra</td>
+<td>by calculation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rules used</strong></p>
+<ul>
+<li><strong>Elements I.32</strong>: “In any triangle, if one of the sides be produced, the exterior angle is equal to the two interior and opposite angles, and the three interior angles of the triangle are equal to two right angles.” (vol.&nbsp;I, p.&nbsp;316, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0325</code>)</li>
+<li><strong>algebra</strong>: “The proposition follows from the cited equalities by calculation.”</li>
+<li><strong>construction</strong>: “The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.”</li>
+<li><strong>trigonometry sine</strong>: “In a right triangle the side opposite an acute angle is the hypotenuse times the sine of that angle.”</li>
+<li><strong>trigonometry tangent</strong>: “In a right triangle the tangent of an acute angle is the opposite side over the adjacent side.”</li>
+<li><strong>Elements I.47</strong>: “In right-angled triangles the square on the side subtending the right angle is equal to the squares on the sides containing the right angle.” (vol.&nbsp;I, p.&nbsp;349, <code>fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0358</code>)</li>
+</ul>
+<p><strong>Computed</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>quantity</th>
+<th>with</th>
+<th>computed</th>
+<th>reported</th>
+<th>verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>c_max: max angle(O, S, E)</td>
+<td><code>fr:astra/solar-eccentric.ptolemy</code></td>
+<td>2;23° (κ̄ = 267;37°)</td>
+<td>2;23°</td>
+<td>confirmed</td>
+</tr>
+<tr class="even">
+<td>c_max_battani: max angle(O, S, E)</td>
+<td><code>fr:astra/solar-eccentric.battani</code></td>
+<td>1;59,9° (κ̄ = 268;1°)</td>
+<td>1;59,10°</td>
+<td>discrepancy, −0;0,0,55</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes and gaps</strong></p>
+<ul>
+<li>d2 rests on the stated proposition p1 (equal(lam_bar, lamA + kappa_bar)), which is checked numerically, not derived</li>
+<li>d2 rests on the stated proposition p2 (equal(kappa, kappa_bar - c)), which is checked numerically, not derived</li>
+<li>degenerate states, in which a step’s rule does not apply, a term is undefined or an inequality becomes an equality: kappa_bar = 0°; kappa_bar = 180°; kappa_bar = 270°; kappa_bar = 90°. The derivation does not cover them; the conclusion is true there as well (numerically)</li>
+<li>c_max_battani: computed 1;59,9°, reported 1;59,10° (difference −0;0,0,55)</li>
+</ul>
+</section>
+</section>
+<section id="parameters-determined-from-observations" class="level2">
+<h2 class="anchored" data-anchor-id="parameters-determined-from-observations">Parameters determined from observations</h2>
+<p>The page reports Ptolemy’s season lengths and the parameters he found from them. <code>determine</code> inverts the model numerically for the two unknowns, once from the day counts and once from the arcs of mean motion the page reports, and compares both with the reported parameters.</p>
+<section id="the-eccentricity-and-the-apogee-follow-from-the-lengths-of-spring-and-summer" class="level3">
+<h3 class="anchored" data-anchor-id="the-eccentricity-and-the-apogee-follow-from-the-lengths-of-spring-and-summer">The eccentricity and the apogee follow from the lengths of spring and summer</h3>
+<p><code>fr:astra/solar-parameters-from-seasons</code> · derivation · astra/1</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>witness</td>
+<td><code>fr:kepler-sec/Swerdlow2026/0052/p05</code> — the seasons and the parameters, p.&nbsp;22</td>
+</tr>
+<tr class="even">
+<td>this description by</td>
+<td>Gerd Graßhoff</td>
+</tr>
+<tr class="odd">
+<td>in</td>
+<td><code>fr:astra/solar-eccentric</code></td>
+</tr>
+<tr class="even">
+<td>check</td>
+<td><strong>conclusive</strong> (5/5: ✓ well-formed · ✓ grounded · ✓ true · ✓ justified · ✓ conclusive)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Steps</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>proposition</th>
+<th>from</th>
+<th>by</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>d1</td>
+<td><code>equal(lam_bar, lamA + kappa_bar)</code></td>
+<td>def lam_bar, def S</td>
+<td>construction</td>
+<td>read off the construction</td>
+</tr>
+<tr class="even">
+<td>conclusion</td>
+<td><code>equal(lam_bar, lamA + kappa_bar)</code></td>
+<td>d1</td>
+<td>—</td>
+<td>justified</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rules used</strong></p>
+<ul>
+<li><strong>construction</strong>: “The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.”</li>
+</ul>
+<p><strong>Computed</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>quantity</th>
+<th>with</th>
+<th>computed</th>
+<th>reported</th>
+<th>verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>days.e: e determined from lam: 0° → 90° in 94;30 d, lam: 90° → 180° in 92;30 d</td>
+<td><code>fr:astra/solar-eccentric.ptolemy</code></td>
+<td>2;28,58 (the only solution found; days turned into arcs of mean motion with T = 365;14,48 d)</td>
+<td>2;29,30</td>
+<td>discrepancy, −0;0,31,44</td>
+</tr>
+<tr class="even">
+<td>days.lamA: lamA determined from lam: 0° → 90° in 94;30 d, lam: 90° → 180° in 92;30 d</td>
+<td><code>fr:astra/solar-eccentric.ptolemy</code></td>
+<td>65;26° (the only solution found; days turned into arcs of mean motion with T = 365;14,48 d)</td>
+<td>65;30°</td>
+<td>discrepancy, −0;3,47</td>
+</tr>
+<tr class="odd">
+<td>arcs.e: e determined from lam: 0° → 90° in 93;9° of mean motion, lam: 90° → 180° in 91;11° of mean motion</td>
+<td><code>fr:astra/solar-eccentric.ptolemy</code></td>
+<td>2;29,28 (the only solution found; the intervals taken as arcs of mean motion)</td>
+<td>2;29,30</td>
+<td>discrepancy, −0;0,1,51</td>
+</tr>
+<tr class="even">
+<td>arcs.lamA: lamA determined from lam: 0° → 90° in 93;9° of mean motion, lam: 90° → 180° in 91;11° of mean motion</td>
+<td><code>fr:astra/solar-eccentric.ptolemy</code></td>
+<td>65;35° (the only solution found; the intervals taken as arcs of mean motion)</td>
+<td>65;30°</td>
+<td>discrepancy, +0;5,7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes and gaps</strong></p>
+<ul>
+<li>days.e: computed 2;28,58, reported 2;29,30 (difference −0;0,31,44)</li>
+<li>days.lamA: computed 65;26°, reported 65;30° (difference −0;3,47)</li>
+<li>arcs.e: computed 2;29,28, reported 2;29,30 (difference −0;0,1,51)</li>
+<li>arcs.lamA: computed 65;35°, reported 65;30° (difference +0;5,7)</li>
+</ul>
+<p>The reported parameters follow from the rounded arcs to within the rounding of a chord computation (2;29,28 against 2;29,30; 65;35° against 65;30°), not from the day counts with exact arithmetic (2;28,58; 65;26°). Ptolemy’s own steps are not on the page, and Almagest III 4 is not in PDAI on this machine: a gap.</p>
+</section>
+</section>
+<section id="the-rules" class="level2">
+<h2 class="anchored" data-anchor-id="the-rules">The rules</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>rule</th>
+<th>kind</th>
+<th>statement</th>
+<th>hypotheses → conclusions</th>
+<th>configuration conditions</th>
+<th>locus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Elements I.13</strong></td>
+<td>proposition</td>
+<td>If a straight line set up on a straight line make angles, it will make either two right angles or angles equal to two right angles.</td>
+<td>— → <code>equal(angle(P, V, X) + angle(X, V, Q), 180°)</code></td>
+<td><code>collinear(P, V, Q)</code>; <code>between(V, P, Q)</code>; <code>distinct(V, X)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;275</td>
+</tr>
+<tr class="even">
+<td><strong>Elements I.28</strong></td>
+<td>proposition</td>
+<td>If a straight line falling on two straight lines make the exterior angle equal to the interior and opposite angle on the same side, or the interior angles on the same side equal to two right angles, the straight lines will be parallel to one another. <em>(case: exterior angle equal to the interior and opposite angle on the same side)</em></td>
+<td><code>equal(angle(T1, V1, P), angle(T2, V2, Q))</code> → <code>parallel(line(V1, P), line(V2, Q))</code></td>
+<td><code>distinct(V1, V2)</code>; <code>collinear(T1, V1, V2)</code>; <code>collinear(T2, V1, V2)</code>; <code>same_direction(V1, T1, V2, T2)</code>; <code>same_side(P, Q, V1, V2)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;309</td>
+</tr>
+<tr class="odd">
+<td><strong>Elements I.29</strong></td>
+<td>proposition</td>
+<td>A straight line falling on parallel straight lines makes the alternate angles equal to one another, the exterior angle equal to the interior and opposite angle, and the interior angles on the same side equal to two right angles. <em>(case: alternate angles)</em></td>
+<td><code>parallel(line(P, Q), line(R, S))</code> → <code>equal(angle(P, Q, R), angle(Q, R, S))</code></td>
+<td><code>distinct(Q, R)</code>; <code>opposite_side(P, S, Q, R)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;311</td>
+</tr>
+<tr class="even">
+<td><strong>Elements I.30</strong></td>
+<td>proposition</td>
+<td>Straight lines parallel to the same straight line are also parallel to one another.</td>
+<td><code>parallel(line(A, B), line(M, N))</code>; <code>parallel(line(C, D), line(M, N))</code> → <code>parallel(line(A, B), line(C, D))</code></td>
+<td>—</td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;314</td>
+</tr>
+<tr class="odd">
+<td><strong>Elements I.32</strong></td>
+<td>proposition</td>
+<td>In any triangle, if one of the sides be produced, the exterior angle is equal to the two interior and opposite angles, and the three interior angles of the triangle are equal to two right angles. <em>(case: the exterior angle)</em></td>
+<td>— → <code>equal(angle(A, C, D), angle(C, A, B) + angle(A, B, C))</code></td>
+<td><code>noncollinear(A, B, C)</code>; <code>collinear(B, C, D)</code>; <code>between(C, B, D)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;316</td>
+</tr>
+<tr class="even">
+<td><strong>Elements I.33</strong></td>
+<td>proposition</td>
+<td>The straight lines joining equal and parallel straight lines (at the extremities which are) in the same directions (respectively) are themselves also equal and parallel.</td>
+<td><code>parallel(line(A, B), line(C, D))</code>; <code>equal(distance(A, B), distance(C, D))</code> → <code>parallel(line(A, C), line(B, D))</code>; <code>equal(distance(A, C), distance(B, D))</code></td>
+<td><code>same_direction(A, B, C, D)</code>; <code>noncollinear(A, B, C)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;322</td>
+</tr>
+<tr class="odd">
+<td><strong>Elements I.34</strong></td>
+<td>proposition</td>
+<td>In parallelogrammic areas the opposite sides and angles are equal to one another, and the diameter bisects the areas. <em>(case: opposite sides equal)</em></td>
+<td><code>parallel(line(A, B), line(C, D))</code>; <code>parallel(line(A, C), line(B, D))</code> → <code>equal(distance(A, B), distance(C, D))</code>; <code>equal(distance(A, C), distance(B, D))</code></td>
+<td><code>noncollinear(A, B, C)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;323</td>
+</tr>
+<tr class="even">
+<td><strong>Elements I.47</strong></td>
+<td>proposition</td>
+<td>In right-angled triangles the square on the side subtending the right angle is equal to the squares on the sides containing the right angle.</td>
+<td><code>perpendicular(line(X, F), line(Y, Z))</code> → <code>equal(distance(X, Y) * distance(X, Y), distance(X, F) * distance(X, F) + distance(Y, F) * distance(Y, F))</code></td>
+<td><code>collinear(Y, Z, F)</code>; <code>distinct(Y, F)</code>; <code>distinct(X, F)</code></td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;349</td>
+</tr>
+<tr class="odd">
+<td><strong>Elements VI.6</strong></td>
+<td>proposition</td>
+<td>If two triangles have one angle equal to one angle and the sides about the equal angles proportional, the triangles will be equiangular and will have those angles equal which the corresponding sides subtend.</td>
+<td><code>equal(angle(B, A, C), angle(E, D, F))</code>; <code>equal(distance(A, B) / distance(A, C), distance(D, E) / distance(D, F))</code> → <code>equal(angle(A, B, C), angle(D, E, F))</code>; <code>equal(angle(A, C, B), angle(D, F, E))</code></td>
+<td><code>noncollinear(A, B, C)</code>; <code>noncollinear(D, E, F)</code></td>
+<td>Heath, vol.&nbsp;II, p.&nbsp;204</td>
+</tr>
+<tr class="even">
+<td><strong>lemma same ray</strong></td>
+<td>lemma</td>
+<td>Two points that lie from a point C in the same direction along parallels to one line, at equal distances from C, coincide.</td>
+<td><code>parallel(line(C, X), line(M, N))</code>; <code>parallel(line(C, Y), line(M, N))</code>; <code>equal(distance(C, X), distance(C, Y))</code> → <code>coincident(X, Y)</code></td>
+<td><code>same_direction(C, X, C, Y)</code></td>
+<td>Elements I.30 (the two parallels through C are one line) and the uniqueness of the point cut off on a ray at a given distance (I.3)</td>
+</tr>
+<tr class="odd">
+<td><strong>lemma same angle</strong></td>
+<td>lemma</td>
+<td>Two points that subtend equal angles with a ray VP at V and lie on the same side of it are seen from V in the same direction.</td>
+<td><code>equal(angle(P, V, X), angle(P, V, Y))</code> → <code>equal(direction(V, X), direction(V, Y))</code></td>
+<td><code>distinct(V, P)</code>; <code>same_side(X, Y, V, P)</code></td>
+<td>the uniqueness of the angle constructed on a given side of a line at a point (Elements I.23, with Common Notion 5 as in the proof of I.7)</td>
+</tr>
+<tr class="even">
+<td><strong>lemma segment addition</strong></td>
+<td>lemma</td>
+<td>If B lies between A and C on one line, AC is AB and BC together.</td>
+<td>— → <code>equal(distance(A, C), distance(A, B) + distance(B, C))</code></td>
+<td><code>collinear(A, B, C)</code>; <code>between(B, A, C)</code></td>
+<td>Common Notion 4 (things which coincide are equal) with the definition of a whole and its parts; the configuration is the hypothesis</td>
+</tr>
+<tr class="odd">
+<td><strong>lemma one line</strong></td>
+<td>lemma</td>
+<td>Three points on one line give lines from one of them to the other two that are parallel (they are one line).</td>
+<td><code>collinear(A, B, C)</code> → <code>parallel(line(A, B), line(A, C))</code></td>
+<td><code>distinct(A, B)</code>; <code>distinct(A, C)</code></td>
+<td>Definition I.23 read with coincident lines counted as parallel, as the predicate <code>parallel</code> does</td>
+</tr>
+<tr class="even">
+<td><strong>trigonometry sine</strong></td>
+<td>definition</td>
+<td>In a right triangle the side opposite an acute angle is the hypotenuse times the sine of that angle.</td>
+<td><code>perpendicular(line(X, F), line(Y, Z))</code> → <code>equal(distance(X, F), distance(X, Y) * sin(angle(X, Y, F)))</code></td>
+<td><code>collinear(Y, Z, F)</code>; <code>distinct(Y, F)</code>; <code>distinct(X, F)</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>trigonometry cosine</strong></td>
+<td>definition</td>
+<td>In a right triangle the side adjacent to an acute angle is the hypotenuse times the cosine of that angle.</td>
+<td><code>perpendicular(line(X, F), line(Y, Z))</code> → <code>equal(distance(Y, F), distance(X, Y) * cos(angle(X, Y, F)))</code></td>
+<td><code>collinear(Y, Z, F)</code>; <code>distinct(Y, F)</code>; <code>distinct(X, F)</code></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>trigonometry tangent</strong></td>
+<td>definition</td>
+<td>In a right triangle the tangent of an acute angle is the opposite side over the adjacent side.</td>
+<td><code>perpendicular(line(X, F), line(Y, Z))</code> → <code>equal(tan(angle(X, Y, F)), distance(X, F) / distance(Y, F))</code></td>
+<td><code>collinear(Y, Z, F)</code>; <code>distinct(Y, F)</code>; <code>distinct(X, F)</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>common notion 1</strong></td>
+<td>equality</td>
+<td>Things which are equal to the same thing are also equal to one another.</td>
+<td>— → —</td>
+<td>—</td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;155</td>
+</tr>
+<tr class="even">
+<td><strong>common notion 5</strong></td>
+<td>part</td>
+<td>The whole is greater than the part.</td>
+<td>— → —</td>
+<td>—</td>
+<td>Heath, vol.&nbsp;I, p.&nbsp;155</td>
+</tr>
+<tr class="odd">
+<td><strong>construction</strong></td>
+<td>construction</td>
+<td>The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.</td>
+<td>— → —</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>expansion</strong></td>
+<td>approximation</td>
+<td>The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.</td>
+<td>— → —</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>cases</strong></td>
+<td>cases</td>
+<td>The claim is reached in every case, and the cases cover every configuration.</td>
+<td>— → —</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>algebra</strong></td>
+<td>calculation</td>
+<td>The proposition follows from the cited equalities by calculation.</td>
+<td>— → —</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Wording of Euclid’s propositions: Heath 1908, read in the page texts of the PDAI collection assyrischeSammlung; addresses are pages, not paragraphs, because the volumes have no page XML yet. Lemmas are the author’s and name what they rest on.</p>
+</section>
+<section id="what-a-derivation-is-and-is-not" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-derivation-is-and-is-not">What a derivation is and is not</h2>
+<p>A derivation that passes is reasoning whose every proposition is true in the model and whose every step names a rule that licenses it. It is not a formal proof in an axiomatic system: truth is tested on samples, rules are matched as schemas, configuration conditions are evaluated numerically, and a hypothesis has to fix a parameter.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<!-- famulus:publisher:start -->
+<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a href="/impressum/">Legal notice</a> · <a href="/datenschutz/">Privacy</a></p>
+<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
+<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/derivations.html&amp;m=" width="1" height="1" alt=""></noscript>
+<!-- famulus:publisher:end -->
+</body></html>

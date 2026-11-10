@@ -1,0 +1,327 @@
+{
+ "format": "astra-argument/1",
+ "notation": "astra/1",
+ "id": "solar-parameters-from-seasons",
+ "address": "fr:astra/solar-parameters-from-seasons",
+ "title": "The eccentricity and the apogee follow from the lengths of spring and summer",
+ "author": "Gerd Graßhoff",
+ "witness": [
+  {
+   "address": "fr:kepler-sec/Swerdlow2026/0052/p05",
+   "note": "the seasons and the parameters, p. 22"
+  }
+ ],
+ "attributed": [
+  "Ptolemy"
+ ],
+ "context": {
+  "id": "solar-eccentric",
+  "kind": "model",
+  "title": "Ptolemy's solar model, eccentric form",
+  "address": "fr:astra/solar-eccentric"
+ },
+ "check": {
+  "level": "conclusive",
+  "complete": true,
+  "levels": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "passed": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "failures": {}
+ },
+ "model": [
+  {
+   "prefix": "",
+   "id": "solar-eccentric",
+   "address": "fr:astra/solar-eccentric",
+   "title": "Ptolemy's solar model, eccentric form",
+   "attributed": "Ptolemy",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "R",
+     "symbol": "R",
+     "unit": "length",
+     "meaning": "radius of the eccentric",
+     "range": "(1, 1000)"
+    },
+    {
+     "name": "e",
+     "symbol": "e",
+     "unit": "length",
+     "meaning": "eccentricity, the distance OE",
+     "range": "(0, R / 2)"
+    },
+    {
+     "name": "lamA",
+     "symbol": "λ_A",
+     "unit": "angle",
+     "meaning": "longitude of the apogee",
+     "range": null
+    },
+    {
+     "name": "T",
+     "symbol": "T",
+     "unit": "time",
+     "meaning": "tropical year",
+     "range": "(300, 400)"
+    },
+    {
+     "name": "kappa_0",
+     "symbol": "κ̄_0",
+     "unit": "angle",
+     "meaning": "mean anomaly at t = 0",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "kappa_bar",
+     "symbol": "κ̄",
+     "meaning": "mean anomaly about E, counted from the apogee",
+     "law": "uniform in time, period T"
+    }
+   ],
+   "objects": [
+    {
+     "name": "O",
+     "symbol": "O",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "earth"
+    },
+    {
+     "name": "E",
+     "symbol": "E",
+     "kind": "point",
+     "defined_by": "O + polar(e, lamA)",
+     "meaning": "centre of the eccentric"
+    },
+    {
+     "name": "ecc",
+     "symbol": "ecc",
+     "kind": "circle",
+     "defined_by": "circle(E, R)",
+     "meaning": "the eccentric"
+    },
+    {
+     "name": "A",
+     "symbol": "A",
+     "kind": "point",
+     "defined_by": "E + polar(R, lamA)",
+     "meaning": "apogee"
+    },
+    {
+     "name": "B",
+     "symbol": "B",
+     "kind": "point",
+     "defined_by": "E - polar(R, lamA)",
+     "meaning": "perigee"
+    },
+    {
+     "name": "S",
+     "symbol": "S",
+     "kind": "point",
+     "defined_by": "E + polar(R, lamA + kappa_bar)",
+     "meaning": "sun"
+    }
+   ],
+   "observables": [
+    {
+     "name": "lam_bar",
+     "symbol": "λ̄_S",
+     "defined_by": "direction(E, S)",
+     "meaning": "mean longitude"
+    },
+    {
+     "name": "lam",
+     "symbol": "λ_S",
+     "defined_by": "direction(O, S)",
+     "meaning": "true longitude"
+    },
+    {
+     "name": "kappa",
+     "symbol": "κ",
+     "defined_by": "lam - lamA",
+     "meaning": "true anomaly about O"
+    },
+    {
+     "name": "c",
+     "symbol": "c",
+     "defined_by": "lam_bar - lam",
+     "meaning": "equation of centre, mean minus true longitude"
+    }
+   ]
+  }
+ ],
+ "identified": [],
+ "hypotheses": [],
+ "constructions": [],
+ "argument": [
+  {
+   "id": "d1",
+   "number": "1",
+   "kind": "step",
+   "depth": 0,
+   "claim": "the mean longitude runs with the mean anomaly: a season of n days is an arc of n · 360°/T of mean motion",
+   "notation": "λ̄_S = λ_A + κ̄",
+   "formal": "equal(lam_bar, lamA + kappa_bar)",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "lam_bar",
+     "label": "constr. λ̄_S"
+    },
+    {
+     "kind": "construction",
+     "ref": "S",
+     "label": "constr. S"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 5.684341886080802e-14,
+   "points": [],
+   "segments": [],
+   "children": []
+  }
+ ],
+ "conclusion": {
+  "id": "conclusion",
+  "number": "∴",
+  "kind": "conclusion",
+  "depth": 0,
+  "claim": "λ̄_S = λ_A + κ̄",
+  "notation": "λ̄_S = λ_A + κ̄",
+  "formal": "equal(lam_bar, lamA + kappa_bar)",
+  "from": [
+   {
+    "kind": "step",
+    "ref": "d1",
+    "label": "1"
+   }
+  ],
+  "by": null,
+  "status": "justified",
+  "grade": "rule",
+  "mark": "✓",
+  "note": "it is d1",
+  "when": null,
+  "distinction": null,
+  "binding": null,
+  "hypotheses_met_by": {
+   "the proposition": "1"
+  },
+  "conditions": null,
+  "degenerate_at": null,
+  "equal_at": null,
+  "undefined_at": null,
+  "needs": null,
+  "residual": 5.684341886080802e-14,
+  "points": [],
+  "segments": [],
+  "children": []
+ },
+ "further_conclusions": [],
+ "equivalence": null,
+ "computations": [
+  {
+   "name": "days.e",
+   "quantity": "e determined from lam: 0° → 90° in 94;30 d, lam: 90° → 180° in 92;30 d",
+   "meaning": "from the lengths of the seasons in days, turned into mean motion with the year 365;14,48 d",
+   "with": "solar-eccentric.ptolemy",
+   "value": "2;28,58",
+   "at": "the only solution found; days turned into arcs of mean motion with T = 365;14,48 d",
+   "reported": "2;29,30",
+   "verdict": "discrepancy",
+   "difference": "−0;0,31,44",
+   "source": "fr:kepler-sec/Swerdlow2026/0052/p05"
+  },
+  {
+   "name": "days.lamA",
+   "quantity": "lamA determined from lam: 0° → 90° in 94;30 d, lam: 90° → 180° in 92;30 d",
+   "meaning": "from the lengths of the seasons in days, turned into mean motion with the year 365;14,48 d",
+   "with": "solar-eccentric.ptolemy",
+   "value": "65;26°",
+   "at": "the only solution found; days turned into arcs of mean motion with T = 365;14,48 d",
+   "reported": "65;30°",
+   "verdict": "discrepancy",
+   "difference": "−0;3,47",
+   "source": "fr:kepler-sec/Swerdlow2026/0052/p05"
+  },
+  {
+   "name": "arcs.e",
+   "quantity": "e determined from lam: 0° → 90° in 93;9° of mean motion, lam: 90° → 180° in 91;11° of mean motion",
+   "meaning": "from the arcs of mean motion the page reports for the two seasons",
+   "with": "solar-eccentric.ptolemy",
+   "value": "2;29,28",
+   "at": "the only solution found; the intervals taken as arcs of mean motion",
+   "reported": "2;29,30",
+   "verdict": "discrepancy",
+   "difference": "−0;0,1,51",
+   "source": "fr:kepler-sec/Swerdlow2026/0052/p05"
+  },
+  {
+   "name": "arcs.lamA",
+   "quantity": "lamA determined from lam: 0° → 90° in 93;9° of mean motion, lam: 90° → 180° in 91;11° of mean motion",
+   "meaning": "from the arcs of mean motion the page reports for the two seasons",
+   "with": "solar-eccentric.ptolemy",
+   "value": "65;35°",
+   "at": "the only solution found; the intervals taken as arcs of mean motion",
+   "reported": "65;30°",
+   "verdict": "discrepancy",
+   "difference": "+0;5,7",
+   "source": "fr:kepler-sec/Swerdlow2026/0052/p05"
+  }
+ ],
+ "checks": {
+  "steps": 1,
+  "by_status": {
+   "read off the construction": 1
+  },
+  "configurations": 3456,
+  "degenerate_states": [],
+  "notes": [
+   "days.e: computed 2;28,58, reported 2;29,30 (difference −0;0,31,44)",
+   "days.lamA: computed 65;26°, reported 65;30° (difference −0;3,47)",
+   "arcs.e: computed 2;29,28, reported 2;29,30 (difference −0;0,1,51)",
+   "arcs.lamA: computed 65;35°, reported 65;30° (difference +0;5,7)"
+  ]
+ },
+ "figure": null,
+ "depths": [
+  "overview",
+  "steps",
+  "full"
+ ]
+}

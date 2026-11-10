@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="astra-solar-fig-1-4" class="astra-figure" viewBox="0 0 720.00 720.00" width="720.00" height="720.00" role="img" aria-label="Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation" data-figure="solar-fig-1-4" data-state="kappa_bar=108.0000" data-theme="light">
+<title>Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation</title>
+<style>/* generated from tokens/famulus.json by famulus_visualization.tokens — do not edit */
+:root {
+  --fv-oxford: #002147;
+  --fv-oxford-deep: #00152e;
+  --fv-oxford-700: #042b5b;
+  --fv-oxford-300: #2c5282;
+  --fv-oxford-100: #dbe3ee;
+  --fv-gold: #cfb53b;
+  --fv-gold-deep: #8c6d2a;
+  --fv-gold-100: #f3ead0;
+  --fv-paper: #fafaf5;
+  --fv-sandstone: #fbf8f2;
+  --fv-sandstone-dark: #efe9db;
+  --fv-line: #cdbfa4;
+  --fv-ink: #1a1a1a;
+  --fv-muted: #5c5348;
+  --fv-white: #ffffff;
+  --fv-cat-0: #002147;
+  --fv-cat-1: #8c6d2a;
+  --fv-cat-2: #3f7686;
+  --fv-cat-3: #9a4f3c;
+  --fv-cat-4: #5f6b3a;
+  --fv-cat-5: #7a4a6a;
+  --fv-cat-6: #5c5348;
+  --fv-seq-0: #f3f6fa;
+  --fv-seq-1: #dbe3ee;
+  --fv-seq-2: #a9bcd6;
+  --fv-seq-3: #6f8fb8;
+  --fv-seq-4: #2c5282;
+  --fv-seq-5: #042b5b;
+  --fv-seq-6: #002147;
+  --fv-div-0: #002147;
+  --fv-div-1: #2c5282;
+  --fv-div-2: #a9bcd6;
+  --fv-div-3: #fafaf5;
+  --fv-div-4: #e6d6a8;
+  --fv-div-5: #b8953f;
+  --fv-div-6: #8c6d2a;
+  --fv-highlight: #cfb53b;
+  --fv-context: #cdbfa4;
+  --fv-sans: "Source Sans 3", "Inter", "Helvetica Neue", "Arial", sans-serif;
+  --fv-mono: "Fira Code", "JetBrains Mono", "Menlo", monospace;
+  --fv-size-small: 11px;
+  --fv-size-tick: 12px;
+  --fv-size-label: 13px;
+  --fv-size-caption: 12px;
+  --fv-size-title: 15px;
+  --fv-stroke-hairline: 1px;
+  --fv-stroke-grid: 0.75px;
+  --fv-stroke-line: 1.5px;
+  --fv-stroke-edge: 2px;
+  --fv-stroke-accent: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fv-oxford: #8fb0dc;
+    --fv-oxford-deep: #00152e;
+    --fv-oxford-700: #b9cde8;
+    --fv-oxford-300: #6d93c7;
+    --fv-oxford-100: #22324d;
+    --fv-gold: #d9c25e;
+    --fv-gold-deep: #c4a15a;
+    --fv-gold-100: #3b3420;
+    --fv-paper: #0d1624;
+    --fv-sandstone: #152238;
+    --fv-sandstone-dark: #efe9db;
+    --fv-line: #3a4a63;
+    --fv-ink: #ece6d8;
+    --fv-muted: #a89f90;
+    --fv-white: #ffffff;
+    --fv-surface: #152238;
+    --fv-cat-0: #8fb0dc;
+    --fv-cat-1: #d9c25e;
+    --fv-cat-2: #7fb3c2;
+    --fv-cat-3: #d0907c;
+    --fv-cat-4: #a9b67a;
+    --fv-cat-5: #c193b3;
+    --fv-cat-6: #a89f90;
+  }
+}
+:root[data-theme="dark"] {
+  --fv-oxford: #8fb0dc;
+  --fv-oxford-deep: #00152e;
+  --fv-oxford-700: #b9cde8;
+  --fv-oxford-300: #6d93c7;
+  --fv-oxford-100: #22324d;
+  --fv-gold: #d9c25e;
+  --fv-gold-deep: #c4a15a;
+  --fv-gold-100: #3b3420;
+  --fv-paper: #0d1624;
+  --fv-sandstone: #152238;
+  --fv-sandstone-dark: #efe9db;
+  --fv-line: #3a4a63;
+  --fv-ink: #ece6d8;
+  --fv-muted: #a89f90;
+  --fv-white: #ffffff;
+  --fv-surface: #152238;
+  --fv-cat-0: #8fb0dc;
+  --fv-cat-1: #d9c25e;
+  --fv-cat-2: #7fb3c2;
+  --fv-cat-3: #d0907c;
+  --fv-cat-4: #a9b67a;
+  --fv-cat-5: #c193b3;
+  --fv-cat-6: #a89f90;
+}
+
+.astra-figure { background: var(--fv-paper); }
+.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }
+.astra-dashed { stroke-dasharray: 5 4; }
+.astra-claim { stroke: var(--fv-gold-deep); }
+.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }
+.astra-label.var { font-style: italic; }
+.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }
+.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }
+.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-hidden { display: none; }
+.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }
+.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }
+.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }
+</style>
+<defs>
+  <marker id="astra-arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--fv-oxford)"/></marker>
+  <marker id="astra-arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--fv-gold-deep)"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="var(--fv-paper)"/>
+<g id="astra-body">
+<line id="astra-segment7" class="astra-construct" x1="464.50" y1="130.69" x2="255.50" y2="589.31"/>
+<line id="astra-zodiac11-0" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="602.96" y2="426.88"/>
+<circle id="astra-zodiac11-0-pt" class="astra-point" cx="602.96" cy="426.88" r="3.2"/>
+<text id="astra-zodiac11-0-text" class="astra-zodiac" x="622.46" y="426.88" text-anchor="middle" dominant-baseline="middle">♈︎</text>
+<line id="astra-zodiac11-90" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="329.52" y2="109.85"/>
+<circle id="astra-zodiac11-90-pt" class="astra-point" cx="329.52" cy="109.85" r="3.2"/>
+<text id="astra-zodiac11-90-text" class="astra-zodiac" x="329.52" y="90.35" text-anchor="middle" dominant-baseline="middle">♋︎</text>
+<line id="astra-zodiac11-180" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="117.04" y2="426.88"/>
+<circle id="astra-zodiac11-180-pt" class="astra-point" cx="117.04" cy="426.88" r="3.2"/>
+<text id="astra-zodiac11-180-text" class="astra-zodiac" x="97.54" y="426.88" text-anchor="middle" dominant-baseline="middle">♎︎</text>
+<line id="astra-zodiac11-270" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="329.52" y2="610.15"/>
+<circle id="astra-zodiac11-270-pt" class="astra-point" cx="329.52" cy="610.15" r="3.2"/>
+<text id="astra-zodiac11-270-text" class="astra-zodiac" x="329.52" y="629.65" text-anchor="middle" dominant-baseline="middle">♑︎</text>
+<circle id="astra-ecc" class="astra-construct" cx="360.00" cy="360.00" r="252.00"/>
+<line id="astra-length5" class="astra-construct" x1="360.00" y1="360.00" x2="109.62" y2="331.47"/>
+<text id="astra-length5-text" class="astra-label var" x="233.62" y="356.17" text-anchor="middle" dominant-baseline="middle">R</text>
+<line id="astra-length6" class="astra-construct" x1="329.52" y1="426.88" x2="360.00" y2="360.00"/>
+<text id="astra-length6-text" class="astra-label var" x="335.21" y="389.09" text-anchor="middle" dominant-baseline="middle">e</text>
+<path id="astra-angle0" class="astra-angle" d="M 369.84 426.88 A 40.32 40.32 0 0 0 346.24 390.19" marker-end="url(#astra-arrow-gold)"/>
+<text id="astra-angle0-text" class="astra-label astra-angle-label" x="374.78" y="397.77" text-anchor="middle" dominant-baseline="middle">λ<tspan class="sub" dy="0.35em" font-size="70%">A</tspan></text>
+<path id="astra-angle1" class="astra-angle" d="M 376.72 323.31 A 40.32 40.32 0 0 0 319.94 355.44" marker-end="url(#astra-arrow-gold)"/>
+<text id="astra-angle1-text" class="astra-label astra-angle-label" x="333.50" y="313.16" text-anchor="middle" dominant-baseline="middle">κ̄</text>
+<path id="astra-angle2" class="astra-angle" d="M 349.92 382.12 A 49.19 49.19 0 0 0 284.39 407.30" marker-end="url(#astra-arrow-gold)"/>
+<text id="astra-angle2-text" class="astra-label astra-angle-label" x="307.03" y="368.36" text-anchor="middle" dominant-baseline="middle">κ</text>
+<path id="astra-angle3" class="astra-angle" d="M 146.61 347.52 A 40.32 40.32 0 0 0 149.68 336.04"/>
+<text id="astra-angle3-text" class="astra-label astra-angle-label" x="161.61" y="345.38" text-anchor="middle" dominant-baseline="middle">c</text>
+<path id="astra-angle4" class="astra-angle" d="M 276.26 403.77 A 58.06 58.06 0 0 0 271.83 420.31"/>
+<text id="astra-angle4-text" class="astra-label astra-angle-label" x="260.39" y="408.39" text-anchor="middle" dominant-baseline="middle">c</text>
+<path id="astra-motion8" class="astra-motion" d="M 108.01 357.80 A 252.00 252.00 0 0 0 125.53 452.36" marker-end="url(#astra-arrow-gold)"/>
+<line id="astra-direction9" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="63.67" y2="311.53" marker-end="url(#astra-arrow-ink)"/>
+<text id="astra-direction9-text" class="astra-label var" x="48.53" y="304.97" text-anchor="middle" dominant-baseline="middle">λ<tspan class="sub" dy="0.35em" font-size="70%">S</tspan></text>
+<line id="astra-direction10" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="41.58" y2="394.08" marker-end="url(#astra-arrow-ink)"/>
+<text id="astra-direction10-text" class="astra-label var" x="25.19" y="392.21" text-anchor="middle" dominant-baseline="middle">λ̄<tspan class="sub" dy="0.35em" font-size="70%">S</tspan></text>
+<circle id="astra-O" class="astra-point" cx="329.52" cy="426.88" r="3.2"/>
+<text id="astra-O-text" class="astra-label" x="323.30" y="440.53" text-anchor="middle" dominant-baseline="middle">O</text>
+<circle id="astra-E" class="astra-point" cx="360.00" cy="360.00" r="3.2"/>
+<text id="astra-E-text" class="astra-label" x="374.16" y="364.96" text-anchor="middle" dominant-baseline="middle">E</text>
+<circle id="astra-A" class="astra-point" cx="464.50" cy="130.69" r="3.2"/>
+<text id="astra-A-text" class="astra-label" x="470.72" y="117.04" text-anchor="middle" dominant-baseline="middle">A</text>
+<circle id="astra-B" class="astra-point" cx="255.50" cy="589.31" r="3.2"/>
+<text id="astra-B-text" class="astra-label" x="249.28" y="602.96" text-anchor="middle" dominant-baseline="middle">B</text>
+<circle id="astra-S" class="astra-point" cx="109.62" cy="331.47" r="3.2"/>
+<text id="astra-S-text" class="astra-label" x="94.72" y="329.77" text-anchor="middle" dominant-baseline="middle">S</text>
+</g>
+<text class="astra-caption" x="12" y="710.00">drawn with e = 17;30</text>
+</svg>

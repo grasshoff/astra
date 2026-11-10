@@ -1,0 +1,29 @@
+| text | kind | check |
+|---|---|---|
+| `fr:astra/euler-fig-3` | figure | ✓ labelled |
+| `fr:astra/euler-tide-force` | model | ✓ documented |
+| `fr:astra/euler-tide-force-emendation` | derivation | ✗ grounded |
+| `fr:astra/euler-tide-force-resolution` | derivation | ✓ conclusive |
+| `fr:astra/kepler-equant` | model | ✓ documented |
+| `fr:astra/kepler-equant-unequal-motion` | derivation | ✓ conclusive |
+| `fr:astra/kepler-fig-ch2-eccentric` | figure | ✓ labelled |
+| `fr:astra/kepler-fig-ch2-epicycle` | figure | ✓ labelled |
+| `fr:astra/kepler-fig-ch4` | figure | ✓ labelled |
+| `fr:astra/solar-eccentric` | model | ✓ documented |
+| `fr:astra/solar-eccentric-epicyclic` | superposition | ✓ consistent |
+| `fr:astra/solar-eccentric-epicyclic.equal-radii` | parametrisation | ✓ attested |
+| `fr:astra/solar-eccentric-epicyclic.proportional` | parametrisation | ✓ attested |
+| `fr:astra/solar-eccentric.battani` | parametrisation | ✗ well-formed |
+| `fr:astra/solar-eccentric.ptolemy` | parametrisation | ✓ attested |
+| `fr:astra/solar-epicyclic` | model | ✓ documented |
+| `fr:astra/solar-equation-of-centre` | derivation | ✓ conclusive |
+| `fr:astra/solar-equivalence-equal-radii` | derivation | ✓ conclusive |
+| `fr:astra/solar-equivalence-proportional` | derivation | ✓ conclusive |
+| `fr:astra/solar-fig-1-2` | figure | ✓ labelled |
+| `fr:astra/solar-fig-1-3` | figure | ✓ labelled |
+| `fr:astra/solar-fig-1-4` | figure | ✓ labelled |
+| `fr:astra/solar-fig-eccentric` | figure | ✓ labelled |
+| `fr:astra/solar-fig-epicyclic` | figure | ✓ labelled |
+| `fr:astra/solar-fig-equal-radii-steps` | figure | ✓ labelled |
+| `fr:astra/solar-fig-equation` | figure | ✓ labelled |
+| `fr:astra/solar-parameters-from-seasons` | derivation | ✓ conclusive |

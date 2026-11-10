@@ -1,0 +1,16 @@
+/* astra-runtime: page and transport styles; colours come from famulus-tokens.css (--fv-*) */
+.astra-page { margin: 0; background: var(--fv-paper); color: var(--fv-ink); font-family: var(--fv-sans); }
+.astra-wrap { max-width: 760px; margin: 0 auto; padding: 12px 16px 24px; }
+.astra-wrap svg { width: 100%; height: auto; display: block; }
+.astra-title { font-size: var(--fv-size-title); margin: 0 0 6px; color: var(--fv-oxford); font-weight: 600; }
+.astra-transport { display: flex; align-items: center; gap: 12px; margin-top: 10px; font-size: var(--fv-size-caption); color: var(--fv-muted); }
+.astra-btn { border: 1px solid var(--fv-line); background: var(--fv-sandstone); color: var(--fv-oxford); border-radius: 6px; width: 40px; height: 30px; cursor: pointer; font-size: 13px; }
+.astra-btn:hover { border-color: var(--fv-gold-deep); }
+.astra-slider { flex: 1; accent-color: var(--fv-gold-deep); }
+.astra-readout { min-width: 12em; text-align: right; font-variant-numeric: tabular-nums; }
+.astra-note { font-size: var(--fv-size-caption); color: var(--fv-muted); margin-top: 8px; }
+.astra-note code { font-family: var(--fv-mono); }
+.astra-morph { margin-top: 6px; }
+.astra-morph-label { min-width: 2em; text-align: center; color: var(--fv-oxford); font-weight: 600; }
+.astra-steps { margin-top: 6px; }
+.astra-step-text { flex: 1; font-family: var(--fv-mono); font-size: var(--fv-size-caption); color: var(--fv-ink); }

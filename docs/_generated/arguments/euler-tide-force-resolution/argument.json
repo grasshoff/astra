@@ -1,0 +1,6334 @@
+{
+ "format": "astra-argument/1",
+ "notation": "astra/1",
+ "id": "euler-tide-force-resolution",
+ "address": "fr:astra/euler-tide-force-resolution",
+ "title": "The tide-raising force along and across the vertical, to first order in the earth's size over the luminary's distance",
+ "author": "Gerd Graßhoff",
+ "witness": [
+  {
+   "address": "fr:enestroem/E57/0016/p02",
+   "note": "§24"
+  },
+  {
+   "address": "fr:enestroem/E57/0017/p04",
+   "note": "§26: the exact components"
+  },
+  {
+   "address": "fr:enestroem/E57/0018/p08",
+   "note": "§27: the two components to first order"
+  }
+ ],
+ "attributed": [
+  "Leonhard Euler"
+ ],
+ "context": {
+  "id": "euler-tide-force",
+  "kind": "model",
+  "title": "Euler's geometry of the tide-raising force",
+  "address": "fr:astra/euler-tide-force"
+ },
+ "check": {
+  "level": "conclusive",
+  "complete": true,
+  "levels": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "passed": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "failures": {}
+ },
+ "model": [
+  {
+   "prefix": "",
+   "id": "euler-tide-force",
+   "address": "fr:astra/euler-tide-force",
+   "title": "Euler's geometry of the tide-raising force",
+   "attributed": "Leonhard Euler",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "a",
+     "symbol": "a",
+     "unit": "length",
+     "meaning": "distance CS of the luminary from the centre of the earth",
+     "range": "(30, 1000)"
+    },
+    {
+     "name": "rho",
+     "symbol": "ρ",
+     "unit": "length",
+     "meaning": "distance CM of the particle from the centre of the earth",
+     "range": "(0.5, 2)"
+    },
+    {
+     "name": "Sf",
+     "symbol": "S",
+     "unit": "quantity",
+     "meaning": "absolute force of the luminary: its accelerating force at the distance of one semidiameter of the earth",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "phi",
+     "symbol": "φ",
+     "meaning": "the angle ACM between the line to the luminary and the line to the particle",
+     "law": null
+    }
+   ],
+   "objects": [
+    {
+     "name": "C",
+     "symbol": "C",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "centre of the earth"
+    },
+    {
+     "name": "S",
+     "symbol": "S",
+     "kind": "point",
+     "defined_by": "C + polar(a, 90°)",
+     "meaning": "the sun or the moon"
+    },
+    {
+     "name": "A",
+     "symbol": "A",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 90°)",
+     "meaning": "the point of the sphere through M that has the luminary in its zenith"
+    },
+    {
+     "name": "B",
+     "symbol": "B",
+     "kind": "point",
+     "defined_by": "C - polar(rho, 90°)",
+     "meaning": "the point that has it in its nadir"
+    },
+    {
+     "name": "D",
+     "symbol": "D",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 180°)",
+     "meaning": "a point that has it in the horizon"
+    },
+    {
+     "name": "E",
+     "symbol": "E",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 0°)",
+     "meaning": "the opposite point that has it in the horizon"
+    },
+    {
+     "name": "shell",
+     "symbol": "shell",
+     "kind": "circle",
+     "defined_by": "circle(C, rho)",
+     "meaning": "the sphere about C through the particle"
+    },
+    {
+     "name": "M",
+     "symbol": "M",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 90° + phi)",
+     "meaning": "a particle of the earth"
+    },
+    {
+     "name": "P",
+     "symbol": "P",
+     "kind": "point",
+     "defined_by": "foot(M, line(C, S))",
+     "meaning": "foot of the perpendicular from M on CS"
+    }
+   ],
+   "observables": [
+    {
+     "name": "dir",
+     "symbol": "CS",
+     "defined_by": "direction(C, S)",
+     "meaning": "direction of the luminary from the centre"
+    },
+    {
+     "name": "x",
+     "symbol": "x",
+     "defined_by": "rho * cos(phi)",
+     "meaning": "CP, counted towards the luminary"
+    },
+    {
+     "name": "y",
+     "symbol": "y",
+     "defined_by": "rho * sin(phi)",
+     "meaning": "PM, counted towards D"
+    },
+    {
+     "name": "dist",
+     "symbol": "dist",
+     "defined_by": "distance(M, S)",
+     "meaning": "SM, the distance of the particle from the luminary"
+    },
+    {
+     "name": "fM",
+     "symbol": "fM",
+     "defined_by": "Sf / (dist * dist)",
+     "meaning": "accelerating force on the particle towards S"
+    },
+    {
+     "name": "fC",
+     "symbol": "fC",
+     "defined_by": "Sf / (a * a)",
+     "meaning": "accelerating force on the centre towards S"
+    },
+    {
+     "name": "tMC",
+     "symbol": "tMC",
+     "defined_by": "fM * cos(direction(M, S) - direction(M, C)) - fC * cos(direction(C, S) - direction(M, C))",
+     "meaning": "the force on the particle less the force on the centre, along MC, towards the centre"
+    },
+    {
+     "name": "tMR",
+     "symbol": "tMR",
+     "defined_by": "fM * cos(direction(M, S) - (direction(M, C) + 90°)) - fC * cos(direction(C, S) - (direction(M, C) + 90°))",
+     "meaning": "the same along MR, normal to MC, towards the side of the luminary"
+    }
+   ]
+  }
+ ],
+ "identified": [],
+ "hypotheses": [],
+ "constructions": [],
+ "argument": [
+  {
+   "id": "setting",
+   "number": "1",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§24: SM² = (a − x)² + y²",
+   "notation": "dist² = (a − x)·(a − x) + y²",
+   "formal": "equal(dist * dist, (a - x) * (a - x) + y * y)",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "s6",
+     "label": "1.6"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is s6",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "1.6"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 6.13565586283389e-16,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "s1",
+     "number": "1.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "MP is normal to CS",
+     "notation": "MP ⊥ SC",
+     "formal": "perpendicular(line(M, P), line(S, C))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "P",
+       "label": "constr. P"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": [
+      "φ = 0°",
+      "φ = 180°"
+     ],
+     "needs": null,
+     "residual": 6.123233995736766e-17,
+     "points": [
+      "C",
+      "M",
+      "P",
+      "S"
+     ],
+     "segments": [
+      [
+       "M",
+       "P"
+      ],
+      [
+       "S",
+       "C"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "s2",
+     "number": "1.2",
+     "kind": "step",
+     "depth": 1,
+     "claim": "the right triangle MPS",
+     "notation": "MS·MS = MP·MP + SP·SP",
+     "formal": "equal(distance(M, S) * distance(M, S), distance(M, P) * distance(M, P) + distance(S, P) * distance(S, P))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "s1",
+       "label": "1.1"
+      }
+     ],
+     "by": {
+      "rule": "Elements I.47",
+      "kind": "proposition",
+      "statement": "In right-angled triangles the square on the side subtending the right angle is equal to the squares on the sides containing the right angle.",
+      "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0358",
+      "printed": "vol. I, p. 349",
+      "rests_on": null,
+      "case": null
+     },
+     "status": "justified",
+     "grade": "rule",
+     "mark": "✓",
+     "note": "configuration conditions fail there: distinct(M, P)",
+     "when": null,
+     "distinction": null,
+     "binding": {
+      "X": "M",
+      "Y": "S",
+      "F": "P",
+      "Z": "C"
+     },
+     "hypotheses_met_by": {
+      "perpendicular(line(X, F), line(Y, Z))": "1.1"
+     },
+     "conditions": [
+      "S, C, P on one line",
+      "S ≠ P",
+      "M ≠ P"
+     ],
+     "degenerate_at": [
+      "φ = 0°",
+      "φ = 180°"
+     ],
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 6.13565586283389e-16,
+     "points": [
+      "M",
+      "P",
+      "S"
+     ],
+     "segments": [
+      [
+       "M",
+       "S"
+      ],
+      [
+       "M",
+       "S"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "S",
+       "P"
+      ],
+      [
+       "S",
+       "P"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "s3",
+     "number": "1.3",
+     "kind": "step",
+     "depth": 1,
+     "claim": "SP = a − x",
+     "notation": "SP = a − x",
+     "formal": "equal(distance(S, P), a - x)",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "S",
+       "label": "constr. S"
+      },
+      {
+       "kind": "construction",
+       "ref": "P",
+       "label": "constr. P"
+      },
+      {
+       "kind": "construction",
+       "ref": "x",
+       "label": "constr. x"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 2.1310320520183824e-16,
+     "points": [
+      "P",
+      "S"
+     ],
+     "segments": [
+      [
+       "S",
+       "P"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "s4",
+     "number": "1.4",
+     "kind": "step",
+     "depth": 1,
+     "claim": "PM = y",
+     "notation": "MP = |y|",
+     "formal": "equal(distance(M, P), abs(y))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "M",
+       "label": "constr. M"
+      },
+      {
+       "kind": "construction",
+       "ref": "P",
+       "label": "constr. P"
+      },
+      {
+       "kind": "construction",
+       "ref": "y",
+       "label": "constr. y"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 1.3008317963010202e-17,
+     "points": [
+      "M",
+      "P"
+     ],
+     "segments": [
+      [
+       "M",
+       "P"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "s5",
+     "number": "1.5",
+     "kind": "step",
+     "depth": 1,
+     "claim": "dist = MS",
+     "notation": "dist = MS",
+     "formal": "equal(dist, distance(M, S))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "dist",
+       "label": "constr. dist"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0,
+     "points": [
+      "M",
+      "S"
+     ],
+     "segments": [
+      [
+       "M",
+       "S"
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": "s6",
+     "number": "1.6",
+     "kind": "step",
+     "depth": 1,
+     "claim": "dist² = (a − x)·(a − x) + y²",
+     "notation": "dist² = (a − x)·(a − x) + y²",
+     "formal": "equal(dist * dist, (a - x) * (a - x) + y * y)",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "s2",
+       "label": "1.2"
+      },
+      {
+       "kind": "step",
+       "ref": "s3",
+       "label": "1.3"
+      },
+      {
+       "kind": "step",
+       "ref": "s4",
+       "label": "1.4"
+      },
+      {
+       "kind": "step",
+       "ref": "s5",
+       "label": "1.5"
+      }
+     ],
+     "by": {
+      "rule": "algebra",
+      "kind": "calculation",
+      "statement": "The proposition follows from the cited equalities by calculation.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by calculation",
+     "grade": "calculation",
+     "mark": "≈",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 6.13565586283389e-16,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "exact_MC",
+   "number": "2",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§26: towards the centre the particle is urged by Sx/(a²√(x²+y²)) − S(ax − xx − yy)/(((a−x)²+y²)^(3/2) √(x²+y²))",
+   "notation": "tMC = S·x / (a²·ρ) − S·(a·x − x² − y²) / (dist³·ρ)",
+   "formal": "equal(tMC, Sf * x / (a * a * rho) - Sf * (a * x - x * x - y * y) / (dist * dist * dist * rho))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "m1",
+     "label": "2.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is m1",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "2.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 6.440274927042142e-13,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "m1",
+     "number": "2.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "the force towards S resolved along CS and along MC, the force on the centre taken away, and what remains along MQ carried to MC by the similar triangles QVM and MPC",
+     "notation": "tMC = S·x / (a²·ρ) − S·(a·x − x² − y²) / (dist³·ρ)",
+     "formal": "equal(tMC, Sf * x / (a * a * rho) - Sf * (a * x - x * x - y * y) / (dist * dist * dist * rho))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "tMC",
+       "label": "constr. tMC"
+      },
+      {
+       "kind": "construction",
+       "ref": "fM",
+       "label": "constr. fM"
+      },
+      {
+       "kind": "construction",
+       "ref": "fC",
+       "label": "constr. fC"
+      },
+      {
+       "kind": "construction",
+       "ref": "dist",
+       "label": "constr. dist"
+      },
+      {
+       "kind": "construction",
+       "ref": "x",
+       "label": "constr. x"
+      },
+      {
+       "kind": "construction",
+       "ref": "y",
+       "label": "constr. y"
+      },
+      {
+       "kind": "construction",
+       "ref": "M",
+       "label": "constr. M"
+      },
+      {
+       "kind": "construction",
+       "ref": "S",
+       "label": "constr. S"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 6.440274927042142e-13,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "exact_MR",
+   "number": "3",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§26: along MR, normal to MC, by Say/(((a−x)²+y²)^(3/2) √(x²+y²)) − Sy/(a²√(x²+y²))",
+   "notation": "tMR = S·a·y / (dist³·ρ) − S·y / (a²·ρ)",
+   "formal": "equal(tMR, Sf * a * y / (dist * dist * dist * rho) - Sf * y / (a * a * rho))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "r1",
+     "label": "3.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is r1",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "3.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 8.001062707927623e-13,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "r1",
+     "number": "3.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "the same forces carried to the normal MR",
+     "notation": "tMR = S·a·y / (dist³·ρ) − S·y / (a²·ρ)",
+     "formal": "equal(tMR, Sf * a * y / (dist * dist * dist * rho) - Sf * y / (a * a * rho))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "tMR",
+       "label": "constr. tMR"
+      },
+      {
+       "kind": "construction",
+       "ref": "fM",
+       "label": "constr. fM"
+      },
+      {
+       "kind": "construction",
+       "ref": "fC",
+       "label": "constr. fC"
+      },
+      {
+       "kind": "construction",
+       "ref": "dist",
+       "label": "constr. dist"
+      },
+      {
+       "kind": "construction",
+       "ref": "x",
+       "label": "constr. x"
+      },
+      {
+       "kind": "construction",
+       "ref": "y",
+       "label": "constr. y"
+      },
+      {
+       "kind": "construction",
+       "ref": "M",
+       "label": "constr. M"
+      },
+      {
+       "kind": "construction",
+       "ref": "S",
+       "label": "constr. S"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 8.001062707927623e-13,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "second_MC",
+   "number": "4",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§27: with 1/((a−x)²+y²)^(3/2) put as 1/a³ + 3x/a⁴ + 3(4xx − yy)/2a⁵",
+   "notation": "tMC ≈ S·(y² − 2·x²) / (a³·ρ) + 3·S·x·(3·y² − 2·x²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+   "formal": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho) + 3 * Sf * x * (3 * y * y - 2 * x * x) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "n1",
+     "label": "4.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is n1",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "4.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 2.0000429040838587e-08,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "n1",
+     "number": "4.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "tMC ≈ S·(y² − 2·x²) / (a³·ρ) + 3·S·x·(3·y² − 2·x²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+     "notation": "tMC ≈ S·(y² − 2·x²) / (a³·ρ) + 3·S·x·(3·y² − 2·x²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+     "formal": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho) + 3 * Sf * x * (3 * y * y - 2 * x * x) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "exact_MC",
+       "label": "2"
+      },
+      {
+       "kind": "step",
+       "ref": "setting",
+       "label": "1"
+      }
+     ],
+     "by": {
+      "rule": "expansion",
+      "kind": "approximation",
+      "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by expansion",
+     "grade": "approximation",
+     "mark": "≈",
+     "note": "relative difference 2.0e-04 at ratio 0.01, 2.0e-06 at ratio 0.001, 2.0e-08 at ratio 0.0001",
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 2.0000429040838587e-08,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "second_MR",
+   "number": "5",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§27: the same for MR, as the first edition and the manuscript read: 3Sy/(a³√(x²+y²)) · (x + (4xx − yy)/2a)",
+   "notation": "tMR ≈ 3·S·x·y / (a³·ρ) + 3·S·y·(4·x² − y²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+   "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x - y * y) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "n2",
+     "label": "5.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is n2",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "5.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.7555368344617418e-08,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "n2",
+     "number": "5.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "tMR ≈ 3·S·x·y / (a³·ρ) + 3·S·y·(4·x² − y²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+     "notation": "tMR ≈ 3·S·x·y / (a³·ρ) + 3·S·y·(4·x² − y²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+     "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x - y * y) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "exact_MR",
+       "label": "3"
+      },
+      {
+       "kind": "step",
+       "ref": "setting",
+       "label": "1"
+      }
+     ],
+     "by": {
+      "rule": "expansion",
+      "kind": "approximation",
+      "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by expansion",
+     "grade": "approximation",
+     "mark": "≈",
+     "note": "relative difference 1.8e-04 at ratio 0.01, 1.8e-06 at ratio 0.001, 1.8e-08 at ratio 0.0001",
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 1.7555368344617418e-08,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "first_MC",
+   "number": "6",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§27: along MC the particle is urged by S(yy − 2xx)/(a³√(x²+y²))",
+   "notation": "tMC ≈ S·(y² − 2·x²) / (a³·ρ)   (to first order in ρ / a)",
+   "formal": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho)) to order 1 in rho / a",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "f1",
+     "label": "6.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is f1",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "6.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 0.0001500200034290883,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "f1",
+     "number": "6.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "the first terms exceed the later ones many times",
+     "notation": "tMC ≈ S·(y² − 2·x²) / (a³·ρ)   (to first order in ρ / a)",
+     "formal": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho)) to order 1 in rho / a",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "second_MC",
+       "label": "4"
+      }
+     ],
+     "by": {
+      "rule": "expansion",
+      "kind": "approximation",
+      "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by expansion",
+     "grade": "approximation",
+     "mark": "≈",
+     "note": "relative difference 1.5e-02 at ratio 0.01, 1.5e-03 at ratio 0.001, 1.5e-04 at ratio 0.0001",
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0001500200034290883,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "first_MR",
+   "number": "7",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§27: along MR by 3Sxy/(a³√(x²+y²))",
+   "notation": "tMR ≈ 3·S·x·y / (a³·ρ)   (to first order in ρ / a)",
+   "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho)) to order 1 in rho / a",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "f2",
+     "label": "7.1"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is f2",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "7.1"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 0.00013751623933941926,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "f2",
+     "number": "7.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "tMR ≈ 3·S·x·y / (a³·ρ)   (to first order in ρ / a)",
+     "notation": "tMR ≈ 3·S·x·y / (a³·ρ)   (to first order in ρ / a)",
+     "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho)) to order 1 in rho / a",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "second_MR",
+       "label": "5"
+      }
+     ],
+     "by": {
+      "rule": "expansion",
+      "kind": "approximation",
+      "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by expansion",
+     "grade": "approximation",
+     "mark": "≈",
+     "note": "relative difference 1.4e-02 at ratio 0.01, 1.4e-03 at ratio 0.001, 1.4e-04 at ratio 0.0001",
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.00013751623933941926,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "vertical",
+   "number": "8",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§§28–29: gravity is increased where yy > 2xx, most at D and E, by Sρ/a³; decreased where yy < 2xx, most at A and B, by 2Sρ/a³",
+   "notation": "S·(y² − 2·x²) / (a³·ρ) = S·ρ / (a³)·(1 − 3·cos(φ)·cos(φ))",
+   "formal": "equal(Sf * (y * y - 2 * x * x) / (a * a * a * rho), Sf * rho / (a * a * a) * (1 - 3 * cos(phi) * cos(phi)))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "v3",
+     "label": "8.3"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is v3",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "8.3"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 4.768874683929565e-16,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "v1",
+     "number": "8.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "x = ρ·cos(φ)",
+     "notation": "x = ρ·cos(φ)",
+     "formal": "equal(x, rho * cos(phi))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "x",
+       "label": "constr. x"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0,
+     "points": [],
+     "segments": [],
+     "children": []
+    },
+    {
+     "id": "v2",
+     "number": "8.2",
+     "kind": "step",
+     "depth": 1,
+     "claim": "y = ρ·sin(φ)",
+     "notation": "y = ρ·sin(φ)",
+     "formal": "equal(y, rho * sin(phi))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "y",
+       "label": "constr. y"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0,
+     "points": [],
+     "segments": [],
+     "children": []
+    },
+    {
+     "id": "v3",
+     "number": "8.3",
+     "kind": "step",
+     "depth": 1,
+     "claim": "S·(y² − 2·x²) / (a³·ρ) = S·ρ / (a³)·(1 − 3·cos(φ)·cos(φ))",
+     "notation": "S·(y² − 2·x²) / (a³·ρ) = S·ρ / (a³)·(1 − 3·cos(φ)·cos(φ))",
+     "formal": "equal(Sf * (y * y - 2 * x * x) / (a * a * a * rho), Sf * rho / (a * a * a) * (1 - 3 * cos(phi) * cos(phi)))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "v1",
+       "label": "8.1"
+      },
+      {
+       "kind": "step",
+       "ref": "v2",
+       "label": "8.2"
+      }
+     ],
+     "by": {
+      "rule": "algebra",
+      "kind": "calculation",
+      "statement": "The proposition follows from the cited equalities by calculation.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by calculation",
+     "grade": "calculation",
+     "mark": "≈",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 4.768874683929565e-16,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": "horizontal",
+   "number": "9",
+   "kind": "sub-argument",
+   "depth": 0,
+   "claim": "§29: the horizontal force is greatest where the angle ACM is half a right angle",
+   "notation": "3·S·x·y / (a³·ρ) = 3·S·ρ / (2·a³)·sin(2·φ)",
+   "formal": "equal(3 * Sf * x * y / (a * a * a * rho), 3 * Sf * rho / (2 * a * a * a) * sin(2 * phi))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "w3",
+     "label": "9.3"
+    }
+   ],
+   "by": null,
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "it is w3",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": {
+    "the proposition": "9.3"
+   },
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 4.929793401338225e-16,
+   "points": [],
+   "segments": [],
+   "children": [
+    {
+     "id": "w1",
+     "number": "9.1",
+     "kind": "step",
+     "depth": 1,
+     "claim": "x = ρ·cos(φ)",
+     "notation": "x = ρ·cos(φ)",
+     "formal": "equal(x, rho * cos(phi))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "x",
+       "label": "constr. x"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0,
+     "points": [],
+     "segments": [],
+     "children": []
+    },
+    {
+     "id": "w2",
+     "number": "9.2",
+     "kind": "step",
+     "depth": 1,
+     "claim": "y = ρ·sin(φ)",
+     "notation": "y = ρ·sin(φ)",
+     "formal": "equal(y, rho * sin(phi))",
+     "from": [
+      {
+       "kind": "construction",
+       "ref": "y",
+       "label": "constr. y"
+      }
+     ],
+     "by": {
+      "rule": "construction",
+      "kind": "construction",
+      "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "read off the construction",
+     "grade": "construction",
+     "mark": "◦",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 0.0,
+     "points": [],
+     "segments": [],
+     "children": []
+    },
+    {
+     "id": "w3",
+     "number": "9.3",
+     "kind": "step",
+     "depth": 1,
+     "claim": "3·S·x·y / (a³·ρ) = 3·S·ρ / (2·a³)·sin(2·φ)",
+     "notation": "3·S·x·y / (a³·ρ) = 3·S·ρ / (2·a³)·sin(2·φ)",
+     "formal": "equal(3 * Sf * x * y / (a * a * a * rho), 3 * Sf * rho / (2 * a * a * a) * sin(2 * phi))",
+     "from": [
+      {
+       "kind": "step",
+       "ref": "w1",
+       "label": "9.1"
+      },
+      {
+       "kind": "step",
+       "ref": "w2",
+       "label": "9.2"
+      }
+     ],
+     "by": {
+      "rule": "algebra",
+      "kind": "calculation",
+      "statement": "The proposition follows from the cited equalities by calculation.",
+      "locus": null,
+      "printed": null,
+      "rests_on": null,
+      "case": null
+     },
+     "status": "by calculation",
+     "grade": "calculation",
+     "mark": "≈",
+     "note": null,
+     "when": null,
+     "distinction": null,
+     "binding": null,
+     "hypotheses_met_by": null,
+     "conditions": null,
+     "degenerate_at": null,
+     "equal_at": null,
+     "undefined_at": null,
+     "needs": null,
+     "residual": 4.929793401338225e-16,
+     "points": [],
+     "segments": [],
+     "children": []
+    }
+   ]
+  }
+ ],
+ "conclusion": {
+  "id": "conclusion",
+  "number": "∴",
+  "kind": "conclusion",
+  "depth": 0,
+  "claim": "the vertical component of the tide-raising force",
+  "notation": "tMC ≈ S·(y² − 2·x²) / (a³·ρ)   (to first order in ρ / a)",
+  "formal": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho))",
+  "from": [
+   {
+    "kind": "step",
+    "ref": "first_MC",
+    "label": "6"
+   }
+  ],
+  "by": null,
+  "status": "justified",
+  "grade": "rule",
+  "mark": "✓",
+  "note": "it is first_MC",
+  "when": null,
+  "distinction": null,
+  "binding": null,
+  "hypotheses_met_by": {
+   "the proposition": "6"
+  },
+  "conditions": null,
+  "degenerate_at": null,
+  "equal_at": null,
+  "undefined_at": null,
+  "needs": null,
+  "residual": 0.0001500200034290883,
+  "points": [],
+  "segments": [],
+  "children": []
+ },
+ "further_conclusions": [
+  {
+   "id": "conclusion2",
+   "number": "∴",
+   "kind": "conclusion",
+   "depth": 0,
+   "claim": "and its horizontal component",
+   "notation": "tMR ≈ 3·S·x·y / (a³·ρ)   (to first order in ρ / a)",
+   "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho)) to order 1 in rho / a",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "first_MR",
+     "label": "7"
+    }
+   ],
+   "by": {
+    "rule": "expansion",
+    "kind": "approximation",
+    "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "by expansion",
+   "grade": "approximation",
+   "mark": "≈",
+   "note": "relative difference 1.4e-02 at ratio 0.01, 1.4e-03 at ratio 0.001, 1.4e-04 at ratio 0.0001",
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 0.00013751623933941926,
+   "points": [],
+   "segments": [],
+   "children": []
+  }
+ ],
+ "equivalence": null,
+ "computations": [],
+ "checks": {
+  "steps": 18,
+  "by_status": {
+   "read off the construction": 10,
+   "justified": 1,
+   "by calculation": 3,
+   "by expansion": 4
+  },
+  "configurations": 3456,
+  "degenerate_states": [
+   "φ = 0°",
+   "φ = 180°"
+  ],
+  "notes": [
+   "step v1 is not used on the way to the conclusion",
+   "step v2 is not used on the way to the conclusion",
+   "step v3 is not used on the way to the conclusion",
+   "step vertical is not used on the way to the conclusion",
+   "step w1 is not used on the way to the conclusion",
+   "step w2 is not used on the way to the conclusion",
+   "step w3 is not used on the way to the conclusion",
+   "step horizontal is not used on the way to the conclusion",
+   "degenerate states, in which a step's rule does not apply, a term is undefined or an inequality becomes an equality: phi = 0°; phi = 180°. The derivation does not cover them; the conclusion is true there as well (numerically)"
+  ]
+ },
+ "figure": {
+  "id": "euler-fig-3",
+  "address": "fr:astra/euler-fig-3",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-euler-fig-3\" class=\"astra-figure\" viewBox=\"0 0 720.00 1113.12\" width=\"720.00\" height=\"1113.12\" role=\"img\" aria-label=\"Euler's Fig. 3: the particle M, the centre C and the luminary S\" data-figure=\"euler-fig-3\" data-state=\"phi=50.0000\" data-theme=\"light\">\n<title>Euler's Fig. 3: the particle M, the centre C and the luminary S</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment0\" class=\"astra-construct\" x1=\"360.00\" y1=\"1055.52\" x2=\"360.00\" y2=\"57.60\"/>\n<line id=\"astra-segment1\" class=\"astra-construct\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"558.74\"/>\n<line id=\"astra-segment2\" class=\"astra-construct\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"753.12\"/>\n<line id=\"astra-segment3\" class=\"astra-aux astra-dashed\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"57.60\"/>\n<circle id=\"astra-shell\" class=\"astra-construct\" cx=\"360.00\" cy=\"753.12\" r=\"302.40\"/>\n<path id=\"astra-angle4\" class=\"astra-angle\" d=\"M 360.00 704.74 A 48.38 48.38 0 0 0 322.94 722.02\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle4-text\" class=\"astra-label astra-angle-label\" x=\"333.85\" y=\"697.03\" text-anchor=\"middle\" dominant-baseline=\"middle\">φ</text>\n<circle id=\"astra-C\" class=\"astra-point\" cx=\"360.00\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-C-text\" class=\"astra-label\" x=\"360.00\" y=\"768.12\" text-anchor=\"middle\" dominant-baseline=\"middle\">C</text>\n<circle id=\"astra-S\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-S-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">S</text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"450.72\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"435.72\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"1055.52\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"360.00\" y=\"1070.52\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle id=\"astra-D\" class=\"astra-point\" cx=\"57.60\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-D-text\" class=\"astra-label\" x=\"45.02\" y=\"761.29\" text-anchor=\"middle\" dominant-baseline=\"middle\">D</text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"662.40\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"674.98\" y=\"761.29\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n<circle id=\"astra-M\" class=\"astra-point\" cx=\"128.35\" cy=\"558.74\" r=\"3.2\"/>\n<text id=\"astra-M-text\" class=\"astra-label\" x=\"113.35\" y=\"558.88\" text-anchor=\"middle\" dominant-baseline=\"middle\">M</text>\n<circle id=\"astra-P\" class=\"astra-point\" cx=\"360.00\" cy=\"558.74\" r=\"3.2\"/>\n<text id=\"astra-P-text\" class=\"astra-label\" x=\"374.16\" y=\"563.70\" text-anchor=\"middle\" dominant-baseline=\"middle\">P</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"1103.12\">drawn with a = 2.3, ρ = 1, S = 1</text>\n</svg>\n",
+  "bundle": {
+   "id": "euler-fig-3",
+   "title": "Euler's Fig. 3: the particle M, the centre C and the luminary S",
+   "of": "euler-tide-force-resolution",
+   "notation": "astra/1",
+   "ops": [
+    {
+     "id": "a",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "rho",
+     "op": "param",
+     "args": [],
+     "type": "length"
+    },
+    {
+     "id": "Sf",
+     "op": "param",
+     "args": [],
+     "type": "quantity"
+    },
+    {
+     "id": "_aux1",
+     "op": "const",
+     "args": [
+      30.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux2",
+     "op": "const",
+     "args": [
+      1000.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux3",
+     "op": "const",
+     "args": [
+      0.5
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_aux4",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "length"
+    },
+    {
+     "id": "phi",
+     "op": "var",
+     "args": [],
+     "type": "angle"
+    },
+    {
+     "id": "_t5",
+     "op": "observer",
+     "args": [],
+     "type": "point"
+    },
+    {
+     "id": "C",
+     "op": "id",
+     "args": [
+      "_t5"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t6",
+     "op": "const",
+     "args": [
+      90.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t7",
+     "op": "polar",
+     "args": [
+      "a",
+      "_t6"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t8",
+     "op": "add",
+     "args": [
+      "C",
+      "_t7"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "S",
+     "op": "id",
+     "args": [
+      "_t8"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t9",
+     "op": "const",
+     "args": [
+      90.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t10",
+     "op": "polar",
+     "args": [
+      "rho",
+      "_t9"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t11",
+     "op": "add",
+     "args": [
+      "C",
+      "_t10"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "A",
+     "op": "id",
+     "args": [
+      "_t11"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t12",
+     "op": "const",
+     "args": [
+      90.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t13",
+     "op": "polar",
+     "args": [
+      "rho",
+      "_t12"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t14",
+     "op": "sub",
+     "args": [
+      "C",
+      "_t13"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "B",
+     "op": "id",
+     "args": [
+      "_t14"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t15",
+     "op": "const",
+     "args": [
+      180.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t16",
+     "op": "polar",
+     "args": [
+      "rho",
+      "_t15"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t17",
+     "op": "add",
+     "args": [
+      "C",
+      "_t16"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "D",
+     "op": "id",
+     "args": [
+      "_t17"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t18",
+     "op": "const",
+     "args": [
+      0.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t19",
+     "op": "polar",
+     "args": [
+      "rho",
+      "_t18"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t20",
+     "op": "add",
+     "args": [
+      "C",
+      "_t19"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "E",
+     "op": "id",
+     "args": [
+      "_t20"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t21",
+     "op": "circle",
+     "args": [
+      "C",
+      "rho"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "shell",
+     "op": "id",
+     "args": [
+      "_t21"
+     ],
+     "type": "circle"
+    },
+    {
+     "id": "_t22",
+     "op": "const",
+     "args": [
+      90.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t23",
+     "op": "add",
+     "args": [
+      "_t22",
+      "phi"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t24",
+     "op": "polar",
+     "args": [
+      "rho",
+      "_t23"
+     ],
+     "type": "vector"
+    },
+    {
+     "id": "_t25",
+     "op": "add",
+     "args": [
+      "C",
+      "_t24"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "M",
+     "op": "id",
+     "args": [
+      "_t25"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t26",
+     "op": "line",
+     "args": [
+      "C",
+      "S"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t27",
+     "op": "foot",
+     "args": [
+      "M",
+      "_t26"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "P",
+     "op": "id",
+     "args": [
+      "_t27"
+     ],
+     "type": "point"
+    },
+    {
+     "id": "_t28",
+     "op": "direction",
+     "args": [
+      "C",
+      "S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "dir",
+     "op": "id",
+     "args": [
+      "_t28"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t29",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t30",
+     "op": "mul",
+     "args": [
+      "rho",
+      "_t29"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "x",
+     "op": "id",
+     "args": [
+      "_t30"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t31",
+     "op": "sin",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t32",
+     "op": "mul",
+     "args": [
+      "rho",
+      "_t31"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "y",
+     "op": "id",
+     "args": [
+      "_t32"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t33",
+     "op": "distance",
+     "args": [
+      "M",
+      "S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "dist",
+     "op": "id",
+     "args": [
+      "_t33"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t34",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t35",
+     "op": "div",
+     "args": [
+      "Sf",
+      "_t34"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "fM",
+     "op": "id",
+     "args": [
+      "_t35"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t36",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t37",
+     "op": "div",
+     "args": [
+      "Sf",
+      "_t36"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "fC",
+     "op": "id",
+     "args": [
+      "_t37"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t38",
+     "op": "direction",
+     "args": [
+      "M",
+      "S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t39",
+     "op": "direction",
+     "args": [
+      "M",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t40",
+     "op": "sub",
+     "args": [
+      "_t38",
+      "_t39"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t41",
+     "op": "cos",
+     "args": [
+      "_t40"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t42",
+     "op": "mul",
+     "args": [
+      "fM",
+      "_t41"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t43",
+     "op": "direction",
+     "args": [
+      "C",
+      "S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t44",
+     "op": "direction",
+     "args": [
+      "M",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t45",
+     "op": "sub",
+     "args": [
+      "_t43",
+      "_t44"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t46",
+     "op": "cos",
+     "args": [
+      "_t45"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t47",
+     "op": "mul",
+     "args": [
+      "fC",
+      "_t46"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t48",
+     "op": "sub",
+     "args": [
+      "_t42",
+      "_t47"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "tMC",
+     "op": "id",
+     "args": [
+      "_t48"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t49",
+     "op": "direction",
+     "args": [
+      "M",
+      "S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t50",
+     "op": "direction",
+     "args": [
+      "M",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t51",
+     "op": "const",
+     "args": [
+      90.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t52",
+     "op": "add",
+     "args": [
+      "_t50",
+      "_t51"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t53",
+     "op": "sub",
+     "args": [
+      "_t49",
+      "_t52"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t54",
+     "op": "cos",
+     "args": [
+      "_t53"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t55",
+     "op": "mul",
+     "args": [
+      "fM",
+      "_t54"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t56",
+     "op": "direction",
+     "args": [
+      "C",
+      "S"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t57",
+     "op": "direction",
+     "args": [
+      "M",
+      "C"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t58",
+     "op": "const",
+     "args": [
+      90.0
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t59",
+     "op": "add",
+     "args": [
+      "_t57",
+      "_t58"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t60",
+     "op": "sub",
+     "args": [
+      "_t56",
+      "_t59"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t61",
+     "op": "cos",
+     "args": [
+      "_t60"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t62",
+     "op": "mul",
+     "args": [
+      "fC",
+      "_t61"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t63",
+     "op": "sub",
+     "args": [
+      "_t55",
+      "_t62"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "tMR",
+     "op": "id",
+     "args": [
+      "_t63"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t64",
+     "op": "abs",
+     "args": [
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t65",
+     "op": "distance",
+     "args": [
+      "C",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t66",
+     "op": "sub",
+     "args": [
+      "_t64",
+      "_t65"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t67",
+     "op": "abs",
+     "args": [
+      "_t66"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t68",
+     "op": "abs",
+     "args": [
+      "y"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t69",
+     "op": "distance",
+     "args": [
+      "P",
+      "M"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t70",
+     "op": "sub",
+     "args": [
+      "_t68",
+      "_t69"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t71",
+     "op": "abs",
+     "args": [
+      "_t70"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t72",
+     "op": "line",
+     "args": [
+      "M",
+      "P"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t73",
+     "op": "line",
+     "args": [
+      "S",
+      "C"
+     ],
+     "type": "line"
+    },
+    {
+     "id": "_t74",
+     "op": "res_perp",
+     "args": [
+      "_t72",
+      "_t73"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t75",
+     "op": "distance",
+     "args": [
+      "M",
+      "S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t76",
+     "op": "distance",
+     "args": [
+      "M",
+      "S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t77",
+     "op": "mul",
+     "args": [
+      "_t75",
+      "_t76"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t78",
+     "op": "distance",
+     "args": [
+      "M",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t79",
+     "op": "distance",
+     "args": [
+      "M",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t80",
+     "op": "mul",
+     "args": [
+      "_t78",
+      "_t79"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t81",
+     "op": "distance",
+     "args": [
+      "S",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t82",
+     "op": "distance",
+     "args": [
+      "S",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t83",
+     "op": "mul",
+     "args": [
+      "_t81",
+      "_t82"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t84",
+     "op": "add",
+     "args": [
+      "_t80",
+      "_t83"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t85",
+     "op": "sub",
+     "args": [
+      "_t77",
+      "_t84"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t86",
+     "op": "abs",
+     "args": [
+      "_t85"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t87",
+     "op": "distance",
+     "args": [
+      "S",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t88",
+     "op": "sub",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t89",
+     "op": "sub",
+     "args": [
+      "_t87",
+      "_t88"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t90",
+     "op": "abs",
+     "args": [
+      "_t89"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t91",
+     "op": "distance",
+     "args": [
+      "M",
+      "P"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t92",
+     "op": "abs",
+     "args": [
+      "y"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t93",
+     "op": "sub",
+     "args": [
+      "_t91",
+      "_t92"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t94",
+     "op": "abs",
+     "args": [
+      "_t93"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t95",
+     "op": "distance",
+     "args": [
+      "M",
+      "S"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t96",
+     "op": "sub",
+     "args": [
+      "dist",
+      "_t95"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t97",
+     "op": "abs",
+     "args": [
+      "_t96"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t98",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t99",
+     "op": "sub",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t100",
+     "op": "sub",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t101",
+     "op": "mul",
+     "args": [
+      "_t99",
+      "_t100"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t102",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t103",
+     "op": "add",
+     "args": [
+      "_t101",
+      "_t102"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t104",
+     "op": "sub",
+     "args": [
+      "_t98",
+      "_t103"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t105",
+     "op": "abs",
+     "args": [
+      "_t104"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t106",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t107",
+     "op": "sub",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t108",
+     "op": "sub",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t109",
+     "op": "mul",
+     "args": [
+      "_t107",
+      "_t108"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t110",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t111",
+     "op": "add",
+     "args": [
+      "_t109",
+      "_t110"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t112",
+     "op": "sub",
+     "args": [
+      "_t106",
+      "_t111"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t113",
+     "op": "abs",
+     "args": [
+      "_t112"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t114",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t115",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t116",
+     "op": "mul",
+     "args": [
+      "_t115",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t117",
+     "op": "div",
+     "args": [
+      "_t114",
+      "_t116"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t118",
+     "op": "mul",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t119",
+     "op": "mul",
+     "args": [
+      "x",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t120",
+     "op": "sub",
+     "args": [
+      "_t118",
+      "_t119"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t121",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t122",
+     "op": "sub",
+     "args": [
+      "_t120",
+      "_t121"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t123",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t122"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t124",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t125",
+     "op": "mul",
+     "args": [
+      "_t124",
+      "dist"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t126",
+     "op": "mul",
+     "args": [
+      "_t125",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t127",
+     "op": "div",
+     "args": [
+      "_t123",
+      "_t126"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t128",
+     "op": "sub",
+     "args": [
+      "_t117",
+      "_t127"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t129",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t128"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t130",
+     "op": "abs",
+     "args": [
+      "_t129"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t131",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t132",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t133",
+     "op": "mul",
+     "args": [
+      "_t132",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t134",
+     "op": "div",
+     "args": [
+      "_t131",
+      "_t133"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t135",
+     "op": "mul",
+     "args": [
+      "a",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t136",
+     "op": "mul",
+     "args": [
+      "x",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t137",
+     "op": "sub",
+     "args": [
+      "_t135",
+      "_t136"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t138",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t139",
+     "op": "sub",
+     "args": [
+      "_t137",
+      "_t138"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t140",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t139"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t141",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t142",
+     "op": "mul",
+     "args": [
+      "_t141",
+      "dist"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t143",
+     "op": "mul",
+     "args": [
+      "_t142",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t144",
+     "op": "div",
+     "args": [
+      "_t140",
+      "_t143"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t145",
+     "op": "sub",
+     "args": [
+      "_t134",
+      "_t144"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t146",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t145"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t147",
+     "op": "abs",
+     "args": [
+      "_t146"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t148",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t149",
+     "op": "mul",
+     "args": [
+      "_t148",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t150",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t151",
+     "op": "mul",
+     "args": [
+      "_t150",
+      "dist"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t152",
+     "op": "mul",
+     "args": [
+      "_t151",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t153",
+     "op": "div",
+     "args": [
+      "_t149",
+      "_t152"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t154",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t155",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t156",
+     "op": "mul",
+     "args": [
+      "_t155",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t157",
+     "op": "div",
+     "args": [
+      "_t154",
+      "_t156"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t158",
+     "op": "sub",
+     "args": [
+      "_t153",
+      "_t157"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t159",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t158"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t160",
+     "op": "abs",
+     "args": [
+      "_t159"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t161",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t162",
+     "op": "mul",
+     "args": [
+      "_t161",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t163",
+     "op": "mul",
+     "args": [
+      "dist",
+      "dist"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t164",
+     "op": "mul",
+     "args": [
+      "_t163",
+      "dist"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t165",
+     "op": "mul",
+     "args": [
+      "_t164",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t166",
+     "op": "div",
+     "args": [
+      "_t162",
+      "_t165"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t167",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t168",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t169",
+     "op": "mul",
+     "args": [
+      "_t168",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t170",
+     "op": "div",
+     "args": [
+      "_t167",
+      "_t169"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t171",
+     "op": "sub",
+     "args": [
+      "_t166",
+      "_t170"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t172",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t171"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t173",
+     "op": "abs",
+     "args": [
+      "_t172"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t174",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t175",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t176",
+     "op": "mul",
+     "args": [
+      "_t175",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t177",
+     "op": "mul",
+     "args": [
+      "_t176",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t178",
+     "op": "sub",
+     "args": [
+      "_t174",
+      "_t177"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t179",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t178"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t180",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t181",
+     "op": "mul",
+     "args": [
+      "_t180",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t182",
+     "op": "mul",
+     "args": [
+      "_t181",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t183",
+     "op": "div",
+     "args": [
+      "_t179",
+      "_t182"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t184",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t185",
+     "op": "mul",
+     "args": [
+      "_t184",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t186",
+     "op": "mul",
+     "args": [
+      "_t185",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t187",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t188",
+     "op": "mul",
+     "args": [
+      "_t187",
+      "y"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t189",
+     "op": "mul",
+     "args": [
+      "_t188",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t190",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t191",
+     "op": "mul",
+     "args": [
+      "_t190",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t192",
+     "op": "mul",
+     "args": [
+      "_t191",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t193",
+     "op": "sub",
+     "args": [
+      "_t189",
+      "_t192"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t194",
+     "op": "mul",
+     "args": [
+      "_t186",
+      "_t193"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t195",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t196",
+     "op": "mul",
+     "args": [
+      "_t195",
+      "a"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t197",
+     "op": "mul",
+     "args": [
+      "_t196",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t198",
+     "op": "mul",
+     "args": [
+      "_t197",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t199",
+     "op": "mul",
+     "args": [
+      "_t198",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t200",
+     "op": "mul",
+     "args": [
+      "_t199",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t201",
+     "op": "div",
+     "args": [
+      "_t194",
+      "_t200"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t202",
+     "op": "add",
+     "args": [
+      "_t183",
+      "_t201"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t203",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t202"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t204",
+     "op": "abs",
+     "args": [
+      "_t203"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t205",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t206",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t207",
+     "op": "mul",
+     "args": [
+      "_t206",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t208",
+     "op": "mul",
+     "args": [
+      "_t207",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t209",
+     "op": "sub",
+     "args": [
+      "_t205",
+      "_t208"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t210",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t209"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t211",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t212",
+     "op": "mul",
+     "args": [
+      "_t211",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t213",
+     "op": "mul",
+     "args": [
+      "_t212",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t214",
+     "op": "div",
+     "args": [
+      "_t210",
+      "_t213"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t215",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t216",
+     "op": "mul",
+     "args": [
+      "_t215",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t217",
+     "op": "mul",
+     "args": [
+      "_t216",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t218",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t219",
+     "op": "mul",
+     "args": [
+      "_t218",
+      "y"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t220",
+     "op": "mul",
+     "args": [
+      "_t219",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t221",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t222",
+     "op": "mul",
+     "args": [
+      "_t221",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t223",
+     "op": "mul",
+     "args": [
+      "_t222",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t224",
+     "op": "sub",
+     "args": [
+      "_t220",
+      "_t223"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t225",
+     "op": "mul",
+     "args": [
+      "_t217",
+      "_t224"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t226",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t227",
+     "op": "mul",
+     "args": [
+      "_t226",
+      "a"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t228",
+     "op": "mul",
+     "args": [
+      "_t227",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t229",
+     "op": "mul",
+     "args": [
+      "_t228",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t230",
+     "op": "mul",
+     "args": [
+      "_t229",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t231",
+     "op": "mul",
+     "args": [
+      "_t230",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t232",
+     "op": "div",
+     "args": [
+      "_t225",
+      "_t231"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t233",
+     "op": "add",
+     "args": [
+      "_t214",
+      "_t232"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t234",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t233"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t235",
+     "op": "abs",
+     "args": [
+      "_t234"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t236",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t237",
+     "op": "mul",
+     "args": [
+      "_t236",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t238",
+     "op": "mul",
+     "args": [
+      "_t237",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t239",
+     "op": "mul",
+     "args": [
+      "_t238",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t240",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t241",
+     "op": "mul",
+     "args": [
+      "_t240",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t242",
+     "op": "mul",
+     "args": [
+      "_t241",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t243",
+     "op": "div",
+     "args": [
+      "_t239",
+      "_t242"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t244",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t245",
+     "op": "mul",
+     "args": [
+      "_t244",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t246",
+     "op": "mul",
+     "args": [
+      "_t245",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t247",
+     "op": "const",
+     "args": [
+      4.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t248",
+     "op": "mul",
+     "args": [
+      "_t247",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t249",
+     "op": "mul",
+     "args": [
+      "_t248",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t250",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t251",
+     "op": "sub",
+     "args": [
+      "_t249",
+      "_t250"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t252",
+     "op": "mul",
+     "args": [
+      "_t246",
+      "_t251"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t253",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t254",
+     "op": "mul",
+     "args": [
+      "_t253",
+      "a"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t255",
+     "op": "mul",
+     "args": [
+      "_t254",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t256",
+     "op": "mul",
+     "args": [
+      "_t255",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t257",
+     "op": "mul",
+     "args": [
+      "_t256",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t258",
+     "op": "mul",
+     "args": [
+      "_t257",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t259",
+     "op": "div",
+     "args": [
+      "_t252",
+      "_t258"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t260",
+     "op": "add",
+     "args": [
+      "_t243",
+      "_t259"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t261",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t260"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t262",
+     "op": "abs",
+     "args": [
+      "_t261"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t263",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t264",
+     "op": "mul",
+     "args": [
+      "_t263",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t265",
+     "op": "mul",
+     "args": [
+      "_t264",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t266",
+     "op": "mul",
+     "args": [
+      "_t265",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t267",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t268",
+     "op": "mul",
+     "args": [
+      "_t267",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t269",
+     "op": "mul",
+     "args": [
+      "_t268",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t270",
+     "op": "div",
+     "args": [
+      "_t266",
+      "_t269"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t271",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t272",
+     "op": "mul",
+     "args": [
+      "_t271",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t273",
+     "op": "mul",
+     "args": [
+      "_t272",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t274",
+     "op": "const",
+     "args": [
+      4.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t275",
+     "op": "mul",
+     "args": [
+      "_t274",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t276",
+     "op": "mul",
+     "args": [
+      "_t275",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t277",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t278",
+     "op": "sub",
+     "args": [
+      "_t276",
+      "_t277"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t279",
+     "op": "mul",
+     "args": [
+      "_t273",
+      "_t278"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t280",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t281",
+     "op": "mul",
+     "args": [
+      "_t280",
+      "a"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t282",
+     "op": "mul",
+     "args": [
+      "_t281",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t283",
+     "op": "mul",
+     "args": [
+      "_t282",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t284",
+     "op": "mul",
+     "args": [
+      "_t283",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t285",
+     "op": "mul",
+     "args": [
+      "_t284",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t286",
+     "op": "div",
+     "args": [
+      "_t279",
+      "_t285"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t287",
+     "op": "add",
+     "args": [
+      "_t270",
+      "_t286"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t288",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t287"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t289",
+     "op": "abs",
+     "args": [
+      "_t288"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t290",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t291",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t292",
+     "op": "mul",
+     "args": [
+      "_t291",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t293",
+     "op": "mul",
+     "args": [
+      "_t292",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t294",
+     "op": "sub",
+     "args": [
+      "_t290",
+      "_t293"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t295",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t294"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t296",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t297",
+     "op": "mul",
+     "args": [
+      "_t296",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t298",
+     "op": "mul",
+     "args": [
+      "_t297",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t299",
+     "op": "div",
+     "args": [
+      "_t295",
+      "_t298"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t300",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t299"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t301",
+     "op": "abs",
+     "args": [
+      "_t300"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t302",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t303",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t304",
+     "op": "mul",
+     "args": [
+      "_t303",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t305",
+     "op": "mul",
+     "args": [
+      "_t304",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t306",
+     "op": "sub",
+     "args": [
+      "_t302",
+      "_t305"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t307",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t306"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t308",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t309",
+     "op": "mul",
+     "args": [
+      "_t308",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t310",
+     "op": "mul",
+     "args": [
+      "_t309",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t311",
+     "op": "div",
+     "args": [
+      "_t307",
+      "_t310"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t312",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t311"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t313",
+     "op": "abs",
+     "args": [
+      "_t312"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t314",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t315",
+     "op": "mul",
+     "args": [
+      "_t314",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t316",
+     "op": "mul",
+     "args": [
+      "_t315",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t317",
+     "op": "mul",
+     "args": [
+      "_t316",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t318",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t319",
+     "op": "mul",
+     "args": [
+      "_t318",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t320",
+     "op": "mul",
+     "args": [
+      "_t319",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t321",
+     "op": "div",
+     "args": [
+      "_t317",
+      "_t320"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t322",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t321"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t323",
+     "op": "abs",
+     "args": [
+      "_t322"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t324",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t325",
+     "op": "mul",
+     "args": [
+      "_t324",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t326",
+     "op": "mul",
+     "args": [
+      "_t325",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t327",
+     "op": "mul",
+     "args": [
+      "_t326",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t328",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t329",
+     "op": "mul",
+     "args": [
+      "_t328",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t330",
+     "op": "mul",
+     "args": [
+      "_t329",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t331",
+     "op": "div",
+     "args": [
+      "_t327",
+      "_t330"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t332",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t331"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t333",
+     "op": "abs",
+     "args": [
+      "_t332"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t334",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t335",
+     "op": "mul",
+     "args": [
+      "rho",
+      "_t334"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t336",
+     "op": "sub",
+     "args": [
+      "x",
+      "_t335"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t337",
+     "op": "abs",
+     "args": [
+      "_t336"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t338",
+     "op": "sin",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t339",
+     "op": "mul",
+     "args": [
+      "rho",
+      "_t338"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t340",
+     "op": "sub",
+     "args": [
+      "y",
+      "_t339"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t341",
+     "op": "abs",
+     "args": [
+      "_t340"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t342",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t343",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t344",
+     "op": "mul",
+     "args": [
+      "_t343",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t345",
+     "op": "mul",
+     "args": [
+      "_t344",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t346",
+     "op": "sub",
+     "args": [
+      "_t342",
+      "_t345"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t347",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t346"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t348",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t349",
+     "op": "mul",
+     "args": [
+      "_t348",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t350",
+     "op": "mul",
+     "args": [
+      "_t349",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t351",
+     "op": "div",
+     "args": [
+      "_t347",
+      "_t350"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t352",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t353",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t354",
+     "op": "mul",
+     "args": [
+      "_t353",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t355",
+     "op": "div",
+     "args": [
+      "_t352",
+      "_t354"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t356",
+     "op": "const",
+     "args": [
+      1.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t357",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t358",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t359",
+     "op": "mul",
+     "args": [
+      "_t357",
+      "_t358"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t360",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t361",
+     "op": "mul",
+     "args": [
+      "_t359",
+      "_t360"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t362",
+     "op": "sub",
+     "args": [
+      "_t356",
+      "_t361"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t363",
+     "op": "mul",
+     "args": [
+      "_t355",
+      "_t362"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t364",
+     "op": "sub",
+     "args": [
+      "_t351",
+      "_t363"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t365",
+     "op": "abs",
+     "args": [
+      "_t364"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t366",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t367",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t368",
+     "op": "mul",
+     "args": [
+      "_t367",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t369",
+     "op": "mul",
+     "args": [
+      "_t368",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t370",
+     "op": "sub",
+     "args": [
+      "_t366",
+      "_t369"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t371",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t370"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t372",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t373",
+     "op": "mul",
+     "args": [
+      "_t372",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t374",
+     "op": "mul",
+     "args": [
+      "_t373",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t375",
+     "op": "div",
+     "args": [
+      "_t371",
+      "_t374"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t376",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t377",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t378",
+     "op": "mul",
+     "args": [
+      "_t377",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t379",
+     "op": "div",
+     "args": [
+      "_t376",
+      "_t378"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t380",
+     "op": "const",
+     "args": [
+      1.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t381",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t382",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t383",
+     "op": "mul",
+     "args": [
+      "_t381",
+      "_t382"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t384",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t385",
+     "op": "mul",
+     "args": [
+      "_t383",
+      "_t384"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t386",
+     "op": "sub",
+     "args": [
+      "_t380",
+      "_t385"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t387",
+     "op": "mul",
+     "args": [
+      "_t379",
+      "_t386"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t388",
+     "op": "sub",
+     "args": [
+      "_t375",
+      "_t387"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t389",
+     "op": "abs",
+     "args": [
+      "_t388"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t390",
+     "op": "cos",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t391",
+     "op": "mul",
+     "args": [
+      "rho",
+      "_t390"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t392",
+     "op": "sub",
+     "args": [
+      "x",
+      "_t391"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t393",
+     "op": "abs",
+     "args": [
+      "_t392"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t394",
+     "op": "sin",
+     "args": [
+      "phi"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t395",
+     "op": "mul",
+     "args": [
+      "rho",
+      "_t394"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t396",
+     "op": "sub",
+     "args": [
+      "y",
+      "_t395"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t397",
+     "op": "abs",
+     "args": [
+      "_t396"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t398",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t399",
+     "op": "mul",
+     "args": [
+      "_t398",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t400",
+     "op": "mul",
+     "args": [
+      "_t399",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t401",
+     "op": "mul",
+     "args": [
+      "_t400",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t402",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t403",
+     "op": "mul",
+     "args": [
+      "_t402",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t404",
+     "op": "mul",
+     "args": [
+      "_t403",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t405",
+     "op": "div",
+     "args": [
+      "_t401",
+      "_t404"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t406",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t407",
+     "op": "mul",
+     "args": [
+      "_t406",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t408",
+     "op": "mul",
+     "args": [
+      "_t407",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t409",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t410",
+     "op": "mul",
+     "args": [
+      "_t409",
+      "a"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t411",
+     "op": "mul",
+     "args": [
+      "_t410",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t412",
+     "op": "mul",
+     "args": [
+      "_t411",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t413",
+     "op": "div",
+     "args": [
+      "_t408",
+      "_t412"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t414",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t415",
+     "op": "mul",
+     "args": [
+      "_t414",
+      "phi"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t416",
+     "op": "sin",
+     "args": [
+      "_t415"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t417",
+     "op": "mul",
+     "args": [
+      "_t413",
+      "_t416"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t418",
+     "op": "sub",
+     "args": [
+      "_t405",
+      "_t417"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t419",
+     "op": "abs",
+     "args": [
+      "_t418"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t420",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t421",
+     "op": "mul",
+     "args": [
+      "_t420",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t422",
+     "op": "mul",
+     "args": [
+      "_t421",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t423",
+     "op": "mul",
+     "args": [
+      "_t422",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t424",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t425",
+     "op": "mul",
+     "args": [
+      "_t424",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t426",
+     "op": "mul",
+     "args": [
+      "_t425",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t427",
+     "op": "div",
+     "args": [
+      "_t423",
+      "_t426"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t428",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t429",
+     "op": "mul",
+     "args": [
+      "_t428",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t430",
+     "op": "mul",
+     "args": [
+      "_t429",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t431",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t432",
+     "op": "mul",
+     "args": [
+      "_t431",
+      "a"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t433",
+     "op": "mul",
+     "args": [
+      "_t432",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t434",
+     "op": "mul",
+     "args": [
+      "_t433",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t435",
+     "op": "div",
+     "args": [
+      "_t430",
+      "_t434"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t436",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t437",
+     "op": "mul",
+     "args": [
+      "_t436",
+      "phi"
+     ],
+     "type": "angle"
+    },
+    {
+     "id": "_t438",
+     "op": "sin",
+     "args": [
+      "_t437"
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t439",
+     "op": "mul",
+     "args": [
+      "_t435",
+      "_t438"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t440",
+     "op": "sub",
+     "args": [
+      "_t427",
+      "_t439"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t441",
+     "op": "abs",
+     "args": [
+      "_t440"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t442",
+     "op": "const",
+     "args": [
+      3.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t443",
+     "op": "mul",
+     "args": [
+      "_t442",
+      "Sf"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t444",
+     "op": "mul",
+     "args": [
+      "_t443",
+      "x"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t445",
+     "op": "mul",
+     "args": [
+      "_t444",
+      "y"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t446",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t447",
+     "op": "mul",
+     "args": [
+      "_t446",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t448",
+     "op": "mul",
+     "args": [
+      "_t447",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t449",
+     "op": "div",
+     "args": [
+      "_t445",
+      "_t448"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t450",
+     "op": "sub",
+     "args": [
+      "tMR",
+      "_t449"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t451",
+     "op": "abs",
+     "args": [
+      "_t450"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t452",
+     "op": "mul",
+     "args": [
+      "y",
+      "y"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t453",
+     "op": "const",
+     "args": [
+      2.0
+     ],
+     "type": "number"
+    },
+    {
+     "id": "_t454",
+     "op": "mul",
+     "args": [
+      "_t453",
+      "x"
+     ],
+     "type": "length"
+    },
+    {
+     "id": "_t455",
+     "op": "mul",
+     "args": [
+      "_t454",
+      "x"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t456",
+     "op": "sub",
+     "args": [
+      "_t452",
+      "_t455"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t457",
+     "op": "mul",
+     "args": [
+      "Sf",
+      "_t456"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t458",
+     "op": "mul",
+     "args": [
+      "a",
+      "a"
+     ],
+     "type": "length2"
+    },
+    {
+     "id": "_t459",
+     "op": "mul",
+     "args": [
+      "_t458",
+      "a"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t460",
+     "op": "mul",
+     "args": [
+      "_t459",
+      "rho"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t461",
+     "op": "div",
+     "args": [
+      "_t457",
+      "_t460"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t462",
+     "op": "sub",
+     "args": [
+      "tMC",
+      "_t461"
+     ],
+     "type": "quantity"
+    },
+    {
+     "id": "_t463",
+     "op": "abs",
+     "args": [
+      "_t462"
+     ],
+     "type": "quantity"
+    }
+   ],
+   "params": {
+    "a": 2.3,
+    "rho": 1.0,
+    "Sf": 1.0
+   },
+   "state": {
+    "phi": 50.0
+   },
+   "animation": {
+    "mode": "var",
+    "name": "phi",
+    "display": "φ",
+    "start": 50.0
+   },
+   "speed_s": 30.0,
+   "scene": [
+    {
+     "kind": "point",
+     "id": "C",
+     "ref": "C",
+     "text": "C",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "S",
+     "ref": "S",
+     "text": "S",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "A",
+     "ref": "A",
+     "text": "A",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "B",
+     "ref": "B",
+     "text": "B",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "D",
+     "ref": "D",
+     "text": "D",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "E",
+     "ref": "E",
+     "text": "E",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "circle",
+     "id": "shell",
+     "ref": "shell",
+     "owner": ""
+    },
+    {
+     "kind": "point",
+     "id": "M",
+     "ref": "M",
+     "text": "M",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "point",
+     "id": "P",
+     "ref": "P",
+     "text": "P",
+     "owner": "",
+     "aux": false
+    },
+    {
+     "kind": "segment",
+     "id": "segment0",
+     "p": "B",
+     "q": "S",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "segment1",
+     "p": "M",
+     "q": "P",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "segment2",
+     "p": "M",
+     "q": "C",
+     "dashed": false,
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "segment3",
+     "p": "M",
+     "q": "S",
+     "dashed": true,
+     "owner": ""
+    },
+    {
+     "kind": "angle",
+     "id": "angle4",
+     "vertex": "C",
+     "from": {
+      "point": "A"
+     },
+     "to": {
+      "point": "M"
+     },
+     "rank": 0,
+     "arrow": true,
+     "text": "φ",
+     "ref": "phi",
+     "owner": ""
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg0",
+     "p": "S",
+     "q": "C",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    },
+    {
+     "kind": "segment",
+     "id": "stepseg1",
+     "p": "S",
+     "q": "P",
+     "dashed": true,
+     "owner": "",
+     "step_only": true
+    }
+   ],
+   "projection": {
+    "up": 90.0,
+    "scale": 302.4,
+    "tx": 360.0,
+    "ty": 753.1199999999999,
+    "width": 720.0,
+    "height": 1113.12,
+    "r_fit": 1.0
+   },
+   "members": [],
+   "steps": [
+    {
+     "name": "setting",
+     "text": "equal(dist * dist, (a - x) * (a - x) + y * y)",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "s1",
+     "text": "perpendicular(line(M, P), line(S, C))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "C",
+      "M",
+      "P",
+      "S"
+     ],
+     "segments": [
+      [
+       "M",
+       "P"
+      ],
+      [
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "name": "s2",
+     "text": "equal(distance(M, S) * distance(M, S), distance(M, P) * distance(M, P) + distance(S, P) * distance(S, P))",
+     "status": "justified",
+     "rule": "Elements I.47",
+     "points": [
+      "M",
+      "P",
+      "S"
+     ],
+     "segments": [
+      [
+       "M",
+       "S"
+      ],
+      [
+       "M",
+       "S"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "S",
+       "P"
+      ],
+      [
+       "S",
+       "P"
+      ]
+     ]
+    },
+    {
+     "name": "s3",
+     "text": "equal(distance(S, P), a - x)",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "P",
+      "S"
+     ],
+     "segments": [
+      [
+       "S",
+       "P"
+      ]
+     ]
+    },
+    {
+     "name": "s4",
+     "text": "equal(distance(M, P), abs(y))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "M",
+      "P"
+     ],
+     "segments": [
+      [
+       "M",
+       "P"
+      ]
+     ]
+    },
+    {
+     "name": "s5",
+     "text": "equal(dist, distance(M, S))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [
+      "M",
+      "S"
+     ],
+     "segments": [
+      [
+       "M",
+       "S"
+      ]
+     ]
+    },
+    {
+     "name": "s6",
+     "text": "equal(dist * dist, (a - x) * (a - x) + y * y)",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "exact_MC",
+     "text": "equal(tMC, Sf * x / (a * a * rho) - Sf * (a * x - x * x - y * y) / (dist * dist * dist * rho))",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "m1",
+     "text": "equal(tMC, Sf * x / (a * a * rho) - Sf * (a * x - x * x - y * y) / (dist * dist * dist * rho))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "exact_MR",
+     "text": "equal(tMR, Sf * a * y / (dist * dist * dist * rho) - Sf * y / (a * a * rho))",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "r1",
+     "text": "equal(tMR, Sf * a * y / (dist * dist * dist * rho) - Sf * y / (a * a * rho))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "second_MC",
+     "text": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho) + 3 * Sf * x * (3 * y * y - 2 * x * x) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "n1",
+     "text": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho) + 3 * Sf * x * (3 * y * y - 2 * x * x) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+     "status": "by expansion",
+     "rule": "expansion",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "second_MR",
+     "text": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x - y * y) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "n2",
+     "text": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x - y * y) / (2 * a * a * a * a * rho)) to order 2 in rho / a",
+     "status": "by expansion",
+     "rule": "expansion",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "first_MC",
+     "text": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho)) to order 1 in rho / a",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "f1",
+     "text": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho)) to order 1 in rho / a",
+     "status": "by expansion",
+     "rule": "expansion",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "first_MR",
+     "text": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho)) to order 1 in rho / a",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "f2",
+     "text": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho)) to order 1 in rho / a",
+     "status": "by expansion",
+     "rule": "expansion",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "vertical",
+     "text": "equal(Sf * (y * y - 2 * x * x) / (a * a * a * rho), Sf * rho / (a * a * a) * (1 - 3 * cos(phi) * cos(phi)))",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "v1",
+     "text": "equal(x, rho * cos(phi))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "v2",
+     "text": "equal(y, rho * sin(phi))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "v3",
+     "text": "equal(Sf * (y * y - 2 * x * x) / (a * a * a * rho), Sf * rho / (a * a * a) * (1 - 3 * cos(phi) * cos(phi)))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "horizontal",
+     "text": "equal(3 * Sf * x * y / (a * a * a * rho), 3 * Sf * rho / (2 * a * a * a) * sin(2 * phi))",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "w1",
+     "text": "equal(x, rho * cos(phi))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "w2",
+     "text": "equal(y, rho * sin(phi))",
+     "status": "read off the construction",
+     "rule": "construction",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "w3",
+     "text": "equal(3 * Sf * x * y / (a * a * a * rho), 3 * Sf * rho / (2 * a * a * a) * sin(2 * phi))",
+     "status": "by calculation",
+     "rule": "algebra",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "conclusion2",
+     "text": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho)) to order 1 in rho / a",
+     "status": "by expansion",
+     "rule": "expansion",
+     "points": [],
+     "segments": []
+    },
+    {
+     "name": "conclusion",
+     "text": "approximately(tMC, Sf * (y * y - 2 * x * x) / (a * a * a * rho))",
+     "status": "justified",
+     "rule": "",
+     "points": [],
+     "segments": []
+    }
+   ],
+   "drawn": {
+    "a": "2.3",
+    "rho": "1",
+    "Sf": "1"
+   },
+   "parametrisation": ""
+  },
+  "drawn": {
+   "a": "2.3",
+   "rho": "1",
+   "Sf": "1"
+  }
+ },
+ "depths": [
+  "overview",
+  "steps",
+  "full"
+ ]
+}

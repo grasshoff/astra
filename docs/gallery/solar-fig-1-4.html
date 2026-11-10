@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation</title>
+<link rel="stylesheet" href="../_generated/famulus-tokens.css"><style>
+.astra-figure { background: var(--fv-paper); }
+.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }
+.astra-dashed { stroke-dasharray: 5 4; }
+.astra-claim { stroke: var(--fv-gold-deep); }
+.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }
+.astra-label.var { font-style: italic; }
+.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }
+.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }
+.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }
+.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
+.astra-hidden { display: none; }
+.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }
+.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }
+.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }
+</style><link rel="stylesheet" href="../astra-runtime/astra.css">
+<script>
+  window.addEventListener('error', e => { document.documentElement.dataset.renderError = String(e.message || e); });
+  window.addEventListener('unhandledrejection', e => { document.documentElement.dataset.renderError = String(e.reason); });
+</script>
+<!-- famulus:publisher:start -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="publisher" content="OpenScienceTechnology GmbH">
+<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/gallery/solar-fig-1-4.html", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
+<!-- famulus:publisher:end -->
+</head><body class="astra-page">
+<div class="astra-wrap">
+<p class="astra-title">Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation</p>
+<svg xmlns="http://www.w3.org/2000/svg" id="astra-solar-fig-1-4" class="astra-figure" viewBox="0 0 720.00 720.00" width="720.00" height="720.00" role="img" aria-label="Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation" data-figure="solar-fig-1-4" data-state="kappa_bar=108.0000" data-theme="light">
+<title>Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation</title>
+
+<defs>
+  <marker id="astra-arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--fv-oxford)"/></marker>
+  <marker id="astra-arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--fv-gold-deep)"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="var(--fv-paper)"/>
+<g id="astra-body">
+<line id="astra-segment7" class="astra-construct" x1="464.50" y1="130.69" x2="255.50" y2="589.31"/>
+<line id="astra-zodiac11-0" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="602.96" y2="426.88"/>
+<circle id="astra-zodiac11-0-pt" class="astra-point" cx="602.96" cy="426.88" r="3.2"/>
+<text id="astra-zodiac11-0-text" class="astra-zodiac" x="622.46" y="426.88" text-anchor="middle" dominant-baseline="middle">♈︎</text>
+<line id="astra-zodiac11-90" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="329.52" y2="109.85"/>
+<circle id="astra-zodiac11-90-pt" class="astra-point" cx="329.52" cy="109.85" r="3.2"/>
+<text id="astra-zodiac11-90-text" class="astra-zodiac" x="329.52" y="90.35" text-anchor="middle" dominant-baseline="middle">♋︎</text>
+<line id="astra-zodiac11-180" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="117.04" y2="426.88"/>
+<circle id="astra-zodiac11-180-pt" class="astra-point" cx="117.04" cy="426.88" r="3.2"/>
+<text id="astra-zodiac11-180-text" class="astra-zodiac" x="97.54" y="426.88" text-anchor="middle" dominant-baseline="middle">♎︎</text>
+<line id="astra-zodiac11-270" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="329.52" y2="610.15"/>
+<circle id="astra-zodiac11-270-pt" class="astra-point" cx="329.52" cy="610.15" r="3.2"/>
+<text id="astra-zodiac11-270-text" class="astra-zodiac" x="329.52" y="629.65" text-anchor="middle" dominant-baseline="middle">♑︎</text>
+<circle id="astra-ecc" class="astra-construct" cx="360.00" cy="360.00" r="252.00"/>
+<line id="astra-length5" class="astra-construct" x1="360.00" y1="360.00" x2="109.62" y2="331.47"/>
+<text id="astra-length5-text" class="astra-label var" x="233.62" y="356.17" text-anchor="middle" dominant-baseline="middle">R</text>
+<line id="astra-length6" class="astra-construct" x1="329.52" y1="426.88" x2="360.00" y2="360.00"/>
+<text id="astra-length6-text" class="astra-label var" x="335.21" y="389.09" text-anchor="middle" dominant-baseline="middle">e</text>
+<path id="astra-angle0" class="astra-angle" d="M 369.84 426.88 A 40.32 40.32 0 0 0 346.24 390.19" marker-end="url(#astra-arrow-gold)"/>
+<text id="astra-angle0-text" class="astra-label astra-angle-label" x="374.78" y="397.77" text-anchor="middle" dominant-baseline="middle">λ<tspan class="sub" dy="0.35em" font-size="70%">A</tspan></text>
+<path id="astra-angle1" class="astra-angle" d="M 376.72 323.31 A 40.32 40.32 0 0 0 319.94 355.44" marker-end="url(#astra-arrow-gold)"/>
+<text id="astra-angle1-text" class="astra-label astra-angle-label" x="333.50" y="313.16" text-anchor="middle" dominant-baseline="middle">κ̄</text>
+<path id="astra-angle2" class="astra-angle" d="M 349.92 382.12 A 49.19 49.19 0 0 0 284.39 407.30" marker-end="url(#astra-arrow-gold)"/>
+<text id="astra-angle2-text" class="astra-label astra-angle-label" x="307.03" y="368.36" text-anchor="middle" dominant-baseline="middle">κ</text>
+<path id="astra-angle3" class="astra-angle" d="M 146.61 347.52 A 40.32 40.32 0 0 0 149.68 336.04"/>
+<text id="astra-angle3-text" class="astra-label astra-angle-label" x="161.61" y="345.38" text-anchor="middle" dominant-baseline="middle">c</text>
+<path id="astra-angle4" class="astra-angle" d="M 276.26 403.77 A 58.06 58.06 0 0 0 271.83 420.31"/>
+<text id="astra-angle4-text" class="astra-label astra-angle-label" x="260.39" y="408.39" text-anchor="middle" dominant-baseline="middle">c</text>
+<path id="astra-motion8" class="astra-motion" d="M 108.01 357.80 A 252.00 252.00 0 0 0 125.53 452.36" marker-end="url(#astra-arrow-gold)"/>
+<line id="astra-direction9" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="63.67" y2="311.53" marker-end="url(#astra-arrow-ink)"/>
+<text id="astra-direction9-text" class="astra-label var" x="48.53" y="304.97" text-anchor="middle" dominant-baseline="middle">λ<tspan class="sub" dy="0.35em" font-size="70%">S</tspan></text>
+<line id="astra-direction10" class="astra-aux astra-dashed" x1="329.52" y1="426.88" x2="41.58" y2="394.08" marker-end="url(#astra-arrow-ink)"/>
+<text id="astra-direction10-text" class="astra-label var" x="25.19" y="392.21" text-anchor="middle" dominant-baseline="middle">λ̄<tspan class="sub" dy="0.35em" font-size="70%">S</tspan></text>
+<circle id="astra-O" class="astra-point" cx="329.52" cy="426.88" r="3.2"/>
+<text id="astra-O-text" class="astra-label" x="323.30" y="440.53" text-anchor="middle" dominant-baseline="middle">O</text>
+<circle id="astra-E" class="astra-point" cx="360.00" cy="360.00" r="3.2"/>
+<text id="astra-E-text" class="astra-label" x="374.16" y="364.96" text-anchor="middle" dominant-baseline="middle">E</text>
+<circle id="astra-A" class="astra-point" cx="464.50" cy="130.69" r="3.2"/>
+<text id="astra-A-text" class="astra-label" x="470.72" y="117.04" text-anchor="middle" dominant-baseline="middle">A</text>
+<circle id="astra-B" class="astra-point" cx="255.50" cy="589.31" r="3.2"/>
+<text id="astra-B-text" class="astra-label" x="249.28" y="602.96" text-anchor="middle" dominant-baseline="middle">B</text>
+<circle id="astra-S" class="astra-point" cx="109.62" cy="331.47" r="3.2"/>
+<text id="astra-S-text" class="astra-label" x="94.72" y="329.77" text-anchor="middle" dominant-baseline="middle">S</text>
+</g>
+<text class="astra-caption" x="12" y="710.00">drawn with e = 17;30</text>
+</svg>
+
+<div id="astra-transport"></div>
+<p class="astra-note">Drawn with e = 17;30: drawing values. The attested values stand in the parametrisation.</p>
+<p class="astra-note"><code>fr:astra/solar-fig-1-4</code> draws <code>fr:astra/solar-eccentric</code> with <code>fr:astra/solar-eccentric.ptolemy</code> · astra/1</p>
+</div>
+<script type="application/json" id="astra-figure">{
+ "id": "solar-fig-1-4",
+ "title": "Ptolemy's solar model, eccentric form, with longitudes, anomalies and the equation",
+ "of": "solar-eccentric",
+ "notation": "astra/1",
+ "ops": [
+  {
+   "id": "R",
+   "op": "param",
+   "args": [],
+   "type": "length"
+  },
+  {
+   "id": "e",
+   "op": "param",
+   "args": [],
+   "type": "length"
+  },
+  {
+   "id": "lamA",
+   "op": "param",
+   "args": [],
+   "type": "angle"
+  },
+  {
+   "id": "T",
+   "op": "param",
+   "args": [],
+   "type": "time"
+  },
+  {
+   "id": "kappa_0",
+   "op": "param",
+   "args": [],
+   "type": "angle"
+  },
+  {
+   "id": "_aux1",
+   "op": "const",
+   "args": [
+    1.0
+   ],
+   "type": "length"
+  },
+  {
+   "id": "_aux2",
+   "op": "const",
+   "args": [
+    1000.0
+   ],
+   "type": "length"
+  },
+  {
+   "id": "_aux3",
+   "op": "const",
+   "args": [
+    0.0
+   ],
+   "type": "length"
+  },
+  {
+   "id": "_aux4",
+   "op": "const",
+   "args": [
+    2.0
+   ],
+   "type": "number"
+  },
+  {
+   "id": "_aux5",
+   "op": "div",
+   "args": [
+    "R",
+    "_aux4"
+   ],
+   "type": "length"
+  },
+  {
+   "id": "_aux6",
+   "op": "const",
+   "args": [
+    300.0
+   ],
+   "type": "time"
+  },
+  {
+   "id": "_aux7",
+   "op": "const",
+   "args": [
+    400.0
+   ],
+   "type": "time"
+  },
+  {
+   "id": "_aux8",
+   "op": "const",
+   "args": [
+    360.0
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_aux9",
+   "op": "div",
+   "args": [
+    "_aux8",
+    "T"
+   ],
+   "type": "rate"
+  },
+  {
+   "id": "kappa_bar",
+   "op": "var",
+   "args": [
+    "_aux9",
+    "kappa_0"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t10",
+   "op": "observer",
+   "args": [],
+   "type": "point"
+  },
+  {
+   "id": "O",
+   "op": "id",
+   "args": [
+    "_t10"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "_t11",
+   "op": "polar",
+   "args": [
+    "e",
+    "lamA"
+   ],
+   "type": "vector"
+  },
+  {
+   "id": "_t12",
+   "op": "add",
+   "args": [
+    "O",
+    "_t11"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "E",
+   "op": "id",
+   "args": [
+    "_t12"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "_t13",
+   "op": "circle",
+   "args": [
+    "E",
+    "R"
+   ],
+   "type": "circle"
+  },
+  {
+   "id": "ecc",
+   "op": "id",
+   "args": [
+    "_t13"
+   ],
+   "type": "circle"
+  },
+  {
+   "id": "_t14",
+   "op": "polar",
+   "args": [
+    "R",
+    "lamA"
+   ],
+   "type": "vector"
+  },
+  {
+   "id": "_t15",
+   "op": "add",
+   "args": [
+    "E",
+    "_t14"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "A",
+   "op": "id",
+   "args": [
+    "_t15"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "_t16",
+   "op": "polar",
+   "args": [
+    "R",
+    "lamA"
+   ],
+   "type": "vector"
+  },
+  {
+   "id": "_t17",
+   "op": "sub",
+   "args": [
+    "E",
+    "_t16"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "B",
+   "op": "id",
+   "args": [
+    "_t17"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "_t18",
+   "op": "add",
+   "args": [
+    "lamA",
+    "kappa_bar"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t19",
+   "op": "polar",
+   "args": [
+    "R",
+    "_t18"
+   ],
+   "type": "vector"
+  },
+  {
+   "id": "_t20",
+   "op": "add",
+   "args": [
+    "E",
+    "_t19"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "S",
+   "op": "id",
+   "args": [
+    "_t20"
+   ],
+   "type": "point"
+  },
+  {
+   "id": "_t21",
+   "op": "direction",
+   "args": [
+    "E",
+    "S"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "lam_bar",
+   "op": "id",
+   "args": [
+    "_t21"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t22",
+   "op": "direction",
+   "args": [
+    "O",
+    "S"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "lam",
+   "op": "id",
+   "args": [
+    "_t22"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t23",
+   "op": "sub",
+   "args": [
+    "lam",
+    "lamA"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "kappa",
+   "op": "id",
+   "args": [
+    "_t23"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t24",
+   "op": "sub",
+   "args": [
+    "lam_bar",
+    "lam"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "c",
+   "op": "id",
+   "args": [
+    "_t24"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t25",
+   "op": "add",
+   "args": [
+    "lamA",
+    "kappa_bar"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t26",
+   "op": "sub",
+   "args": [
+    "lam_bar",
+    "_t25"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t27",
+   "op": "norm180",
+   "args": [
+    "_t26"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t28",
+   "op": "abs",
+   "args": [
+    "_t27"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t29",
+   "op": "sub",
+   "args": [
+    "kappa_bar",
+    "c"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t30",
+   "op": "sub",
+   "args": [
+    "kappa",
+    "_t29"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t31",
+   "op": "norm180",
+   "args": [
+    "_t30"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t32",
+   "op": "abs",
+   "args": [
+    "_t31"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t33",
+   "op": "sub",
+   "args": [
+    "lam_bar",
+    "c"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t34",
+   "op": "sub",
+   "args": [
+    "lam",
+    "_t33"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t35",
+   "op": "norm180",
+   "args": [
+    "_t34"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t36",
+   "op": "abs",
+   "args": [
+    "_t35"
+   ],
+   "type": "angle"
+  },
+  {
+   "id": "_t37",
+   "op": "res_collinear",
+   "args": [
+    "A",
+    "E",
+    "B"
+   ],
+   "type": "number"
+  },
+  {
+   "id": "_t38",
+   "op": "res_collinear",
+   "args": [
+    "A",
+    "O",
+    "B"
+   ],
+   "type": "number"
+  }
+ ],
+ "params": {
+  "R": 60.0,
+  "lamA": 65.5,
+  "T": 365.24666666666667,
+  "kappa_0": 0.0,
+  "e": 17.5
+ },
+ "state": {
+  "kappa_bar": 108.0
+ },
+ "animation": {
+  "mode": "var",
+  "name": "kappa_bar",
+  "display": "κ̄",
+  "start": 108.0,
+  "period_days": 365.24666666666667,
+  "epoch": 0.0
+ },
+ "speed_s": 30.0,
+ "scene": [
+  {
+   "kind": "point",
+   "id": "O",
+   "ref": "O",
+   "text": "O",
+   "owner": "",
+   "aux": false
+  },
+  {
+   "kind": "point",
+   "id": "E",
+   "ref": "E",
+   "text": "E",
+   "owner": "",
+   "aux": false
+  },
+  {
+   "kind": "circle",
+   "id": "ecc",
+   "ref": "ecc",
+   "owner": ""
+  },
+  {
+   "kind": "point",
+   "id": "A",
+   "ref": "A",
+   "text": "A",
+   "owner": "",
+   "aux": false
+  },
+  {
+   "kind": "point",
+   "id": "B",
+   "ref": "B",
+   "text": "B",
+   "owner": "",
+   "aux": false
+  },
+  {
+   "kind": "point",
+   "id": "S",
+   "ref": "S",
+   "text": "S",
+   "owner": "",
+   "aux": false
+  },
+  {
+   "kind": "angle",
+   "id": "angle0",
+   "vertex": "O",
+   "from": {
+    "fixed": 0.0
+   },
+   "to": {
+    "point": "A"
+   },
+   "rank": 0,
+   "arrow": true,
+   "text": "λ_A",
+   "ref": "lamA",
+   "owner": ""
+  },
+  {
+   "kind": "angle",
+   "id": "angle1",
+   "vertex": "E",
+   "from": {
+    "point": "A"
+   },
+   "to": {
+    "point": "S"
+   },
+   "rank": 0,
+   "arrow": true,
+   "text": "κ̄",
+   "ref": "kappa_bar",
+   "owner": ""
+  },
+  {
+   "kind": "angle",
+   "id": "angle2",
+   "vertex": "O",
+   "from": {
+    "point": "A"
+   },
+   "to": {
+    "point": "S"
+   },
+   "rank": 1,
+   "arrow": true,
+   "text": "κ",
+   "ref": "kappa",
+   "owner": ""
+  },
+  {
+   "kind": "angle",
+   "id": "angle3",
+   "vertex": "S",
+   "from": {
+    "point": "O"
+   },
+   "to": {
+    "point": "E"
+   },
+   "rank": 0,
+   "arrow": false,
+   "text": "c",
+   "ref": "c",
+   "owner": ""
+  },
+  {
+   "kind": "angle",
+   "id": "angle4",
+   "vertex": "O",
+   "from": {
+    "angle": "lam"
+   },
+   "to": {
+    "angle": "lam_bar"
+   },
+   "rank": 2,
+   "arrow": false,
+   "text": "c",
+   "ref": "c",
+   "owner": ""
+  },
+  {
+   "kind": "length",
+   "id": "length5",
+   "p": "E",
+   "q": "S",
+   "side": "left",
+   "text": "R",
+   "ref": "R",
+   "owner": ""
+  },
+  {
+   "kind": "length",
+   "id": "length6",
+   "p": "O",
+   "q": "E",
+   "side": "left",
+   "text": "e",
+   "ref": "e",
+   "owner": ""
+  },
+  {
+   "kind": "segment",
+   "id": "segment7",
+   "p": "A",
+   "q": "B",
+   "dashed": false,
+   "owner": ""
+  },
+  {
+   "kind": "motion",
+   "id": "motion8",
+   "point": "S",
+   "circle": "ecc",
+   "owner": ""
+  },
+  {
+   "kind": "direction",
+   "id": "direction9",
+   "point": "O",
+   "ref": "lam",
+   "dashed": true,
+   "text": "λ_S",
+   "owner": ""
+  },
+  {
+   "kind": "direction",
+   "id": "direction10",
+   "point": "O",
+   "ref": "lam_bar",
+   "dashed": true,
+   "text": "λ̄_S",
+   "owner": ""
+  },
+  {
+   "kind": "zodiac",
+   "id": "zodiac11",
+   "point": "O",
+   "circle": "ecc",
+   "full": false,
+   "owner": ""
+  }
+ ],
+ "projection": {
+  "up": 90.0,
+  "scale": 4.199999999999999,
+  "tx": 329.5200466647664,
+  "ty": 426.8821534094259,
+  "width": 720.0,
+  "height": 719.9999999999999,
+  "r_fit": 60.0
+ },
+ "members": [],
+ "steps": [],
+ "drawn": {
+  "e": "17;30"
+ },
+ "parametrisation": "solar-eccentric.ptolemy"
+}</script>
+<script type="module">
+import { mount } from '../astra-runtime/astra-runtime.js';
+const bundle = JSON.parse(document.getElementById('astra-figure').textContent);
+const svg = document.querySelector('svg.astra-figure');
+window.astra = mount(svg, bundle, { transport: document.getElementById('astra-transport') });
+</script>
+<!-- famulus:publisher:start -->
+<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a href="/impressum/">Legal notice</a> · <a href="/datenschutz/">Privacy</a></p>
+<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
+<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/gallery/solar-fig-1-4.html&amp;m=" width="1" height="1" alt=""></noscript>
+<!-- famulus:publisher:end -->
+</body></html>

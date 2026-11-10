@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.6">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The language astra/1 – Famulus Astronomica</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-35fc0813589bbfbfa0b8ec974497eeb2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-0cbc0a97c17d6307c44ca4293ecb409e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="_generated/famulus-tokens.css">
+<style>.astra-embed{border:1px solid #efe9db;border-radius:8px;width:100%;height:940px;background:#fafaf5}
+figure.astra svg{max-width:100%;height:auto}</style>
+
+
+<!-- famulus:publisher:start -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="publisher" content="OpenScienceTechnology GmbH">
+<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/language.html", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
+<!-- famulus:publisher:end -->
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Famulus Astronomica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./language.html" aria-current="page"> 
+<span class="menu-text">Language</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./kinds.html"> 
+<span class="menu-text">Model · values · state</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./superposition.html"> 
+<span class="menu-text">Superposition</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./derivations.html"> 
+<span class="menu-text">Derivations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./arguments.html"> 
+<span class="menu-text">Arguments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./expositions.html"> 
+<span class="menu-text">Expositions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./models.html"> 
+<span class="menu-text">Texts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./checking.html"> 
+<span class="menu-text">Checking</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./outputs.html"> 
+<span class="menu-text">Outputs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./runtime.html"> 
+<span class="menu-text">Runtime</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./diff.html"> 
+<span class="menu-text">Comparison</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./representation.html"> 
+<span class="menu-text">Representation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reading.html"> 
+<span class="menu-text">Deep reading</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./design.html"> 
+<span class="menu-text">Design notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-told-apart" id="toc-what-is-told-apart" class="nav-link active" data-scroll-target="#what-is-told-apart">1. What is told apart</a></li>
+  <li><a href="#lexical-form" id="toc-lexical-form" class="nav-link" data-scroll-target="#lexical-form">2. Lexical form</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">3. Model</a></li>
+  <li><a href="#parametrisation" id="toc-parametrisation" class="nav-link" data-scroll-target="#parametrisation">4. Parametrisation</a></li>
+  <li><a href="#superposition" id="toc-superposition" class="nav-link" data-scroll-target="#superposition">5. Superposition</a></li>
+  <li><a href="#figure" id="toc-figure" class="nav-link" data-scroll-target="#figure">6. Figure</a></li>
+  <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation">7. Derivation</a>
+  <ul class="collapse">
+  <li><a href="#the-argument-document-astra-argument1" id="toc-the-argument-document-astra-argument1" class="nav-link" data-scroll-target="#the-argument-document-astra-argument1">The argument document (<code>astra-argument/1</code>)</a></li>
+  <li><a href="#a.-the-exposition-document-astra-exposition1" id="toc-a.-the-exposition-document-astra-exposition1" class="nav-link" data-scroll-target="#a.-the-exposition-document-astra-exposition1">7a. The exposition document (<code>astra-exposition/1</code>)</a></li>
+  </ul></li>
+  <li><a href="#what-can-be-said-of-a-text-check" id="toc-what-can-be-said-of-a-text-check" class="nav-link" data-scroll-target="#what-can-be-said-of-a-text-check">8. What can be said of a text (<code>check</code>)</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">9. Evaluation</a></li>
+  <li><a href="#reference-objects" id="toc-reference-objects" class="nav-link" data-scroll-target="#reference-objects">10. Reference objects</a></li>
+  <li><a href="#representation-model-description" id="toc-representation-model-description" class="nav-link" data-scroll-target="#representation-model-description">11. Representation, model, description</a></li>
+  <li><a href="#the-op-set" id="toc-the-op-set" class="nav-link" data-scroll-target="#the-op-set">The op-set</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The language astra/1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This page is the language reference. It is rendered from <code>spec/astra-1.md</code>, the normative text; the op-set with its exact semantics follows from <code>spec/ops.yaml</code>, the rules of derivation from <code>spec/rules.yaml</code> (<a href="./derivations.html">Derivations</a>).</p>
+<p>Status: active, revisable (10 Nov 2026; replaces the draft of 9 Nov, which wrote geometry, values and depicted state into one text). Normative for famulus-astronomica. The op-set is <code>ops.yaml</code>, the rules of derivation are <code>rules.yaml</code>, the test vectors <code>ops-vectors.json</code> and <code>model-vectors.json</code>.</p>
+<section id="what-is-told-apart" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-told-apart">1. What is told apart</h2>
+<p>A historical astronomical model is a geometrical construction with a kinematic variable. Four things are easily run together and are kept apart here, each in a text of its own kind:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>what it is</th>
+<th>kind of text</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>the <strong>model</strong></td>
+<td>the pure geometry: parameter symbols, kinematic variables, the construction, the observables. It holds for every admissible parameter value and every state. It has no values.</td>
+<td><code>model</code></td>
+</tr>
+<tr class="even">
+<td>a <strong>parametrisation</strong></td>
+<td>values for the parameters of one model, each with its source or a stated gap, and whose values they are. One model has many.</td>
+<td><code>parametrisation</code></td>
+</tr>
+<tr class="odd">
+<td>a <strong>state</strong></td>
+<td>a value of the kinematic variable (or a time, through the variable’s law). Not a text: an argument, <code>at kappa_bar = 41°</code>.</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>a <strong>configuration</strong></td>
+<td>a model under a parametrisation in a state: every object has coordinates. Computed, never written.</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Two more things are done with models, and a fifth kind of text shows them:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>what it is</th>
+<th>kind of text</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a <strong>superposition</strong></td>
+<td>several models in one plane, with their inputs identified (one earth, one apsidal direction, one mean anomaly). It adds no geometry and states nothing across its members. It is again a model.</td>
+<td><code>superposition</code></td>
+</tr>
+<tr class="even">
+<td>a <strong>derivation</strong></td>
+<td>geometrical reasoning in a model or a superposition: hypotheses, auxiliary constructions, propositions derived from named premises by named rules, quantities computed or determined, a conclusion.</td>
+<td><code>derivation</code></td>
+</tr>
+<tr class="odd">
+<td>a <strong>figure</strong></td>
+<td>a depiction: what it draws, with which values, in which state, with which labels and view.</td>
+<td><code>figure</code></td>
+</tr>
+</tbody>
+</table>
+<p>Three roles of persons and texts are kept apart in every text: <code>attributed</code> (whose model, whose values), <code>witness</code> (the text whose use of the model is analysed, by <code>fr:</code> address) and <code>author</code> (who wrote this astra text). The author of a text about Ptolemy’s model that follows Swerdlow’s exposition is neither Ptolemy nor Swerdlow.</p>
+</section>
+<section id="lexical-form" class="level2">
+<h2 class="anchored" data-anchor-id="lexical-form">2. Lexical form</h2>
+<ul>
+<li>UTF-8, one statement per line. A <code>;</code> surrounded by whitespace separates statements on one line; a <code>;</code> between digits is sexagesimal (<code>2;30</code>). <code>#</code> starts a comment. One text per file; the first statement names its kind.</li>
+<li>Identifiers <code>[A-Za-z_][A-Za-z0-9_']*</code>, dotted for the member of a superposition (<code>Ecc.S</code>). Text ids may contain hyphens and dots (<code>solar-eccentric.ptolemy</code>). The printed symbol of a name is given by <code>display &lt;name&gt; "&lt;text&gt;"</code>; one underscore in it marks a subscript (<code>λ_A</code>).</li>
+<li>Numbers: decimal <code>12.5</code> or sexagesimal <code>&lt;int&gt;;&lt;p1&gt;,&lt;p2&gt;,…</code> (<code>2;30</code> = 2.5, <code>365;14,48</code>). A trailing <code>°</code> makes an angle. The written form is kept.</li>
+<li>Strings in double quotes. <code>fr:</code> addresses are a token of their own.</li>
+</ul>
+</section>
+<section id="model" class="level2">
+<h2 class="anchored" data-anchor-id="model">3. Model</h2>
+<pre><code>model &lt;id&gt; "&lt;title&gt;"
+attributed "&lt;whose model&gt;"     witness fr:… ["note"]     author "&lt;who wrote this text&gt;"
+tradition &lt;word&gt;               frame &lt;word&gt;
+param &lt;name&gt; : &lt;unit&gt; ["meaning"] [in (lo, hi)]        unit: length | angle | number | time
+variable &lt;name&gt; : angle ["meaning"]
+law &lt;name&gt; = uniform(period: &lt;param&gt;, epoch: &lt;param&gt;) ["meaning"]
+&lt;name&gt; = &lt;expr&gt; ["meaning"]                            a construction: point, line, circle or ellipse
+observe &lt;name&gt; = &lt;expr&gt; ["meaning"]                    a scalar: what is seen or measured
+body &lt;name&gt; at &lt;point&gt; ["meaning"]
+proposition &lt;name&gt;: &lt;predicate&gt;(…) ["meaning"]         stated, checked numerically, not derived
+display &lt;name&gt; "&lt;symbol&gt;"</code></pre>
+<p>A model text that gives a parameter a value, or a source to a value, is refused. A range may depend on earlier parameters (<code>in (0, R / 2)</code>). A kinematic variable without a law is free: its states are not ordered in time. Time enters only through a law. Every name is defined before it is used; nothing is placed by coordinates except the observer, the origin.</p>
+<p>Types: <code>number</code>, <code>angle</code>, <code>length</code>, <code>time</code>, <code>rate</code>, <code>point</code>, <code>vector</code>, <code>line</code>, <code>circle</code>, <code>ellipse</code>. Arithmetic <code>+ − * /</code> with units (angle ± angle, length · number, length / length → number, length · length as an intermediate, point ± vector → point, point − point → vector).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>function</th>
+<th>result</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>observer</code></td>
+<td>point</td>
+<td>the origin; exactly one per model</td>
+</tr>
+<tr class="even">
+<td><code>polar(r, θ)</code></td>
+<td>vector</td>
+<td>displacement of length r at angle θ</td>
+</tr>
+<tr class="odd">
+<td><code>circle(P, r)</code> · <code>line(P, Q)</code> · <code>ray(P, θ)</code></td>
+<td>circle, line</td>
+<td>lines are directed</td>
+</tr>
+<tr class="even">
+<td><code>intersect(c, l \| c₂, + \| −)</code></td>
+<td>point</td>
+<td><code>+</code>: the point further along the line, or left of centre₁→centre₂</td>
+</tr>
+<tr class="odd">
+<td><code>foot(P, l)</code> · <code>midpoint(P, Q)</code> · <code>rotate(P, about: A, by: θ)</code> · <code>reflect(P, l)</code></td>
+<td>point</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ellipse(F₁, F₂, a)</code> · <code>on_ellipse(ell, E)</code></td>
+<td>ellipse, point</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>tangent(P, c, ±)</code> · <code>seen_from(Q, c, θ)</code></td>
+<td>point</td>
+<td>point of contact; the point of c on the ray from Q at θ (equant)</td>
+</tr>
+<tr class="even">
+<td><code>direction(P, Q)</code> · <code>distance(P, Q)</code></td>
+<td>angle, length</td>
+<td>undefined when P and Q coincide</td>
+</tr>
+<tr class="odd">
+<td><code>angle(P, V, Q)</code></td>
+<td>angle</td>
+<td>the unsigned angle at V, in [0°, 180°]: the angle of Euclid’s propositions</td>
+</tr>
+<tr class="even">
+<td><code>true_anomaly(M, e)</code></td>
+<td>angle</td>
+<td>from Kepler’s equation</td>
+</tr>
+<tr class="odd">
+<td><code>sin cos tan asin atan2 sqrt abs norm360 norm180</code></td>
+<td>scalars</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Predicates: <code>parallel(l₁, l₂)</code>, <code>perpendicular(l₁, l₂)</code>, <code>coincident(P, Q)</code>, <code>collinear(P, Q, R)</code>, <code>on(P, c)</code>, <code>equal(a, b)</code>. Each compiles to a residual. A proposition holds when its residual stays within 1e-9 in every sampled configuration (lengths relative to the largest length parameter): 48 points of the parameter space, ranges respected, times 72 states.</p>
+</section>
+<section id="parametrisation" class="level2">
+<h2 class="anchored" data-anchor-id="parametrisation">4. Parametrisation</h2>
+<pre><code>parametrisation &lt;id&gt; of &lt;model or superposition&gt; "&lt;title&gt;"
+attributed "&lt;whose values&gt;"     witness fr:…     author "…"
+&lt;param&gt; = &lt;expr&gt; ["note"] (source fr:… | gap "&lt;why&gt;")
+use &lt;Prefix&gt; = &lt;parametrisation&gt;             in a superposition: the values of a member's parametrisation</code></pre>
+<p>A value may be an expression in parameters that already have a value (<code>Epi.r = Ecc.e</code>). A parametrisation is <em>complete</em> when every parameter has a value, <em>admissible</em> when every value lies in its range, <em>attested</em> when every value has a source or a stated gap. A partial parametrisation is legitimate and reported as such; what needs the missing values cannot be computed with it, and says so.</p>
+</section>
+<section id="superposition" class="level2">
+<h2 class="anchored" data-anchor-id="superposition">5. Superposition</h2>
+<pre><code>superposition &lt;id&gt; "&lt;title&gt;"
+place &lt;model&gt; as &lt;Prefix&gt;
+identify &lt;P.x&gt; = &lt;Q.y&gt; [as &lt;name&gt;] ["meaning"]</code></pre>
+<p>Every name of a member is prefixed; identified names become one. Only parameters of one unit, kinematic variables and the observer can be identified. That two constructed points coincide is a proposition, to be derived under hypotheses; a superposition that tried to identify them is refused.</p>
+</section>
+<section id="figure" class="level2">
+<h2 class="anchored" data-anchor-id="figure">6. Figure</h2>
+<pre><code>figure &lt;id&gt; of &lt;model, superposition or derivation&gt; "&lt;title&gt;"
+with &lt;parametrisation&gt;
+drawn with &lt;param&gt; = &lt;expr&gt;, …          drawing values: they replace attested values for legibility and are marked
+at &lt;variable&gt; = &lt;angle&gt;                  the depicted state   (or: at t = &lt;days&gt; d)
+up &lt;angle&gt;      fit [a, b, …]      speed &lt;n&gt; s
+label angle &lt;angle&gt; at &lt;V&gt; from &lt;arm&gt; to &lt;arm&gt; [arrow]       arm: a point, an angle name, or `aries` (0°)
+label length &lt;param | "text"&gt; on &lt;P&gt; &lt;Q&gt; [side right]
+label arrow &lt;P&gt; on &lt;circle&gt;      label segment line(P, Q)      label dashed line(P, Q)
+label direction &lt;angle&gt; from &lt;P&gt; [dashed]      label zodiac at &lt;O&gt; on &lt;circle&gt; [full]
+display &lt;name&gt; "&lt;symbol&gt;"      hide &lt;name&gt; …</code></pre>
+<p>A figure of a derivation draws the derivation’s context, auxiliary constructions included, and can show one step at a time: the points and segments the step speaks of.</p>
+</section>
+<section id="derivation" class="level2">
+<h2 class="anchored" data-anchor-id="derivation">7. Derivation</h2>
+<pre><code>derivation &lt;id&gt; in &lt;model or superposition&gt; "&lt;title&gt;"
+given &lt;h&gt;: equal(&lt;param&gt;, &lt;expr&gt;) ["meaning"]            a hypothesis: it restricts the parameter space
+construct &lt;name&gt; = &lt;expr&gt; ["meaning"]                     an auxiliary construction
+derive &lt;d&gt;: &lt;predicate&gt;(…) from &lt;premises&gt; by &lt;rule&gt; ["meaning"]
+show &lt;A&gt;: &lt;predicate&gt;(…) ["claim"]                          a sub-argument: the claim, then its steps (indented), then
+  …                                                         qed from &lt;steps&gt; [by &lt;rule&gt;]
+cases ["by what"]                                          inside a `show`: the claim is argued case by case
+  case &lt;n&gt;: when &lt;condition&gt;(…)[, &lt;condition&gt;(…)] ["…"]     … qed from &lt;steps&gt;;   the `show` closes with `qed by cases`
+suppose &lt;n&gt;: &lt;condition&gt;(…) ["…"]                           restricts the steps that follow, to the end of the block
+conclude &lt;predicate&gt;(…) from &lt;premises&gt; [by &lt;rule&gt;]       the conclusion (a further `conclude` needs its rule)
+conclude equivalent(&lt;P&gt;, &lt;Q&gt;, position | direction) from &lt;premises&gt;
+compute &lt;x&gt; = &lt;expr&gt; | max(&lt;expr&gt;) [at &lt;variable&gt; = &lt;angle&gt;] with &lt;parametrisation&gt; [reported &lt;value&gt; source fr:…]
+determine [&lt;name&gt;:] &lt;p&gt;, &lt;q&gt; from &lt;obs&gt;: &lt;a&gt; -&gt; &lt;b&gt; = &lt;n&gt; d | &lt;arc&gt;°, … with &lt;parametrisation&gt; [reported &lt;p&gt; = &lt;v&gt;, … source fr:…]</code></pre>
+<p>Premises: a given or an earlier step by name, <code>def &lt;object&gt;</code> (the construction of an object), <code>prop &lt;name&gt;</code> (a proposition stated in the model). Rules (<code>rules.yaml</code>): <code>Elements &lt;book&gt;.&lt;n&gt;</code>, <code>lemma &lt;name&gt;</code>, <code>trigonometry &lt;name&gt;</code>, <code>common notion 1</code>, <code>common notion 5</code>, <code>construction</code>, <code>algebra</code>, <code>expansion</code>, <code>cases</code>. A case name or a supposition name is a premise as well: it cites the condition.</p>
+<p>Predicates of a step: those of a model (<code>parallel</code>, <code>perpendicular</code>, <code>coincident</code>, <code>collinear</code>, <code>on</code>, <code>equal</code>) and <code>less(a, b)</code> — strictly, in every configuration; where equality occurs in isolated states these are reported — and <code>approximately(a, b, small: &lt;ratio&gt;, order: &lt;n&gt;)</code>: the two sides agree to order n in the small ratio. It is tested at the ratios 10⁻², 10⁻³, 10⁻⁴: the relative difference must fall like the n-th power.</p>
+<p>Conditions (of cases, suppositions and rules): <code>collinear</code>, <code>noncollinear</code>, <code>distinct</code>, <code>same_direction</code>, <code>same_side</code>, <code>opposite_side</code>, <code>between</code>, <code>right_angle</code>.</p>
+<p>Blocks. The inside of a closed <code>show</code> cannot be cited from outside it; the <code>show</code> itself can. The steps of a case are checked only in the configurations that satisfy its condition, the steps after a <code>suppose</code> only where the supposition holds. <code>qed by cases</code> requires that every case reaches the claim and that the conditions together cover every sampled configuration; an uncovered state is named in the report.</p>
+<p><code>equivalent(P, Q, position)</code> is the proposition that the bodies of the members P and Q coincide; <code>equivalent(P, Q, direction)</code> that they are seen from the observer in one direction. Equivalence is a relation between two models, relative to the givens and to what is compared; it is a conclusion, never an assumption.</p>
+<p>Four questions, each presupposing the previous:</p>
+<ol type="1">
+<li><strong>grounded</strong> — every premise resolves to a given, an earlier step, a construction or a stated proposition.</li>
+<li><strong>true</strong> — every proposition holds in all sampled configurations that satisfy the givens. A term undefined in isolated states (an angle at a vanished triangle) makes those states <em>undefined</em>, not the step false.</li>
+<li><strong>justified</strong> — every step is licensed by its rule, in one of these grades:
+<ul>
+<li><em>rule</em>: an instance of a proposition, lemma or definition: the rule’s variables bind to points so that a conclusion of the rule is the step’s proposition (up to the symmetries of the predicates), each hypothesis of the rule is a cited premise, and the rule’s configuration conditions hold. States in which they fail are the <strong>degenerate states</strong> of the step; more than a few isolated ones and the step is not justified;</li>
+<li><em>equality</em>: the two sides are joined by the cited equalities (Common Notion 1);</li>
+<li><em>construction</em>: read off the cited constructions — the proposition speaks only of the cited objects and what they are built from, and holds over the whole parameter space <strong>without</strong> the givens;</li>
+<li><em>calculation</em>: an equality or inequality from cited ones; confirmed numerically, the calculation is not replayed;</li>
+<li><em>approximation</em> (rule <code>expansion</code>): the stated order is confirmed at three sizes of the small ratio;</li>
+<li><em>cases</em>: every case reaches the claim and the cases cover every configuration; a <code>show</code> is justified when the steps it closes with are its claim. A step that is true but none of these is <em>true, not justified</em>: a gap in the reasoning.</li>
+</ul></li>
+<li><strong>conclusive</strong> — the conclusion is reached from the givens. For every given the parameter space is sampled with that given lifted: a proposition that then fails <em>needs</em> the given; if the given is not cited on the way to it, it is a <strong>tacit premise</strong>. Givens the conclusion does not need and steps not on the way to it are noted.</li>
+</ol>
+<p><code>compute</code> evaluates a quantity under a parametrisation (a maximum over the states, or at a state) and compares it with a reported value at the precision in which that value is written. <code>determine</code> solves parameters from observed intervals — the time, or the arc of mean motion, in which an observable goes from one value to another — by inverting the model numerically, reports whether the solution is the only one, and compares.</p>
+<p>A derivation that passes is reasoning whose every proposition is true in the model and whose every step names a rule that licenses it. It is not a formal proof in an axiomatic system: truth is tested on samples, rules are matched as schemas, configuration conditions are evaluated numerically.</p>
+<section id="the-argument-document-astra-argument1" class="level3">
+<h3 class="anchored" data-anchor-id="the-argument-document-astra-argument1">The argument document (<code>astra-argument/1</code>)</h3>
+<p><code>famulus-astra argument &lt;derivation&gt; [--format json|md|typst|html]</code> writes a derivation as an argument for reading: head, the model (every object with construction and meaning), hypotheses H1…, constructions, the argument as a tree — each node with a hierarchical number, kind (sub-argument, case, step, supposition, conclusion), the claim in prose, the proposition in the notation of the figure, premises as references, the rule with wording and locus, status and mark (✓ rule instance, ◦ read off the construction, ≈ calculation or expansion, ? true but not justified, ✗ false, · supposed), the binding, conditions and degenerate states — the conclusion, what the checks say, and the figure. Three depths: <code>overview</code>, <code>steps</code>, <code>full</code>. The web component <code>&lt;astra-argument&gt;</code> (<code>web/astra-argument/</code>) renders the document with collapse and expand.</p>
+</section>
+<section id="a.-the-exposition-document-astra-exposition1" class="level3">
+<h3 class="anchored" data-anchor-id="a.-the-exposition-document-astra-exposition1">7a. The exposition document (<code>astra-exposition/1</code>)</h3>
+<p>An exposition sets a derivation beside the source it reconstructs. It is not a sixth kind of astra text: it is a YAML file under <code>expositions/</code> that names a derivation and divides a segment of a source into passages.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>key</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>id</code>, <code>title</code>, <code>subtitle</code>, <code>author</code></td>
+<td>of the exposition</td>
+</tr>
+<tr class="even">
+<td><code>derivation</code>, <code>figure</code></td>
+<td>the argument shown and its figure</td>
+</tr>
+<tr class="odd">
+<td><code>source.collection</code>, <code>source.document</code></td>
+<td>the Famulus collection and document the text is taken from</td>
+</tr>
+<tr class="even">
+<td><code>source.bib</code></td>
+<td>file and key of the checked bibliographic record</td>
+</tr>
+<tr class="odd">
+<td><code>source.viewer</code></td>
+<td><code>base</code>, <code>path</code> and <code>page_offset</code> of the document in the edition’s viewer (a passage links to <code>path?p=&lt;pidx + page_offset&gt;</code>)</td>
+</tr>
+<tr class="even">
+<td><code>source.translation</code></td>
+<td><code>origin</code> and <code>status</code> of the translation shown</td>
+</tr>
+<tr class="odd">
+<td><code>passages[].spans[]</code></td>
+<td><code>pidx</code>, and for <code>la</code> and <code>en</code> the first and the last words of the passage on that page</td>
+</tr>
+<tr class="even">
+<td><code>passages[].steps</code></td>
+<td>top-level steps of the derivation that reconstruct the passage</td>
+</tr>
+<tr class="odd">
+<td><code>passages[].see</code>, <code>.model</code>, <code>.reconstruction</code></td>
+<td>steps the passage is read off; quantities of the model it defines; a sentence where the passage is not a step</td>
+</tr>
+<tr class="even">
+<td><code>passages[].corrections[]</code></td>
+<td><code>from</code>, <code>to</code>, <code>reason</code>: a wording of the translation corrected against the original</td>
+</tr>
+<tr class="odd">
+<td><code>passages[].notes[]</code></td>
+<td>annotations (Markdown with <code>$…$</code> formulas)</td>
+</tr>
+</tbody>
+</table>
+<p>The built document carries, per passage, the text in both languages (HTML with MathML, and Typst), the printed pages read from the running heads, the paragraph addresses from the reference register, and the link into the edition; and the argument document (§7) of the derivation. A build has <em>gaps</em> when a span is not found exactly once, a page or its translation is missing, no register paragraph carries a passage, a step stands beside no passage, or a correction is not found once or cuts a formula. <code>famulus-astra exposition &lt;id&gt;</code> fails on gaps.</p>
+</section>
+</section>
+<section id="what-can-be-said-of-a-text-check" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-be-said-of-a-text-check">8. What can be said of a text (<code>check</code>)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>kind</th>
+<th>levels</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>model</td>
+<td>well-formed · constructible · astronomical · kinematic · consistent · documented</td>
+</tr>
+<tr class="even">
+<td>parametrisation</td>
+<td>well-formed · complete · admissible · attested</td>
+</tr>
+<tr class="odd">
+<td>superposition</td>
+<td>well-formed · constructible · superposed · consistent</td>
+</tr>
+<tr class="even">
+<td>figure</td>
+<td>well-formed · drawable · labelled</td>
+</tr>
+<tr class="odd">
+<td>derivation</td>
+<td>well-formed · grounded · true · justified · conclusive</td>
+</tr>
+</tbody>
+</table>
+<p>A failed level names its reason. A missing value is a gap, never a default.</p>
+</section>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">9. Evaluation</h2>
+<p><code>configuration(ops, params, state)</code> is the one evaluation: the context’s op list, parameter values, a state (<code>{variable: degrees}</code> or <code>{t: days}</code>). Python (<code>evaluate.py</code>) and JavaScript (<code>astra-runtime.js</code>) implement it and replay the same vectors. A parameter without value is an error as soon as anything but a range or a law needs it; a state that fixes no variable is an error.</p>
+</section>
+<section id="reference-objects" class="level2">
+<h2 class="anchored" data-anchor-id="reference-objects">10. Reference objects</h2>
+<p><code>fr:astra/&lt;id&gt;</code> is a text of any kind; <code>fr:astra/&lt;id&gt;/&lt;object&gt;</code> a parameter, variable, constructed object, observable or proposition of a context, a value of a parametrisation, a given, step, computation or the conclusion of a derivation. Views <code>~sheet ~source ~check</code>, for figures <code>~svg ~animation</code>. The grammar is in famulus-ref/2 (<code>reserved_namespaces.astra</code>, 2.4.0); the resolver names the kind of text.</p>
+</section>
+<section id="representation-model-description" class="level2">
+<h2 class="anchored" data-anchor-id="representation-model-description">11. Representation, model, description</h2>
+<p>The model is not a text. It is the geometry — the function from parameter values and states to configurations, with what holds of it. The astra model text, a printed figure, Ptolemy’s or Swerdlow’s prose, the op list, a sheet, an animation are representations of it; two representations of one model agree in every configuration (<code>diff</code>: the same geometry up to renaming). A parametrised model is still not a picture: a figure adds a state and a view, and often other values than the attested ones.</p>
+<p>Equivalence relates two <em>models</em>, not two representations: under stated hypotheses they agree in what is compared (the position of the body, or only its direction) and differ in everything else. A superposition is the scene in which such a relation can be stated, and a derivation is what establishes it.</p>
+<p>A describing text refers to the model through names — “complete parallelogram OESC”. The astra texts make those names resolvable, so that prose, figure and derivation speak of the same objects, and so that what the prose asserts can be checked: as a proposition of the model, a step of a derivation, or a computed quantity.</p>
+</section>
+<section id="the-op-set" class="level2">
+<h2 class="anchored" data-anchor-id="the-op-set">The op-set</h2>
+<p>Every expression compiles to these operations. The inputs are <code>param</code> and <code>var</code>; everything else is computed from them in order. The Python evaluator (<code>famulus_astronomica/evaluate.py</code>) and the JS runtime (<code>web/astra-runtime/astra-runtime.js</code>) implement them identically; <code>spec/ops-vectors.json</code> holds hand-written cases per op (NaN cases included) and <code>spec/model-vectors.json</code> every context of the workspace under a sampled point of its parameter space and under its parametrisations, in several states, replayed by both.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>op</th>
+<th>arguments</th>
+<th>result</th>
+<th>semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>const</code></td>
+<td>number</td>
+<td>scalar</td>
+<td>a literal</td>
+</tr>
+<tr class="even">
+<td><code>param</code></td>
+<td></td>
+<td>scalar</td>
+<td>input: a parameter of the model; its value comes from the parametrisation. Without a value it is null, an error as soon as anything but a range or a law (ids <code>_aux…</code>) needs it</td>
+</tr>
+<tr class="odd">
+<td><code>var</code></td>
+<td>[rate, epoch]</td>
+<td>angle</td>
+<td>input: a kinematic variable; its value comes from the state. If the state gives a time t instead and the variable has a law: norm360(epoch + rate · t)</td>
+</tr>
+<tr class="even">
+<td><code>id</code></td>
+<td>value</td>
+<td>same</td>
+<td>a named value</td>
+</tr>
+<tr class="odd">
+<td><code>add</code></td>
+<td>a, b</td>
+<td>same</td>
+<td>scalars or 2-vectors element-wise</td>
+</tr>
+<tr class="even">
+<td><code>sub</code></td>
+<td>a, b</td>
+<td>same</td>
+<td>scalars or 2-vectors element-wise</td>
+</tr>
+<tr class="odd">
+<td><code>mul</code></td>
+<td>a, b</td>
+<td>same</td>
+<td>scalar × scalar, or scalar × 2-vector</td>
+</tr>
+<tr class="even">
+<td><code>div</code></td>
+<td>a, b</td>
+<td>scalar</td>
+<td>a / b; NaN when b = 0</td>
+</tr>
+<tr class="odd">
+<td><code>neg</code></td>
+<td>a</td>
+<td>same</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>abs</code></td>
+<td>a</td>
+<td>scalar</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>norm360</code></td>
+<td>angle</td>
+<td>angle</td>
+<td>into [0, 360)</td>
+</tr>
+<tr class="even">
+<td><code>norm180</code></td>
+<td>angle</td>
+<td>angle</td>
+<td>into (-180, 180]</td>
+</tr>
+<tr class="odd">
+<td><code>polar</code></td>
+<td>length, angle</td>
+<td>vector</td>
+<td>[r cos θ, r sin θ]</td>
+</tr>
+<tr class="even">
+<td><code>observer</code></td>
+<td></td>
+<td>point</td>
+<td>[0, 0]: the observer is the origin of the model frame</td>
+</tr>
+<tr class="odd">
+<td><code>circle</code></td>
+<td>point, length</td>
+<td>circle</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>line</code></td>
+<td>point, point</td>
+<td>line</td>
+<td>directed P→Q; NaN direction when P and Q are closer than 1e-9</td>
+</tr>
+<tr class="odd">
+<td><code>ray</code></td>
+<td>point, angle</td>
+<td>line</td>
+<td>directed line from P at angle θ</td>
+</tr>
+<tr class="even">
+<td><code>x_cl</code></td>
+<td>circle, line, branch</td>
+<td>point</td>
+<td>circle ∩ directed line; branch +1: the point further along the direction, −1: the nearer (smaller parameter); NaN when they miss</td>
+</tr>
+<tr class="odd">
+<td><code>x_cc</code></td>
+<td>circle, circle, branch</td>
+<td>point</td>
+<td>circle ∩ circle; branch +1: left of the directed line centre₁→centre₂, −1: right; NaN when they miss or coincide</td>
+</tr>
+<tr class="even">
+<td><code>foot</code></td>
+<td>point, line</td>
+<td>point</td>
+<td>perpendicular foot of P on the line</td>
+</tr>
+<tr class="odd">
+<td><code>midpoint</code></td>
+<td>point, point</td>
+<td>point</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>rotate</code></td>
+<td>point, about, angle</td>
+<td>point</td>
+<td>P turned about A by θ (counter-clockwise)</td>
+</tr>
+<tr class="odd">
+<td><code>reflect</code></td>
+<td>point, line</td>
+<td>point</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ellipse</code></td>
+<td>focus, focus, length</td>
+<td>ellipse</td>
+<td>foci and semi-major axis a</td>
+</tr>
+<tr class="odd">
+<td><code>on_ellipse</code></td>
+<td>ellipse, angle</td>
+<td>point</td>
+<td>the point at eccentric anomaly E, counted at the centre from the major axis towards the second focus</td>
+</tr>
+<tr class="even">
+<td><code>x_el</code></td>
+<td>ellipse, line, branch</td>
+<td>point</td>
+<td>ellipse ∩ directed line, branch as x_cl</td>
+</tr>
+<tr class="odd">
+<td><code>tangent</code></td>
+<td>point, circle, branch</td>
+<td>point</td>
+<td>point of contact of the tangent from P; branch +1 counter-clockwise of the direction centre→P, −1 clockwise; NaN for an interior P</td>
+</tr>
+<tr class="even">
+<td><code>direction</code></td>
+<td>point, point</td>
+<td>angle</td>
+<td>norm360(atan2(Q − P)); NaN when P and Q are closer than 1e-9</td>
+</tr>
+<tr class="odd">
+<td><code>distance</code></td>
+<td>point, point</td>
+<td>length</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>seen_from</code></td>
+<td>point, circle, angle</td>
+<td>point</td>
+<td>the point of the circle on the ray from Q at angle θ, far branch (the equant construction)</td>
+</tr>
+<tr class="odd">
+<td><code>kepler_E</code></td>
+<td>mean_anomaly, e</td>
+<td>angle</td>
+<td>eccentric anomaly from Kepler’s equation, Newton iteration to 1e-14</td>
+</tr>
+<tr class="even">
+<td><code>true_anom</code></td>
+<td>eccentric_anomaly, e</td>
+<td>angle</td>
+<td>ν from E</td>
+</tr>
+<tr class="odd">
+<td><code>sin</code></td>
+<td>angle</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>cos</code></td>
+<td>angle</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>tan</code></td>
+<td>angle</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>atan2</code></td>
+<td>y, x</td>
+<td>angle</td>
+<td>in (-180, 180]</td>
+</tr>
+<tr class="odd">
+<td><code>asin</code></td>
+<td>number</td>
+<td>angle</td>
+<td>argument clamped to [-1, 1]</td>
+</tr>
+<tr class="even">
+<td><code>sqrt</code></td>
+<td>number</td>
+<td>number</td>
+<td>NaN for a negative argument</td>
+</tr>
+<tr class="odd">
+<td><code>res_parallel</code></td>
+<td>line, line</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>res_collinear</code></td>
+<td>point, point, point</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>res_perp</code></td>
+<td>line, line</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>res_on</code></td>
+<td>point, circle</td>
+<td>length</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<!-- famulus:publisher:start -->
+<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a href="/impressum/">Legal notice</a> · <a href="/datenschutz/">Privacy</a></p>
+<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
+<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/language.html&amp;m=" width="1" height="1" alt=""></noscript>
+<!-- famulus:publisher:end -->
+</body></html>

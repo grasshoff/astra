@@ -1,0 +1,344 @@
+{
+ "format": "astra-argument/1",
+ "notation": "astra/1",
+ "id": "euler-tide-force-emendation",
+ "address": "fr:astra/euler-tide-force-emendation",
+ "title": "The emended second-order term of Opera omnia II 31, tested",
+ "author": "Gerd Graßhoff",
+ "witness": [
+  {
+   "address": "fr:enestroem/E57/0018/p07",
+   "note": "§27: the MR component as printed in Opera omnia II 31, with note 5"
+  }
+ ],
+ "attributed": [
+  "Leonhard Euler"
+ ],
+ "context": {
+  "id": "euler-tide-force",
+  "kind": "model",
+  "title": "Euler's geometry of the tide-raising force",
+  "address": "fr:astra/euler-tide-force"
+ },
+ "check": {
+  "level": "grounded",
+  "complete": false,
+  "levels": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "passed": [
+   "well-formed",
+   "grounded"
+  ],
+  "failures": {
+   "true": [
+    "conclusion: approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x + y * y) / (2 * a * a * a * a * rho)) fails (not of order 2: relative difference 2.0e-02 at ratio 0.01, 2.0e-03 at ratio 0.001, 2.0e-04 at ratio 0.0001)"
+   ],
+   "conclusive": [
+    "the conclusion does not hold"
+   ]
+  }
+ },
+ "model": [
+  {
+   "prefix": "",
+   "id": "euler-tide-force",
+   "address": "fr:astra/euler-tide-force",
+   "title": "Euler's geometry of the tide-raising force",
+   "attributed": "Leonhard Euler",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "a",
+     "symbol": "a",
+     "unit": "length",
+     "meaning": "distance CS of the luminary from the centre of the earth",
+     "range": "(30, 1000)"
+    },
+    {
+     "name": "rho",
+     "symbol": "ρ",
+     "unit": "length",
+     "meaning": "distance CM of the particle from the centre of the earth",
+     "range": "(0.5, 2)"
+    },
+    {
+     "name": "Sf",
+     "symbol": "S",
+     "unit": "quantity",
+     "meaning": "absolute force of the luminary: its accelerating force at the distance of one semidiameter of the earth",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "phi",
+     "symbol": "φ",
+     "meaning": "the angle ACM between the line to the luminary and the line to the particle",
+     "law": null
+    }
+   ],
+   "objects": [
+    {
+     "name": "C",
+     "symbol": "C",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "centre of the earth"
+    },
+    {
+     "name": "S",
+     "symbol": "S",
+     "kind": "point",
+     "defined_by": "C + polar(a, 90°)",
+     "meaning": "the sun or the moon"
+    },
+    {
+     "name": "A",
+     "symbol": "A",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 90°)",
+     "meaning": "the point of the sphere through M that has the luminary in its zenith"
+    },
+    {
+     "name": "B",
+     "symbol": "B",
+     "kind": "point",
+     "defined_by": "C - polar(rho, 90°)",
+     "meaning": "the point that has it in its nadir"
+    },
+    {
+     "name": "D",
+     "symbol": "D",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 180°)",
+     "meaning": "a point that has it in the horizon"
+    },
+    {
+     "name": "E",
+     "symbol": "E",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 0°)",
+     "meaning": "the opposite point that has it in the horizon"
+    },
+    {
+     "name": "shell",
+     "symbol": "shell",
+     "kind": "circle",
+     "defined_by": "circle(C, rho)",
+     "meaning": "the sphere about C through the particle"
+    },
+    {
+     "name": "M",
+     "symbol": "M",
+     "kind": "point",
+     "defined_by": "C + polar(rho, 90° + phi)",
+     "meaning": "a particle of the earth"
+    },
+    {
+     "name": "P",
+     "symbol": "P",
+     "kind": "point",
+     "defined_by": "foot(M, line(C, S))",
+     "meaning": "foot of the perpendicular from M on CS"
+    }
+   ],
+   "observables": [
+    {
+     "name": "dir",
+     "symbol": "CS",
+     "defined_by": "direction(C, S)",
+     "meaning": "direction of the luminary from the centre"
+    },
+    {
+     "name": "x",
+     "symbol": "x",
+     "defined_by": "rho * cos(phi)",
+     "meaning": "CP, counted towards the luminary"
+    },
+    {
+     "name": "y",
+     "symbol": "y",
+     "defined_by": "rho * sin(phi)",
+     "meaning": "PM, counted towards D"
+    },
+    {
+     "name": "dist",
+     "symbol": "dist",
+     "defined_by": "distance(M, S)",
+     "meaning": "SM, the distance of the particle from the luminary"
+    },
+    {
+     "name": "fM",
+     "symbol": "fM",
+     "defined_by": "Sf / (dist * dist)",
+     "meaning": "accelerating force on the particle towards S"
+    },
+    {
+     "name": "fC",
+     "symbol": "fC",
+     "defined_by": "Sf / (a * a)",
+     "meaning": "accelerating force on the centre towards S"
+    },
+    {
+     "name": "tMC",
+     "symbol": "tMC",
+     "defined_by": "fM * cos(direction(M, S) - direction(M, C)) - fC * cos(direction(C, S) - direction(M, C))",
+     "meaning": "the force on the particle less the force on the centre, along MC, towards the centre"
+    },
+    {
+     "name": "tMR",
+     "symbol": "tMR",
+     "defined_by": "fM * cos(direction(M, S) - (direction(M, C) + 90°)) - fC * cos(direction(C, S) - (direction(M, C) + 90°))",
+     "meaning": "the same along MR, normal to MC, towards the side of the luminary"
+    }
+   ]
+  }
+ ],
+ "identified": [],
+ "hypotheses": [],
+ "constructions": [],
+ "argument": [
+  {
+   "id": "exact",
+   "number": "1",
+   "kind": "step",
+   "depth": 0,
+   "claim": "§26: Euler's exact component along MR",
+   "notation": "tMR = S·a·y / (dist³·ρ) − S·y / (a²·ρ)",
+   "formal": "equal(tMR, Sf * a * y / (dist * dist * dist * rho) - Sf * y / (a * a * rho))",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "tMR",
+     "label": "constr. tMR"
+    },
+    {
+     "kind": "construction",
+     "ref": "fM",
+     "label": "constr. fM"
+    },
+    {
+     "kind": "construction",
+     "ref": "fC",
+     "label": "constr. fC"
+    },
+    {
+     "kind": "construction",
+     "ref": "dist",
+     "label": "constr. dist"
+    },
+    {
+     "kind": "construction",
+     "ref": "x",
+     "label": "constr. x"
+    },
+    {
+     "kind": "construction",
+     "ref": "y",
+     "label": "constr. y"
+    },
+    {
+     "kind": "construction",
+     "ref": "M",
+     "label": "constr. M"
+    },
+    {
+     "kind": "construction",
+     "ref": "S",
+     "label": "constr. S"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 8.001062707927623e-13,
+   "points": [],
+   "segments": [],
+   "children": []
+  }
+ ],
+ "conclusion": {
+  "id": "conclusion",
+  "number": "∴",
+  "kind": "conclusion",
+  "depth": 0,
+  "claim": "3Sy/(a³√(x²+y²)) · (x + (4xx + yy)/2a), as emended",
+  "notation": "tMR ≈ 3·S·x·y / (a³·ρ) + 3·S·y·(4·x² + y²) / (2·a⁴·ρ)   (to second order in ρ / a)",
+  "formal": "approximately(tMR, 3 * Sf * x * y / (a * a * a * rho) + 3 * Sf * y * (4 * x * x + y * y) / (2 * a * a * a * a * rho))",
+  "from": [
+   {
+    "kind": "step",
+    "ref": "exact",
+    "label": "1"
+   }
+  ],
+  "by": {
+   "rule": "expansion",
+   "kind": "approximation",
+   "statement": "The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio.",
+   "locus": null,
+   "printed": null,
+   "rests_on": null,
+   "case": null
+  },
+  "status": "false",
+  "grade": "",
+  "mark": "✗",
+  "note": "not of order 2: relative difference 2.0e-02 at ratio 0.01, 2.0e-03 at ratio 0.001, 2.0e-04 at ratio 0.0001",
+  "when": null,
+  "distinction": null,
+  "binding": null,
+  "hypotheses_met_by": null,
+  "conditions": null,
+  "degenerate_at": null,
+  "equal_at": null,
+  "undefined_at": null,
+  "needs": null,
+  "residual": 0.00019996465060075237,
+  "points": [],
+  "segments": [],
+  "children": []
+ },
+ "further_conclusions": [],
+ "equivalence": null,
+ "computations": [],
+ "checks": {
+  "steps": 1,
+  "by_status": {
+   "read off the construction": 1
+  },
+  "configurations": 3456,
+  "degenerate_states": [],
+  "notes": []
+ },
+ "figure": null,
+ "depths": [
+  "overview",
+  "steps",
+  "full"
+ ]
+}

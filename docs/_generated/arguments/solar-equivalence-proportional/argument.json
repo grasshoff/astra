@@ -1,0 +1,1119 @@
+{
+ "format": "astra-argument/1",
+ "notation": "astra/1",
+ "id": "solar-equivalence-proportional",
+ "address": "fr:astra/solar-equivalence-proportional",
+ "title": "The two forms show the sun in the same direction when R'/r = R/e",
+ "author": "Gerd Graßhoff",
+ "witness": [
+  {
+   "address": "fr:kepler-sec/Swerdlow2026/0050/p02",
+   "note": "the proportional case, p. 20"
+  },
+  {
+   "address": "fr:kepler-sec/Swerdlow2026/0051/fig01",
+   "note": "Fig. 1.3"
+  }
+ ],
+ "attributed": [
+  "Ptolemy"
+ ],
+ "context": {
+  "id": "solar-eccentric-epicyclic",
+  "kind": "superposition",
+  "title": "Eccentric and epicyclic form of Ptolemy's solar model, superposed",
+  "address": "fr:astra/solar-eccentric-epicyclic"
+ },
+ "check": {
+  "level": "conclusive",
+  "complete": true,
+  "levels": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "passed": [
+   "well-formed",
+   "grounded",
+   "true",
+   "justified",
+   "conclusive"
+  ],
+  "failures": {}
+ },
+ "model": [
+  {
+   "prefix": "Ecc",
+   "id": "solar-eccentric",
+   "address": "fr:astra/solar-eccentric",
+   "title": "Ptolemy's solar model, eccentric form",
+   "attributed": "Ptolemy",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "Ecc.R",
+     "symbol": "R",
+     "unit": "length",
+     "meaning": "radius of the eccentric",
+     "range": "(1, 1000)"
+    },
+    {
+     "name": "Ecc.e",
+     "symbol": "e",
+     "unit": "length",
+     "meaning": "eccentricity, the distance OE",
+     "range": "(0, R / 2)"
+    },
+    {
+     "name": "lamA",
+     "symbol": "λ_A",
+     "unit": "angle",
+     "meaning": "longitude of the apogee",
+     "range": null
+    },
+    {
+     "name": "T",
+     "symbol": "T",
+     "unit": "time",
+     "meaning": "tropical year",
+     "range": "(300, 400)"
+    },
+    {
+     "name": "kappa_0",
+     "symbol": "κ̄_0",
+     "unit": "angle",
+     "meaning": "mean anomaly at t = 0",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "kappa_bar",
+     "symbol": "κ̄",
+     "meaning": "mean anomaly about E, counted from the apogee",
+     "law": "uniform in time, period T"
+    }
+   ],
+   "objects": [
+    {
+     "name": "O",
+     "symbol": "O",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "earth"
+    },
+    {
+     "name": "Ecc.E",
+     "symbol": "E",
+     "kind": "point",
+     "defined_by": "O + polar(e, lamA)",
+     "meaning": "centre of the eccentric"
+    },
+    {
+     "name": "Ecc.ecc",
+     "symbol": "ecc",
+     "kind": "circle",
+     "defined_by": "circle(E, R)",
+     "meaning": "the eccentric"
+    },
+    {
+     "name": "Ecc.A",
+     "symbol": "A",
+     "kind": "point",
+     "defined_by": "E + polar(R, lamA)",
+     "meaning": "apogee"
+    },
+    {
+     "name": "Ecc.B",
+     "symbol": "B",
+     "kind": "point",
+     "defined_by": "E - polar(R, lamA)",
+     "meaning": "perigee"
+    },
+    {
+     "name": "Ecc.S",
+     "symbol": "S",
+     "kind": "point",
+     "defined_by": "E + polar(R, lamA + kappa_bar)",
+     "meaning": "sun"
+    }
+   ],
+   "observables": [
+    {
+     "name": "Ecc.lam_bar",
+     "symbol": "λ̄_S",
+     "defined_by": "direction(E, S)",
+     "meaning": "mean longitude"
+    },
+    {
+     "name": "Ecc.lam",
+     "symbol": "λ_S",
+     "defined_by": "direction(O, S)",
+     "meaning": "true longitude"
+    },
+    {
+     "name": "Ecc.kappa",
+     "symbol": "κ",
+     "defined_by": "lam - lamA",
+     "meaning": "true anomaly about O"
+    },
+    {
+     "name": "Ecc.c",
+     "symbol": "c",
+     "defined_by": "lam_bar - lam",
+     "meaning": "equation of centre, mean minus true longitude"
+    }
+   ]
+  },
+  {
+   "prefix": "Epi",
+   "id": "solar-epicyclic",
+   "address": "fr:astra/solar-epicyclic",
+   "title": "Ptolemy's solar model, epicyclic form",
+   "attributed": "Ptolemy",
+   "frame": "geocentric",
+   "parameters": [
+    {
+     "name": "Epi.R'",
+     "symbol": "R′",
+     "unit": "length",
+     "meaning": "radius of the deferent, the circle about O",
+     "range": "(1, 1000)"
+    },
+    {
+     "name": "Epi.r",
+     "symbol": "r",
+     "unit": "length",
+     "meaning": "radius of the epicycle",
+     "range": "(0, R' / 2)"
+    },
+    {
+     "name": "lamA",
+     "symbol": "λ_A",
+     "unit": "angle",
+     "meaning": "longitude of the apogee",
+     "range": null
+    },
+    {
+     "name": "T",
+     "symbol": "T",
+     "unit": "time",
+     "meaning": "tropical year",
+     "range": "(300, 400)"
+    },
+    {
+     "name": "kappa_0",
+     "symbol": "κ̄_0",
+     "unit": "angle",
+     "meaning": "mean anomaly at t = 0",
+     "range": null
+    }
+   ],
+   "variables": [
+    {
+     "name": "kappa_bar",
+     "symbol": "κ̄",
+     "meaning": "mean anomaly: the motion of C about O, and of the sun about C in the opposite sense",
+     "law": "uniform in time, period T"
+    }
+   ],
+   "objects": [
+    {
+     "name": "O",
+     "symbol": "O",
+     "kind": "point",
+     "defined_by": "observer()",
+     "meaning": "earth"
+    },
+    {
+     "name": "Epi.def",
+     "symbol": "def",
+     "kind": "circle",
+     "defined_by": "circle(O, R')",
+     "meaning": "the deferent"
+    },
+    {
+     "name": "Epi.A'",
+     "symbol": "A′",
+     "kind": "point",
+     "defined_by": "O + polar(R', lamA)",
+     "meaning": "apogee of the deferent"
+    },
+    {
+     "name": "Epi.B'",
+     "symbol": "B′",
+     "kind": "point",
+     "defined_by": "O - polar(R', lamA)",
+     "meaning": "perigee of the deferent"
+    },
+    {
+     "name": "Epi.C",
+     "symbol": "C",
+     "kind": "point",
+     "defined_by": "O + polar(R', lamA + kappa_bar)",
+     "meaning": "centre of the epicycle"
+    },
+    {
+     "name": "Epi.epi",
+     "symbol": "epi",
+     "kind": "circle",
+     "defined_by": "circle(C, r)",
+     "meaning": "the epicycle"
+    },
+    {
+     "name": "Epi.S'",
+     "symbol": "S′",
+     "kind": "point",
+     "defined_by": "C + polar(r, lamA)",
+     "meaning": "sun"
+    }
+   ],
+   "observables": [
+    {
+     "name": "Epi.lam",
+     "symbol": "λ_S",
+     "defined_by": "direction(O, S')",
+     "meaning": "true longitude"
+    }
+   ]
+  }
+ ],
+ "identified": [
+  {
+   "name": "O",
+   "meaning": "one earth"
+  },
+  {
+   "name": "λ_A",
+   "meaning": "one apsidal direction"
+  },
+  {
+   "name": "T",
+   "meaning": "one year"
+  },
+  {
+   "name": "κ̄_0",
+   "meaning": "one epoch"
+  },
+  {
+   "name": "κ̄",
+   "meaning": "one mean anomaly"
+  }
+ ],
+ "hypotheses": [
+  {
+   "id": "h1",
+   "number": "H1",
+   "claim": "R'/r = R/e",
+   "notation": "r = R′·e / R",
+   "formal": "equal(Epi.r, Epi.R' * Ecc.e / Ecc.R)"
+  }
+ ],
+ "constructions": [],
+ "argument": [
+  {
+   "id": "d1",
+   "number": "1",
+   "kind": "step",
+   "depth": 0,
+   "claim": "both are the supplement of κ̄: CS' is parallel to EO, CO to ES",
+   "notation": "∠OES = ∠S′CO",
+   "formal": "equal(angle(O, Ecc.E, Ecc.S), angle(Epi.S', Epi.C, O))",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "Ecc.E",
+     "label": "constr. E"
+    },
+    {
+     "kind": "construction",
+     "ref": "Ecc.S",
+     "label": "constr. S"
+    },
+    {
+     "kind": "construction",
+     "ref": "Epi.C",
+     "label": "constr. C"
+    },
+    {
+     "kind": "construction",
+     "ref": "Epi.S'",
+     "label": "constr. S′"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.1368683772161603e-13,
+   "points": [
+    "Ecc.E",
+    "Ecc.S",
+    "Epi.C",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [
+    [
+     "Ecc.E",
+     "O"
+    ],
+    [
+     "Ecc.E",
+     "Ecc.S"
+    ],
+    [
+     "Epi.C",
+     "Epi.S'"
+    ],
+    [
+     "Epi.C",
+     "O"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d2",
+   "number": "2",
+   "kind": "step",
+   "depth": 0,
+   "claim": "OE = e",
+   "notation": "OE = e",
+   "formal": "equal(distance(O, Ecc.E), Ecc.e)",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "Ecc.E",
+     "label": "constr. E"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 5.325203265016131e-17,
+   "points": [
+    "Ecc.E",
+    "O"
+   ],
+   "segments": [
+    [
+     "O",
+     "Ecc.E"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d3",
+   "number": "3",
+   "kind": "step",
+   "depth": 0,
+   "claim": "ES = R",
+   "notation": "ES = R",
+   "formal": "equal(distance(Ecc.E, Ecc.S), Ecc.R)",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "Ecc.S",
+     "label": "constr. S"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 2.618322252036323e-16,
+   "points": [
+    "Ecc.E",
+    "Ecc.S"
+   ],
+   "segments": [
+    [
+     "Ecc.E",
+     "Ecc.S"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d4",
+   "number": "4",
+   "kind": "step",
+   "depth": 0,
+   "claim": "CS′ = r",
+   "notation": "CS′ = r",
+   "formal": "equal(distance(Epi.C, Epi.S'), Epi.r)",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "Epi.S'",
+     "label": "constr. S′"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.5410233529682428e-16,
+   "points": [
+    "Epi.C",
+    "Epi.S'"
+   ],
+   "segments": [
+    [
+     "Epi.C",
+     "Epi.S'"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d5",
+   "number": "5",
+   "kind": "step",
+   "depth": 0,
+   "claim": "OC = R′",
+   "notation": "OC = R′",
+   "formal": "equal(distance(O, Epi.C), Epi.R')",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "Epi.C",
+     "label": "constr. C"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 2.1629892637948013e-16,
+   "points": [
+    "Epi.C",
+    "O"
+   ],
+   "segments": [
+    [
+     "O",
+     "Epi.C"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d6",
+   "number": "6",
+   "kind": "step",
+   "depth": 0,
+   "claim": "e/R = r/R'",
+   "notation": "EO / ES = CS′ / CO",
+   "formal": "equal(distance(Ecc.E, O) / distance(Ecc.E, Ecc.S), distance(Epi.C, Epi.S') / distance(Epi.C, O))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "d2",
+     "label": "2"
+    },
+    {
+     "kind": "step",
+     "ref": "d3",
+     "label": "3"
+    },
+    {
+     "kind": "step",
+     "ref": "d4",
+     "label": "4"
+    },
+    {
+     "kind": "step",
+     "ref": "d5",
+     "label": "5"
+    },
+    {
+     "kind": "hypothesis",
+     "ref": "h1",
+     "label": "H1"
+    }
+   ],
+   "by": {
+    "rule": "algebra",
+    "kind": "calculation",
+    "statement": "The proposition follows from the cited equalities by calculation.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "by calculation",
+   "grade": "calculation",
+   "mark": "≈",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": [
+    "H1"
+   ],
+   "residual": 2.220446049250313e-16,
+   "points": [
+    "Ecc.E",
+    "Ecc.S",
+    "Epi.C",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [
+    [
+     "Ecc.E",
+     "O"
+    ],
+    [
+     "Ecc.E",
+     "Ecc.S"
+    ],
+    [
+     "Epi.C",
+     "Epi.S'"
+    ],
+    [
+     "Epi.C",
+     "O"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d7",
+   "number": "7",
+   "kind": "step",
+   "depth": 0,
+   "claim": "the triangles are equiangular: the angle at O equals the angle at S'",
+   "notation": "∠EOS = ∠CS′O",
+   "formal": "equal(angle(Ecc.E, O, Ecc.S), angle(Epi.C, Epi.S', O))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "d1",
+     "label": "1"
+    },
+    {
+     "kind": "step",
+     "ref": "d6",
+     "label": "6"
+    }
+   ],
+   "by": {
+    "rule": "Elements VI.6",
+    "kind": "proposition",
+    "statement": "If two triangles have one angle equal to one angle and the sides about the equal angles proportional, the triangles will be equiangular and will have those angles equal which the corresponding sides subtend.",
+    "locus": "fr:assyrischeSammlung/The-Thirteen-Books-of-the-Elements--Vol.-2-Books-3-9-by-Thomas-L.-Heath--Euclid/0211",
+    "printed": "vol. II, p. 204",
+    "rests_on": null,
+    "case": null
+   },
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "configuration conditions fail there: noncollinear(Ecc.E, O, Ecc.S), noncollinear(Epi.C, Epi.S', O)",
+   "when": null,
+   "distinction": null,
+   "binding": {
+    "A": "E",
+    "B": "O",
+    "C": "S",
+    "D": "C",
+    "E": "S′",
+    "F": "O"
+   },
+   "hypotheses_met_by": {
+    "equal(angle(B, A, C), angle(E, D, F))": "1",
+    "equal(distance(A, B) / distance(A, C), distance(D, E) / distance(D, F))": "6"
+   },
+   "conditions": [
+    "EOS a triangle",
+    "CS′O a triangle"
+   ],
+   "degenerate_at": [
+    "κ̄ = 0°",
+    "κ̄ = 180°"
+   ],
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": [
+    "H1"
+   ],
+   "residual": 1.4210854715202004e-13,
+   "points": [
+    "Ecc.E",
+    "Ecc.S",
+    "Epi.C",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [
+    [
+     "O",
+     "Ecc.E"
+    ],
+    [
+     "O",
+     "Ecc.S"
+    ],
+    [
+     "Epi.S'",
+     "Epi.C"
+    ],
+    [
+     "Epi.S'",
+     "O"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d8",
+   "number": "8",
+   "kind": "step",
+   "depth": 0,
+   "claim": "the radius of the epicycle keeps the direction of the apsidal line",
+   "notation": "CS′ ∥ OE",
+   "formal": "parallel(line(Epi.C, Epi.S'), line(O, Ecc.E))",
+   "from": [
+    {
+     "kind": "construction",
+     "ref": "Epi.S'",
+     "label": "constr. S′"
+    },
+    {
+     "kind": "construction",
+     "ref": "Ecc.E",
+     "label": "constr. E"
+    }
+   ],
+   "by": {
+    "rule": "construction",
+    "kind": "construction",
+    "statement": "The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis.",
+    "locus": null,
+    "printed": null,
+    "rests_on": null,
+    "case": null
+   },
+   "status": "read off the construction",
+   "grade": "construction",
+   "mark": "◦",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.5543122344752192e-15,
+   "points": [
+    "Ecc.E",
+    "Epi.C",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [
+    [
+     "Epi.C",
+     "Epi.S'"
+    ],
+    [
+     "O",
+     "Ecc.E"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d9",
+   "number": "9",
+   "kind": "step",
+   "depth": 0,
+   "claim": "S'O falls on the parallels CS' and OE",
+   "notation": "∠CS′O = ∠S′OE",
+   "formal": "equal(angle(Epi.C, Epi.S', O), angle(Epi.S', O, Ecc.E))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "d8",
+     "label": "8"
+    }
+   ],
+   "by": {
+    "rule": "Elements I.29",
+    "kind": "proposition",
+    "statement": "A straight line falling on parallel straight lines makes the alternate angles equal to one another, the exterior angle equal to the interior and opposite angle, and the interior angles on the same side equal to two right angles.",
+    "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0320",
+    "printed": "vol. I, p. 311",
+    "rests_on": null,
+    "case": "alternate angles"
+   },
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "configuration conditions fail there: opposite_side(Epi.C, Ecc.E, Epi.S', O)",
+   "when": null,
+   "distinction": null,
+   "binding": {
+    "P": "C",
+    "Q": "S′",
+    "R": "O",
+    "S": "E"
+   },
+   "hypotheses_met_by": {
+    "parallel(line(P, Q), line(R, S))": "8"
+   },
+   "conditions": [
+    "S′ ≠ O",
+    "C, E on opposite sides of S′O"
+   ],
+   "degenerate_at": [
+    "κ̄ = 0°",
+    "κ̄ = 180°"
+   ],
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": null,
+   "residual": 1.1368683772161603e-13,
+   "points": [
+    "Ecc.E",
+    "Epi.C",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [
+    [
+     "Epi.S'",
+     "Epi.C"
+    ],
+    [
+     "Epi.S'",
+     "O"
+    ],
+    [
+     "O",
+     "Epi.S'"
+    ],
+    [
+     "O",
+     "Ecc.E"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d10",
+   "number": "10",
+   "kind": "step",
+   "depth": 0,
+   "claim": "∠EOS = ∠EOS′",
+   "notation": "∠EOS = ∠EOS′",
+   "formal": "equal(angle(Ecc.E, O, Ecc.S), angle(Ecc.E, O, Epi.S'))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "d7",
+     "label": "7"
+    },
+    {
+     "kind": "step",
+     "ref": "d9",
+     "label": "9"
+    }
+   ],
+   "by": {
+    "rule": "common notion 1",
+    "kind": "equality",
+    "statement": "Things which are equal to the same thing are also equal to one another.",
+    "locus": "fr:assyrischeSammlung/The-thirteen-books-of-Euclids-Elements--Vol-1-Books-1-2-by-Euclid--Sir-Thomas-Little-Heath/0164",
+    "printed": "vol. I, p. 155",
+    "rests_on": null,
+    "case": null
+   },
+   "status": "justified",
+   "grade": "equality",
+   "mark": "✓",
+   "note": null,
+   "when": null,
+   "distinction": null,
+   "binding": null,
+   "hypotheses_met_by": null,
+   "conditions": null,
+   "degenerate_at": null,
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": [
+    "H1"
+   ],
+   "residual": 5.684341886080802e-14,
+   "points": [
+    "Ecc.E",
+    "Ecc.S",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [
+    [
+     "O",
+     "Ecc.E"
+    ],
+    [
+     "O",
+     "Ecc.S"
+    ],
+    [
+     "O",
+     "Ecc.E"
+    ],
+    [
+     "O",
+     "Epi.S'"
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": "d11",
+   "number": "11",
+   "kind": "step",
+   "depth": 0,
+   "claim": "S and S' make the same angle with OE on the same side",
+   "notation": "dir OS = dir OS′",
+   "formal": "equal(direction(O, Ecc.S), direction(O, Epi.S'))",
+   "from": [
+    {
+     "kind": "step",
+     "ref": "d10",
+     "label": "10"
+    }
+   ],
+   "by": {
+    "rule": "lemma same angle",
+    "kind": "lemma",
+    "statement": "Two points that subtend equal angles with a ray VP at V and lie on the same side of it are seen from V in the same direction.",
+    "locus": null,
+    "printed": null,
+    "rests_on": "the uniqueness of the angle constructed on a given side of a line at a point (Elements I.23, with Common Notion 5 as in the proof of I.7)",
+    "case": null
+   },
+   "status": "justified",
+   "grade": "rule",
+   "mark": "✓",
+   "note": "configuration conditions fail there: same_side(Ecc.S, Epi.S', O, Ecc.E)",
+   "when": null,
+   "distinction": null,
+   "binding": {
+    "V": "O",
+    "X": "S",
+    "Y": "S′",
+    "P": "E"
+   },
+   "hypotheses_met_by": {
+    "equal(angle(P, V, X), angle(P, V, Y))": "10"
+   },
+   "conditions": [
+    "O ≠ E",
+    "S, S′ on one side of OE"
+   ],
+   "degenerate_at": [
+    "κ̄ = 0°",
+    "κ̄ = 180°"
+   ],
+   "equal_at": null,
+   "undefined_at": null,
+   "needs": [
+    "H1"
+   ],
+   "residual": 5.684341886080802e-14,
+   "points": [
+    "Ecc.S",
+    "Epi.S'",
+    "O"
+   ],
+   "segments": [],
+   "children": []
+  }
+ ],
+ "conclusion": {
+  "id": "conclusion",
+  "number": "∴",
+  "kind": "conclusion",
+  "depth": 0,
+  "claim": "in every state the sun is seen from O in the same direction",
+  "notation": "dir OS = dir OS′",
+  "formal": "equal(direction(O, Ecc.S), direction(O, Epi.S'))",
+  "from": [
+   {
+    "kind": "step",
+    "ref": "d11",
+    "label": "11"
+   }
+  ],
+  "by": null,
+  "status": "justified",
+  "grade": "rule",
+  "mark": "✓",
+  "note": "it is d11",
+  "when": null,
+  "distinction": null,
+  "binding": null,
+  "hypotheses_met_by": {
+   "the proposition": "11"
+  },
+  "conditions": null,
+  "degenerate_at": null,
+  "equal_at": null,
+  "undefined_at": null,
+  "needs": [
+   "H1"
+  ],
+  "residual": 5.684341886080802e-14,
+  "points": [
+   "Ecc.S",
+   "Epi.S'",
+   "O"
+  ],
+  "segments": [],
+  "children": []
+ },
+ "further_conclusions": [],
+ "equivalence": {
+  "a": "Ecc",
+  "b": "Epi",
+  "in": "direction",
+  "model_a": "solar-eccentric",
+  "model_b": "solar-epicyclic",
+  "under": [
+   "equal(Epi.r, Epi.R' * Ecc.e / Ecc.R)"
+  ],
+  "proposition": "equal(direction(O, Ecc.S), direction(O, Epi.S'))"
+ },
+ "computations": [],
+ "checks": {
+  "steps": 11,
+  "by_status": {
+   "read off the construction": 6,
+   "by calculation": 1,
+   "justified": 4
+  },
+  "configurations": 3456,
+  "degenerate_states": [
+   "κ̄ = 0°",
+   "κ̄ = 180°"
+  ],
+  "notes": [
+   "degenerate states, in which a step's rule does not apply, a term is undefined or an inequality becomes an equality: kappa_bar = 0°; kappa_bar = 180°. The derivation does not cover them; the conclusion is true there as well (numerically)"
+  ]
+ },
+ "figure": null,
+ "depths": [
+  "overview",
+  "steps",
+  "full"
+ ]
+}
