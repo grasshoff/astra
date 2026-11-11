@@ -1,0 +1,940 @@
+---
+title: Geometrical Reasoning in the History of Astronomy
+subtitle: 'Fundamentals: Models, Propositions, Steps, Rules, and What the Figure Supplies'
+running-title: 'Geometrical reasoning: fundamentals'
+author:
+- name: Gerd Graßhoff
+  email: gerd.grasshoff@hu-berlin.de
+  orcid: 0000-0002-4450-357X
+  affiliations:
+  - name: Humboldt-Universität zu Berlin
+    department: Philosophisches Institut
+    city: Berlin
+    country: Germany
+  - name: Deutsches Museum
+    department: Forschungsinstitut
+    city: München
+    country: Germany
+date: '2026-11-10'
+lang: en
+bibliography: bibliography.bib
+abstract: 'Astronomical texts from Ptolemy to Euler argue geometrically about models: a figure, a few sentences,
+  and
+
+  inferences marked by little more than "therefore". This paper gathers what is needed to reconstruct such
+
+  arguments and to check them. It distinguishes what an argument is about (a model, as pure geometry; values for
+
+  its parameters; a state) from what it says (propositions) and what it does (operations: to suppose, to
+
+  construct, to derive, to distinguish cases, to compute, to conclude). It says what licenses a step: an instance
+
+  of a named proposition, an equality by a Common Notion, a fact read off a construction, a calculation, an
+
+  expansion in a small ratio. It treats what a figure supplies without saying so — that points are distinct, lie
+
+  on one side of a line, form a triangle — and what follows when the figure degenerates: cases. It treats
+
+  hypotheses, how to find out whether an argument needs them, and how to detect one used tacitly; equivalence
+
+  and identity of models; exact and approximate steps; quantities computed from a model and parameters determined
+
+  from observations. It fixes a vocabulary for soundness, gives a format in which a reconstructed argument can be
+
+  read at three depths, a procedure in six steps, and a table of rules with Euclid''s wording and its place. Every
+
+  notion is shown on one of three cases: Ptolemy''s solar model in Swerdlow''s exposition, Kepler on the equant,
+
+  and Euler on the tides.
+
+  '
+keywords:
+- history of astronomy
+- geometrical reasoning
+- argument reconstruction
+- Euclid
+- models
+- justification
+license: CC BY-NC-ND 4.0
+expertise:
+  schema: famulus-expertise/1
+  subject:
+    question: What is needed to reconstruct the geometrical arguments of astronomical texts about models and to
+      check them?
+    sources:
+    - ref: fr:kepler-prim/kgw-03/0071/p05
+      role: object
+      note: 'Astronomia nova ch. 4: Kepler''s argument about the equant; named as witness of the derivation'
+    - ref: fr:kepler-prim/kgw-03/0071/p04
+      role: object
+      note: 'Astronomia nova ch. 4: the construction; named as witness of the model'
+    - ref: fr:kepler-prim/kgw-03/0071/fig01
+      role: object
+      note: 'Astronomia nova ch. 4: the figure; named as witness of the model'
+    - ref: fr:kepler-sec/Kepler1992/0147/p02
+      role: witness
+      note: Donahue's translation; named as witness of the derivation
+    work: 'Three cases: Ptolemy''s solar model in Swerdlow''s exposition, Kepler on the equant (Astronomia nova
+      ch. 4), and Euler on the tides'
+    method: 'The notions are set out in the order of three questions: what an argument is about, what it says, and
+      by what right it moves from one statement to the next. Every notion is shown on one of the three cases.'
+    limits:
+    - The table of rules holds what three reconstructions needed; further propositions of Books I, III and VI enter
+      when a reconstruction needs them and their wording has been compared.
+    - Ptolemy's own steps with a table of chords cannot be followed until the Almagest is available in addressable
+      form.
+    - The present models are planar; latitude, rising times and eclipses need spherical geometry.
+    - The checks give evidence, not proof; a symbolic check of the steps marked 'calculation' and 'read off the
+      construction' is missing.
+    - A hypothesis has to fix a parameter; inequalities between parameters are expressed by admissible ranges, not
+      as hypotheses.
+  claims:
+  - id: C1
+    text: A geometrical argument is about the model, not about a configuration; it therefore has to be checked over
+      the parameter space and the states, and a figure, which is one configuration, can mislead.
+    section: sec-about
+    status: gap
+    gap: A notion of the framework; the issue gives no address beside it.
+  - id: C2
+    text: 'Five kinds of licence occur for a step: an instance of a rule, an equality by Common Notion 1, a fact
+      read off the construction, a calculation, an expansion; a step that is true and has none of these is true,
+      not justified.'
+    section: sec-rules
+    status: gap
+    gap: 'The rule table is spec/rules.yaml, for which the issue gives no fr: address.'
+  - id: C3
+    text: 'The parallelogram OESC by which the two forms of Ptolemy''s solar model are shown equivalent exists in
+      every position of the sun but two: at the apogee and at the perigee the four points lie on one line; the conclusion
+      is true there as well, and the argument does not reach it.'
+    section: sec-figure
+    status: grounded
+    grounds:
+    - fr:astra/solar-fig-equal-radii-steps
+    - fr:astra/solar-equivalence-equal-radii
+  - id: C4
+    text: 'For Kepler''s argument that the equant makes the planet move unequally about the centre of its circle,
+      the hypothesis that the eccentricity is bisected is not needed: the conclusion holds wherever the equant point
+      lies above the centre.'
+    section: sec-hypotheses
+    status: grounded
+    grounds:
+    - fr:astra/kepler-equant-unequal-motion
+  - id: C5
+    text: A hypothesis restricts the parameters, a supposition restricts the states; in Kepler's argument the two
+      inequalities hold in every position, and only the comparison of two arcs passed in equal times needs the right
+      angle.
+    section: sec-hypotheses
+    status: grounded
+    grounds:
+    - fr:astra/kepler-equant-unequal-motion
+  - id: C6
+    text: An argument is sound when every proposition in it is true and every step is justified; an argument with
+      a false premise is unsound, and its conclusion is not thereby false.
+    section: sec-soundness
+    status: gap
+    gap: A definition of the vocabulary; the issue gives no address beside it.
+  - id: C7
+    text: The checks evaluate propositions in sampled configurations and match rules as schemas; they can show that
+      a step is false, that it is not an instance of its rule, or that it needs a hypothesis, and they cannot prove
+      a proposition for all configurations.
+    section: sec-soundness
+    status: gap
+    gap: A statement about the reach of the checks; the issue gives no address beside it.
+  agent:
+    summary: 'Fundamentals of the series: the notions needed to reconstruct geometrical arguments about astronomical
+      models and to check them. It separates what an argument is about (model, parametrisation, state), what it
+      says (propositions) and what it does (operations), and states what licenses a step, what a figure supplies,
+      hypotheses and suppositions, equivalence and identity, and a vocabulary of soundness. The notions are implemented
+      in astra/1 and shown on three cases: Ptolemy''s solar model in Swerdlow''s exposition, Kepler on the equant,
+      Euler on the tides. The checks give evidence, not proof.'
+    read_first:
+    - sec-intro
+    - sec-about
+    - sec-propositions
+    - sec-operations
+    - sec-rules
+    - sec-figure
+    - sec-hypotheses
+    - sec-soundness
+    - sec-procedure
+    - sec-missing
+    answers:
+    - What is the difference between a model, a parametrisation, a state and a configuration?
+    - What licenses a step of a geometrical argument, and how is each kind of licence tested?
+    - What does a figure supply that the enunciation of a proposition of Euclid does not state?
+    - How is it found out whether an argument needs a hypothesis, and whether it uses one tacitly?
+    - When are two models equivalent, and how does equivalence differ from identity?
+    - What do true, justified, sound and conclusive mean?
+    - By what procedure is a geometrical passage reconstructed?
+    terms:
+    - term: model
+      meaning: 'the pure geometry: points, lines and circles, each constructed from what precedes it, parameters
+        as symbols, and kinematic variables; it has no values'
+    - term: parametrisation
+      meaning: gives the parameters values, each with the place where it stands in a source, and says whose values
+        they are
+    - term: state; configuration
+      meaning: a state is a value of the kinematic variable; a model under a parametrisation in a state is a configuration
+    - term: attributed, witness, author
+      meaning: whose model it is; the text whose use of the model is analysed; who wrote the description
+    - term: superposition
+      meaning: several models in one plane with their inputs identified; it adds no geometry and asserts nothing
+        across its members
+    - term: proposition
+      meaning: what an argument consists of; only propositions are true or false; a proposition is true of the model
+        when it holds in every configuration
+    - term: hypothesis; supposition
+      meaning: a hypothesis is something the argument assumes of the parameters and is not part of the model; a
+        supposition restricts the states
+    - term: tacit premise
+      meaning: a hypothesis that a step needs and that is not cited on the way to it
+    - term: degenerate state
+      meaning: 'a state in which a configuration condition of a step''s rule fails: there the rule does not apply'
+    - term: justified
+      meaning: 'said of a step: its rule licenses it'
+    - term: sound; conclusive
+      meaning: an argument is sound when every proposition in it is true and every step is justified; conclusive
+        when it is sound and the conclusion rests only on what is cited
+    - term: equivalent in position; in direction
+      meaning: the bodies of the two models are at one point in every state; they are seen from the observer in
+        one direction, and the distances may differ
+    do_not:
+    - 'Do not say that the program ''verifies'' an author: it reports which steps are justified and how.'
+    - 'Do not treat the result of the checks as proof: they evaluate sampled configurations and match rules as schemas.'
+    - 'Do not infer from a false premise that the conclusion is false: the argument is unsound, its conclusion is
+      not thereby false.'
+    - 'Do not treat an equivalence as a premise or as identity: it is the conclusion of an argument in the superposition,
+      and equivalent models are never the same model.'
+    - 'Do not attribute the named rules to the historical authors: none of the three is named in Kepler''s sentence;
+      a reader supplies them.'
+    - 'Do not cite the lemmas of the rule table as Euclid''s: they are the author''s and say what they rest on.'
+    - 'Do not confuse an exposition with an authorship: the witness is not the one to whom the model is attributed.'
+    cite: 'Graßhoff, Gerd. Geometrical Reasoning in the History of Astronomy: Fundamentals: Models, Propositions,
+      Steps, Rules, and What the Figure Supplies. Famulus Expertise Astra, No. 1 (whole no. 4). Duisburg: OpenScienceTechnology,
+      2026. Version 1.0. https://famulus.lettre.ai/astra/lettre/1/'
+    bibtex: "@article{grasshoff2026expertise-astra-1,\n  author = {Graßhoff, Gerd},\n  title = {{Geometrical Reasoning\
+      \ in the History of Astronomy: Fundamentals: Models, Propositions, Steps, Rules, and What the Figure Supplies}},\n\
+      \  journal = {Famulus Expertise Astra},\n  number = {1},\n  year = {2026},\n  date = {2026-11-10},\n  version\
+      \ = {1.0},\n  publisher = {OpenScienceTechnology},\n  address = {Duisburg},\n  url = {https://famulus.lettre.ai/astra/lettre/1/},\n\
+      \  note = {Version 1.0. Famulus Expertise, whole no. 4},\n  langid = {english}\n}"
+    cite_section: Graßhoff 2026, Famulus Expertise Astra 1, version 1.0, § 8 (“Equivalence and identity”), https://famulus.lettre.ai/astra/lettre/1/#sec-equivalence
+    sections:
+    - number: '1'
+      title: What is to be reconstructed
+      id: sec-intro
+    - number: '2'
+      title: What an argument is about
+      id: sec-about
+    - number: '2.1'
+      title: Model, values, state
+      id: ''
+    - number: '2.2'
+      title: Three roles
+      id: ''
+    - number: '2.3'
+      title: Several models at once
+      id: ''
+    - number: '3'
+      title: What an argument says
+      id: sec-propositions
+    - number: '4'
+      title: What an argument does
+      id: sec-operations
+    - number: '5'
+      title: What licenses a step
+      id: sec-rules
+    - number: '6'
+      title: What the figure supplies
+      id: sec-figure
+    - number: '7'
+      title: Hypotheses
+      id: sec-hypotheses
+    - number: '8'
+      title: Equivalence and identity
+      id: sec-equivalence
+    - number: '9'
+      title: Exact and approximate
+      id: sec-approx
+    - number: '10'
+      title: Quantities
+      id: sec-quantities
+    - number: '11'
+      title: 'Soundness: a vocabulary'
+      id: sec-soundness
+    - number: '12'
+      title: The display
+      id: sec-display
+    - number: '13'
+      title: A procedure
+      id: sec-procedure
+    - number: '14'
+      title: What is missing
+      id: sec-missing
+    - number: '15'
+      title: Conclusion
+      id: ''
+    use:
+      licence: CC BY-NC-ND 4.0
+      may:
+      - read
+      - quote with the citation
+      - copy and pass on unchanged for non-commercial purposes with author and source named
+      may_not:
+      - publish an adapted or translated version
+      - use commercially
+      - present reproductions from the cited sources as covered by this licence
+    entry_points:
+      mcp: famulus-expertise
+      tools:
+      - fx_about
+      - fx_series
+      - fx_issues
+      - fx_issue
+      - fx_text
+      - fx_search
+      - fx_claims
+      - fx_references
+      - fx_about_source
+      - fx_cite
+      - fx_gates
+      resource: expertise://astra/1
+  review:
+    drafted_by: Claude (AI assistant), 11 Nov 2026
+    confirmed_by: null
+    confirmed_on: null
+  identity:
+    series: Famulus Expertise
+    subseries: Famulus Expertise Astra
+    edition: astra
+    number: 1
+    whole_number: 4
+    id: geometrical-reasoning-fundamentals
+    ref: fr:expertise/astra/1
+    url: https://famulus.lettre.ai/astra/lettre/1/
+    pdf: https://famulus.lettre.ai/astra/lettre/1/geometrical-reasoning-fundamentals.pdf
+    source: https://famulus.lettre.ai/astra/lettre/1/heft.fam
+    preamble: https://famulus.lettre.ai/astra/lettre/1/heft.json
+    issn: null
+    doi: null
+    version: '1.0'
+    date: '2026-11-10'
+    status: published
+    revisions:
+    - version: '1.0'
+      date: '2026-11-10'
+      note: First publication.
+    language: en
+    licence:
+      name: CC BY-NC-ND 4.0
+      long: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+      url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+    collections: []
+  responsibility:
+    authors:
+    - name: Gerd Graßhoff
+      orcid: 0000-0002-4450-357X
+      affiliations:
+      - name: Humboldt-Universität zu Berlin
+        department: Philosophisches Institut
+        city: Berlin
+        country: Germany
+      - name: Deutsches Museum
+        department: Forschungsinstitut
+        city: München
+        country: Germany
+    editor: Gerd Graßhoff
+    publisher:
+      name: OpenScienceTechnology GmbH
+      place: Duisburg
+    ai_contribution: null
+  evidence:
+    references:
+    - ref: fr:astra/kepler-equant-unequal-motion
+      roles:
+      - ground
+      - segment
+      count: 1
+    - ref: fr:astra/solar-equivalence-equal-radii
+      roles:
+      - ground
+      - segment
+      count: 1
+    - ref: fr:astra/solar-fig-equal-radii-steps
+      roles:
+      - ground
+      - segment
+      count: 1
+    - ref: fr:kepler-prim/kgw-03/0071/fig01
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-prim/kgw-03/0071/p04
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-prim/kgw-03/0071/p05
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-sec/Kepler1992/0147/p02
+      roles:
+      - inline
+      - subject
+      count: 1
+    citations:
+    - grasshoff2026astra
+    - grasshoff2026deepreading
+    - grasshoff2026kepler
+    - grasshoff2026twocases
+    - heath1908
+    - keplerKGW3
+    figures:
+    - file: figures/kinds.svg
+      id: fig-kinds
+    - file: figures/three-cases.png
+      id: fig-cases
+  quality:
+    catalogue: 2026-11-11.1
+    run: '2026-11-11T10:50:45'
+    verdict: inventory
+    counts:
+      erfuellt: 11
+      luecke: 5
+      verletzt: 4
+      nicht_anwendbar: 1
+    results:
+      erfuellt: fulfilled
+      verletzt: violated
+      luecke: gap
+      offen_modell: awaiting a judgement
+      teilgeprueft: partly tested
+      fehler: error
+      nicht_anwendbar: not applicable
+    open:
+    - gate: heft.praeambel.bestaetigung.01
+      result: luecke
+      blocking: true
+      title: The author has confirmed the preamble
+      findings: 1
+    - gate: heft.praeambel.ki_erklaerung.01
+      result: luecke
+      blocking: true
+      title: The contribution of AI systems to the issue is declared
+      findings: 1
+    - gate: referenz.abdeckung.quellenaussage.01
+      result: verletzt
+      blocking: true
+      title: Every statement about a source carries a reference
+      findings: 18
+    - gate: zitat.wortlaut.fundstelle.01
+      result: luecke
+      blocking: true
+      title: A typed wording stands at the place named
+      findings: 19
+    - gate: validitaet.sachlich.aussagen.01
+      result: luecke
+      blocking: true
+      title: The factual statements of the issue are justified (sachliche Validität)
+      findings: 1
+    - gate: sprache.nononsense.einschuebe.01
+      result: verletzt
+      blocking: true
+      title: No evaluative, intensifying or meta-linguistic insertions
+      findings: 6
+    - gate: sprache.schreibregeln.leitfaden.01
+      result: verletzt
+      blocking: true
+      title: The text fulfils the blocking rules of the Famulus writing guide
+      findings: 1
+    - gate: sprache.termini.fest.01
+      result: verletzt
+      blocking: true
+      title: The fixed terminology of the house is kept
+      findings: 7
+    - gate: apparat.bibliographie.schluessel.01
+      result: luecke
+      blocking: true
+      title: Every citation key resolves, every entry is complete
+      findings: 5
+  counting:
+    vgwort: assigned
+---
+```{=typst}
+#show figure: set block(breakable: true)
+```
+
+## What is to be reconstructed {#sec-intro}
+
+Kepler, arguing against the equant in the *Astronomia nova*, writes: "DCE exterior aequet CBE, CEB interiores :
+ergo parte CEB ablata, residuus CBE vel DBE minor erit quam DCE" [@keplerKGW3]. One sentence, one "ergo". Behind
+it stand a figure with six letters, a proposition of Euclid about exterior angles, a Common Notion about wholes
+and parts, and the observation that C and D lie on one ray from B. None of the three is named. A reader of the
+time supplied them. A reader today who wants to know what Kepler's argument establishes has to supply them
+explicitly, and then has something that can be examined: does the proposition apply? In every position of the
+planet? Does the argument use everything it assumes?
+
+To reconstruct a geometrical argument is to answer three questions in order: what is it about, what does it
+say, and by what right does it move from one statement to the next. This paper sets out the notions needed for
+each and the way they are checked. The notions are implemented in the language astra/1
+[@grasshoff2026astra]; three reconstructions made with them are published separately
+[@grasshoff2026twocases; @grasshoff2026kepler; @grasshoff2026deepreading]. Here they are gathered.
+
+## What an argument is about {#sec-about}
+
+### Model, values, state
+
+An astronomical argument is about a model. Four things are easily taken for one (@fig-kinds).
+
+The **model** is the pure geometry: points, lines and circles, each constructed from what precedes it; lengths
+and angles as *parameters*, which are symbols with a unit and an admissible range; and one or more *kinematic
+variables*, the quantities whose change is the motion. The model has no values. What is true of it is true for
+every admissible value of its parameters and every value of its variables.
+
+A **parametrisation** gives the parameters values, each with the place where it stands in a source, and says
+whose values they are. One model has many: Ptolemy's solar model with Ptolemy's values, with al-Battānī's, and
+with the exaggerated eccentricity of a printed figure.
+
+A **state** is a value of the kinematic variable. A model under a parametrisation in a state is a
+**configuration**: everything has a place. A figure shows one configuration.
+
+![The kinds of text and what they refer to. A derivation — the argument — works in a model or in a
+superposition of models.](figures/kinds.svg){#fig-kinds width=100%}
+
+A geometrical argument is about the model, not about a configuration. This is why it has to be checked over
+the parameter space and the states, and why a figure, which is one configuration, can mislead.
+
+### Three roles
+
+Every text about a model involves three parties that must not be confused: whose model it is (*attributed*), the
+text whose use of the model is analysed (*witness*), and who wrote the description (*author*). Ptolemy's solar
+model, read in Swerdlow's exposition and described by a third person, has three different names in these three
+places. An exposition is not an authorship.
+
+### Several models at once
+
+Many arguments are about two models: that they are equivalent, that one can replace the other. The scene of
+such an argument is a **superposition**: the models in one plane, with their *inputs* identified — one observer,
+one direction of the apsidal line, one mean motion. A superposition adds no geometry and asserts nothing across
+its members. That two constructed points of different members coincide is a proposition, and propositions are
+argued.
+
+## What an argument says {#sec-propositions}
+
+An argument consists of **propositions**. Only propositions are true or false. A sentence of the text renders
+a proposition; a figure renders none.
+
+| proposition | read | true when |
+|---|---|---|
+| `parallel(line(P, Q), line(R, S))` | PQ ∥ RS | the lines have one direction |
+| `perpendicular(line(P, Q), line(R, S))` | PQ ⊥ RS | the directions are at right angles |
+| `coincident(P, Q)` | P = Q | the points are one |
+| `collinear(P, Q, R)` | P, Q, R on one line | |
+| `on(P, c)` | P on the circle c | |
+| `equal(a, b)` | a = b | two lengths, angles, ratios or other quantities are equal |
+| `less(a, b)` | a < b | strictly, in every configuration |
+| `approximately(a, b, small: ρ / a, order: n)` | a ≈ b | they agree to order n in a small ratio |
+
+: The propositions of astra/1. `angle(P, V, Q)` is the unsigned angle at V, the angle of Euclid's propositions;
+`distance(P, Q)` the length of a segment. {#tbl-props}
+
+A proposition is true *of the model*: in every configuration. That is a strong reading, and it is the one the
+texts intend when they argue from a figure in general position. Where an author means one position — Kepler's
+"et sit jam DCE rectus" — the argument says so, by a supposition (@sec-operations).
+
+A proposition is checked by turning it into a number that is zero when it holds, its *residual*, and evaluating
+that number in many configurations: sampled points of the parameter space, each parameter in its admissible
+range, and the kinematic variable through a revolution. This is evidence, not proof (@sec-soundness).
+
+## What an argument does {#sec-operations}
+
+An argument is a sequence of operations on propositions (@tbl-ops).
+
+| operation | what it does | in a text |
+|---|---|---|
+| **given** | states a hypothesis: something assumed of the parameters that could have been otherwise | "aequale ipsi BA", "of radius r = e" |
+| **construct** | adds an auxiliary object to the figure | "complete parallelogram OESC"; a perpendicular dropped |
+| **suppose** | restricts what follows to the configurations in which a condition holds | "et sit jam DCE rectus" |
+| **derive** | draws a proposition from named premises by a named rule | "ergo …" |
+| **show … qed** | a sub-argument: a claim, then the steps that establish it | a paragraph that proves one thing |
+| **cases** | argues a claim separately under conditions that together cover every configuration | "if the sun is at the apogee …" |
+| **compute** | evaluates a quantity of the model under a parametrisation | "c~m~ = 2;23°" |
+| **determine** | finds parameters from observed intervals by inverting the model | "from which he finds that e = 2;29,30" |
+| **conclude** | states the proposition the argument is for | "ergo … Quod erat demonstrandum" |
+
+: The operations of an argument. {#tbl-ops}
+
+A **premise** of a step is one of four things: a given; an earlier step; the construction of an object ("C lies
+on the deferent" is read off how C was constructed); or the condition of the case or supposition under which
+the step stands.
+
+**Sub-arguments** give an argument its shape. The claim stands first, its steps below, indented. The inside of
+a sub-argument is local: a step outside may cite the sub-argument, not a step inside it. This is what makes an
+overview possible. At the coarsest depth an argument is its top-level sub-arguments and its conclusion
+(@fig-overview).
+
+::: {#fig-overview}
+
+{{< famulus fr:astra/solar-equivalence-equal-radii argument >}}
+
+The equivalence of the eccentric and the epicyclic form of Ptolemy's solar model at the depth *overview*: two
+hypotheses, one claim argued by cases, the conclusion. Below this level it has twenty-six steps.
+:::
+
+## What licenses a step {#sec-rules}
+
+A step is a proposition together with a claim about it: that it follows from these premises by this rule. The
+proposition may be true and the claim false. Five kinds of licence occur (@tbl-grades).
+
+| licence | the step is justified when | example |
+|---|---|---|
+| **instance of a rule** | the rule's variables can be bound to points so that its conclusion is the proposition, each of its hypotheses is a cited premise, and what it takes from the figure holds | OE ∥ CS from ES ∥ OC and ES = OC, by Elements I.33 |
+| **equality** (Common Notion 1) | the two sides are joined by the cited equalities; or an inequality is a cited one with equals put for equals | ES = R, OC = R′, R′ = R, so ES = OC |
+| **read off the construction** | the proposition speaks only of the cited objects and what they are built from, and holds without any hypothesis | ES = R, from how S was constructed |
+| **calculation** | it follows from the cited equalities and inequalities by reckoning; confirmed numerically | DBE < DCE = ECF < EBF |
+| **expansion** | the two sides agree to the stated order in a small ratio | Euler's first-order components |
+
+: What licenses a step. A step that is true and has none of these is *true, not justified*: a gap in the
+reasoning. {#tbl-grades}
+
+A **rule** is stated as a schema: variables for points, hypotheses, conclusions, and conditions on the
+configuration (@sec-figure). For I.33 the schema is: from `parallel(line(A, B), line(C, D))` and
+`equal(distance(A, B), distance(C, D))` to `parallel(line(A, C), line(B, D))` and
+`equal(distance(A, C), distance(B, D))`. The match respects the symmetries of the propositions: `parallel` and
+`equal` are symmetric, a line and a distance do not depend on the order of their points, an angle is unsigned.
+
+The grades are not equally strong, and the display shows which a step has. An instance of a named proposition
+is the strongest: the step can be handed to anyone with a copy of Euclid. "Read off the construction" says that
+nothing but the definitions is used; its test is that the proposition holds when all hypotheses are lifted.
+"Calculation" is the weakest: the program confirms the result and does not replay the reckoning.
+
+@tbl-rules is the table of rules in use. A proposition of Euclid enters it only after its wording has been
+compared with a page of Heath's translation [@heath1908].
+
+::: {#tbl-rules tbl-colwidths="[13,34,25,28]"}
+
+| rule | what it licenses | what the figure must supply | wording and place |
+|---|---|---|---|
+| Elements I.13 | `(no premise)` ⟹ `equal(angle(P, V, X) + angle(X, V, Q), 180°)` | `collinear(P, V, Q)`; `between(V, P, Q)`; `distinct(V, X)` | “If a straight line set up on a straight line make angles, it will make either two right angles or angles equal to two right angles.” Heath, vol. I, p. 275 |
+| Elements I.28 | `equal(angle(T1, V1, P), angle(T2, V2, Q))` ⟹ `parallel(line(V1, P), line(V2, Q))` | `distinct(V1, V2)`; `collinear(T1, V1, V2)`; `collinear(T2, V1, V2)`; `same_direction(V1, T1, V2, T2)`; `same_side(P, Q, V1, V2)` | “If a straight line falling on two straight lines make the exterior angle equal to the interior and opposite angle on the same side, or the interior angles on the same side equal to two right angles, the straight lines will be parallel to one another.” Heath, vol. I, p. 309 |
+| Elements I.29 | `parallel(line(P, Q), line(R, S))` ⟹ `equal(angle(P, Q, R), angle(Q, R, S))` | `distinct(Q, R)`; `opposite_side(P, S, Q, R)` | “A straight line falling on parallel straight lines makes the alternate angles equal to one another, the exterior angle equal to the interior and opposite angle, and the interior angles on the same side equal to two right angles.” Heath, vol. I, p. 311 |
+| Elements I.30 | `parallel(line(A, B), line(M, N)); parallel(line(C, D), line(M, N))` ⟹ `parallel(line(A, B), line(C, D))` | — | “Straight lines parallel to the same straight line are also parallel to one another.” Heath, vol. I, p. 314 |
+| Elements I.32 | `(no premise)` ⟹ `equal(angle(A, C, D), angle(C, A, B) + angle(A, B, C))` | `noncollinear(A, B, C)`; `collinear(B, C, D)`; `between(C, B, D)` | “In any triangle, if one of the sides be produced, the exterior angle is equal to the two interior and opposite angles, and the three interior angles of the triangle are equal to two right angles.” Heath, vol. I, p. 316 |
+| Elements I.33 | `parallel(line(A, B), line(C, D)); equal(distance(A, B), distance(C, D))` ⟹ `parallel(line(A, C), line(B, D)); equal(distance(A, C), distance(B, D))` | `same_direction(A, B, C, D)`; `noncollinear(A, B, C)` | “The straight lines joining equal and parallel straight lines (at the extremities which are) in the same directions (respectively) are themselves also equal and parallel.” Heath, vol. I, p. 322 |
+| Elements I.34 | `parallel(line(A, B), line(C, D)); parallel(line(A, C), line(B, D))` ⟹ `equal(distance(A, B), distance(C, D)); equal(distance(A, C), distance(B, D))` | `noncollinear(A, B, C)` | “In parallelogrammic areas the opposite sides and angles are equal to one another, and the diameter bisects the areas.” Heath, vol. I, p. 323 |
+| Elements I.47 | `perpendicular(line(X, F), line(Y, Z))` ⟹ `equal(distance(X, Y) * distance(X, Y), distance(X, F) * distance(X, F) + distance(Y, F) * distance(Y, F))` | `collinear(Y, Z, F)`; `distinct(Y, F)`; `distinct(X, F)` | “In right-angled triangles the square on the side subtending the right angle is equal to the squares on the sides containing the right angle.” Heath, vol. I, p. 349 |
+| Elements VI.6 | `equal(angle(B, A, C), angle(E, D, F)); equal(distance(A, B) / distance(A, C), distance(D, E) / distance(D, F))` ⟹ `equal(angle(A, B, C), angle(D, E, F)); equal(angle(A, C, B), angle(D, F, E))` | `noncollinear(A, B, C)`; `noncollinear(D, E, F)` | “If two triangles have one angle equal to one angle and the sides about the equal angles proportional, the triangles will be equiangular and will have those angles equal which the corresponding sides subtend.” Heath, vol. II, p. 204 |
+| lemma same ray | `parallel(line(C, X), line(M, N)); parallel(line(C, Y), line(M, N)); equal(distance(C, X), distance(C, Y))` ⟹ `coincident(X, Y)` | `same_direction(C, X, C, Y)` | rests on Elements I.30 (the two parallels through C are one line) and the uniqueness of the point cut off on a ray at a given distance (I.3) |
+| lemma same angle | `equal(angle(P, V, X), angle(P, V, Y))` ⟹ `equal(direction(V, X), direction(V, Y))` | `distinct(V, P)`; `same_side(X, Y, V, P)` | rests on the uniqueness of the angle constructed on a given side of a line at a point (Elements I.23, with Common Notion 5 as in the proof of I.7) |
+| lemma segment addition | `(no premise)` ⟹ `equal(distance(A, C), distance(A, B) + distance(B, C))` | `collinear(A, B, C)`; `between(B, A, C)` | rests on Common Notion 4 (things which coincide are equal) with the definition of a whole and its parts; the configuration is the hypothesis |
+| lemma one line | `collinear(A, B, C)` ⟹ `parallel(line(A, B), line(A, C))` | `distinct(A, B)`; `distinct(A, C)` | rests on Definition I.23 read with coincident lines counted as parallel, as the predicate `parallel` does |
+| trigonometry sine | `perpendicular(line(X, F), line(Y, Z))` ⟹ `equal(distance(X, F), distance(X, Y) * sin(angle(X, Y, F)))` | `collinear(Y, Z, F)`; `distinct(Y, F)`; `distinct(X, F)` | — |
+| trigonometry cosine | `perpendicular(line(X, F), line(Y, Z))` ⟹ `equal(distance(Y, F), distance(X, Y) * cos(angle(X, Y, F)))` | `collinear(Y, Z, F)`; `distinct(Y, F)`; `distinct(X, F)` | — |
+| trigonometry tangent | `perpendicular(line(X, F), line(Y, Z))` ⟹ `equal(tan(angle(X, Y, F)), distance(X, F) / distance(Y, F))` | `collinear(Y, Z, F)`; `distinct(Y, F)`; `distinct(X, F)` | — |
+| common notion 1 | Things which are equal to the same thing are also equal to one another. | — | Heath, vol. I, p. 155 |
+| common notion 5 | The whole is greater than the part. | — | Heath, vol. I, p. 155 |
+| construction | The proposition is read off the cited constructions: it holds for every parameter value and every state without any hypothesis. | — | — |
+| expansion | The two expressions agree to the stated order in a small ratio: their relative difference falls like that power of the ratio. | — | — |
+| cases | The claim is reached in every case, and the cases cover every configuration. | — | — |
+| algebra | The proposition follows from the cited equalities by calculation. | — | — |
+
+The rules of derivation (`spec/rules.yaml`). Lemmas are the author's and say what they rest on.
+:::
+
+## What the figure supplies {#sec-figure}
+
+Euclid's propositions take things from the figure that their enunciations do not state. I.33 speaks of "equal
+and parallel straight lines" joined "at the extremities which are in the same directions": the two lines must
+point the same way, and the four points must not lie on one line. I.32 speaks of a triangle. I.28 needs the two
+points on the same side of the transversal. In a schema these are **configuration conditions**:
+
+| condition | says |
+|---|---|
+| `distinct(P, Q)` | the points are two |
+| `collinear(P, Q, R)`, `noncollinear(P, Q, R)` | on one line; a triangle |
+| `between(C, B, D)` | C lies between B and D |
+| `same_side(P, Q, X, Y)`, `opposite_side(P, Q, X, Y)` | of the line XY |
+| `same_direction(A, B, C, D)` | the segments AB and CD point the same way |
+| `right_angle(P, V, Q)` | the angle at V is right |
+
+: Configuration conditions. {#tbl-conditions}
+
+A figure supplies them silently, for the position it shows. An argument about a model needs them in every
+position. So they are evaluated in every sampled configuration, and a state in which one fails is a
+**degenerate state** of the step: there the rule does not apply.
+
+Degenerate states are where figures mislead. The parallelogram OESC by which the two forms of Ptolemy's solar
+model are shown equivalent exists in every position of the sun but two. At the apogee and at the perigee the
+four points lie on one line (@fig-cases). The conclusion is true there as well, and the argument does not reach
+it.
+
+![One claim, three cases. Left: off the apsidal line the two suns coincide by the parallelogram OESC. Middle and
+right: at the apogee and at the perigee the four points lie on one line, and the lengths are added or
+subtracted.](figures/three-cases.png){#fig-cases width=100%}
+
+The figure of this argument in motion, drawn from the model: the mean anomaly runs through a revolution, and the
+steps of the construction can be shown one after the other.
+
+{{< famulus fr:astra/solar-fig-equal-radii-steps animation >}}
+
+The remedy is a distinction of **cases**. A case has a condition; its steps are checked only in the
+configurations that satisfy it; the cases must together cover every configuration; and each must reach the
+claim. A degenerate state that is not covered by a case is reported. An argument with cases is longer than its
+figure suggests, and that is a finding about the argument.
+
+## Hypotheses {#sec-hypotheses}
+
+A hypothesis is something the argument assumes of the parameters: that the epicycle has the radius of the
+eccentricity; that the equant lies as far above the centre as the eye lies below. It is not part of the model.
+Keeping it out of the model makes three questions answerable.
+
+**Is it needed?** The test repeats the check with the hypothesis lifted: the parameter it fixed is sampled
+freely. A proposition that then fails needs the hypothesis. For the equivalence of the two solar models, both
+hypotheses on the radii are needed. For Kepler's argument that the equant makes the planet move unequally about
+the centre of its circle, the hypothesis that the eccentricity is bisected is *not* needed: the conclusion
+holds wherever the equant point lies above the centre (@fig-kepler-arg).
+
+**Is it cited?** A step that needs a hypothesis which is not cited on the way to it rests on a **tacit
+premise**. The argument may be true throughout and still not say what it uses.
+
+**Is anything assumed that is never used?** A hypothesis that no step needs is noted. It may belong to the
+model as the author knows it and play no part in this argument.
+
+::: {#fig-kepler-arg}
+
+{{< famulus fr:astra/kepler-equant-unequal-motion argument >}}
+
+Kepler's argument about the equant (*Astronomia nova* ch. 4), reconstructed. H1 is stated by Kepler and not
+needed by any step. Step 5 is a supposition: from there on the argument is made for the position in which DCE
+is a right angle.
+:::
+
+A **supposition** differs from a hypothesis. A hypothesis restricts the parameters; a supposition restricts
+the states. Kepler's right angle is a supposition. Where a supposition stands matters: placed late, it shows
+how much of the argument holds without it. In @fig-kepler-arg the two inequalities (1 and 4) hold in every
+position; only the comparison of two arcs passed in equal times (6) needs the right angle.
+
+## Equivalence and identity {#sec-equivalence}
+
+Two texts describe the **same model** when they are the same geometry up to the names of things. Two models are
+**equivalent** when, under stated hypotheses, they agree in what is compared. The comparison has to be named:
+
+- equivalent *in position*: the bodies of the two models are at one point in every state;
+- equivalent *in direction*: they are seen from the observer in one direction; the distances may differ.
+
+The eccentric and the epicyclic form of the solar model are equivalent in position when R′ = R and r = e, and
+in direction when only R′/r = R/e. They are never the same model: in one the sun moves uniformly on a circle,
+in the other its motion is compounded of two. An equivalence is the conclusion of an argument in the
+superposition of the two models. It is never a premise, and a diagram that draws two bodies as one point has
+assumed what is to be shown.
+
+## Exact and approximate {#sec-approx}
+
+From the seventeenth century on, arguments end in approximations. Euler obtains the force that raises the
+tides exactly and then expands it in the ratio of the earth's size to the distance of the moon. A step of this
+kind is the proposition `approximately(a, b, small: ρ / a, order: n)`. It is checked by making the ratio
+small — a hundredth, a thousandth, a ten-thousandth — and requiring the relative difference of the two sides to
+fall like the n-th power of the ratio.
+
+The order is part of the proposition, and it can decide a textual question. In the second-order term of one of
+Euler's components the Opera omnia print 4xx + yy, an editorial emendation; the first edition and the manuscript
+have 4xx − yy. Stated to second order, the original reading holds and the emended one does not
+[@grasshoff2026twocases].
+
+## Quantities {#sec-quantities}
+
+Some assertions of a text are not about the model but about a model with values.
+
+To **compute** is to evaluate a quantity of the model under a parametrisation: the largest equation of centre
+under Ptolemy's values is 2;23°. The result is compared with the number the text gives, at the precision in
+which that number is written.
+
+To **determine** is the inverse: parameters are found from observations through the model. Ptolemy finds the
+eccentricity and the apogee of the sun from the lengths of two seasons. The model is inverted numerically for
+the unknown parameters, and it is reported whether the solution is the only one. This can separate what follows
+from the data from what follows from the author's rounding: Ptolemy's two parameters follow from his rounded
+arcs of mean motion, not from the day counts with exact arithmetic [@grasshoff2026deepreading].
+
+## Soundness: a vocabulary {#sec-soundness}
+
+The words matter, and they are used here as follows.
+
+- **True** and **false** are said of propositions. A step is true when its proposition is.
+- **Justified** is said of a step: its rule licenses it. The criterion of a good argument is justification.
+  The program does not "verify" Kepler; it reports which steps are justified and how.
+- An argument is **sound** when every proposition in it is true and every step is justified. An argument with
+  a false premise is unsound; its conclusion is not thereby false.
+- An argument is **conclusive** when it is sound and the conclusion rests only on what is cited.
+- **Evidence** is not **proof**. The checks evaluate propositions in sampled configurations and match rules as
+  schemas. They can show that a step is false, that it is not an instance of its rule, or that it needs a
+  hypothesis. They cannot prove a proposition for all configurations.
+
+Four levels follow, each presupposing the one before: *grounded* (every premise resolves), *true*,
+*justified*, *conclusive*.
+
+## The display {#sec-display}
+
+A reconstructed argument is read by people. The format `astra-argument/1` fixes a reading order and three
+depths.
+
+The **order**: the model (every object with its construction and its astronomical meaning); what is given; the
+argument; the conclusion; what the checks say.
+
+The **argument** is a numbered outline. Sub-arguments and cases are indented. A row has four places: the
+number, the claim as a sentence, the rule at the right margin, and a mark for the kind of licence (✓ an instance
+of the rule, ◦ read off the construction, ≈ calculation or expansion, ? true but not justified, ✗ false). Below
+the claim stand the proposition in the notation of the figure ("OE ∥ CS") and the premises as references to
+other rows.
+
+The three **depths**: *overview* shows the top-level sub-arguments and the conclusion; *steps* shows every step
+with its claim, notation, premises and rule; *full* adds the formal proposition, the binding of the rule's
+variables, what the rule takes from the figure, the degenerate states, and the wording of the proposition with
+its place in Heath.
+
+The same document is rendered three ways: as the interactive element `<astra-argument>`, in which every block
+opens and closes and a selected step is shown in the figure; as the printed outline of @fig-overview and
+@fig-kepler-arg; and as plain text.
+
+## A procedure {#sec-procedure}
+
+1. **Fix the passage.** An edition with addressable paragraphs; the quotations checked against the
+   transcription.
+2. **Write the model.** Every object of the figure with a construction and a meaning; lengths and angles as
+   symbols; what varies; whose model it is.
+3. **Separate hypotheses from geometry.** What the author assumes of the lengths is a hypothesis.
+4. **Write the steps.** One proposition per step, in the author's order, with the author's words as the gloss;
+   for every "therefore" the premises and the rule. Suppositions where the author fixes a position, placed
+   where they are first needed. Sub-arguments where a paragraph proves one thing.
+5. **Run the checks.** Grounded, true, justified, conclusive.
+6. **Read the report as a finding about the text.** Which steps are instances of propositions; which are read
+   off the figure; which hypotheses are needed; which positions are not covered; which numbers follow.
+
+@lst-model and @lst-derivation show the result for Kepler's argument.
+
+::: {#lst-model}
+
+```
+model kepler-equant "The equant model of the first inequality"
+attributed "Ptolemy"
+witness fr:kepler-prim/kgw-03/0071/p04 "the construction, Astronomia nova ch. 4"
+witness fr:kepler-prim/kgw-03/0071/fig01 "the figure"
+author "Gerd Graßhoff"
+tradition ptolemaic
+frame geocentric
+param R  : length "radius of the eccentric circle about B"  in (10, 1000)
+param e  : length "eccentricity BA: the distance of the eye from the centre"  in
+      (0, R / 3)
+param q  : length "the distance BC of the equant point from the centre"  in (0, R
+      / 3)
+param lamD  : angle  "direction of the apogee"
+param T  : time  "period of the planet about the equant point"  in (100, 20000)
+param theta_0 : angle  "the angle at the equant point at t = 0"
+display lamD "λ_D"
+display theta_0 "θ_0"
+variable theta : angle "the angle DCE at the equant point, counted from the
+      apogee"
+law theta = uniform(period: T, epoch: theta_0) "about C the planet completes equal
+      angles in equal times"
+display theta "θ"
+A  = observer  "the eye"
+B  = A + polar(e, lamD)  "centre of the eccentric"
+C  = B + polar(q, lamD)  "the equant point"
+orb = circle(B, R)  "the eccentric, the circle the planet traverses"
+D  = B + polar(R, lamD)  "apogee"
+F  = B - polar(R, lamD)  "perigee"
+E  = seen_from(C, orb, lamD + theta)  "the planet: where the line from C at the
+      angle θ meets the circle"
+body planet at E
+observe lam  = direction(A, E)  "longitude of the planet as seen from A"
+observe atC  = angle(D, C, E)  "the angle DCE at the equant point"
+observe atB  = angle(D, B, E)  "the angle DBE at the centre: the arc DE the planet
+      has traversed"
+display lam "λ"
+proposition p1: on(E, orb)  "the planet is on the circle about B"
+proposition p2: collinear(F, A, D)  "the apsidal line passes through the eye"
+```
+
+The model of Kepler's chapter 4 as a text.
+:::
+
+::: {#lst-derivation}
+
+```
+derivation kepler-equant-unequal-motion in kepler-equant "About the centre of its
+      circle the planet moves unequally: the arc DE is less than the arc EF, and
+      both are passed in equal times"
+witness fr:kepler-prim/kgw-03/0071/p05 "Astronomia nova ch. 4"
+witness fr:kepler-sec/Kepler1992/0147/p02 "Donahue's translation"
+author "Gerd Graßhoff"
+given h1: equal(q, e) "the equant point lies as far above the centre as the eye
+      lies below it: BC = BA"
+show lag: less(angle(D, B, E), angle(D, C, E)) "the angle DBE at the centre is
+      less than the angle DCE at the equant point"
+  derive k1: equal(angle(E, C, D), angle(C, E, B) + angle(E, B, C)) by Elements
+        I.32 "DCE is the exterior angle of the triangle CBE, equal to the interior
+        angles CBE and CEB"
+  derive k2: less(angle(E, B, C), angle(E, C, D)) from k1 by common notion 5 "the
+        part CEB taken away, the remainder CBE is less than DCE"
+  derive k3: equal(angle(E, B, C), angle(D, B, E)) from def C, def D, def E by
+        construction "CBE or DBE: C and D lie from B on one ray"
+  derive k4: less(angle(D, B, E), angle(D, C, E)) from k2, k3 by common notion 1
+qed from k4
+derive k5: equal(angle(D, B, E) + angle(E, B, F), 180°) by Elements I.13 "BE
+      stands on the apsidal line at B: DBE and EBF make two right angles"
+derive k6: equal(angle(D, C, E) + angle(E, C, F), 180°) by Elements I.13 "CE
+      stands on the apsidal line at C: DCE and ECF make two right angles"
+show lead: less(angle(E, C, F), angle(E, B, F)) "so the angle FBE is greater than
+      the angle FCE"
+  derive k7: less(angle(E, C, F), angle(E, B, F)) from lag, k5, k6 by algebra
+qed from k7
+suppose quadrant: right_angle(D, C, E) "let DCE be a right angle, and so ECF: two
+      quarters of the period"
+show unequal: less(angle(D, B, E), angle(E, B, F)) "the arc DE, which measures the
+      angle DBE, is less than the arc EF, which measures the angle EBF"
+  derive k8: equal(angle(D, C, E), angle(E, C, F)) from quadrant, k6 by algebra
+        "the angles at C are equal: they are made in equal times"
+  derive k9: less(angle(D, B, E), angle(E, B, F)) from lag, lead, k8 by algebra
+        "DBE < DCE = ECF < EBF"
+qed from k9
+conclude less(angle(D, B, E), angle(E, B, F)) from unequal "in equal times the
+      planet passes the lesser arc DE and the greater arc EF: the orb is now slow,
+      now fast"
+```
+
+Kepler's argument as a text. @fig-kepler-arg is printed from it.
+:::
+
+## What is missing {#sec-missing}
+
+The table of rules holds what three reconstructions needed. Astronomy needs more, and some of it is not yet
+within reach.
+
+- *Plane geometry.* Further propositions of Books I, III and VI — the angle at the centre and at the
+  circumference (III.20), the angle in a semicircle (III.31), triangles cut by a parallel (VI.2) — enter when a
+  reconstruction needs them and their wording has been compared.
+- *Chords.* Ptolemy computes with a table of chords. The model can be inverted exactly; Ptolemy's own steps
+  cannot be followed until the *Almagest* is available in addressable form.
+- *The sphere.* Latitude, rising times and eclipses need spherical geometry and the theorem of Menelaus. The
+  present models are planar.
+- *Proof.* The checks give evidence. A symbolic check of the steps marked "calculation" and "read off the
+  construction" would close the distance to a proof for the cases that are exact.
+- *Hypotheses.* A hypothesis has to fix a parameter. Inequalities between parameters are expressed by
+  admissible ranges, not as hypotheses.
+
+## Conclusion
+
+A geometrical argument about an astronomical model can be taken apart into what it is about, what it says and
+what it does, and each part can be written so that it can be checked. The decisive distinctions are few: the
+model against its values and its states; a proposition against the claim that it follows; a hypothesis against
+a supposition; what a proposition says against what it takes from the figure; equivalence against identity;
+truth against justification. With them, three texts from three centuries yielded findings of the same kind:
+what the argument uses, how far it reaches, and where the figure does not show what the argument needs.
+
+## Availability {.unnumbered}
+
+The language specification, the rule table (`spec/rules.yaml`), the texts of the three cases and the element
+`<astra-argument>` are in the Famulus workspace `famulus-astronomica`. The page version of this issue contains
+the interactive form of @fig-overview and @fig-kepler-arg. Heath's Euclid is cited by the scan pages of the
+Famulus collection `assyrischeSammlung`.

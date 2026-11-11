@@ -1,0 +1,547 @@
+{
+ "expertise": {
+  "schema": "famulus-expertise/1",
+  "subject": {
+   "question": "What is needed to reconstruct the geometrical arguments of astronomical texts about models and to check them?",
+   "sources": [
+    {
+     "ref": "fr:kepler-prim/kgw-03/0071/p05",
+     "role": "object",
+     "note": "Astronomia nova ch. 4: Kepler's argument about the equant; named as witness of the derivation"
+    },
+    {
+     "ref": "fr:kepler-prim/kgw-03/0071/p04",
+     "role": "object",
+     "note": "Astronomia nova ch. 4: the construction; named as witness of the model"
+    },
+    {
+     "ref": "fr:kepler-prim/kgw-03/0071/fig01",
+     "role": "object",
+     "note": "Astronomia nova ch. 4: the figure; named as witness of the model"
+    },
+    {
+     "ref": "fr:kepler-sec/Kepler1992/0147/p02",
+     "role": "witness",
+     "note": "Donahue's translation; named as witness of the derivation"
+    }
+   ],
+   "work": "Three cases: Ptolemy's solar model in Swerdlow's exposition, Kepler on the equant (Astronomia nova ch. 4), and Euler on the tides",
+   "method": "The notions are set out in the order of three questions: what an argument is about, what it says, and by what right it moves from one statement to the next. Every notion is shown on one of the three cases.",
+   "limits": [
+    "The table of rules holds what three reconstructions needed; further propositions of Books I, III and VI enter when a reconstruction needs them and their wording has been compared.",
+    "Ptolemy's own steps with a table of chords cannot be followed until the Almagest is available in addressable form.",
+    "The present models are planar; latitude, rising times and eclipses need spherical geometry.",
+    "The checks give evidence, not proof; a symbolic check of the steps marked 'calculation' and 'read off the construction' is missing.",
+    "A hypothesis has to fix a parameter; inequalities between parameters are expressed by admissible ranges, not as hypotheses."
+   ]
+  },
+  "claims": [
+   {
+    "id": "C1",
+    "text": "A geometrical argument is about the model, not about a configuration; it therefore has to be checked over the parameter space and the states, and a figure, which is one configuration, can mislead.",
+    "section": "sec-about",
+    "status": "gap",
+    "gap": "A notion of the framework; the issue gives no address beside it."
+   },
+   {
+    "id": "C2",
+    "text": "Five kinds of licence occur for a step: an instance of a rule, an equality by Common Notion 1, a fact read off the construction, a calculation, an expansion; a step that is true and has none of these is true, not justified.",
+    "section": "sec-rules",
+    "status": "gap",
+    "gap": "The rule table is spec/rules.yaml, for which the issue gives no fr: address."
+   },
+   {
+    "id": "C3",
+    "text": "The parallelogram OESC by which the two forms of Ptolemy's solar model are shown equivalent exists in every position of the sun but two: at the apogee and at the perigee the four points lie on one line; the conclusion is true there as well, and the argument does not reach it.",
+    "section": "sec-figure",
+    "status": "grounded",
+    "grounds": [
+     "fr:astra/solar-fig-equal-radii-steps",
+     "fr:astra/solar-equivalence-equal-radii"
+    ]
+   },
+   {
+    "id": "C4",
+    "text": "For Kepler's argument that the equant makes the planet move unequally about the centre of its circle, the hypothesis that the eccentricity is bisected is not needed: the conclusion holds wherever the equant point lies above the centre.",
+    "section": "sec-hypotheses",
+    "status": "grounded",
+    "grounds": [
+     "fr:astra/kepler-equant-unequal-motion"
+    ]
+   },
+   {
+    "id": "C5",
+    "text": "A hypothesis restricts the parameters, a supposition restricts the states; in Kepler's argument the two inequalities hold in every position, and only the comparison of two arcs passed in equal times needs the right angle.",
+    "section": "sec-hypotheses",
+    "status": "grounded",
+    "grounds": [
+     "fr:astra/kepler-equant-unequal-motion"
+    ]
+   },
+   {
+    "id": "C6",
+    "text": "An argument is sound when every proposition in it is true and every step is justified; an argument with a false premise is unsound, and its conclusion is not thereby false.",
+    "section": "sec-soundness",
+    "status": "gap",
+    "gap": "A definition of the vocabulary; the issue gives no address beside it."
+   },
+   {
+    "id": "C7",
+    "text": "The checks evaluate propositions in sampled configurations and match rules as schemas; they can show that a step is false, that it is not an instance of its rule, or that it needs a hypothesis, and they cannot prove a proposition for all configurations.",
+    "section": "sec-soundness",
+    "status": "gap",
+    "gap": "A statement about the reach of the checks; the issue gives no address beside it."
+   }
+  ],
+  "agent": {
+   "summary": "Fundamentals of the series: the notions needed to reconstruct geometrical arguments about astronomical models and to check them. It separates what an argument is about (model, parametrisation, state), what it says (propositions) and what it does (operations), and states what licenses a step, what a figure supplies, hypotheses and suppositions, equivalence and identity, and a vocabulary of soundness. The notions are implemented in astra/1 and shown on three cases: Ptolemy's solar model in Swerdlow's exposition, Kepler on the equant, Euler on the tides. The checks give evidence, not proof.",
+   "read_first": [
+    "sec-intro",
+    "sec-about",
+    "sec-propositions",
+    "sec-operations",
+    "sec-rules",
+    "sec-figure",
+    "sec-hypotheses",
+    "sec-soundness",
+    "sec-procedure",
+    "sec-missing"
+   ],
+   "answers": [
+    "What is the difference between a model, a parametrisation, a state and a configuration?",
+    "What licenses a step of a geometrical argument, and how is each kind of licence tested?",
+    "What does a figure supply that the enunciation of a proposition of Euclid does not state?",
+    "How is it found out whether an argument needs a hypothesis, and whether it uses one tacitly?",
+    "When are two models equivalent, and how does equivalence differ from identity?",
+    "What do true, justified, sound and conclusive mean?",
+    "By what procedure is a geometrical passage reconstructed?"
+   ],
+   "terms": [
+    {
+     "term": "model",
+     "meaning": "the pure geometry: points, lines and circles, each constructed from what precedes it, parameters as symbols, and kinematic variables; it has no values"
+    },
+    {
+     "term": "parametrisation",
+     "meaning": "gives the parameters values, each with the place where it stands in a source, and says whose values they are"
+    },
+    {
+     "term": "state; configuration",
+     "meaning": "a state is a value of the kinematic variable; a model under a parametrisation in a state is a configuration"
+    },
+    {
+     "term": "attributed, witness, author",
+     "meaning": "whose model it is; the text whose use of the model is analysed; who wrote the description"
+    },
+    {
+     "term": "superposition",
+     "meaning": "several models in one plane with their inputs identified; it adds no geometry and asserts nothing across its members"
+    },
+    {
+     "term": "proposition",
+     "meaning": "what an argument consists of; only propositions are true or false; a proposition is true of the model when it holds in every configuration"
+    },
+    {
+     "term": "hypothesis; supposition",
+     "meaning": "a hypothesis is something the argument assumes of the parameters and is not part of the model; a supposition restricts the states"
+    },
+    {
+     "term": "tacit premise",
+     "meaning": "a hypothesis that a step needs and that is not cited on the way to it"
+    },
+    {
+     "term": "degenerate state",
+     "meaning": "a state in which a configuration condition of a step's rule fails: there the rule does not apply"
+    },
+    {
+     "term": "justified",
+     "meaning": "said of a step: its rule licenses it"
+    },
+    {
+     "term": "sound; conclusive",
+     "meaning": "an argument is sound when every proposition in it is true and every step is justified; conclusive when it is sound and the conclusion rests only on what is cited"
+    },
+    {
+     "term": "equivalent in position; in direction",
+     "meaning": "the bodies of the two models are at one point in every state; they are seen from the observer in one direction, and the distances may differ"
+    }
+   ],
+   "do_not": [
+    "Do not say that the program 'verifies' an author: it reports which steps are justified and how.",
+    "Do not treat the result of the checks as proof: they evaluate sampled configurations and match rules as schemas.",
+    "Do not infer from a false premise that the conclusion is false: the argument is unsound, its conclusion is not thereby false.",
+    "Do not treat an equivalence as a premise or as identity: it is the conclusion of an argument in the superposition, and equivalent models are never the same model.",
+    "Do not attribute the named rules to the historical authors: none of the three is named in Kepler's sentence; a reader supplies them.",
+    "Do not cite the lemmas of the rule table as Euclid's: they are the author's and say what they rest on.",
+    "Do not confuse an exposition with an authorship: the witness is not the one to whom the model is attributed."
+   ],
+   "cite": "Graßhoff, Gerd. Geometrical Reasoning in the History of Astronomy: Fundamentals: Models, Propositions, Steps, Rules, and What the Figure Supplies. Famulus Expertise Astra, No. 1 (whole no. 4). Duisburg: OpenScienceTechnology, 2026. Version 1.0. https://famulus.lettre.ai/astra/lettre/1/",
+   "bibtex": "@article{grasshoff2026expertise-astra-1,\n  author = {Graßhoff, Gerd},\n  title = {{Geometrical Reasoning in the History of Astronomy: Fundamentals: Models, Propositions, Steps, Rules, and What the Figure Supplies}},\n  journal = {Famulus Expertise Astra},\n  number = {1},\n  year = {2026},\n  date = {2026-11-10},\n  version = {1.0},\n  publisher = {OpenScienceTechnology},\n  address = {Duisburg},\n  url = {https://famulus.lettre.ai/astra/lettre/1/},\n  note = {Version 1.0. Famulus Expertise, whole no. 4},\n  langid = {english}\n}",
+   "cite_section": "Graßhoff 2026, Famulus Expertise Astra 1, version 1.0, § 8 (“Equivalence and identity”), https://famulus.lettre.ai/astra/lettre/1/#sec-equivalence",
+   "sections": [
+    {
+     "number": "1",
+     "title": "What is to be reconstructed",
+     "id": "sec-intro"
+    },
+    {
+     "number": "2",
+     "title": "What an argument is about",
+     "id": "sec-about"
+    },
+    {
+     "number": "2.1",
+     "title": "Model, values, state",
+     "id": ""
+    },
+    {
+     "number": "2.2",
+     "title": "Three roles",
+     "id": ""
+    },
+    {
+     "number": "2.3",
+     "title": "Several models at once",
+     "id": ""
+    },
+    {
+     "number": "3",
+     "title": "What an argument says",
+     "id": "sec-propositions"
+    },
+    {
+     "number": "4",
+     "title": "What an argument does",
+     "id": "sec-operations"
+    },
+    {
+     "number": "5",
+     "title": "What licenses a step",
+     "id": "sec-rules"
+    },
+    {
+     "number": "6",
+     "title": "What the figure supplies",
+     "id": "sec-figure"
+    },
+    {
+     "number": "7",
+     "title": "Hypotheses",
+     "id": "sec-hypotheses"
+    },
+    {
+     "number": "8",
+     "title": "Equivalence and identity",
+     "id": "sec-equivalence"
+    },
+    {
+     "number": "9",
+     "title": "Exact and approximate",
+     "id": "sec-approx"
+    },
+    {
+     "number": "10",
+     "title": "Quantities",
+     "id": "sec-quantities"
+    },
+    {
+     "number": "11",
+     "title": "Soundness: a vocabulary",
+     "id": "sec-soundness"
+    },
+    {
+     "number": "12",
+     "title": "The display",
+     "id": "sec-display"
+    },
+    {
+     "number": "13",
+     "title": "A procedure",
+     "id": "sec-procedure"
+    },
+    {
+     "number": "14",
+     "title": "What is missing",
+     "id": "sec-missing"
+    },
+    {
+     "number": "15",
+     "title": "Conclusion",
+     "id": ""
+    }
+   ],
+   "use": {
+    "licence": "CC BY-NC-ND 4.0",
+    "may": [
+     "read",
+     "quote with the citation",
+     "copy and pass on unchanged for non-commercial purposes with author and source named"
+    ],
+    "may_not": [
+     "publish an adapted or translated version",
+     "use commercially",
+     "present reproductions from the cited sources as covered by this licence"
+    ]
+   },
+   "entry_points": {
+    "mcp": "famulus-expertise",
+    "tools": [
+     "fx_about",
+     "fx_series",
+     "fx_issues",
+     "fx_issue",
+     "fx_text",
+     "fx_search",
+     "fx_claims",
+     "fx_references",
+     "fx_about_source",
+     "fx_cite",
+     "fx_gates"
+    ],
+    "resource": "expertise://astra/1"
+   }
+  },
+  "review": {
+   "drafted_by": "Claude (AI assistant), 11 Nov 2026",
+   "confirmed_by": null,
+   "confirmed_on": null
+  },
+  "identity": {
+   "series": "Famulus Expertise",
+   "subseries": "Famulus Expertise Astra",
+   "edition": "astra",
+   "number": 1,
+   "whole_number": 4,
+   "id": "geometrical-reasoning-fundamentals",
+   "ref": "fr:expertise/astra/1",
+   "url": "https://famulus.lettre.ai/astra/lettre/1/",
+   "pdf": "https://famulus.lettre.ai/astra/lettre/1/geometrical-reasoning-fundamentals.pdf",
+   "source": "https://famulus.lettre.ai/astra/lettre/1/heft.fam",
+   "preamble": "https://famulus.lettre.ai/astra/lettre/1/heft.json",
+   "issn": null,
+   "doi": null,
+   "version": "1.0",
+   "date": "2026-11-10",
+   "status": "published",
+   "revisions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-10",
+     "note": "First publication."
+    }
+   ],
+   "language": "en",
+   "licence": {
+    "name": "CC BY-NC-ND 4.0",
+    "long": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International",
+    "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+   },
+   "collections": []
+  },
+  "responsibility": {
+   "authors": [
+    {
+     "name": "Gerd Graßhoff",
+     "orcid": "0000-0002-4450-357X",
+     "affiliations": [
+      {
+       "name": "Humboldt-Universität zu Berlin",
+       "department": "Philosophisches Institut",
+       "city": "Berlin",
+       "country": "Germany"
+      },
+      {
+       "name": "Deutsches Museum",
+       "department": "Forschungsinstitut",
+       "city": "München",
+       "country": "Germany"
+      }
+     ]
+    }
+   ],
+   "editor": "Gerd Graßhoff",
+   "publisher": {
+    "name": "OpenScienceTechnology GmbH",
+    "place": "Duisburg"
+   },
+   "ai_contribution": null
+  },
+  "evidence": {
+   "references": [
+    {
+     "ref": "fr:astra/kepler-equant-unequal-motion",
+     "roles": [
+      "ground",
+      "segment"
+     ],
+     "count": 1
+    },
+    {
+     "ref": "fr:astra/solar-equivalence-equal-radii",
+     "roles": [
+      "ground",
+      "segment"
+     ],
+     "count": 1
+    },
+    {
+     "ref": "fr:astra/solar-fig-equal-radii-steps",
+     "roles": [
+      "ground",
+      "segment"
+     ],
+     "count": 1
+    },
+    {
+     "ref": "fr:kepler-prim/kgw-03/0071/fig01",
+     "roles": [
+      "inline",
+      "subject"
+     ],
+     "count": 1
+    },
+    {
+     "ref": "fr:kepler-prim/kgw-03/0071/p04",
+     "roles": [
+      "inline",
+      "subject"
+     ],
+     "count": 1
+    },
+    {
+     "ref": "fr:kepler-prim/kgw-03/0071/p05",
+     "roles": [
+      "inline",
+      "subject"
+     ],
+     "count": 1
+    },
+    {
+     "ref": "fr:kepler-sec/Kepler1992/0147/p02",
+     "roles": [
+      "inline",
+      "subject"
+     ],
+     "count": 1
+    }
+   ],
+   "citations": [
+    "grasshoff2026astra",
+    "grasshoff2026deepreading",
+    "grasshoff2026kepler",
+    "grasshoff2026twocases",
+    "heath1908",
+    "keplerKGW3"
+   ],
+   "figures": [
+    {
+     "file": "figures/kinds.svg",
+     "id": "fig-kinds"
+    },
+    {
+     "file": "figures/three-cases.png",
+     "id": "fig-cases"
+    }
+   ]
+  },
+  "quality": {
+   "catalogue": "2026-11-11.1",
+   "run": "2026-11-11T10:50:45",
+   "verdict": "inventory",
+   "counts": {
+    "erfuellt": 11,
+    "luecke": 5,
+    "verletzt": 4,
+    "nicht_anwendbar": 1
+   },
+   "results": {
+    "erfuellt": "fulfilled",
+    "verletzt": "violated",
+    "luecke": "gap",
+    "offen_modell": "awaiting a judgement",
+    "teilgeprueft": "partly tested",
+    "fehler": "error",
+    "nicht_anwendbar": "not applicable"
+   },
+   "open": [
+    {
+     "gate": "heft.praeambel.bestaetigung.01",
+     "result": "luecke",
+     "blocking": true,
+     "title": "The author has confirmed the preamble",
+     "findings": 1
+    },
+    {
+     "gate": "heft.praeambel.ki_erklaerung.01",
+     "result": "luecke",
+     "blocking": true,
+     "title": "The contribution of AI systems to the issue is declared",
+     "findings": 1
+    },
+    {
+     "gate": "referenz.abdeckung.quellenaussage.01",
+     "result": "verletzt",
+     "blocking": true,
+     "title": "Every statement about a source carries a reference",
+     "findings": 18
+    },
+    {
+     "gate": "zitat.wortlaut.fundstelle.01",
+     "result": "luecke",
+     "blocking": true,
+     "title": "A typed wording stands at the place named",
+     "findings": 19
+    },
+    {
+     "gate": "validitaet.sachlich.aussagen.01",
+     "result": "luecke",
+     "blocking": true,
+     "title": "The factual statements of the issue are justified (sachliche Validität)",
+     "findings": 1
+    },
+    {
+     "gate": "sprache.nononsense.einschuebe.01",
+     "result": "verletzt",
+     "blocking": true,
+     "title": "No evaluative, intensifying or meta-linguistic insertions",
+     "findings": 6
+    },
+    {
+     "gate": "sprache.schreibregeln.leitfaden.01",
+     "result": "verletzt",
+     "blocking": true,
+     "title": "The text fulfils the blocking rules of the Famulus writing guide",
+     "findings": 1
+    },
+    {
+     "gate": "sprache.termini.fest.01",
+     "result": "verletzt",
+     "blocking": true,
+     "title": "The fixed terminology of the house is kept",
+     "findings": 7
+    },
+    {
+     "gate": "apparat.bibliographie.schluessel.01",
+     "result": "luecke",
+     "blocking": true,
+     "title": "Every citation key resolves, every entry is complete",
+     "findings": 5
+    }
+   ]
+  },
+  "counting": {
+   "vgwort": "assigned"
+  }
+ },
+ "title": "Geometrical Reasoning in the History of Astronomy",
+ "subtitle": "Fundamentals: Models, Propositions, Steps, Rules, and What the Figure Supplies",
+ "abstract": "Astronomical texts from Ptolemy to Euler argue geometrically about models: a figure, a few sentences, and inferences marked by little more than \"therefore\". This paper gathers what is needed to reconstruct such arguments and to check them. It distinguishes what an argument is about (a model, as pure geometry; values for its parameters; a state) from what it says (propositions) and what it does (operations: to suppose, to construct, to derive, to distinguish cases, to compute, to conclude). It says what licenses a step: an instance of a named proposition, an equality by a Common Notion, a fact read off a construction, a calculation, an expansion in a small ratio. It treats what a figure supplies without saying so — that points are distinct, lie on one side of a line, form a triangle — and what follows when the figure degenerates: cases. It treats hypotheses, how to find out whether an argument needs them, and how to detect one used tacitly; equivalence and identity of models; exact and approximate steps; quantities computed from a model and parameters determined from observations. It fixes a vocabulary for soundness, gives a format in which a reconstructed argument can be read at three depths, a procedure in six steps, and a table of rules with Euclid's wording and its place. Every notion is shown on one of three cases: Ptolemy's solar model in Swerdlow's exposition, Kepler on the equant, and Euler on the tides.",
+ "keywords": [
+  "history of astronomy",
+  "geometrical reasoning",
+  "argument reconstruction",
+  "Euclid",
+  "models",
+  "justification"
+ ]
+}

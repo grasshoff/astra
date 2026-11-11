@@ -1,0 +1,1904 @@
+---
+title: astra/1
+subtitle: A Language for Historical Astronomical Models and the Geometrical Reasoning about Them
+running-title: astra/1 — models and derivations
+author:
+- name: Gerd Graßhoff
+  email: gerd.grasshoff@hu-berlin.de
+  orcid: 0000-0002-4450-357X
+  affiliations:
+  - name: Humboldt-Universität zu Berlin
+    department: Philosophisches Institut
+    city: Berlin
+    country: Germany
+  - name: Deutsches Museum
+    department: Forschungsinstitut
+    city: München
+    country: Germany
+date: '2026-11-10'
+lang: en
+bibliography: bibliography.bib
+abstract: 'A historical astronomical model is a geometrical construction with a kinematic variable. Texts about
+  such
+
+  models do four things at once: they describe a geometry, give it numbers, show it in one position, and reason
+
+  about it. We present astra/1, a small language that writes each of the four as a text of its own kind. A
+
+  *model* is the pure geometry: parameter symbols, a kinematic variable, a construction without coordinates,
+
+  observables; it holds no values. A *parametrisation* gives the parameters values, each with the page it comes
+
+  from; one model has many. A *state* is a value of the kinematic variable; model, parametrisation and state
+
+  together give a configuration. A *superposition* places several models in one plane and identifies their
+
+  inputs. A *derivation* is the operation that follows construction: hypotheses, auxiliary constructions,
+
+  propositions derived from named premises by named rules, quantities computed or determined, a conclusion. Four
+
+  questions are asked of a derivation: whether it is grounded, whether every proposition is true, whether every
+
+  step is an instance of the rule it names with its configuration conditions holding, and whether the conclusion
+
+  rests on what is cited. Every text names three roles that must not be confused: whose model it is, which text''s
+
+  use of it is analysed, and who wrote the description. We describe Ptolemy''s solar model, in its eccentric and
+
+  its epicyclic form, as Noel Swerdlow uses it in *The Renaissance of Astronomy* (2026). The diagram that shows
+
+  both forms is a superposition, and their equivalence is the conclusion of a derivation under hypotheses on the
+
+  radii: equivalence in position when the radii are equal, by Elements I.28 and I.33, and in direction when they
+
+  are proportional, by VI.6 and I.29. The parallelogram argument does not apply at the apsides, where the
+
+  parallelogram collapses; the derivation therefore argues by three cases. Ptolemy''s reported eccentricity
+
+  and apogee follow from his rounded arcs of mean motion, not from the day counts of the seasons.
+
+  '
+keywords:
+- history of astronomy
+- Ptolemy's solar model
+- geometrical reasoning
+- domain-specific language
+- model equivalence
+- scholarly reference objects
+license: CC BY-NC-ND 4.0
+expertise:
+  schema: famulus-expertise/1
+  subject:
+    question: How can a historical astronomical model be written so that its geometry, its values, its position
+      and the reasoning about it stay apart and each can be checked?
+    sources:
+    - ref: fr:kepler-sec/Swerdlow2026/0049/p04
+      role: witness
+      note: the construction and the parallelogram OESC, p. 19
+    - ref: fr:kepler-sec/Swerdlow2026/0050/p03
+      role: witness
+      note: longitudes, anomalies and the equation, p. 20
+    - ref: fr:kepler-sec/Swerdlow2026/0050/fig01
+      role: witness
+      note: Fig. 1.2
+    - ref: fr:kepler-sec/Swerdlow2026/0051/fig01
+      role: witness
+      note: Fig. 1.3
+    - ref: fr:kepler-sec/Swerdlow2026/0051/fig02
+      role: witness
+      note: Fig. 1.4
+    - ref: fr:kepler-sec/Swerdlow2026/0052/p03
+      role: witness
+      note: the formula of the equation of centre, p. 22
+    - ref: fr:kepler-sec/Swerdlow2026/0052/p05
+      role: witness
+      note: Ptolemy's values and the maximum equation, p. 22
+    - ref: fr:kepler-sec/Swerdlow2026/0052/p06
+      role: witness
+      note: al-Battānī's values, p. 22
+    - ref: fr:kepler-sec/Swerdlow2026/0047/p03
+      role: witness
+      note: source of the year T = 365;14,48
+    work: Ptolemy's solar model, in its eccentric and its epicyclic form, as Noel Swerdlow uses it in The Renaissance
+      of Astronomy (2026), chapter 1
+    edition: Famulus collection kepler-sec, document Swerdlow2026 (scan page n is printed page n − 30 in chapter
+      1)
+    method: The language astra/1 writes a model, its parametrisations, a superposition, figures and derivations
+      as texts of their own kinds, each with its own check. The case study writes eighteen such texts from Swerdlow's
+      pages on Ptolemy's solar model and reports what the checks found.
+    limits:
+    - 'A derivation that passes the four checks is not a formal proof in an axiomatic system: truth is tested on
+      samples, rules are matched as schemas, configuration conditions are evaluated numerically.'
+    - Cases have to be found by the author of a derivation; the checks do not propose the distinction.
+    - Hypotheses have to fix a parameter; inequalities between parameters and hypotheses of incidence are not supported.
+    - The grades 'read off the construction' and 'calculation' are tested numerically and not replayed symbolically;
+      an expansion is tested at three sizes of the small ratio.
+    - The language is planar; motions taken from tables are not implemented; only the solar model is written.
+    - The level 'attested' checks that a source is named, not that it says what the parametrisation says.
+    - The Almagest is not among the addressable texts; the attribution to Ptolemy and the loci in the Almagest are
+      as Swerdlow's page gives them.
+    - The propositions of Euclid are cited by the page of Heath's translation, not by paragraph.
+    - The code is not yet public.
+  claims:
+  - id: C1
+    text: A model is the pure geometry and holds no values; a parametrisation gives the parameters values, each
+      with a source or a stated gap, and one model has many.
+    section: sec-language
+    status: grounded
+    grounds:
+    - fr:astra/solar-eccentric
+    - fr:astra/solar-eccentric.ptolemy
+    - fr:kepler-sec/Swerdlow2026/0052/p05
+    - fr:kepler-sec/Swerdlow2026/0052/p06
+  - id: C2
+    text: 'The diagram that shows both forms of Ptolemy''s solar model is a superposition, and their equivalence
+      is the conclusion of a derivation in it under hypotheses on the radii: in position when R′ = R and r = e,
+      in direction when R′/r = R/e.'
+    section: sec-super
+    status: grounded
+    grounds:
+    - fr:kepler-sec/Swerdlow2026/0050/fig01
+    - fr:kepler-sec/Swerdlow2026/0051/fig01
+  - id: C3
+    text: 'The parallelogram argument by Elements I.28 and I.33 does not apply at the apsides, κ̄ = 0° and κ̄ =
+      180°, where the points O, E, S and C lie on the apsidal line; the derivation therefore argues by three cases:
+      off the apsidal line, at the apogee, at the perigee.'
+    section: sec-deriv
+    status: grounded
+    grounds:
+    - fr:astra/solar-equivalence-equal-radii
+    - fr:kepler-sec/Swerdlow2026/0049/p04
+    - fr:kepler-sec/Swerdlow2026/0050/fig01
+  - id: C4
+    text: 'Four questions are asked of a derivation, each presupposing the one before: whether it is grounded, whether
+      every proposition is true, whether every step is justified by the rule it names, and whether it is conclusive.'
+    section: sec-four
+    status: gap
+    gap: 'A definition of the language; the specification (spec/astra-1.md) has no fr: address in the issue.'
+  - id: C5
+    text: The largest equation of centre under Ptolemy's values is 2;23°, as printed; under al-Battānī's values
+      it is 1;59,9°, and the page reports 1;59,10°.
+    section: sec-deriv
+    status: grounded
+    grounds:
+    - fr:kepler-sec/Swerdlow2026/0052/p05
+    - fr:kepler-sec/Swerdlow2026/0052/p06
+  - id: C6
+    text: Ptolemy's reported eccentricity and apogee, 2;29,30 and 65;30°, follow from his rounded arcs of mean motion,
+      to within what a computation with a table of chords loses, and not from the day counts of the seasons.
+    section: sec-deriv
+    status: gap
+    gap: 'The issue names the printed page (p. 22) beside the determination but no fr: address; Ptolemy''s steps
+      are not on the page, and Almagest III 4 is not available in addressable form.'
+  - id: C7
+    text: Every astra text and every part of it has an address beginning with fr:, down to a value with its source
+      and a step of a derivation.
+    section: sec-references
+    status: grounded
+    grounds:
+    - fr:astra/solar-eccentric
+    - fr:astra/solar-eccentric.ptolemy/e
+    - fr:astra/solar-eccentric-epicyclic/Epi.C
+    - fr:astra/solar-equivalence-equal-radii/d6
+  agent:
+    summary: 'Description of astra/1, a language that writes a historical astronomical model as texts of separate
+      kinds: model (geometry without values), parametrisation (values with sources), superposition, figure, derivation.
+      The case is Ptolemy''s solar model in its eccentric and epicyclic form as Noel Swerdlow uses it in The Renaissance
+      of Astronomy (2026). The models are attributed to Ptolemy, Swerdlow''s pages are the witness, the astra texts
+      are the author''s. A derivation that passes the four checks is not a formal proof: truth is tested on samples.'
+    read_first:
+    - sec-intro
+    - sec-kinds
+    - sec-language
+    - sec-checks
+    - sec-super
+    - sec-deriv
+    - sec-four
+    - sec-case
+    - sec-limits
+    answers:
+    - What are model, parametrisation, state, superposition, figure and derivation in astra/1, and which statements
+      belong to each?
+    - What do the levels of the checks mean for each kind of text?
+    - Under which hypotheses are the eccentric and the epicyclic form of Ptolemy's solar model equivalent, and in
+      what?
+    - By which steps and rules is the equivalence derived, and where does the parallelogram argument not apply?
+    - How are the equation of centre and its maximum derived and computed in the eccentric model?
+    - What address does a part of an astra text have?
+    - How does astra/1 differ in its design aims from GCLC, Eukleides, Cinderella, GeoGebra, JSXGraph and Duke's
+      animations?
+    terms:
+    - term: model
+      meaning: 'the pure geometry: parameter symbols, a kinematic variable, a construction without coordinates,
+        observables; it holds no values'
+    - term: parametrisation
+      meaning: a set of values for a model's parameters, each with the place where it stands and with the name of
+        whose values they are
+    - term: state; configuration
+      meaning: a state is a value of the kinematic variable; a model under a parametrisation in a state is a configuration
+    - term: superposition
+      meaning: several models placed in one plane with their inputs identified; it adds no geometry
+    - term: derivation
+      meaning: 'geometrical reasoning in a model or a superposition: hypotheses, auxiliary constructions, propositions
+        derived from named premises by named rules, quantities computed or determined, a conclusion'
+    - term: attributed, witness, author
+      meaning: whose model or whose values it is; the address of the text whose use of the model is analysed; who
+        wrote the astra text
+    - term: equivalence; identity
+      meaning: equivalence is a relation between two models relative to hypotheses and to what is compared (position
+        or direction); two texts are the same model when they are the same geometry up to renaming
+    - term: residual
+      meaning: a number that is zero when a proposition holds
+    - term: configuration condition; degenerate state
+      meaning: what a rule takes from the figure; a state in which such a condition fails, so that the rule does
+        not apply there
+    - term: tacit premise
+      meaning: a given that a proposition needs and that is not cited on the way to it
+    - term: attested
+      meaning: 'level of a parametrisation: every value has a source or a stated gap; it checks that a source is
+        named, not that it says what the parametrisation says'
+    do_not:
+    - 'Do not name Swerdlow as the author of the models: the models are Ptolemy''s, Swerdlow''s pages are the witness.'
+    - Do not present a derivation that passes the four checks as a formal proof.
+    - 'Do not attribute the derivation of the equation of centre to the witness: it is supplied by the author of
+      the astra text.'
+    - Do not take the drawing values of a figure for attested values.
+    - 'Do not treat equivalence as identity: the eccentric and the epicyclic form are different models.'
+    - Do not read the level 'attested' as a confirmation that the source says what the parametrisation says.
+    - 'Do not cite the loci in the Almagest as checked: they are as Swerdlow''s page gives them.'
+    cite: 'Graßhoff, Gerd. astra/1: A Language for Historical Astronomical Models and the Geometrical Reasoning
+      about Them. Famulus Expertise Astra, No. 2 (whole no. 5). Duisburg: OpenScienceTechnology, 2026. Version 1.0.
+      https://famulus.lettre.ai/astra/lettre/2/'
+    bibtex: "@article{grasshoff2026expertise-astra-2,\n  author = {Graßhoff, Gerd},\n  title = {{astra/1: A Language\
+      \ for Historical Astronomical Models and the Geometrical Reasoning about Them}},\n  journal = {Famulus Expertise\
+      \ Astra},\n  number = {2},\n  year = {2026},\n  date = {2026-11-10},\n  version = {1.0},\n  publisher = {OpenScienceTechnology},\n\
+      \  address = {Duisburg},\n  url = {https://famulus.lettre.ai/astra/lettre/2/},\n  note = {Version 1.0. Famulus\
+      \ Expertise, whole no. 5},\n  langid = {english}\n}"
+    cite_section: Graßhoff 2026, Famulus Expertise Astra 2, version 1.0, § 7.2 (“Four questions”), https://famulus.lettre.ai/astra/lettre/2/#sec-four
+    sections:
+    - number: '1'
+      title: A diagram and what it does not say
+      id: sec-intro
+    - number: '2'
+      title: Model, parametrisation, state
+      id: sec-kinds
+    - number: '3'
+      title: The language
+      id: sec-language
+    - number: '3.1'
+      title: Texts
+      id: ''
+    - number: '3.2'
+      title: Statements
+      id: ''
+    - number: '3.3'
+      title: Types and the abstract syntax
+      id: ''
+    - number: '4'
+      title: What a model means
+      id: sec-semantics
+    - number: '5'
+      title: What can be said of a text
+      id: sec-checks
+    - number: '6'
+      title: Superposition and equivalence
+      id: sec-super
+    - number: '7'
+      title: Derivation
+      id: sec-deriv
+    - number: '7.1'
+      title: The derivation that Fig. 1.2 exhibits
+      id: ''
+    - number: '7.2'
+      title: Four questions
+      id: sec-four
+    - number: '7.3'
+      title: What the figure supplies
+      id: ''
+    - number: '7.4'
+      title: The proportional case
+      id: ''
+    - number: '7.5'
+      title: A derivation with an auxiliary construction
+      id: ''
+    - number: '7.6'
+      title: Parameters determined from observations
+      id: ''
+    - number: '7.7'
+      title: What a derivation is and is not
+      id: ''
+    - number: '8'
+      title: What follows from the texts
+      id: sec-derived
+    - number: '8.1'
+      title: Sheets
+      id: ''
+    - number: '8.2'
+      title: Figures and animation
+      id: ''
+    - number: '8.3'
+      title: Reference objects
+      id: sec-references
+    - number: '8.4'
+      title: Comparing
+      id: sec-compare
+    - number: '9'
+      title: 'Case study: Ptolemy''s solar model in Swerdlow''s exposition'
+      id: sec-case
+    - number: '10'
+      title: Representation, model, description
+      id: sec-repr
+    - number: '11'
+      title: Related work
+      id: sec-related
+    - number: '12'
+      title: Limitations
+      id: sec-limits
+    - number: '13'
+      title: Conclusion
+      id: ''
+    use:
+      licence: CC BY-NC-ND 4.0
+      may:
+      - read
+      - quote with the citation
+      - copy and pass on unchanged for non-commercial purposes with author and source named
+      may_not:
+      - publish an adapted or translated version
+      - use commercially
+      - present reproductions from the cited sources as covered by this licence
+    entry_points:
+      mcp: famulus-expertise
+      tools:
+      - fx_about
+      - fx_series
+      - fx_issues
+      - fx_issue
+      - fx_text
+      - fx_search
+      - fx_claims
+      - fx_references
+      - fx_about_source
+      - fx_cite
+      - fx_gates
+      resource: expertise://astra/2
+  review:
+    drafted_by: Claude (AI assistant), 11 Nov 2026
+    confirmed_by: null
+    confirmed_on: null
+  identity:
+    series: Famulus Expertise
+    subseries: Famulus Expertise Astra
+    edition: astra
+    number: 2
+    whole_number: 5
+    id: astra-model-language
+    ref: fr:expertise/astra/2
+    url: https://famulus.lettre.ai/astra/lettre/2/
+    pdf: https://famulus.lettre.ai/astra/lettre/2/astra-model-language.pdf
+    source: https://famulus.lettre.ai/astra/lettre/2/heft.fam
+    preamble: https://famulus.lettre.ai/astra/lettre/2/heft.json
+    issn: null
+    doi: null
+    version: '1.0'
+    date: '2026-11-10'
+    status: published
+    revisions:
+    - version: '1.0'
+      date: '2026-11-10'
+      note: First publication.
+    language: en
+    licence:
+      name: CC BY-NC-ND 4.0
+      long: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+      url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+    collections: []
+  responsibility:
+    authors:
+    - name: Gerd Graßhoff
+      orcid: 0000-0002-4450-357X
+      affiliations:
+      - name: Humboldt-Universität zu Berlin
+        department: Philosophisches Institut
+        city: Berlin
+        country: Germany
+      - name: Deutsches Museum
+        department: Forschungsinstitut
+        city: München
+        country: Germany
+    editor: Gerd Graßhoff
+    publisher:
+      name: OpenScienceTechnology GmbH
+      place: Duisburg
+    ai_contribution: null
+  evidence:
+    references:
+    - ref: fr:astra/solar-eccentric
+      roles:
+      - ground
+      - inline
+      count: 2
+    - ref: fr:astra/solar-eccentric-epicyclic/Epi.C
+      roles:
+      - ground
+      - inline
+      count: 1
+    - ref: fr:astra/solar-eccentric.ptolemy
+      roles:
+      - ground
+      - inline
+      count: 2
+    - ref: fr:astra/solar-eccentric.ptolemy/e
+      roles:
+      - ground
+      - inline
+      count: 1
+    - ref: fr:astra/solar-equivalence-equal-radii
+      roles:
+      - ground
+      - inline
+      count: 1
+    - ref: fr:astra/solar-equivalence-equal-radii/d6
+      roles:
+      - ground
+      - inline
+      count: 2
+    - ref: fr:astra/solar-fig-1-2
+      roles:
+      - segment
+      count: 1
+    - ref: fr:astra/solar-fig-1-4
+      roles:
+      - segment
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026
+      roles:
+      - inline
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026/0047/p03
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026/0049/p04
+      roles:
+      - ground
+      - inline
+      - subject
+      count: 2
+    - ref: fr:kepler-sec/Swerdlow2026/0050/fig01
+      roles:
+      - ground
+      - inline
+      - subject
+      count: 3
+    - ref: fr:kepler-sec/Swerdlow2026/0050/p03
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026/0051/fig01
+      roles:
+      - ground
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026/0051/fig02
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026/0052/p03
+      roles:
+      - inline
+      - subject
+      count: 1
+    - ref: fr:kepler-sec/Swerdlow2026/0052/p05
+      roles:
+      - ground
+      - inline
+      - subject
+      count: 10
+    - ref: fr:kepler-sec/Swerdlow2026/0052/p06
+      roles:
+      - ground
+      - inline
+      - subject
+      count: 4
+    citations:
+    - duke-models
+    - gerhauser2010jsxgraph
+    - grasshoff2026aischolar
+    - grasshoff2026deepreading
+    - grasshoff2026famulusastronomy
+    - grasshoff2026fundamentals
+    - grasshoff2026kepler
+    - grasshoff2026twocases
+    - heath1908
+    - hohenwarter2002geogebra
+    - janicic2010gclc
+    - obrecht2002eukleides
+    - rhodes-ptolemy
+    - richtergebert2012cinderella
+    - swerdlow2026
+    figures:
+    - file: figures/pipeline.svg
+      id: fig-kinds
+    - file: figures/two-models.png
+      id: fig-two
+    - file: figures/super.png
+      id: fig-super
+    - file: figures/steps.png
+      id: fig-steps
+    - file: figures/degenerate.png
+      id: fig-deg
+    - file: figures/solar-fig-equation.png
+      id: fig-equation
+    - file: figures/solar-fig-1-4.png
+      id: fig-complete
+  quality:
+    catalogue: 2026-11-11.1
+    run: '2026-11-11T10:53:16'
+    verdict: inventory
+    counts:
+      erfuellt: 10
+      luecke: 5
+      verletzt: 4
+      teilgeprueft: 1
+      nicht_anwendbar: 1
+    results:
+      erfuellt: fulfilled
+      verletzt: violated
+      luecke: gap
+      offen_modell: awaiting a judgement
+      teilgeprueft: partly tested
+      fehler: error
+      nicht_anwendbar: not applicable
+    open:
+    - gate: heft.praeambel.bestaetigung.01
+      result: luecke
+      blocking: true
+      title: The author has confirmed the preamble
+      findings: 1
+    - gate: heft.praeambel.ki_erklaerung.01
+      result: luecke
+      blocking: true
+      title: The contribution of AI systems to the issue is declared
+      findings: 1
+    - gate: referenz.abdeckung.quellenaussage.01
+      result: verletzt
+      blocking: true
+      title: Every statement about a source carries a reference
+      findings: 74
+    - gate: referenz.adresse.schaerfe.01
+      result: teilgeprueft
+      blocking: true
+      title: Every Famulus reference is sharp
+      findings: 1
+    - gate: zitat.wortlaut.fundstelle.01
+      result: luecke
+      blocking: true
+      title: A typed wording stands at the place named
+      findings: 10
+    - gate: validitaet.sachlich.aussagen.01
+      result: luecke
+      blocking: true
+      title: The factual statements of the issue are justified (sachliche Validität)
+      findings: 1
+    - gate: sprache.nononsense.einschuebe.01
+      result: verletzt
+      blocking: true
+      title: No evaluative, intensifying or meta-linguistic insertions
+      findings: 7
+    - gate: sprache.schreibregeln.leitfaden.01
+      result: verletzt
+      blocking: true
+      title: The text fulfils the blocking rules of the Famulus writing guide
+      findings: 1
+    - gate: sprache.termini.fest.01
+      result: verletzt
+      blocking: true
+      title: The fixed terminology of the house is kept
+      findings: 2
+    - gate: apparat.bibliographie.schluessel.01
+      result: luecke
+      blocking: true
+      title: Every citation key resolves, every entry is complete
+      findings: 8
+  counting:
+    vgwort: assigned
+---
+```{=typst}
+#show figure: set block(breakable: true)
+```
+
+## A diagram and what it does not say {#sec-intro}
+
+Chapter 1 of Noel Swerdlow's *The Renaissance of Astronomy* [@swerdlow2026] sets out Ptolemy's solar theory
+with three diagrams. The first (Fig. 1.2, printed page 20) shows two models of the sun's inequality at once.
+In the *eccentric* form the sun S moves uniformly on a circle whose centre E is displaced from the earth O. In
+the *epicyclic* form a small circle, the epicycle, carries the sun; its centre C moves uniformly on a circle
+about O, while the epicycle turns so that its radius keeps the direction of the line through the apogee. The
+prose on the facing page says how the two are related: "To construct the epicyclic model, complete
+parallelogram OESC and let C be the center of an epicycle of radius r = e" on a circle "of radius R′ = R"
+(p. 19). The models are Ptolemy's; Swerdlow says so in the same paragraph ("Ptolemy sets out eccentric and
+epicyclic models for this inequality"). What we analyse is Swerdlow's use of them.
+
+A reader who wants to understand the diagram has to take apart four things that the page presents together.
+
+*A geometry.* Each form is a construction: points, circles, an angle that varies. Nothing in it depends on how
+large the eccentricity is.
+
+*Numbers.* The values R = 60, e = 2;29,30 ≈ 2;30 and λ~A~ = 65;30° stand two pages later (p. 22), and they are
+Ptolemy's. The same paragraph gives other values for the same geometry, al-Battānī's. The printed diagrams use
+a third set: an eccentricity many times too large, so that the drawing can be read.
+
+*A position.* The diagram shows the construction for one value of the mean anomaly, about 41°. The same
+geometry with the same numbers appears again in Fig. 1.4 in another position and another orientation.
+
+*An argument.* The diagram shows *two* models in one plane, and the claim about them is that they are
+equivalent. The parallelogram is not a part of either model. It is the place of an argument, and the argument
+has hypotheses, r = e and R′ = R, that the diagram cannot show.
+
+An earlier version of this paper (1.1) did not keep these apart. It wrote geometry, Ptolemy's values and the
+depicted position into one text; it described Fig. 1.2 as a "correspondence" from one model to the other with
+a "parameter map"; it checked the steps of the argument only numerically; and it named Swerdlow, whose
+exposition it followed, as the author of the models. This version corrects all four. The design now follows
+five requirements.
+
+1. **A model has no values.** The geometry is one text, checked over its whole parameter space. Values are
+   another text, with an owner and sources. A position is an argument.
+2. **Three roles are named and never mixed**: whose model it is, the text whose use of it is analysed, and who
+   wrote the description.
+3. **A diagram of two models is a superposition**, and what holds across the two is derived under stated
+   hypotheses, not drawn in.
+4. **Geometrical reasoning is an operation of its own**, after the construction: a derivation whose steps name
+   their premises and their rules, and each step is checked for truth and for whether the rule licenses it.
+5. **Every part is citable**, down to a step of a derivation.
+
+@sec-kinds introduces the vocabulary with the eccentric form as the running example. @sec-language gives the
+language, @sec-semantics its meaning, @sec-checks what can be said of each kind of text. @sec-super treats
+superposition and equivalence, @sec-deriv derivation. @sec-derived describes what follows from the texts,
+@sec-case the case study and what it found, @sec-repr the relation of model, representation and description.
+@sec-related compares astra/1 with the work it learned from; @sec-limits states what is not done.
+
+## Model, parametrisation, state {#sec-kinds}
+
+Three questions can be asked of a historical astronomical model, and their answers are of different kinds.
+
+*What is its geometry?* The eccentric form is: a circle whose centre E lies at some distance from the observer
+O in some direction; a point S on the circle at an angle κ̄ from the apogee; the direction from O to S as what
+is observed. Relations that follow from the construction alone — the line through apogee and perigee passes
+through E and O; the mean longitude is the longitude of the apogee plus the mean anomaly — are true for every
+eccentricity, every radius, every direction of the apogee, in every position. We call this the **model**. It
+has parameter *symbols* and a **kinematic variable**, κ̄, and no values.
+
+*What are its values?* Ptolemy found R = 60, e = 2;30 and λ~A~ = 65;30°. With them the model has numerical
+consequences: the largest equation of centre is 2;23°. Al-Battānī found e = 2;4,45 and λ~A~ = 82;17°; the
+largest equation is then 1;59°. A set of values for a model's parameters, each with the place where it stands
+and with the name of whose values they are, is a **parametrisation**. One model has many.
+
+*Where is everything?* That needs, besides values, a value of the kinematic variable: a **state**. A model
+under a parametrisation in a state is a **configuration**: every point has a place. A diagram shows one
+configuration; an animation runs through the states.
+
+The three fix different things, stand in different places and support different statements (@tbl-kinds).
+
+| | what it fixes | where it stands | what can be said of it |
+|---|---|---|---|
+| **model** | parameter symbols with units and admissible ranges; the kinematic variable; the construction; the observables | a `model` text | what holds for every admissible parameter value and every state |
+| **parametrisation** | the values of the parameters, each with source or stated gap; whose values they are | a `parametrisation` text | what follows for these values |
+| **state** | the value of the kinematic variable, or a time | an argument, `at kappa_bar = 41°` | where everything is: a configuration |
+
+: Model, parametrisation and state. {#tbl-kinds}
+
+Two more kinds of text do something with models. A **superposition** places several models in one plane
+(@sec-super). A **derivation** reasons in a model or a superposition (@sec-deriv). A fifth kind, the
+**figure**, says what is drawn: which context, which values, which state, which labels. @fig-kinds shows how
+the kinds refer to one another.
+
+![The kinds of text of astra/1 and what they refer to.](figures/pipeline.svg){#fig-kinds width=100%}
+
+Every text carries three names. `attributed` says whose model, or whose values, it is. `witness` gives the
+address of the text whose use of the model is analysed. `author` says who wrote the astra text. For the texts
+of this paper these are Ptolemy, Swerdlow's pages, and the author of this paper. An exposition is not an
+authorship: the language refuses an `author` that is a source address, and a model without `attributed` is not
+documented.
+
+## The language {#sec-language}
+
+### Texts
+
+An astra/1 text is a sequence of statements, one per line; the first names the kind of text. A `#` begins a
+comment. Numbers are written as the sources write them: decimal (`12.5`) or sexagesimal, with a semicolon
+after the integer part and commas between the fractional places, so that `2;30` is 2 + 30/60 and `365;14,48` is
+365 + 14/60 + 48/3600. A degree sign makes an angle (`65;30°`). The written form of every number is kept.
+Identifiers are ASCII letters, digits, underscores and the prime (`S'`, `R'`); the printed symbol is declared
+separately (`display kappa_bar "κ̄"`). Addresses of sources are written `fr:…` (@sec-references).
+
+@lst-eccentric is the complete model text of the eccentric form, comments removed. It contains no number that
+is a value.
+
+::: {#lst-eccentric}
+
+```
+model solar-eccentric "Ptolemy's solar model, eccentric form"
+attributed "Ptolemy"
+witness fr:kepler-sec/Swerdlow2026/0049/p04 "the construction, p. 19"
+witness fr:kepler-sec/Swerdlow2026/0050/p03 "longitudes, anomalies and the
+      equation, p. 20"
+witness fr:kepler-sec/Swerdlow2026/0051/fig02 "Fig. 1.4"
+author "Gerd Graßhoff"
+tradition ptolemaic
+frame geocentric
+param R  : length "radius of the eccentric"  in (1, 1000)
+param e  : length "eccentricity, the distance OE"  in (0, R / 2)
+param lamA  : angle  "longitude of the apogee"
+param T  : time  "tropical year"  in (300, 400)
+param kappa_0 : angle  "mean anomaly at t = 0"
+display lamA "λ_A"
+display kappa_0 "κ̄_0"
+variable kappa_bar : angle "mean anomaly about E, counted from the apogee"
+law kappa_bar = uniform(period: T, epoch: kappa_0) "the sun moves uniformly
+      about E"
+display kappa_bar "κ̄"
+O  = observer  "earth"
+E  = O + polar(e, lamA)  "centre of the eccentric"
+ecc = circle(E, R)  "the eccentric"
+A  = E + polar(R, lamA)  "apogee"
+B  = E - polar(R, lamA)  "perigee"
+S  = E + polar(R, lamA + kappa_bar)  "sun"
+body sun at S
+observe lam_bar = direction(E, S)  "mean longitude"
+observe lam  = direction(O, S)  "true longitude"
+observe kappa  = lam - lamA  "true anomaly about O"
+observe c  = lam_bar - lam  "equation of centre, mean minus true longitude"
+display lam_bar "λ̄_S"
+display lam "λ_S"
+display kappa "κ"
+proposition p1: equal(lam_bar, lamA + kappa_bar) "the mean longitude is the
+      longitude of the apogee plus the mean anomaly"
+proposition p2: equal(kappa, kappa_bar - c)  "the true anomaly is the mean
+      anomaly less the equation"
+proposition p5: equal(lam, lam_bar - c)  "the true longitude is the mean
+      longitude less the equation"
+proposition p3: collinear(A, E, B)  "the apsidal line passes through E"
+proposition p4: collinear(A, O, B)  "and through O"
+```
+
+The model `solar-eccentric`: Ptolemy's solar model in its eccentric form. Parameters are symbols with units and
+ranges; `variable` declares the kinematic variable, `law` its link to time; `proposition` states what is then
+checked over the parameter space.
+:::
+
+The values are other texts (@lst-par). The second is partial: the paragraph that reports al-Battānī's values
+gives no year and no epoch, and the text does not invent them.
+
+::: {#lst-par}
+
+```
+parametrisation solar-eccentric.ptolemy of solar-eccentric "Ptolemy's values"
+attributed "Ptolemy"
+witness fr:kepler-sec/Swerdlow2026/0052/p05
+author "Gerd Graßhoff"
+R  = 60  "the norm of the radius"  source fr:kepler-sec/Swerdlow2026/0052/p05
+e  = 2;30  "2;29,30 rounded to 2;30"  source fr:kepler-sec/Swerdlow2026/0052/p05
+lamA  = 65;30°  source fr:kepler-sec/Swerdlow2026/0052/p05
+T  = 365;14,48  source fr:kepler-sec/Swerdlow2026/0047/p03
+kappa_0 = 0°  gap "the pages give no epoch; t is counted from a passage through
+      the apogee"
+
+parametrisation solar-eccentric.battani of solar-eccentric "al-Battānī's values"
+attributed "al-Battānī"
+witness fr:kepler-sec/Swerdlow2026/0052/p06
+author "Gerd Graßhoff"
+R  = 60  gap "the norm R = 60 is not repeated in the paragraph; e is given in
+      its units"
+e  = 2;4,45  source fr:kepler-sec/Swerdlow2026/0052/p06
+lamA = 82;17°  source fr:kepler-sec/Swerdlow2026/0052/p06
+```
+
+Two parametrisations of the one model. `0052/p05` is block 5 of scan page 52, printed page 22; the reference register counts the running head as the first block. A value
+without a source needs a `gap` that says why.
+:::
+
+### Statements
+
+@tbl-statements lists the statements by kind of text. Each has a fixed form. A statement in a text of the
+wrong kind is refused with a message that says where it belongs (@lst-refused).
+
+| kind | statements |
+|---|---|
+| all | `attributed`, `witness`, `author`, `display` |
+| model | `param … : <unit> [in (lo, hi)]`, `variable`, `law`, construction `<name> = <expr>`, `observe`, `body`, `proposition`, `tradition`, `frame` |
+| parametrisation | value `<param> = <expr>` with `source fr:…` or `gap "why"`, `use` |
+| superposition | `place <model> as <Prefix>`, `identify <P.x> = <Q.y>` |
+| figure | `with <parametrisation>`, `drawn with`, `at <variable> = <angle>`, `up`, `fit`, `speed`, `label`, `hide` |
+| derivation | `given`, `construct`, `derive … from … by …`, `compute`, `determine`, `conclude` |
+
+: The statements of astra/1 by kind of text; the full forms are in the specification. {#tbl-statements tbl-colwidths="[22,78]"}
+
+::: {#lst-refused}
+
+```
+param R = 60 length "radius"
+  → a model holds no values: declare `param R : <unit>` here and give the value
+        in a parametrisation
+R = 60 source fr:kepler-sec/Swerdlow2026/0052/p05
+  → a model holds no values and no sources; values and their sources stand in a
+        parametrisation
+at kappa_bar = 41°
+  → `at` belongs in a figure text, not in a model
+author fr:kepler-sec/Swerdlow2026
+  → `author` names who wrote this text; the text analysed is the `witness`
+identify Ecc.S = Epi.S'
+  → only parameters of one unit, kinematic variables and the observer can be
+        identified; that two constructed points coincide is a proposition to
+        derive
+```
+
+What the parser and the superposition refuse, with their messages.
+:::
+
+Expressions use the four arithmetic operators, parentheses, names and functions (@tbl-functions). The
+predicates of propositions are `parallel`, `perpendicular`, `coincident`, `collinear`, `on` and `equal`.
+
+| function | gives | meaning |
+|---|---|---|
+| `observer` | point | the origin of the model frame |
+| `polar(r, θ)` | displacement | length r in direction θ; `P + polar(r, θ)` is a point |
+| `circle(P, r)`, `line(P, Q)`, `ray(P, θ)` | circle, line | lines are directed |
+| `intersect(k, l, ±)` | point | circle with line or circle; the sign chooses the branch |
+| `foot(P, l)`, `midpoint(P, Q)`, `rotate(P, about: A, by: θ)`, `reflect(P, l)` | point | |
+| `ellipse(F₁, F₂, a)`, `on_ellipse(k, E)`, `tangent(P, k, ±)`, `seen_from(Q, k, θ)` | ellipse, point | Kepler's orbit; the equant |
+| `direction(P, Q)`, `distance(P, Q)` | angle, length | undefined when P and Q coincide |
+| `angle(P, V, Q)` | angle | the unsigned angle at V, between 0° and 180°: the angle of Euclid's propositions |
+| `true_anomaly(M, e)` | angle | from Kepler's equation |
+| `sin`, `cos`, `tan`, `asin`, `atan2`, `sqrt`, `abs`, `norm360`, `norm180` | number, angle | |
+
+: The functions of astra/1. {#tbl-functions}
+
+An intersection of a circle and a line has two points, and a model must say which one it means: for a circle
+and a directed line, `+` is the point farther along the line's direction; for two circles, the point to the
+left of the line from the first centre to the second. A missing sign is an error, not a guess.
+
+### Types and the abstract syntax
+
+Every name and every expression has a type: a number, an angle, a length, a time, a rate, a point, a
+displacement, a line, a circle or an ellipse. An angle cannot be added to a length; a circle needs a point and
+a length; a product of two lengths is allowed on the way to a length or in a comparison of squares. Names are
+defined before they are used, so a construction is a directed graph without cycles by the way it is written, as
+in GCLC [@janicic2010gclc]. Nothing is placed by coordinates except the observer, the origin.
+
+What the tools work on is the *abstract syntax*: the tree of statements and expressions that the parser
+builds, independent of spacing and comments. A superposition merges the trees of its members; a derivation
+extends the tree of its context; a rule of derivation is a pair of trees with variables (@sec-deriv).
+
+## What a model means {#sec-semantics}
+
+A context — a model, a superposition, or a derivation with its auxiliary constructions — compiles to a list of
+*operations* in the order in which they must be computed. Each operation has a name, the names of the
+operations it reads, and a type. The operation set has forty-two operations (@tbl-ops) and is the only place
+where the geometry is defined. A value is a number or a short list of numbers: a point is its two coordinates,
+a circle its centre and radius, a line a point and a unit direction. Coordinates appear here, inside the
+meaning of a model, never in its text.
+
+| operations | what they compute |
+|---|---|
+| `param`, `var` | the inputs: a parameter, read from the parametrisation; a kinematic variable, read from the state |
+| `const`, `id` | a literal; a named value |
+| `add`, `sub`, `mul`, `div`, `neg`, `abs`, `norm360`, `norm180` | arithmetic on numbers and displacements |
+| `observer`, `polar`, `circle`, `line`, `ray` | elementary placements |
+| `x_cl`, `x_cc`, `x_el`, `tangent`, `seen_from` | intersections and contacts; no solution gives "not a number" |
+| `foot`, `midpoint`, `rotate`, `reflect`, `ellipse`, `on_ellipse` | further constructions |
+| `direction`, `distance` | what an observer measures; undefined for coincident points |
+| `kepler_E`, `true_anom` | Kepler's equation, solved by Newton's method |
+| `sin`, `cos`, `tan`, `atan2`, `asin`, `sqrt` | functions for formulae |
+| `res_parallel`, `res_perp`, `res_collinear`, `res_on` | residuals of predicates |
+
+: The forty-two operations (`spec/ops.yaml`), grouped. {#tbl-ops}
+
+There is one evaluation. Given the operation list of a context, parameter values p and a state s, it returns
+the value of every object:
+
+  configuration(operations, p, s).
+
+The model *is* this function with p and s left open. A parametrisation fixes p. A state fixes s, either by
+naming the kinematic variable (κ̄ = 41°) or by a time, which the variable's law turns into a value: for the
+uniform law, κ̄ = κ̄₀ + 360° · t / T, with the period T and the epoch κ̄₀ as ordinary parameters. Nothing has a
+default. A parameter without a value is an error as soon as anything other than a range or a law needs it; a
+state that fixes no variable is an error. So a partial parametrisation, like al-Battānī's, can still be used
+for what it determines — the largest equation needs only R and e — and says what it cannot give.
+
+Because a model has no values, statements about it are tested where it lives. The parameter space is sampled
+at 48 points, each parameter in its declared range; a range that depends on another parameter, like that of
+the eccentricity, `in (0, R / 2)`, is evaluated inside each sample. The states are the kinematic variable in
+72 steps of 5°. A proposition is turned into a *residual*, a number that is zero when it holds: the distance
+of two points (`coincident`), the sine of the angle between two lines (`parallel`), the cosine
+(`perpendicular`), the sine of the bend at the middle of three points (`collinear`), the absolute difference of
+two scalars, angles reduced to the range from −180° to 180° (`equal`). A proposition holds when its residual
+stays within 10⁻⁹ in all 3,456 configurations, lengths taken relative to the largest length parameter. This is
+evidence, not proof.
+
+## What can be said of a text {#sec-checks}
+
+Each kind of text has its own check, in levels that presuppose one another (@tbl-levels). The report gives the
+level reached and, for the first level not reached, every reason.
+
+| kind | levels |
+|---|---|
+| model | well-formed · constructible · astronomical · kinematic · consistent · documented |
+| parametrisation | well-formed · complete · admissible · attested |
+| superposition | well-formed · constructible · superposed · consistent |
+| figure | well-formed · drawable · labelled |
+| derivation | well-formed · grounded · true · justified · conclusive |
+
+: The checks by kind of text. {#tbl-levels}
+
+A model is *constructible* when every object has a solution in every sampled configuration; *astronomical*
+when it has one observer, a body, an observable direction from the observer to the body and a declared frame;
+*kinematic* when a kinematic variable reaches a body through the construction; *consistent* when its stated
+propositions hold in every sampled configuration; *documented* when it names whose model it is, a witness and
+an author, and gives every symbol and object a meaning. A parametrisation is *complete* when every parameter
+has a value, *admissible* when every value lies in its range, *attested* when every value has a source or a
+stated gap. @lst-check shows two reports.
+
+::: {#lst-check}
+
+```
+$ famulus-astra check solar-eccentric
+solar-eccentric: model, level documented (6/6)
+  ✓ well-formed
+  ✓ constructible
+  ✓ astronomical
+  ✓ kinematic
+  ✓ consistent
+  ✓ documented
+  ✓ p1: equal(lam_bar, lamA + kappa_bar)  max residual 5.7e-14 over 3456
+        configurations
+  ✓ p2: equal(kappa, kappa_bar - c)  max residual 1.1e-13 over 3456
+        configurations
+  ✓ p5: equal(lam, lam_bar - c)  max residual 5.7e-14 over 3456 configurations
+  ✓ p3: collinear(A, E, B)  max residual 1.5e-16 over 3456 configurations
+  ✓ p4: collinear(A, O, B)  max residual 1.3e-16 over 3456 configurations
+
+$ famulus-astra check solar-eccentric.battani
+solar-eccentric.battani: parametrisation, level well-formed (1/4)
+  ✓ well-formed
+  ✗ complete
+      T (tropical year) has no value
+      kappa_0 (mean anomaly at t = 0) has no value
+  · admissible (not reached)
+  · attested (not reached)
+  gap: R = 60: the norm R = 60 is not repeated in the paragraph; e is given in
+        its units
+```
+
+The reports for the eccentric model and for al-Battānī's parametrisation. The second is incomplete, and says
+which values the page does not give.
+:::
+
+A proposition that is true for Ptolemy's values and not in general, such as that the eccentricity is a
+twenty-fourth of the radius, is not a property of the model. Stated in the model it fails the level
+*consistent*, with the sampled values that break it. It belongs to a parametrisation, as a computed
+consequence (@sec-deriv).
+
+## Superposition and equivalence {#sec-super}
+
+Fig. 1.2 shows the two forms of Ptolemy's solar model in one plane. That is a superposition (@lst-super).
+
+::: {#lst-super}
+
+```
+superposition solar-eccentric-epicyclic "Eccentric and epicyclic form of
+      Ptolemy's solar model, superposed"
+witness fr:kepler-sec/Swerdlow2026/0050/fig01 "Fig. 1.2"
+witness fr:kepler-sec/Swerdlow2026/0051/fig01 "Fig. 1.3"
+author "Gerd Graßhoff"
+place solar-eccentric as Ecc
+place solar-epicyclic as Epi
+identify Ecc.O = Epi.O  "one earth"
+identify Ecc.lamA = Epi.lamA  "one apsidal direction"
+identify Ecc.T = Epi.T  "one year"
+identify Ecc.kappa_0 = Epi.kappa_0  "one epoch"
+identify Ecc.kappa_bar = Epi.kappa_bar "one mean anomaly"
+display Epi.lam "λ'_S"
+display Ecc.lam "λ_S"
+```
+
+The superposition `solar-eccentric-epicyclic`. It is the scene of Figs. 1.2 and 1.3.
+:::
+
+Every name of a member gets the member's prefix (`Ecc.S`, `Epi.S'`). The names the text identifies become one:
+the observer, the longitude of the apogee, the year, the epoch, the mean anomaly. Identification says that the
+two models are about the same earth, the same apsidal direction and the same mean motion. It adds no geometry.
+Only inputs — parameters of one unit, kinematic variables — and the observer can be identified. A text that
+identifies the two suns is refused (@lst-refused): that two constructed points coincide is a proposition, and
+propositions are derived.
+
+A superposition is again a model: pure geometry over the parameters of both members, checked like any model.
+In it the two suns are two points. For some parameter values they coincide, for others they lie on one ray
+from the earth, for most they do neither. Nothing in the superposition says which. @fig-two shows the two
+members separately, @fig-super the superposition under the values of Fig. 1.2 and of Fig. 1.3.
+
+![The two members drawn separately: the eccentric form (left) and the epicyclic form (right). The pages give
+the epicyclic form no values of its own; it is drawn with drawing values, and the corner says
+so.](figures/two-models.png){#fig-two width=100%}
+
+**Equivalence** is a relation between two models. It holds relative to hypotheses and relative to what is
+compared. The pages contain two equivalences of the same two models:
+
+| | hypotheses | the models are equivalent in |
+|---|---|---|
+| Fig. 1.2 | R′ = R and r = e | *position*: the two suns are one point in every state |
+| Fig. 1.3 | R′/r = R/e | *direction*: the sun is seen from the earth in the same direction; the distances differ |
+
+: The two equivalences of the eccentric and the epicyclic form. {#tbl-equiv}
+
+Each is the conclusion of a derivation in the superposition. Equivalence is distinct from **identity**. Two
+texts are the same model when they are the same geometry up to renaming, which a structural comparison tests
+(@sec-compare). The eccentric and the epicyclic form are different models. Under hypotheses they agree in what
+is compared, and they stay different in the rest: in the one the sun moves uniformly on a circle about E, in
+the other its motion is compounded of two. Swerdlow notes that only Kepler drew a consequence from this
+difference (p. 20).
+
+![The superposition under two parametrisations. Left, the values of Fig. 1.2 (R′ = R, r = e): the two suns are
+one point. Right, the values of Fig. 1.3 (R′/r = R/e): two suns on one ray from the earth. Both are drawn with
+an exaggerated eccentricity, as the printed figures are.](figures/super.png){#fig-super width=100%}
+
+The superposition in motion under the values of Fig. 1.2: the mean anomaly runs through a revolution, and the
+slider below the figure fades from one member to the other.
+
+{{< famulus fr:astra/solar-fig-1-2 animation >}}
+
+## Derivation {#sec-deriv}
+
+After the construction of a model comes the operation of derivation: geometrical reasoning about what has been
+constructed. A derivation works in a context, a model or a superposition, and consists of operations
+(@tbl-derops).
+
+| operation | what it does |
+|---|---|
+| `given h: equal(<param>, <expr>)` | a hypothesis; it restricts the parameter space |
+| `construct F = <expr>` | an auxiliary construction, added to the context |
+| `derive d: <proposition> from <premises> by <rule>` | a proposition derived from named premises by a named rule |
+| `show A: <proposition> … qed from <steps>` | a sub-argument: the claim first, then the steps that establish it; its inside cannot be cited from outside |
+| `cases` / `case n: when <condition>` / `qed by cases` | a claim argued separately under conditions that together must cover every configuration |
+| `suppose n: <condition>` | restricts the steps that follow to the configurations in which the condition holds |
+| `conclude <proposition> from <premises>` | the proposition the derivation is for; `equivalent(P, Q, position)` or `equivalent(P, Q, direction)` for an equivalence of two members |
+| `compute x = <expr>` | a quantity under a parametrisation, compared with a reported value |
+| `determine p, q from …` | parameters determined from observed intervals through the model |
+
+: The operations of a derivation. {#tbl-derops tbl-colwidths="[45,55]"}
+
+A premise is a given or an earlier step, by name; the construction of an object (`def Ecc.S`); or a
+proposition stated in the model (`prop p1`). A rule is a proposition of Euclid (`Elements I.33`), a lemma, a
+definition of trigonometry, `common notion 1`, `construction` or `algebra`. The propositions of a step are
+those of a model, with two more: `less(a, b)`, and `approximately(a, b, small: <ratio>, order: n)` for a step
+that holds to a stated order in a small ratio (rule `expansion`). The notions are set out together in
+[@grasshoff2026fundamentals]; sub-arguments, cases and suppositions were added to the language for the
+reconstructions in [@grasshoff2026twocases] and [@grasshoff2026kepler].
+
+### The derivation that Fig. 1.2 exhibits
+
+The page names the parallelogram OESC. It does not give the steps. @lst-deriv gives them, with the rule that
+licenses each. The claim that the two suns are one point is argued in three cases: off the apsidal line, at
+the apogee, at the perigee.
+
+::: {#lst-deriv}
+
+```
+derivation solar-equivalence-equal-radii in solar-eccentric-epicyclic "The two
+      forms place the sun at the same point when R' = R and r = e"
+witness fr:kepler-sec/Swerdlow2026/0049/p04 "the parallelogram OESC, p. 19"
+witness fr:kepler-sec/Swerdlow2026/0050/fig01 "Fig. 1.2"
+author "Gerd Graßhoff"
+given h1: equal(Epi.R', Ecc.R) "the deferent has the radius of the eccentric"
+given h2: equal(Epi.r, Ecc.e)  "the epicycle has the eccentricity as its radius"
+show same: coincident(Ecc.S, Epi.S') "the sun of the eccentric form and the sun
+      of the epicyclic form are one point"
+  derive d3: equal(distance(Ecc.E, Ecc.S), Ecc.R)  from def Ecc.S by
+        construction  "S lies on the eccentric"
+  derive d4: equal(distance(O, Epi.C), Epi.R')  from def Epi.C by construction
+        "C lies on the deferent"
+  derive d8: equal(distance(O, Ecc.E), Ecc.e)  from def Ecc.E by construction
+        "OE is the eccentricity"
+  derive d9: equal(distance(Epi.C, Epi.S'), Epi.r)  from def Epi.S' by
+        construction "S' lies on the epicycle"
+  cases "by the position of the sun: off the apsidal line, at the apogee, at the
+        perigee"
+  case generic: when noncollinear(O, Ecc.E, Ecc.S) "off the apsidal line, OESC
+        is a parallelogram"
+    show sides: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) "ES and OC are
+          parallel"
+      derive d1: equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C)) from
+            def Ecc.A, def Ecc.S, def Epi.A', def Epi.C by construction "both
+            angles are the mean anomaly κ̄, counted from the apsidal line"
+      derive d2: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) from d1 by
+            Elements I.28 "the apsidal line falls on ES and OC and makes equal
+            angles with them on the same side"
+    qed from d2
+    derive d5: equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C)) from d3, d4, h1
+          by common notion 1 "ES = R = R' = OC"
+    show joins: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) "OE and CS are
+          parallel: OESC is a parallelogram"
+      derive d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from sides, d5 by
+            Elements I.33 "the lines joining the ends of the equal and parallel
+            ES and OC"
+    qed from d6
+    derive d7: equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S)) from sides, d5
+          by Elements I.33 "and they are equal"
+    derive d10: equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S')) from d7,
+          d8, h2, d9 by common notion 1 "CS = OE = e = r = CS'"
+    derive d11: parallel(line(Epi.C, Epi.S'), line(O, Ecc.E)) from def Epi.S',
+          def Ecc.E by construction "the radius of the epicycle keeps the
+          direction of the apsidal line"
+    derive d12: coincident(Ecc.S, Epi.S') from joins, d11, d10 by lemma same ray
+          "S and S' lie from C along the parallel to OE, the same way, at the
+          same distance"
+  qed from d12
+  case apogee: when collinear(O, Ecc.E, Ecc.S), between(Ecc.E, O, Ecc.S) "at the
+        apogee the four points lie on the apsidal line, E between O and S"
+    derive a1: equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E,
+          Ecc.S)) by lemma segment addition "OS = OE + ES"
+    derive a2: equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C,
+          Epi.S')) by lemma segment addition "OS' = OC + CS'"
+    derive a3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from a1, a2, d3,
+          d4, d8, d9, h1, h2 by algebra "e + R = R' + r"
+    derive a4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from apogee by lemma one
+          line "S lies on the apsidal line"
+    derive a5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E
+          by construction "and so does S'"
+    derive a6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from a5 by lemma one
+          line
+    derive a7: coincident(Ecc.S, Epi.S') from a4, a6, a3 by lemma same ray "S
+          and S' lie from O along the apsidal line, the same way, at the same
+          distance"
+  qed from a7
+  case perigee: when collinear(O, Ecc.E, Ecc.S), between(O, Ecc.E, Ecc.S) "at
+        the perigee the four points lie on the apsidal line, O between E and S"
+    derive p1: equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O,
+          Ecc.S)) by lemma segment addition "ES = EO + OS"
+    derive p2: equal(distance(Epi.C, O), distance(Epi.C, Epi.S') +
+          distance(Epi.S', O)) by lemma segment addition "CO = CS' + S'O"
+    derive p3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from p1, p2, d3,
+          d4, d8, d9, h1, h2 by algebra "R − e = R' − r"
+    derive p4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from perigee by lemma
+          one line "S lies on the apsidal line"
+    derive p5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E
+          by construction "and so does S'"
+    derive p6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from p5 by lemma one
+          line
+    derive p7: coincident(Ecc.S, Epi.S') from p4, p6, p3 by lemma same ray "S
+          and S' lie from O along the apsidal line, the same way, at the same
+          distance"
+  qed from p7
+qed by cases
+conclude equivalent(Ecc, Epi, position) from same "in every state the two forms
+      have the sun at one point"
+```
+
+The derivation `solar-equivalence-equal-radii`, comments removed. Ecc and Epi are the two members of the
+superposition.
+:::
+
+In words: the angles AES and A′OC are both the mean anomaly, so ES and OC are parallel (Elements I.28: "if a
+straight line falling on two straight lines make the exterior angle equal to the interior and opposite angle on
+the same side … the straight lines will be parallel"). They are equal, since R = R′. So the lines that join
+their ends, OE and CS, are equal and parallel (I.33: "the straight lines joining equal and parallel straight
+lines (at the extremities which are) in the same directions (respectively) are themselves also equal and
+parallel") [@heath1908]. The sun S′ of the epicyclic form lies from C in the direction of the apsidal line at
+the distance r, and r = e. So S and S′ lie from C along the same parallel, the same way, at the same distance:
+they are one point. That is the first case. At the apogee and at the perigee the four points lie on the
+apsidal line and there is no parallelogram; there OS = e + R and OS′ = R′ + r (at the perigee R − e and
+R′ − r), which are equal under the two hypotheses, and both suns lie on the apsidal line on the same side of O.
+@fig-steps shows three steps of the first case in the figure.
+
+![Three steps in the scene of the derivation, each with the points and segments it speaks of in gold: d2, ES is
+parallel to OC; d6, OE is parallel to CS; d12, S and S′ are one point.](figures/steps.png){#fig-steps width=100%}
+
+### Four questions {#sec-four}
+
+Four questions are asked of a derivation, each presupposing the one before.
+
+**Is it grounded?** Every premise resolves to a given, an earlier step, a construction or a stated proposition.
+
+**Is it true?** Every proposition holds in all sampled configurations that satisfy the givens. A given of the
+form `equal(<parameter>, <expression>)` fixes that parameter by the others, so the samples lie on the part of
+the parameter space where the hypotheses hold.
+
+**Is it justified?** Every step must be licensed by the rule it names. There are four grades.
+
+- *An instance of a rule.* A rule is a schema (@tbl-rules): variables for points, hypotheses, conclusions. A
+  step is an instance when the variables can be bound to points of the context so that a conclusion of the rule
+  is the step's proposition and each hypothesis of the rule is one of the cited premises. The match respects
+  the symmetries of the predicates: `parallel` and `equal` are symmetric, a line and a distance do not depend
+  on the order of their points, an angle is unsigned. For step d6 the binding is A = O, B = C, C = E, D = S,
+  and the two hypotheses of I.33 are met by d2 and d5.
+- *Common Notion 1.* The two sides of an equality are joined by the cited equalities.
+- *Read off the construction.* The proposition speaks only of the cited objects and what they are built from,
+  and it holds over the whole parameter space **without** the givens. That ES = R is read off the construction
+  of S. A proposition that needs a hypothesis cannot pass as read off.
+- *Calculation.* An equality from cited equalities. It is confirmed numerically; the calculation is not
+  replayed.
+
+A sub-argument is justified when the steps it closes with establish its claim, and an argument by cases when
+every case reaches the claim and the conditions of the cases cover every sampled configuration. The steps of a
+case are checked only in the configurations that satisfy its condition. A step that is true and none of these
+is reported as *true, not justified*: a gap in the reasoning.
+
+**Is it conclusive?** For every given, the parameter space is sampled once more with that given lifted. A
+proposition that then fails *needs* the given. If the given is not cited on the way to that proposition, it is
+a **tacit premise**, and the derivation is not conclusive. Givens that the conclusion does not need, and steps
+that are not on the way to it, are noted.
+
+@lst-dcheck is the report for the derivation of Fig. 1.2, and @lst-fail what the checks say for six altered
+versions of it.
+
+::: {#lst-dcheck}
+
+```
+$ famulus-astra derive solar-equivalence-equal-radii
+solar-equivalence-equal-radii: derivation in solar-eccentric-epicyclic, level
+      conclusive (5/5)
+  ✓ well-formed
+  ✓ grounded
+  ✓ true
+  ✓ justified
+  ✓ conclusive
+  given  h1: equal(Epi.R', Ecc.R)
+  given  h2: equal(Epi.r, Ecc.e)
+  ✓ same: coincident(Ecc.S, Epi.S') by cases — justified by cases
+    ✓ d3: equal(distance(Ecc.E, Ecc.S), Ecc.R) from def Ecc.S by construction —
+          read off the construction
+    ✓ d4: equal(distance(O, Epi.C), Epi.R') from def Epi.C by construction —
+          read off the construction
+    ✓ d8: equal(distance(O, Ecc.E), Ecc.e) from def Ecc.E by construction — read
+          off the construction
+    ✓ d9: equal(distance(Epi.C, Epi.S'), Epi.r) from def Epi.S' by construction
+          — read off the construction
+    ✓ generic: coincident(Ecc.S, Epi.S') from d12 — justified (it is d12)
+      ✓ sides: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) from d2 — justified
+            (it is d2)
+        ✓ d1: equal(angle(Ecc.A, Ecc.E, Ecc.S), angle(Epi.A', O, Epi.C)) from
+              def Ecc.A, def Ecc.S, def Epi.A', def Epi.C by construction — read
+              off the construction
+        ✓ d2: parallel(line(Ecc.E, Ecc.S), line(O, Epi.C)) from d1 by Elements
+              I.28 — justified
+      ✓ d5: equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C)) from d3, d4, h1 by
+            common notion 1 — justified
+      ✓ joins: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from d6 — justified
+            (it is d6)
+        ✓ d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from sides, d5 by
+              Elements I.33 — justified
+      ✓ d7: equal(distance(O, Ecc.E), distance(Epi.C, Ecc.S)) from sides, d5 by
+            Elements I.33 — justified
+      ✓ d10: equal(distance(Epi.C, Ecc.S), distance(Epi.C, Epi.S')) from d7, d8,
+            h2, d9 by common notion 1 — justified
+      ✓ d11: parallel(line(Epi.C, Epi.S'), line(O, Ecc.E)) from def Epi.S', def
+            Ecc.E by construction — read off the construction
+      ✓ d12: coincident(Ecc.S, Epi.S') from joins, d11, d10 by lemma same ray —
+            justified
+    ✓ apogee: coincident(Ecc.S, Epi.S') from a7 — justified (it is a7)
+      ✓ a1: equal(distance(O, Ecc.S), distance(O, Ecc.E) + distance(Ecc.E,
+            Ecc.S)) by lemma segment addition — justified
+      ✓ a2: equal(distance(O, Epi.S'), distance(O, Epi.C) + distance(Epi.C,
+            Epi.S')) by lemma segment addition — justified
+      ✓ a3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from a1, a2, d3, d4,
+            d8, d9, h1, h2 by algebra — by calculation
+      ✓ a4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from apogee by lemma one
+            line — justified
+      ✓ a5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E by
+            construction — read off the construction
+      ✓ a6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from a5 by lemma one line
+            — justified
+      ✓ a7: coincident(Ecc.S, Epi.S') from a4, a6, a3 by lemma same ray —
+            justified
+    ✓ perigee: coincident(Ecc.S, Epi.S') from p7 — justified (it is p7)
+      ✓ p1: equal(distance(Ecc.E, Ecc.S), distance(Ecc.E, O) + distance(O,
+            Ecc.S)) by lemma segment addition — justified
+      ✓ p2: equal(distance(Epi.C, O), distance(Epi.C, Epi.S') + distance(Epi.S',
+            O)) by lemma segment addition — justified
+      ✓ p3: equal(distance(O, Ecc.S), distance(O, Epi.S')) from p1, p2, d3, d4,
+            d8, d9, h1, h2 by algebra — by calculation
+      ✓ p4: parallel(line(O, Ecc.S), line(O, Ecc.E)) from perigee by lemma one
+            line — justified
+      ✓ p5: collinear(O, Ecc.E, Epi.S') from def Epi.C, def Epi.S', def Ecc.E by
+            construction — read off the construction
+      ✓ p6: parallel(line(O, Epi.S'), line(O, Ecc.E)) from p5 by lemma one line
+            — justified
+      ✓ p7: coincident(Ecc.S, Epi.S') from p4, p6, p3 by lemma same ray —
+            justified
+  ✓ conclusion: coincident(Ecc.S, Epi.S') from same — justified (it is same)
+```
+
+The report for `solar-equivalence-equal-radii`. Of the twenty-six steps, sixteen are instances of rules or of
+Common Notion 1, eight are read off the constructions, two are calculations.
+:::
+
+::: {#lst-fail}
+
+```
+# the wrong proposition is cited
+✗ d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from sides, d5 by Elements
+      I.29
+      — true, not justified (the proposition is not a conclusion of the rule)
+      level reached: true
+
+# a hypothesis of the proposition is not cited
+✗ d6: parallel(line(O, Ecc.E), line(Epi.C, Ecc.S)) from sides by Elements I.33
+      — true, not justified (a hypothesis of the rule is not among the cited
+            premises)
+
+# a false proposition
+✗ d12: coincident(Ecc.S, Epi.C) from joins, d11, d10 by lemma same ray
+      — false (residual 0.462 of the scale at kappa_bar = 10° for Ecc.R = 224.2,
+            Ecc.e = 103.5, lamA = 80.62, T = 372.7, kappa_0 = 33.21, Epi.R' =
+            224.2, Epi.r = 103.5)
+      level reached: grounded
+
+# a hypothesis is used without being cited
+✗ conclusive: d10 holds only under h2, which is not cited on the way to it (a
+      tacit premise)
+
+# a proposition that needs a hypothesis is passed off as read off the
+      construction
+✗ d5: equal(distance(Ecc.E, Ecc.S), distance(O, Epi.C)) from def Ecc.S, def
+      Epi.C by construction
+      — true, not justified (it does not hold without the hypotheses (residual
+            0.899 of the scale at kappa_bar = 15° for Ecc.R = 59.08, Ecc.e =
+            21.37, lamA = 192, T = 393.8, kappa_0 = 119.4, Epi.R' = 585.3, Epi.r
+            = 266.6), so it is not read off the constructions alone)
+
+# a case is left out: the perigee
+✗ justified: same: coincident(Ecc.S, Epi.S') by cases: no case covers kappa_bar
+      = 180°
+      level reached: true
+```
+
+The same derivation with one line altered in each case, and what the checks report.
+:::
+
+| rule | kind | case stated | Heath 1908 |
+|---|---|---|---|
+| Elements I.13 | proposition | a straight line set up on a straight line makes angles equal to two right angles | vol. I, p. 275 |
+| Elements I.28 | proposition | exterior angle equal to the interior and opposite angle: the lines are parallel | vol. I, p. 309 |
+| Elements I.29 | proposition | parallels make equal alternate angles | vol. I, p. 311 |
+| Elements I.30 | proposition | lines parallel to one line are parallel | vol. I, p. 314 |
+| Elements I.32 | proposition | the exterior angle of a triangle | vol. I, p. 316 |
+| Elements I.33 | proposition | the lines joining equal and parallel lines | vol. I, p. 322 |
+| Elements I.34 | proposition | opposite sides of a parallelogram | vol. I, p. 323 |
+| Elements I.47 | proposition | the square on the hypotenuse | vol. I, p. 349 |
+| Elements VI.6 | proposition | one equal angle between proportional sides: the triangles are equiangular | vol. II, p. 204 |
+| lemma same ray | lemma | equal distances from a point along parallels to one line, the same way: one point | rests on I.30 and I.3 |
+| lemma same angle | lemma | equal angles with a ray on the same side: one direction | rests on I.23 |
+| lemma segment addition | lemma | a point between two others: the whole is the sum of the parts | rests on Common Notion 4 |
+| lemma one line | lemma | three points on one line: the lines through them are one | rests on Definition I.23 |
+| trigonometry sine, cosine, tangent | definition | the right triangle | — |
+| common notion 1 | common notion | things equal to the same thing are equal | vol. I, p. 155 |
+| common notion 5 | common notion | the whole is greater than the part | vol. I, p. 155 |
+| construction, algebra, expansion, cases | — | the other licences | — |
+
+: The rules of derivation (`spec/rules.yaml`). The wording of each proposition was compared with the page of
+Heath's translation in the Famulus collection; the lemmas are the author's. {#tbl-rules}
+
+### What the figure supplies
+
+Euclid's propositions take something from the figure that their enunciations do not say: that points are
+distinct, that two points lie on the same side of a line, that two segments point the same way. In the rule
+table these are **configuration conditions**. I.33 has two: the equal and parallel lines point the same way,
+and three of the four points are not on one line. I.28 needs the two points on the same side of the
+transversal. The conditions are evaluated in every sampled configuration. A state in which a condition fails
+is a **degenerate state** of the step: the rule does not apply there.
+
+For the argument of Fig. 1.2 this matters. At the apsides, κ̄ = 0° and κ̄ = 180°, the points O, E, S and C lie
+on the apsidal line. There is no parallelogram, I.28 has no side to speak of, and I.33 has no figure. The
+conclusion is true there as well: the sun of both forms is at the apogee, or at the perigee. But the argument
+by the parallelogram does not reach it, and the printed figure, drawn at κ̄ ≈ 41°, does not show that it does
+not (@fig-deg). An earlier version of the derivation (paper version 1.2) had the parallelogram steps alone,
+and the checks reported the two states as degenerate. The derivation now distinguishes three cases. The first
+has the condition that O, E and S are not on one line; the other two argue with lengths along the apsidal
+line. With them no state is left uncovered (@lst-dcheck), and leaving one out is reported (@lst-fail).
+
+![Left, the parallelogram OESC at κ̄ = 41°, with OE and CS in gold (step d6). Right, the same at κ̄ = 0°: the
+four points lie on the apsidal line, and Elements I.33 has nothing to apply to.](figures/degenerate.png){#fig-deg width=92%}
+
+### The proportional case
+
+Under the hypothesis R′/r = R/e the two suns do not coincide, and the argument is another one. The triangles
+OES and S′CO have an equal angle at E and at C, both the supplement of κ̄, between proportional sides,
+e/R = r/R′. So they are equiangular (Elements VI.6: "if two triangles have one angle equal to one angle and
+the sides about the equal angles proportional, the triangles will be equiangular"), and the angle at O equals
+the angle at S′. That angle is the alternate angle of S′OE, since CS′ is parallel to OE (I.29). So S and S′
+make the same angle with OE on the same side, and are seen from O in the same direction. Eleven steps and the conclusion: six are read off the constructions, one is a calculation, the others are
+instances of rules or of Common Notion 1. The conclusion is
+`equivalent(Ecc, Epi, direction)`. The same two states are degenerate.
+
+### A derivation with an auxiliary construction
+
+The page prints, without derivation, the equation of centre as a function of the mean anomaly:
+tan c = e sin κ̄ / (R + e cos κ̄), and its sine form (p. 22). @lst-equation derives both in the eccentric model
+alone. The derivation is supplied by the author of the astra text, and its header says so; it is not
+attributed to the witness.
+
+::: {#lst-equation}
+
+```
+derivation solar-equation-of-centre in solar-eccentric "The equation of centre
+      is the angle at the sun, with tan c = e sin κ̄ / (R + e cos κ̄)"
+witness fr:kepler-sec/Swerdlow2026/0052/p03 "the formula, p. 22"
+witness fr:kepler-sec/Swerdlow2026/0052/p05 "the maximum, p. 22"
+author "Gerd Graßhoff"
+construct F = foot(O, line(E, S)) "foot of the perpendicular from the earth on
+      ES"
+derive d1: equal(angle(S, E, A), angle(E, S, O) + angle(S, O, E)) from def A by
+      Elements I.32 "OE produced to the apogee: the exterior angle at E of the
+      triangle OES"
+derive d2: equal(abs(norm180(c)), angle(O, S, E)) from d1, prop p1, prop p2 by
+      algebra "the exterior angle is κ̄ and the angle at O is κ, so the angle at
+      S is κ̄ − κ = c"
+derive d3: perpendicular(line(O, F), line(E, S)) from def F by construction
+derive d4: equal(distance(O, F), distance(O, E) * sin(angle(O, E, F))) from d3
+      by trigonometry sine
+derive d5: equal(distance(O, E), e) from def E by construction
+derive d6: equal(sin(angle(O, E, F)), abs(sin(kappa_bar))) from def E, def S,
+      def F by construction "the angle OEF is κ̄ or its supplement, according to
+      the side of E on which F falls"
+derive d7: equal(distance(O, F), e * abs(sin(kappa_bar))) from d4, d5, d6 by
+      algebra
+derive d8: equal(distance(S, F), R + e * cos(kappa_bar)) from def E, def S, def
+      F by construction "F lies on SE produced beyond E for κ̄ within 90° of the
+      apogee, between S and E otherwise: SF = SE ± EF"
+derive d9: equal(tan(angle(O, S, F)), distance(O, F) / distance(S, F)) from d3
+      by trigonometry tangent
+derive d10: equal(angle(O, S, F), angle(O, S, E)) from def F, def E, def S by
+      construction "F and E lie from S on one ray"
+derive d11: equal(distance(O, F), distance(O, S) * sin(angle(O, S, F))) from d3
+      by trigonometry sine
+derive d12: equal(distance(O, S) * distance(O, S), distance(O, F) * distance(O,
+      F) + distance(S, F) * distance(S, F)) from d3 by Elements I.47
+conclude equal(tan(abs(norm180(c))), e * abs(sin(kappa_bar)) / (R + e *
+      cos(kappa_bar))) from d2, d9, d10, d7, d8 by algebra "tan c = e sin κ̄ /
+      (R + e cos κ̄), in absolute value"
+conclude equal(sin(abs(norm180(c))), e * abs(sin(kappa_bar)) / sqrt(R * R + e *
+      e + 2 * R * e * cos(kappa_bar))) from d2, d10, d11, d12, d7, d8 by algebra
+      "sin c = e sin κ̄ / (R² + e² + 2Re cos κ̄)^½, in absolute value"
+compute c_max = max(angle(O, S, E)) with solar-eccentric.ptolemy reported 2;23°
+      source fr:kepler-sec/Swerdlow2026/0052/p05 "Ptolemy's maximum equation"
+compute c_max_battani = max(angle(O, S, E)) with solar-eccentric.battani
+      reported 1;59,10° source fr:kepler-sec/Swerdlow2026/0052/p06 "al-Battānī's
+      maximum equation"
+```
+
+The derivation `solar-equation-of-centre`. `construct` adds the foot F of the perpendicular from the earth on
+ES to the context. Two `compute` operations compare the largest equation with the values the page reports.
+:::
+
+![The scene of the derivation: the perpendicular OF from the earth on the line ES. The equation of centre c is
+the angle at the sun.](figures/solar-fig-equation.png){#fig-equation width=58%}
+
+The auxiliary point F does not belong to the model. It exists in the derivation's context only
+(@fig-equation). The steps use the exterior angle of the triangle OES (I.32), the right triangles OFE and OFS
+(the definitions of sine, cosine and tangent, and I.47 for OS), and three steps read off the construction. One
+of these, that SF = R + e cos κ̄, hides a distinction of cases — F falls beyond E or between S and E — and is the
+weakest step: it is confirmed over the parameter space and not derived. The report shows this by its grade.
+Four states are degenerate: at 0° and 180° the triangle OES vanishes, at 90° and 270° F falls on E.
+
+`compute` evaluates a quantity under a parametrisation and compares it with a reported value at the precision
+in which that value is written. The largest equation under Ptolemy's values is 2;23°, as printed. Under
+al-Battānī's values it is 1;59,9°; the page reports 1;59,10°.
+
+### Parameters determined from observations
+
+The page reports how Ptolemy found the two parameters: from the vernal equinox to the summer solstice 94½
+days "with mean motion 93;9°", from the summer solstice to the autumnal equinox 92½ days "with mean motion
+91;11°", "from which he finds that where R = 60, e = 2;29,30 ≈ 2;30 … and λ~A~ = 65;30°" (p. 22). The operation
+`determine` inverts the model numerically for the unknown parameters, given the time or the arc of mean motion
+in which an observable goes from one value to another, and reports whether the solution it finds is the only
+one (@lst-seasons).
+
+::: {#lst-seasons}
+
+```
+$ famulus-astra derive solar-parameters-from-seasons
+  = days.e: 2;28,58 at the only solution found; days turned into arcs of mean
+        motion with T = 365;14,48 d; reported 2;29,30: discrepancy, difference
+        −0;0,31,44
+  = days.lamA: 65;26° at the only solution found; days turned into arcs of mean
+        motion with T = 365;14,48 d; reported 65;30°: discrepancy, difference
+        −0;3,47
+  = arcs.e: 2;29,28 at the only solution found; the intervals taken as arcs of
+        mean motion; reported 2;29,30: discrepancy, difference −0;0,1,51
+  = arcs.lamA: 65;35° at the only solution found; the intervals taken as arcs of
+        mean motion; reported 65;30°: discrepancy, difference +0;5,7
+```
+
+Eccentricity and apogee determined through the model, from the day counts and from the reported arcs.
+:::
+
+From the two reported arcs the model gives e = 2;29,28 and λ~A~ = 65;35°. From the day counts, turned into mean
+motion with the year of 365;14,48 days and exact arithmetic, it gives e = 2;28,58 and λ~A~ = 65;26°. Ptolemy's
+2;29,30 and 65;30° agree with the first pair to within what a computation with a table of chords loses, and not
+with the second. The reported parameters follow from the rounded arcs. Swerdlow's paragraph says of this
+derivation that it "is so sensitive to errors in the intervals of time … that the exact results are
+fortuitous"; the two determinations show the sensitivity within Ptolemy's own numbers. Ptolemy's steps are not
+on the page, and Almagest III 4 is not among the texts available to us in addressable form: a gap.
+
+### What a derivation is and is not
+
+A derivation that passes the four checks is reasoning whose every proposition is true in the model and whose
+every step names a rule that licenses it. It is not a formal proof in an axiomatic system. Truth is tested on
+samples. Rules are matched as schemas, and the schema states one case of a proposition. Configuration
+conditions are evaluated numerically. What the checks give is what a careful reader of a geometrical argument
+wants to know: which proposition licenses this step, are its hypotheses all there, where does it not apply,
+and does the conclusion use something that was never said.
+
+## What follows from the texts {#sec-derived}
+
+### Sheets
+
+Every text has a specification sheet that restates it as tables: for a model the parameter symbols, the
+kinematic variable, the construction, the observables and the stated propositions with their check; for a
+parametrisation the values with their sources (@lst-sheet); for a derivation the givens, the steps with
+premises, rule, status, binding, configuration conditions and degenerate states, the rules with Heath's wording
+and page, and the computed quantities. A sheet does not mix kinds: a model's sheet has no values, and names its
+parametrisations, figures and derivations by address.
+
+::: {#lst-sheet}
+
+```yaml
+address: fr:astra/solar-eccentric.ptolemy
+kind: parametrisation
+title: Ptolemy's values
+attributed: Ptolemy
+witness:
+- address: fr:kepler-sec/Swerdlow2026/0052/p05
+  note: ''
+author: Gerd Graßhoff
+of: fr:astra/solar-eccentric
+check:
+  level: attested
+  complete: true
+values:
+- symbol: R
+  display: R
+  meaning: radius of the eccentric
+  as_written: '60'
+  value: 60.0
+  sexagesimal: '60'
+  unit: length
+  note: the norm of the radius
+  source: fr:kepler-sec/Swerdlow2026/0052/p05
+  gap: null
+  taken_from: null
+- symbol: e
+  display: e
+  meaning: eccentricity, the distance OE
+  as_written: 2;30
+  value: 2.5
+  sexagesimal: 2;30
+  unit: length
+  note: 2;29,30 rounded to 2;30
+  source: fr:kepler-sec/Swerdlow2026/0052/p05
+  gap: null
+  taken_from: null
+gaps:
+- 'kappa_0 = 0°: the pages give no epoch; t is counted from a passage through
+      the apogee'
+…
+```
+
+The YAML sheet of the parametrisation `fr:astra/solar-eccentric.ptolemy`, abridged to its head, its first two values and its gaps.
+:::
+
+### Figures and animation
+
+A figure text says what it draws (@lst-figure). Fig. 1.2 and Fig. 1.4 are two figure texts; the second draws
+the eccentric model alone, under the same values, at κ̄ = 108°, with the solstitial colure upright
+(@fig-complete). Drawing values replace attested ones for legibility; they stand in the figure text, appear in
+the corner of the figure and never touch a parametrisation.
+
+::: {#lst-figure}
+
+```
+figure solar-fig-1-2 of solar-eccentric-epicyclic "The two forms of Ptolemy's
+      solar model superposed, R' = R and r = e"
+witness fr:kepler-sec/Swerdlow2026/0050/fig01
+author "Gerd Graßhoff"
+with solar-eccentric-epicyclic.equal-radii
+drawn with Ecc.e = 16, Epi.r = 16
+at kappa_bar = 41°
+up lamA
+fit [Ecc.ecc, Epi.def, Epi.epi]
+speed 24 s
+display Epi.S' "S'"
+label angle kappa_bar at Ecc.E from Ecc.A to Ecc.S arrow
+label angle kappa_bar at O from Epi.A' to Epi.C arrow
+label length Ecc.R on Ecc.E Ecc.S
+label length Ecc.e on O Ecc.E
+label length Epi.R' on O Epi.C side right
+label length Epi.r on Epi.C Epi.S' side right
+label segment line(Ecc.A, Ecc.B)
+label arrow Ecc.S on Ecc.ecc
+label arrow Epi.C on Epi.def
+label dashed line(O, Epi.S')
+```
+
+The figure text for Swerdlow's Fig. 1.2.
+:::
+
+![Swerdlow's Fig. 1.4 drawn from the figure text `solar-fig-1-4`: the eccentric model under Ptolemy's values at
+κ̄ = 108°, with the longitudes λ~S~ and λ̄~S~ as directions from O, the angles λ~A~, κ̄ and κ, the equation of centre c
+at S and at O, and the cardinal points of the zodiac. It is the model of @fig-two in another state and another
+view.](figures/solar-fig-1-4.png){#fig-complete width=62%}
+
+The same figure text gives the moving figure; nothing is added to it.
+
+{{< famulus fr:astra/solar-fig-1-4 animation >}}
+
+The animation is a page with the figure in its depicted state, a bundle — the context's operations, the
+figure's parameter values, the scene — and a runtime of 468 lines of JavaScript without libraries. The runtime
+computes configurations with the same operations as the Python evaluator and redraws the figure at every
+frame. It has one control per thing to do: a slider for the kinematic variable; for a superposition a slider
+that fades between the two members, which is Duke's demonstration of the equivalence [@duke-models]; for a
+figure of a derivation two buttons that go through the steps, each shown with its proposition, rule and status
+and with what it speaks of in gold.
+
+Two evaluators of one operation set can drift apart. They are held together by shared cases: 64 written by
+hand, at least one per operation including the cases without solution, and the values of every named object of
+every context under sampled and attested parameter values in eight states, six given by the variable and two
+by a time. On 10 November 2026 all 3,914 values agreed to 10⁻⁹. A headless browser photographs an animation at
+three moments and requires the frames to differ.
+
+### Reference objects {#sec-references}
+
+Famulus gives every object it keeps an address beginning with `fr:` [@grasshoff2026aischolar]. Every astra
+text and every part of it has one: `fr:astra/solar-eccentric` is the model, `fr:astra/solar-eccentric.ptolemy/e`
+a value with its source, `fr:astra/solar-eccentric-epicyclic/Epi.C` the centre of the epicycle in the
+superposition, `fr:astra/solar-equivalence-equal-radii/d6` a step (@lst-describe). Prose elsewhere can then say
+exactly what it speaks of.
+
+::: {#lst-describe}
+
+```json
+{
+ "ref": "fr:astra/solar-equivalence-equal-radii/d6",
+ "kind": "astra_step",
+ "found": true,
+ "proposition": "parallel(line(O, Ecc.E), line(Epi.C, Ecc.S))",
+ "from": [
+  "sides",
+  "d5"
+ ],
+ "by": "Elements I.33",
+ "status": "justified",
+ "binding": {
+  "A": "O",
+  "C": "Ecc.E",
+  "B": "Epi.C",
+  "D": "Ecc.S"
+ },
+ "hypotheses_met_by": {
+  "parallel(line(A, B), line(C, D))": "sides",
+  "equal(distance(A, B), distance(C, D))": "d5"
+ },
+ "configuration_conditions": [
+  "same_direction(O, Epi.C, Ecc.E, Ecc.S)",
+  "noncollinear(O, Epi.C, Ecc.E)"
+ ],
+ "degenerate_at": null,
+ "in": "fr:astra/solar-equivalence-equal-radii"
+}
+```
+
+The reference service answering for step d6.
+:::
+
+### Comparing {#sec-compare}
+
+Two models are compared for identity, two parametrisations value by value (@lst-diff). The comparison states
+and does not interpret. That two different models agree in what they show is not something it can say.
+
+::: {#lst-diff}
+
+```
+$ famulus-astra diff solar-eccentric solar-epicyclic
+solar-eccentric ↔ solar-epicyclic: different geometries
+  parameters
+    − R
+    − e
+    + R'
+    + r
+  construction
+    − E (point) = O + polar(e, lamA)
+    − ecc (circle) = circle(E, R)
+    − A (point) = E + polar(R, lamA)
+    − B (point) = E - polar(R, lamA)
+    − S (point) = E + polar(R, lamA + kappa_bar)
+    + def (circle) = circle(O, R')
+    + A' (point) = O + polar(R', lamA)
+    + B' (point) = O - polar(R', lamA)
+    + C (point) = O + polar(R', lamA + kappa_bar)
+    + epi (circle) = circle(C, r)
+    + S' (point) = C + polar(r, lamA)
+  observables
+    − lam_bar (angle) = direction(E, S)
+    − kappa (angle) = lam - lamA
+    − c (angle) = lam_bar - lam
+    ~ lam: direction(O, S) → direction(O, S')
+  shared construction: O
+
+$ famulus-astra diff solar-eccentric.ptolemy solar-eccentric.battani
+solar-eccentric.ptolemy ↔ solar-eccentric.battani
+  values of Ptolemy ↔ al-Battānī
+    R: 60 ↔ 60  (equal)
+    e: 2;30 ↔ 2;4,45  (−0;25,15)
+    lamA: 65;30° ↔ 82;17°  (+16;47)
+    T: 365;14,48 ↔ —
+    kappa_0: 0° ↔ —
+```
+
+The two forms are different geometries that share only the observer. The two parametrisations differ in the
+eccentricity and in the apogee, the latter by 16;47°.
+:::
+
+## Case study: Ptolemy's solar model in Swerdlow's exposition {#sec-case}
+
+@tbl-texts lists the eighteen texts. All but one pass every level of their check. The exception is
+al-Battānī's parametrisation, which is incomplete because the page is.
+
+| text | kind | what it is |
+|---|---|---|
+| `solar-eccentric`, `solar-epicyclic` | model | the two forms; 54 and 40 operations |
+| `solar-eccentric.ptolemy`, `.battani` | parametrisation | Ptolemy's values; al-Battānī's (partial) |
+| `solar-eccentric-epicyclic` | superposition | the scene of Figs. 1.2 and 1.3; 84 operations |
+| `…epicyclic.equal-radii`, `.proportional` | parametrisation | Ptolemy's values with the radii of Fig. 1.2 and of Fig. 1.3 |
+| `solar-equivalence-equal-radii` | derivation | 2 givens, 26 steps in 3 cases; equivalence in position |
+| `solar-equivalence-proportional` | derivation | 1 given, 11 steps; equivalence in direction |
+| `solar-equation-of-centre` | derivation | 1 auxiliary construction, 12 steps, 2 conclusions, 2 computations |
+| `solar-parameters-from-seasons` | derivation | 2 determinations |
+| `solar-fig-1-2`, `-1-3`, `-1-4` and four more | figure | the three printed figures; the members alone; the scenes of two derivations |
+
+: The texts of the case study (`examples/solar/`). {#tbl-texts}
+
+Writing the texts was a reading of the pages. It found the following.
+
+**The parallelogram argument does not cover the apsides.** Steps by I.28 and I.33 have configuration
+conditions that fail at κ̄ = 0° and 180°. The page's sentence "complete parallelogram OESC" presupposes a
+position in which there is one. The complete argument has three cases, of which page and figure give one.
+
+**The reported parameters follow from the rounded arcs.** Inverting the model for the reported arcs gives
+Ptolemy's eccentricity to two units of the second sexagesimal place and his apogee to 0;5°; inverting it for
+the day counts does not.
+
+**A misprinted sign rule and a misprinted difference.** On page 22 the rule for the sign of c reads "for κ̄ >
+180°" in both clauses; the model gives c > 0° for κ̄ < 180°. The same page gives the advance of al-Battānī's
+apogee over Ptolemy's as 16;37°; the two longitudes on the page differ by 16;47°, as the comparison of the two
+parametrisations shows (@lst-diff). Both are treated in a companion paper that reads these pages assertion by
+assertion [@grasshoff2026deepreading].
+
+**Errors of our own.** The first draft gave the year the locus of page 19, which prints the mean motion of the
+Alfonsine Tables; the Ptolemaic year stands on page 17. A source being named is not a source being right, and
+the address makes the check a quick one. The second version (1.1) of this paper made the four conflations
+listed in @sec-intro. And a figure in the companion paper, al-Battānī's largest equation recomputed as
+1;59,8°, was truncated where it should have been rounded: it is 1;59,9°.
+
+## Representation, model, description {#sec-repr}
+
+The **model** is not a text. It is the geometry: the function from parameter values and states to
+configurations, with what holds of it. Ptolemy's eccentric solar model is the same model whether Ptolemy,
+Regiomontanus, Swerdlow or an astra text states it. That is why a model text names three persons or texts and
+not one.
+
+A **representation** is anything that determines the model: Ptolemy's prose and figure, Swerdlow's prose and
+figures, the astra model text, the operation list, the sheet. Two representations represent the same model
+when they agree in every configuration. A **figure** represents less and more than the model. Less, because it
+shows one state under one set of values. More, because it chooses a view, and often values that are not the
+attested ones. Figs. 1.2 and 1.4 draw one model in two states, two orientations and with an exaggerated
+eccentricity.
+
+A **diagram of two models** is a superposition. Fig. 1.2 is drawn so that a parallelogram can be seen, and
+the parallelogram is the place of an argument. Three things are to be told apart: the superposition, which the
+diagram shows; the hypotheses under which something holds across the two models, under which the diagram is
+drawn and which it cannot show; and the derivation, whose scene the diagram is. The equivalence of the two
+models is the conclusion of the third. It is a relation between models, not between representations of one
+model.
+
+The **describing text** refers to the model through names — "complete parallelogram OESC", "r is always
+parallel to the apsidal line AB" — and asserts things of different kinds. The astra texts make the names
+resolvable and each assertion checkable as what it is (@tbl-assert).
+
+| the prose | is checked as |
+|---|---|
+| states a property of the construction | a proposition of the model |
+| says that something follows | a step of a derivation, with its rule |
+| gives a number that follows from other numbers | arithmetic, or a quantity computed under a parametrisation |
+| gives parameters found from observations | a determination through the model |
+
+: Kinds of assertion in a describing text, and how each is checked. {#tbl-assert}
+
+## Related work {#sec-related}
+
+Languages for geometrical constructions are older than dynamic geometry on screens. **GCLC**, the Geometry
+Constructions Language of Janičić [@janicic2010gclc], treats a construction as a procedure and has a built-in
+prover that takes a conjecture about the construction and returns a proof. astra/1 takes from GCLC the view of
+a construction as a procedure whose objects depend only on earlier ones. Its derivations do something
+different from GCLC's prover: they take the steps that a historical text gives or presupposes, with the
+propositions that text would cite, and ask of each step whether it is true and whether that proposition
+licenses it. The aim is to analyse a given piece of reasoning, not to find a proof. **Eukleides**
+[@obrecht2002eukleides] makes the text resemble geometric notation, works with typed values and avoids
+Cartesian coordinates where it can; astra/1 is typed with units and has no coordinates in its texts.
+**Cinderella** [@richtergebert2012cinderella], **GeoGebra** [@hohenwarter2002geogebra] and **JSXGraph**
+[@gerhauser2010jsxgraph] made constructions interactive: a free element or a slider drives a graph of
+dependent objects. In such a construction, values and geometry are stored together; astra/1 separates them.
+
+Animations of historical models are a separate tradition. Dennis Duke's animations of the Almagest models
+[@duke-models] compute every position in closed form from one time variable and demonstrate the equivalence of
+eccentric and epicyclic forms by a slider that turns one into the other. Brandon Rhodes' scale drawings of
+Ptolemy's cosmos [@rhodes-ptolemy] fit their parameters to a modern ephemeris and state their scale
+conventions. astra/1 shares the fade between two models with Duke and the stated conventions with Rhodes, and
+adds what neither aims at: the geometry apart from the values, a source for each number, the equivalence as a
+derivation with hypotheses, and an address for every part. The Famulus astronomy expert
+[@grasshoff2026famulusastronomy] computes positions from the Almagest models; astra/1 describes the
+constructions those computations presuppose.
+
+@tbl-compare summarises the differences. It records design aims, not quality: the geometry packages are
+general-purpose tools, astra/1 is a language for one kind of object.
+
+| | GCLC | Eukleides | Cinderella, GeoGebra, JSXGraph | Duke | astra/1 |
+|---|---|---|---|---|---|
+| a construction is a text | yes | yes | stored files | code | yes |
+| coordinates | yes | avoided | yes | yes | only the observer |
+| units typed | no | types, no units | no | no | yes |
+| geometry apart from values | no | no | no | no | model and parametrisation |
+| two models in one scene | no | no | by hand | slider | superposition |
+| reasoning | prover finds a proof | no | no | no | a given derivation is checked step by step |
+| sources | no | no | no | no | required or gap |
+| citable parts | no | no | no | no | `fr:astra/…` |
+
+: Design aims of astra/1 and the work it learned from. {#tbl-compare}
+
+## Limitations {#sec-limits}
+
+Cases have to be found by the author of a derivation: the checks report the states a step does not cover
+and whether the cases cover every configuration, but they do not propose the distinction. The cases hidden in
+a step that is read off the construction are not shown. Hypotheses have to fix a parameter; inequalities
+between parameters and hypotheses of incidence are not supported. The grades *read off the construction* and
+*calculation* are tested numerically and not replayed symbolically; an expansion is tested at three sizes of
+the small ratio and not derived term by term. A rule schema states one case of a proposition, and the rule table
+holds the rules that the derivations written so far needed. Truth is tested on samples throughout.
+
+The language is planar; latitude needs a third dimension. Motions taken from tables are not implemented. Only
+the solar model is written. The language covers the equant (`seen_from`), the Tusi couple (`rotate`) and
+Kepler's ellipse (`true_anomaly`, `ellipse`), but no such model is written, because the rule that every value
+has a source that can be addressed is kept: the later chapters of Swerdlow, which announce "more interesting
+transformations of planetary models based upon the same principles that lead from the Ptolemaic to the
+Copernican and Tychonic systems" (p. 20), are not yet read for loci. They are superpositions and derivations
+waiting to be written.
+
+The level *attested* checks that a source is named, not that it says what the parametrisation says. The
+propositions of Euclid are cited by the page of Heath's translation, not by paragraph, because those volumes
+have no paragraph addressing yet. The Almagest itself is not among the addressable texts, so the attribution
+to Ptolemy and the loci in the Almagest are as Swerdlow's page gives them. The code is not yet public.
+
+## Conclusion
+
+A historical astronomical model can be written so that four things stay apart: the geometry, as a model
+without values; the numbers, as parametrisations with owners and sources; the position, as a state; and the
+reasoning, as a derivation. A diagram that shows two models is then a superposition, and what it is drawn to
+make visible, an equivalence, is the conclusion of a derivation under hypotheses the diagram cannot show. A
+derivation whose steps name premises and rules can be checked step by step: for truth over the parameter
+space, for whether the step is an instance of its rule, for the states in which the rule does not apply, and
+for premises used without being said. Applied to Ptolemy's solar model as Swerdlow uses it, this showed that
+the parallelogram argument needs two further cases at the apsides and that the reported parameters follow from rounded arcs.
+Neither is visible in the diagram.
+
+## Availability {.unnumbered}
+
+The language specification (`spec/astra-1.md`), the operation set, the rules of derivation, the test cases,
+the eighteen texts, the runtime, the deep-reading tool and the tests are in the Famulus workspace
+`famulus-astronomica` (41 tests; 6,467 lines of Python and JavaScript, of which 952 for derivations and rules,
+468 for the runtime and 354 for the deep-reading tool). The addresses `fr:astra/…` resolve on the Famulus
+reference service of the author's node; the names used in version 1.1 of this paper resolve to the objects
+they have become. Swerdlow's book is cited by its scan pages in the Famulus collection `kepler-sec` (scan page n
+is printed page n − 30 in chapter 1); Heath's Euclid by the scan pages of the collection `assyrischeSammlung`.
