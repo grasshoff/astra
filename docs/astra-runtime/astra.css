@@ -14,3 +14,15 @@
 .astra-morph-label { min-width: 2em; text-align: center; color: var(--fv-oxford); font-weight: 600; }
 .astra-steps { margin-top: 6px; }
 .astra-step-text { flex: 1; font-family: var(--fv-mono); font-size: var(--fv-size-caption); color: var(--fv-ink); }
+
+/* the narration of a figure: the sentence of the stage, and the stages */
+.astra-stage { margin-top: 12px; padding: 10px 14px 8px; border-left: 3px solid var(--fv-gold-deep); background: var(--fv-sandstone); }
+.astra-stage-text { margin: 0; min-height: 3.1em; font-size: calc(var(--fv-size-title) * 1.05); line-height: 1.45; color: var(--fv-ink); }
+.astra-stage-nav { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: var(--fv-size-caption); color: var(--fv-muted); }
+.astra-stage-count { min-width: 3.2em; text-align: center; font-variant-numeric: tabular-nums; }
+.astra-stage-dots { display: flex; gap: 6px; flex: 1; }
+.astra-dot { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1px solid var(--fv-gold-deep); background: transparent; cursor: pointer; }
+.astra-dot.on { background: var(--fv-gold-deep); }
+.astra-btn.astra-tour { width: auto; padding: 0 12px; white-space: nowrap; }
+svg.astra-figure [data-owner] { transition: opacity .45s ease; }
+@media (prefers-reduced-motion: reduce) { svg.astra-figure [data-owner] { transition: none; } }

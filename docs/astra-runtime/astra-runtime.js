@@ -220,10 +220,18 @@ const armAngle = (arm, env, v) => 'fixed' in arm ? arm.fixed : 'point' in arm
 
 const ahead = state => 't' in state ? { ...state, t: state.t + 0.01 } : Object.fromEntries(Object.entries(state).map(([k, v]) => [k, v + 0.05]));
 
-export function renderBody(bundle, state, stepName) {
+// The scene as a stage of the narration draws it (mirrors svg/render.py `staged`): without the label kinds the
+// stage has not yet revealed. Members the stage does not show stay in the scene: the runtime fades them.
+function staged(scene, stage) {
+  if (!stage) return scene;
+  const hidden = new Set(stage.hidden || []);
+  return hidden.size ? scene.filter(d => !hidden.has(d.label)) : scene;
+}
+
+export function renderBody(bundle, state, stepName, stage) {
   const proj = bundle.projection;
   const env = configuration(bundle.ops, bundle.params, state);
-  const scene = bundle.scene;
+  const scene = staged(bundle.scene, stage);
   const hl = stepName ? (bundle.steps || []).find(s => s.name === stepName) : null;
   const hlPoints = new Set(hl ? hl.points : []);
   const hlSegs = new Set(hl ? hl.segments.map(pq => [...pq].sort().join('|')) : []);
@@ -243,6 +251,7 @@ export function renderBody(bundle, state, stepName) {
     if (d.kind === 'segment') {
       const p = P(d.p), q = P(d.q), on = isHl(d.p, d.q);
       if (d.step_only && !on) continue;
+      if (d.sight) continue;            // drawn later, above the construction
       if (p && q) out.push(seg(d.id, on ? 'astra-step' : d.dashed ? 'astra-aux astra-dashed' : 'astra-construct', p, q));
     } else if (d.kind === 'zodiac') {
       const c = env[d.circle], o = P(d.point);
@@ -324,6 +333,12 @@ export function renderBody(bundle, state, stepName) {
     ink += L;
     out.push(tx(o[0] + (L + 1.1 * EM) * dx, o[1] + (L + 1.1 * EM) * dy, d.text, 'astra-label var', d.id));
   }
+  for (const d of scene) {          // lines of sight: above the construction, below the points
+    currentOwner = d.owner || '';
+    if (d.kind !== 'segment' || !d.sight) continue;
+    const p = P(d.p), q = P(d.q);
+    if (p && q) out.push(seg(d.id, 'astra-sight', p, q));
+  }
   const placed = [];
   for (const d of scene) {
     currentOwner = d.owner || '';
@@ -356,12 +371,41 @@ export function mount(svg, bundle, opts = {}) {
   const members = (bundle.members || []).length === 2 ? bundle.members : null;
   let morph = q.has('morph') ? Math.max(0, Math.min(1, parseFloat(q.get('morph')))) : 0.5;
   let step = q.get('step') || null;
+  // the narration: the stages of the figure, one at a time (none: the figure as before)
+  const stages = bundle.stages || [];
+  const allMembers = bundle.members || [];
+  let stageIx = stages.length ? Math.max(0, stages.findIndex(s => s.name === q.get('stage'))) : -1;
+  let touring = false, tourTimer = 0, tourFrom = null;
 
   const stateAt = x => anim.mode === 'var'
     ? { [anim.name]: norm360(anim.start + 360 * x) }
     : { t: anim.start + x * (anim.period_days || 1) };
 
+  // a stage shows some members and hides the others: by opacity, so that a change of stage fades
+  // … and the change fades: for FADE ms after a change of stage each member moves from its old opacity to its new
+  const FADE = 450;
+  let fadeFrom = null, fadeAt = 0, fadeRaf = 0;
+  const shownIn = st => new Set(st && st.show && st.show.length ? st.show : allMembers);
+  function applyStage() {
+    const st = stageIx >= 0 ? stages[stageIx] : null;
+    if (!st) return false;
+    const show = shownIn(st);
+    const f = fadeFrom && !reduced ? Math.min(1, (performance.now() - fadeAt) / FADE) : 1;
+    for (const el of body.querySelectorAll('[data-owner]')) {
+      const o = el.getAttribute('data-owner');
+      const to = show.has(o) ? 1 : 0, from = fadeFrom ? (fadeFrom.has(o) ? 1 : 0) : to;
+      el.style.opacity = (from + (to - from) * f).toFixed(3);
+    }
+    if (f >= 1) fadeFrom = null;
+    return true;
+  }
+  function fadeLoop() {
+    cancelAnimationFrame(fadeRaf);
+    const stepFade = () => { if (!fadeFrom) return; if (!playing) draw(); if (fadeFrom) fadeRaf = requestAnimationFrame(stepFade); };
+    fadeRaf = requestAnimationFrame(stepFade);
+  }
   function applyMorph() {
+    if (applyStage()) return;
     if (!members) return;
     const wa = Math.min(1, 2 * (1 - morph)), wb = Math.min(1, 2 * morph);
     for (const el of body.querySelectorAll('[data-owner]')) {
@@ -373,7 +417,7 @@ export function mount(svg, bundle, opts = {}) {
   function draw() {
     try {
       const st = stateAt(u);
-      const r = renderBody(Object.assign({}, bundle, { params }), st, step);
+      const r = renderBody(Object.assign({}, bundle, { params }), st, step, stageIx >= 0 ? stages[stageIx] : null);
       body.innerHTML = r.html;
       applyMorph();
       svg.dataset.ink = r.ink.toFixed(4);
@@ -391,9 +435,50 @@ export function mount(svg, bundle, opts = {}) {
     if (last !== null) u = (u + (now - last) / 1000 / speed) % 1;
     last = now;
     draw();
+    // a running stage of the tour ends after one revolution
+    if (touring && tourFrom !== null && now - tourFrom >= speed * 1000) { tourFrom = null; ctl.pause(); nextOfTour(); }
     raf = requestAnimationFrame(tick);
   }
+  // what a stage does when it is entered: stand at its state, or run
+  function enterStage(i, { auto = false } = {}) {
+    if (!stages.length) return;
+    const before = stageIx >= 0 ? shownIn(stages[stageIx]) : null;
+    stageIx = Math.max(0, Math.min(stages.length - 1, i));
+    const st = stages[stageIx];
+    ctl.pause();
+    if (before && !hold) { fadeFrom = before; fadeAt = performance.now(); }
+    step = null;
+    if (st.u !== null && st.u !== undefined) u = st.u;
+    draw();
+    if (fadeFrom) fadeLoop();
+    if (st.play && !hold) { tourFrom = auto ? performance.now() : null; ctl.play(); }
+  }
+  // the tour: every stage in turn, a standing one long enough to read its sentence, a running one for a revolution
+  function nextOfTour() {
+    window.clearTimeout(tourTimer);
+    if (!touring) return;
+    if (stageIx >= stages.length - 1) { touring = false; for (const fn of listeners) fn(ctl.state()); return; }
+    enterStage(stageIx + 1, { auto: true });
+    scheduleTour();
+  }
+  function scheduleTour() {
+    const st = stages[stageIx];
+    if (st.play && !hold) return;                       // tick() ends it after one revolution
+    const read = Math.max(4000, 1200 + 70 * (st.text || '').length);
+    tourTimer = window.setTimeout(nextOfTour, read);
+  }
   const ctl = {
+    stage(i) { touring = false; window.clearTimeout(tourTimer); tourFrom = null; enterStage(i); },
+    stageNext() { ctl.stage(stageIx + 1); },
+    stagePrev() { ctl.stage(stageIx - 1); },
+    tour() {
+      if (!stages.length) return;
+      if (touring) { touring = false; window.clearTimeout(tourTimer); tourFrom = null; ctl.pause(); for (const fn of listeners) fn(ctl.state()); return; }
+      touring = true;
+      enterStage(stageIx >= stages.length - 1 ? 0 : stageIx, { auto: true });
+      scheduleTour();
+      for (const fn of listeners) fn(ctl.state());
+    },
     seek(x) { u = ((x % 1) + 1) % 1; draw(); },
     play() { if (playing || hold) return; playing = true; last = null; raf = requestAnimationFrame(tick); },
     pause() { playing = false; cancelAnimationFrame(raf); },
@@ -401,12 +486,13 @@ export function mount(svg, bundle, opts = {}) {
     set(name, value) { params[name] = value; draw(); },
     morph(v) { morph = Math.max(0, Math.min(1, v)); applyMorph(); for (const fn of listeners) fn(ctl.state()); },
     step(name) { step = name || null; draw(); },
-    state() { return { u, state: stateAt(u), speed, playing, params: Object.assign({}, params), morph, members, step }; },
+    state() { return { u, state: stateAt(u), speed, playing, params: Object.assign({}, params), morph, members, step, stage: stageIx, stages, touring }; },
     onChange(fn) { listeners.add(fn); return () => listeners.delete(fn); },
   };
   draw();
   if (opts.transport) transport(opts.transport, ctl, bundle);
-  if (!hold && opts.autoplay !== false && !step) ctl.play();
+  if (stages.length) enterStage(stageIx);               // a narrated figure opens at its first stage, not running
+  else if (!hold && opts.autoplay !== false && !step) ctl.play();
   document.addEventListener('visibilitychange', () => { if (document.hidden) ctl.pause(); });
   return ctl;
 }
@@ -423,7 +509,36 @@ function transport(el, ctl, bundle) {
   slider.addEventListener('input', () => { ctl.pause(); ctl.seek(slider.value / 1000); });
   let anchor = el;
   const st0 = ctl.state();
-  if (st0.members) {
+  if (st0.stages.length) {
+    // the narration: the sentence of the stage under the figure, the stages one by one, and the whole tour
+    const row = document.createElement('div');
+    row.className = 'astra-stage';
+    row.setAttribute('aria-live', 'polite');
+    row.innerHTML = `<p class="astra-stage-text"></p>
+      <div class="astra-stage-nav">
+        <button type="button" class="astra-btn" data-act="stage-prev" aria-label="previous stage">‹</button>
+        <span class="astra-stage-count"></span>
+        <button type="button" class="astra-btn" data-act="stage-next" aria-label="next stage">›</button>
+        <span class="astra-stage-dots"></span>
+        <button type="button" class="astra-btn astra-tour" data-act="tour"></button>
+      </div>`;
+    el.before(row);
+    const text = row.querySelector('.astra-stage-text'), count = row.querySelector('.astra-stage-count');
+    const dots = row.querySelector('.astra-stage-dots'), tour = row.querySelector('[data-act=tour]');
+    dots.innerHTML = st0.stages.map((s, i) => `<button type="button" class="astra-dot" data-stage="${i}" aria-label="stage ${i + 1}: ${s.name}"></button>`).join('');
+    row.querySelector('[data-act=stage-prev]').addEventListener('click', () => ctl.stagePrev());
+    row.querySelector('[data-act=stage-next]').addEventListener('click', () => ctl.stageNext());
+    tour.addEventListener('click', () => ctl.tour());
+    dots.addEventListener('click', e => { const b = e.target.closest('[data-stage]'); if (b) ctl.stage(Number(b.dataset.stage)); });
+    ctl.onChange(s => {
+      const st = s.stages[s.stage];
+      if (text.dataset.stage !== String(s.stage)) { text.dataset.stage = String(s.stage); text.textContent = st ? st.text : ''; }
+      count.textContent = `${s.stage + 1} / ${s.stages.length}`;
+      tour.textContent = s.touring ? '❚❚ stop' : '▶ all stages';
+      dots.querySelectorAll('.astra-dot').forEach((d, i) => d.classList.toggle('on', i === s.stage));
+    });
+  }
+  if (st0.members && !st0.stages.length) {
     // a second slider fades between the two members of the superposition: the shared observer stays, one
     // construction fades out as the other fades in
     const row = document.createElement('div');

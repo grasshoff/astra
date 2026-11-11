@@ -1203,7 +1203,7 @@
  "figure": {
   "id": "solar-fig-equation",
   "address": "fr:astra/solar-fig-equation",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-solar-fig-equation\" class=\"astra-figure\" viewBox=\"0 0 720.00 720.00\" width=\"720.00\" height=\"720.00\" role=\"img\" aria-label=\"The equation of centre: the perpendicular from the earth on ES\" data-figure=\"solar-fig-equation\" data-state=\"kappa_bar=52.0000\" data-theme=\"light\">\n<title>The equation of centre: the perpendicular from the earth on ES</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment4\" class=\"astra-construct\" x1=\"360.00\" y1=\"57.60\" x2=\"360.00\" y2=\"662.40\"/>\n<line id=\"astra-segment5\" class=\"astra-aux astra-dashed\" x1=\"360.00\" y1=\"448.20\" x2=\"402.79\" y2=\"393.43\"/>\n<line id=\"astra-segment6\" class=\"astra-aux astra-dashed\" x1=\"360.00\" y1=\"360.00\" x2=\"402.79\" y2=\"393.43\"/>\n<line id=\"astra-segment7\" class=\"astra-construct\" x1=\"360.00\" y1=\"448.20\" x2=\"121.71\" y2=\"173.82\"/>\n<circle id=\"astra-ecc\" class=\"astra-construct\" cx=\"360.00\" cy=\"360.00\" r=\"302.40\"/>\n<line id=\"astra-length2\" class=\"astra-construct\" x1=\"360.00\" y1=\"360.00\" x2=\"121.71\" y2=\"173.82\"/>\n<text id=\"astra-length2-text\" class=\"astra-label var\" x=\"234.39\" y=\"275.19\" text-anchor=\"middle\" dominant-baseline=\"middle\">R</text>\n<line id=\"astra-length3\" class=\"astra-construct\" x1=\"360.00\" y1=\"448.20\" x2=\"360.00\" y2=\"360.00\"/>\n<text id=\"astra-length3-text\" class=\"astra-label var\" x=\"349.50\" y=\"404.10\" text-anchor=\"middle\" dominant-baseline=\"middle\">e</text>\n<path id=\"astra-angle0\" class=\"astra-angle\" d=\"M 360.00 311.62 A 48.38 48.38 0 0 0 321.87 330.21\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle0-text\" class=\"astra-label astra-angle-label\" x=\"332.87\" y=\"304.38\" text-anchor=\"middle\" dominant-baseline=\"middle\">κ̄</text>\n<path id=\"astra-angle1\" class=\"astra-angle\" d=\"M 153.43 210.35 A 48.38 48.38 0 0 0 159.83 203.61\"/>\n<text id=\"astra-angle1-text\" class=\"astra-label astra-angle-label\" x=\"190.30\" y=\"238.95\" text-anchor=\"middle\" dominant-baseline=\"middle\">c</text>\n<circle id=\"astra-O\" class=\"astra-point\" cx=\"360.00\" cy=\"448.20\" r=\"3.2\"/>\n<text id=\"astra-O-text\" class=\"astra-label\" x=\"360.00\" y=\"463.20\" text-anchor=\"middle\" dominant-baseline=\"middle\">O</text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"360.00\" cy=\"360.00\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"374.16\" y=\"364.96\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"662.40\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"360.00\" y=\"677.40\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle id=\"astra-S\" class=\"astra-point\" cx=\"121.71\" cy=\"173.82\" r=\"3.2\"/>\n<text id=\"astra-S-text\" class=\"astra-label\" x=\"109.89\" y=\"164.59\" text-anchor=\"middle\" dominant-baseline=\"middle\">S</text>\n<circle id=\"astra-F\" class=\"astra-point\" cx=\"402.79\" cy=\"393.43\" r=\"3.2\"/>\n<text id=\"astra-F-text\" class=\"astra-label\" x=\"414.61\" y=\"402.67\" text-anchor=\"middle\" dominant-baseline=\"middle\">F</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"710.00\">drawn with e = 17;30</text>\n</svg>\n",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-solar-fig-equation\" class=\"astra-figure\" viewBox=\"0 0 720.00 720.00\" width=\"720.00\" height=\"720.00\" role=\"img\" aria-label=\"The equation of centre: the perpendicular from the earth on ES\" data-figure=\"solar-fig-equation\" data-state=\"kappa_bar=52.0000\" data-theme=\"light\">\n<title>The equation of centre: the perpendicular from the earth on ES</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-sight { fill: none; stroke: var(--fv-sight); stroke-width: calc(var(--fv-stroke-line) * 1.6); stroke-linecap: round; }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment4\" class=\"astra-construct\" x1=\"360.00\" y1=\"57.60\" x2=\"360.00\" y2=\"662.40\"/>\n<line id=\"astra-segment5\" class=\"astra-aux astra-dashed\" x1=\"360.00\" y1=\"448.20\" x2=\"402.79\" y2=\"393.43\"/>\n<line id=\"astra-segment6\" class=\"astra-aux astra-dashed\" x1=\"360.00\" y1=\"360.00\" x2=\"402.79\" y2=\"393.43\"/>\n<line id=\"astra-segment7\" class=\"astra-construct\" x1=\"360.00\" y1=\"448.20\" x2=\"121.71\" y2=\"173.82\"/>\n<circle id=\"astra-ecc\" class=\"astra-construct\" cx=\"360.00\" cy=\"360.00\" r=\"302.40\"/>\n<line id=\"astra-length2\" class=\"astra-construct\" x1=\"360.00\" y1=\"360.00\" x2=\"121.71\" y2=\"173.82\"/>\n<text id=\"astra-length2-text\" class=\"astra-label var\" x=\"234.39\" y=\"275.19\" text-anchor=\"middle\" dominant-baseline=\"middle\">R</text>\n<line id=\"astra-length3\" class=\"astra-construct\" x1=\"360.00\" y1=\"448.20\" x2=\"360.00\" y2=\"360.00\"/>\n<text id=\"astra-length3-text\" class=\"astra-label var\" x=\"349.50\" y=\"404.10\" text-anchor=\"middle\" dominant-baseline=\"middle\">e</text>\n<path id=\"astra-angle0\" class=\"astra-angle\" d=\"M 360.00 311.62 A 48.38 48.38 0 0 0 321.87 330.21\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle0-text\" class=\"astra-label astra-angle-label\" x=\"332.87\" y=\"304.38\" text-anchor=\"middle\" dominant-baseline=\"middle\">κ̄</text>\n<path id=\"astra-angle1\" class=\"astra-angle\" d=\"M 153.43 210.35 A 48.38 48.38 0 0 0 159.83 203.61\"/>\n<text id=\"astra-angle1-text\" class=\"astra-label astra-angle-label\" x=\"190.30\" y=\"238.95\" text-anchor=\"middle\" dominant-baseline=\"middle\">c</text>\n<circle id=\"astra-O\" class=\"astra-point\" cx=\"360.00\" cy=\"448.20\" r=\"3.2\"/>\n<text id=\"astra-O-text\" class=\"astra-label\" x=\"360.00\" y=\"463.20\" text-anchor=\"middle\" dominant-baseline=\"middle\">O</text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"360.00\" cy=\"360.00\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"374.16\" y=\"364.96\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"662.40\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"360.00\" y=\"677.40\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle id=\"astra-S\" class=\"astra-point\" cx=\"121.71\" cy=\"173.82\" r=\"3.2\"/>\n<text id=\"astra-S-text\" class=\"astra-label\" x=\"109.89\" y=\"164.59\" text-anchor=\"middle\" dominant-baseline=\"middle\">S</text>\n<circle id=\"astra-F\" class=\"astra-point\" cx=\"402.79\" cy=\"393.43\" r=\"3.2\"/>\n<text id=\"astra-F-text\" class=\"astra-label\" x=\"414.61\" y=\"402.67\" text-anchor=\"middle\" dominant-baseline=\"middle\">F</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"710.00\">drawn with e = 17;30</text>\n</svg>\n",
   "bundle": {
    "id": "solar-fig-equation",
    "title": "The equation of centre: the perpendicular from the earth on ES",
@@ -3127,7 +3127,8 @@
      "arrow": true,
      "text": "κ̄",
      "ref": "kappa_bar",
-     "owner": ""
+     "owner": "",
+     "label": "angle"
     },
     {
      "kind": "angle",
@@ -3143,7 +3144,8 @@
      "arrow": false,
      "text": "c",
      "ref": "c",
-     "owner": ""
+     "owner": "",
+     "label": "angle"
     },
     {
      "kind": "length",
@@ -3153,7 +3155,8 @@
      "side": "left",
      "text": "R",
      "ref": "R",
-     "owner": ""
+     "owner": "",
+     "label": "length"
     },
     {
      "kind": "length",
@@ -3163,7 +3166,8 @@
      "side": "left",
      "text": "e",
      "ref": "e",
-     "owner": ""
+     "owner": "",
+     "label": "length"
     },
     {
      "kind": "segment",
@@ -3171,7 +3175,8 @@
      "p": "A",
      "q": "B",
      "dashed": false,
-     "owner": ""
+     "owner": "",
+     "label": "segment"
     },
     {
      "kind": "segment",
@@ -3179,7 +3184,8 @@
      "p": "O",
      "q": "F",
      "dashed": true,
-     "owner": ""
+     "owner": "",
+     "label": "dashed"
     },
     {
      "kind": "segment",
@@ -3187,7 +3193,8 @@
      "p": "E",
      "q": "F",
      "dashed": true,
-     "owner": ""
+     "owner": "",
+     "label": "dashed"
     },
     {
      "kind": "segment",
@@ -3195,7 +3202,8 @@
      "p": "O",
      "q": "S",
      "dashed": false,
-     "owner": ""
+     "owner": "",
+     "label": "segment"
     },
     {
      "kind": "segment",
@@ -3548,6 +3556,7 @@
      "segments": []
     }
    ],
+   "stages": [],
    "drawn": {
     "e": "17;30"
    },

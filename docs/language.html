@@ -79,12 +79,6 @@ ul.task-list li input[type="checkbox"] {
 figure.astra svg{max-width:100%;height:auto}</style>
 
 
-<!-- famulus:publisher:start -->
-<meta name="referrer" content="no-referrer-when-downgrade">
-<meta name="publisher" content="OpenScienceTechnology GmbH">
-<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/language.html", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
-<!-- famulus:publisher:end -->
 </head>
 
 <body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -149,6 +143,10 @@ figure.astra svg{max-width:100%;height:auto}</style>
 <span class="menu-text">Runtime</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./package.html"> 
+<span class="menu-text">Package</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./references.html"> 
 <span class="menu-text">References</span></a>
   </li>  
@@ -198,6 +196,7 @@ figure.astra svg{max-width:100%;height:auto}</style>
   <li><a href="#what-can-be-said-of-a-text-check" id="toc-what-can-be-said-of-a-text-check" class="nav-link" data-scroll-target="#what-can-be-said-of-a-text-check">8. What can be said of a text (<code>check</code>)</a></li>
   <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">9. Evaluation</a></li>
   <li><a href="#reference-objects" id="toc-reference-objects" class="nav-link" data-scroll-target="#reference-objects">10. Reference objects</a></li>
+  <li><a href="#a.-the-package-and-the-texts-of-a-project" id="toc-a.-the-package-and-the-texts-of-a-project" class="nav-link" data-scroll-target="#a.-the-package-and-the-texts-of-a-project">10a. The package and the texts of a project</a></li>
   <li><a href="#representation-model-description" id="toc-representation-model-description" class="nav-link" data-scroll-target="#representation-model-description">11. Representation, model, description</a></li>
   <li><a href="#the-op-set" id="toc-the-op-set" class="nav-link" data-scroll-target="#the-op-set">The op-set</a></li>
   </ul>
@@ -422,8 +421,19 @@ up &lt;angle&gt;      fit [a, b, …]      speed &lt;n&gt; s
 label angle &lt;angle&gt; at &lt;V&gt; from &lt;arm&gt; to &lt;arm&gt; [arrow]       arm: a point, an angle name, or `aries` (0°)
 label length &lt;param | "text"&gt; on &lt;P&gt; &lt;Q&gt; [side right]
 label arrow &lt;P&gt; on &lt;circle&gt;      label segment line(P, Q)      label dashed line(P, Q)
+label sight line(P, Q)                   the line of sight from an observer P to a body Q, in the sight colour
 label direction &lt;angle&gt; from &lt;P&gt; [dashed]      label zodiac at &lt;O&gt; on &lt;circle&gt; [full]
-display &lt;name&gt; "&lt;symbol&gt;"      hide &lt;name&gt; …</code></pre>
+display &lt;name&gt; "&lt;symbol&gt;"      hide &lt;name&gt; …
+stage &lt;name&gt; "&lt;sentence&gt;" [show &lt;member&gt;, …] [reveal &lt;label kind&gt;, …] [at &lt;variable&gt; = &lt;angle&gt; | play]</code></pre>
+<p><strong>Narration (1.1, 11 Nov 2026).</strong> The <code>stage</code> statements of a figure, in their order, are its narration: a figure that is shown and described step by step. A stage</p>
+<ul>
+<li><code>show</code>s members of a superposition (<code>show Ecc</code>; none named: all of them) — what belongs to another member is not drawn; what belongs to no member (the observer, a line of sight) always is;</li>
+<li><code>reveal</code>s labels by their kind (<code>reveal sight</code>): a kind that some stage reveals is not drawn before that stage and stays from it on;</li>
+<li>stands at a state (<code>at kappa_bar = 90°</code>; none given: the state it is entered in) or runs through a revolution (<code>play</code>);</li>
+<li>says one sentence, which the page shows under the figure and the print sets beside the still of the stage.</li>
+</ul>
+<p>A figure without stages is drawn and moves as before. The narration is checked with the figure: an unknown member, a kind the figure does not label, a name used twice or a state of another variable makes the figure not well-formed; a kind that no stage ever reveals, or one the figure does not draw, makes it not labelled. The page opens at the first stage and does not run by itself; the transport steps through the stages or plays them all.</p>
+<p><strong>Texts of a project.</strong> A workspace reads the shared texts (<code>examples/</code>) and, beside them, the folders named by <code>--root &lt;dir&gt;</code> (repeatable) or <code>FAMULUS_ASTRA_PATH</code>: the own texts of a project, e.g.&nbsp;a notebook’s figures. An id used in two folders is an error.</p>
 <p>A figure of a derivation draws the derivation’s context, auxiliary constructions included, and can show one step at a time: the points and segments the step speaks of.</p>
 </section>
 <section id="derivation" class="level2">
@@ -576,6 +586,13 @@ determine [&lt;name&gt;:] &lt;p&gt;, &lt;q&gt; from &lt;obs&gt;: &lt;a&gt; -&gt;
 <section id="reference-objects" class="level2">
 <h2 class="anchored" data-anchor-id="reference-objects">10. Reference objects</h2>
 <p><code>fr:astra/&lt;id&gt;</code> is a text of any kind; <code>fr:astra/&lt;id&gt;/&lt;object&gt;</code> a parameter, variable, constructed object, observable or proposition of a context, a value of a parametrisation, a given, step, computation or the conclusion of a derivation. Views <code>~sheet ~source ~check</code>, for figures <code>~svg ~animation</code>. The grammar is in famulus-ref/2 (<code>reserved_namespaces.astra</code>, 2.4.0); the resolver names the kind of text.</p>
+</section>
+<section id="a.-the-package-and-the-texts-of-a-project" class="level2">
+<h2 class="anchored" data-anchor-id="a.-the-package-and-the-texts-of-a-project">10a. The package and the texts of a project</h2>
+<p>The shared texts are offered as a <strong>package</strong>: <code>PACKAGE.yaml</code> (schema <code>famulus-package/1</code>, written by <code>famulus-astra package --write</code>, never by hand) lists every text with its kind, its group (the folder under <code>examples/</code>: <code>solar</code>, <code>kepler</code>, <code>euler</code>), the SHA-256 of its source and the ids of the texts it names (<code>needs</code>: the model of a parametrisation, the members of a superposition, the context and the values of a figure or a derivation). Expositions are listed with the kind <code>exposition</code> in the group of the derivation they rest on. <code>famulus-astra package --check</code> says where the manifest and the texts differ; the test suite fails when it is behind. <code>fr:astra</code> names the package (version, digest, groups); <code>fr:astra/&lt;group&gt;</code> lists a group.</p>
+<p>A document that uses astra <strong>declares what it imports</strong>: the package (<code>fr:astra</code>), a group (<code>fr:astra/solar</code>) or one text (<code>fr:astra/solar-eccentric</code>), optionally pinned with <code>@rel:&lt;version&gt;</code>. A text comes with the texts it rests on (its closure over <code>needs</code>). Exactly the imported texts and the document’s own texts are available to it; the importing system decides what a use outside that is (a Famulus notebook project reports it as a gap). The hashes let the importing system record against which state of a text it was written, and say when that state changed.</p>
+<p>A project’s <strong>own texts</strong> stand in a folder of its own (<code>--root &lt;dir&gt;</code>, repeatable, or <code>FAMULUS_ASTRA_PATH</code>) and may be of every kind: a model, a parametrisation, a superposition of an own model with a shared one, a figure, a derivation. They name shared texts by id; a shared text never names a project’s text, and a project’s text never enters the manifest. An id used both in the package and in a project is an error of that id.</p>
+<p><code>famulus-astra positions &lt;figure&gt; [&lt;point&gt; …] [--steps n] [--with &lt;parametrisation&gt;] [--json]</code> lists where named points stand at equally spaced states of one revolution, and for two points their distance with its maximum. It states what was computed with which values; that two points coincide for every admissible value is what a derivation shows.</p>
 </section>
 <section id="representation-model-description" class="level2">
 <h2 class="anchored" data-anchor-id="representation-model-description">11. Representation, model, description</h2>
@@ -1269,9 +1286,4 @@ determine [&lt;name&gt;:] &lt;p&gt;, &lt;q&gt; from &lt;obs&gt;: &lt;a&gt; -&gt;
 
 
 
-<!-- famulus:publisher:start -->
-<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a style="color:inherit" href="/impressum/">Legal notice</a> · <a style="color:inherit" href="/datenschutz/">Privacy</a></p>
-<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
-<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/language.html&amp;m=" width="1" height="1" alt=""></noscript>
-<!-- famulus:publisher:end -->
 </body></html>

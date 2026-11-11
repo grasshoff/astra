@@ -1616,7 +1616,7 @@
  "figure": {
   "id": "euler-fig-3",
   "address": "fr:astra/euler-fig-3",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-euler-fig-3\" class=\"astra-figure\" viewBox=\"0 0 720.00 1113.12\" width=\"720.00\" height=\"1113.12\" role=\"img\" aria-label=\"Euler's Fig. 3: the particle M, the centre C and the luminary S\" data-figure=\"euler-fig-3\" data-state=\"phi=50.0000\" data-theme=\"light\">\n<title>Euler's Fig. 3: the particle M, the centre C and the luminary S</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment0\" class=\"astra-construct\" x1=\"360.00\" y1=\"1055.52\" x2=\"360.00\" y2=\"57.60\"/>\n<line id=\"astra-segment1\" class=\"astra-construct\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"558.74\"/>\n<line id=\"astra-segment2\" class=\"astra-construct\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"753.12\"/>\n<line id=\"astra-segment3\" class=\"astra-aux astra-dashed\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"57.60\"/>\n<circle id=\"astra-shell\" class=\"astra-construct\" cx=\"360.00\" cy=\"753.12\" r=\"302.40\"/>\n<path id=\"astra-angle4\" class=\"astra-angle\" d=\"M 360.00 704.74 A 48.38 48.38 0 0 0 322.94 722.02\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle4-text\" class=\"astra-label astra-angle-label\" x=\"333.85\" y=\"697.03\" text-anchor=\"middle\" dominant-baseline=\"middle\">φ</text>\n<circle id=\"astra-C\" class=\"astra-point\" cx=\"360.00\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-C-text\" class=\"astra-label\" x=\"360.00\" y=\"768.12\" text-anchor=\"middle\" dominant-baseline=\"middle\">C</text>\n<circle id=\"astra-S\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-S-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">S</text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"450.72\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"435.72\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"1055.52\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"360.00\" y=\"1070.52\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle id=\"astra-D\" class=\"astra-point\" cx=\"57.60\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-D-text\" class=\"astra-label\" x=\"45.02\" y=\"761.29\" text-anchor=\"middle\" dominant-baseline=\"middle\">D</text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"662.40\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"674.98\" y=\"761.29\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n<circle id=\"astra-M\" class=\"astra-point\" cx=\"128.35\" cy=\"558.74\" r=\"3.2\"/>\n<text id=\"astra-M-text\" class=\"astra-label\" x=\"113.35\" y=\"558.88\" text-anchor=\"middle\" dominant-baseline=\"middle\">M</text>\n<circle id=\"astra-P\" class=\"astra-point\" cx=\"360.00\" cy=\"558.74\" r=\"3.2\"/>\n<text id=\"astra-P-text\" class=\"astra-label\" x=\"374.16\" y=\"563.70\" text-anchor=\"middle\" dominant-baseline=\"middle\">P</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"1103.12\">drawn with a = 2.3, ρ = 1, S = 1</text>\n</svg>\n",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"astra-euler-fig-3\" class=\"astra-figure\" viewBox=\"0 0 720.00 1113.12\" width=\"720.00\" height=\"1113.12\" role=\"img\" aria-label=\"Euler's Fig. 3: the particle M, the centre C and the luminary S\" data-figure=\"euler-fig-3\" data-state=\"phi=50.0000\" data-theme=\"light\">\n<title>Euler's Fig. 3: the particle M, the centre C and the luminary S</title>\n\n<style>\n.astra-figure { background: var(--fv-paper); }\n.astra-construct { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }\n.astra-dashed { stroke-dasharray: 5 4; }\n.astra-claim { stroke: var(--fv-gold-deep); }\n.astra-sight { fill: none; stroke: var(--fv-sight); stroke-width: calc(var(--fv-stroke-line) * 1.6); stroke-linecap: round; }\n.astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }\n.astra-label.var { font-style: italic; }\n.astra-angle { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-angle-label { fill: var(--fv-gold-deep); font-style: italic; }\n.astra-motion { fill: none; stroke: var(--fv-gold-deep); stroke-width: var(--fv-stroke-line); }\n.astra-zodiac { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-muted); }\n.astra-ellipse { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }\n.astra-hidden { display: none; }\n.astra-step { fill: none; stroke: var(--fv-gold-deep); stroke-width: calc(var(--fv-stroke-line) * 2); }\n.astra-step-point { fill: var(--fv-gold-deep); stroke: var(--fv-gold-deep); }\n.astra-caption { font-family: var(--fv-sans); font-size: var(--fv-size-caption); fill: var(--fv-muted); }\n</style>\n<defs>\n  <marker id=\"astra-arrow-ink\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-oxford)\"/></marker>\n  <marker id=\"astra-arrow-gold\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--fv-gold-deep)\"/></marker>\n</defs>\n<rect width=\"100%\" height=\"100%\" fill=\"var(--fv-paper)\"/>\n<g id=\"astra-body\">\n<line id=\"astra-segment0\" class=\"astra-construct\" x1=\"360.00\" y1=\"1055.52\" x2=\"360.00\" y2=\"57.60\"/>\n<line id=\"astra-segment1\" class=\"astra-construct\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"558.74\"/>\n<line id=\"astra-segment2\" class=\"astra-construct\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"753.12\"/>\n<line id=\"astra-segment3\" class=\"astra-aux astra-dashed\" x1=\"128.35\" y1=\"558.74\" x2=\"360.00\" y2=\"57.60\"/>\n<circle id=\"astra-shell\" class=\"astra-construct\" cx=\"360.00\" cy=\"753.12\" r=\"302.40\"/>\n<path id=\"astra-angle4\" class=\"astra-angle\" d=\"M 360.00 704.74 A 48.38 48.38 0 0 0 322.94 722.02\" marker-end=\"url(#astra-arrow-gold)\"/>\n<text id=\"astra-angle4-text\" class=\"astra-label astra-angle-label\" x=\"333.85\" y=\"697.03\" text-anchor=\"middle\" dominant-baseline=\"middle\">φ</text>\n<circle id=\"astra-C\" class=\"astra-point\" cx=\"360.00\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-C-text\" class=\"astra-label\" x=\"360.00\" y=\"768.12\" text-anchor=\"middle\" dominant-baseline=\"middle\">C</text>\n<circle id=\"astra-S\" class=\"astra-point\" cx=\"360.00\" cy=\"57.60\" r=\"3.2\"/>\n<text id=\"astra-S-text\" class=\"astra-label\" x=\"360.00\" y=\"42.60\" text-anchor=\"middle\" dominant-baseline=\"middle\">S</text>\n<circle id=\"astra-A\" class=\"astra-point\" cx=\"360.00\" cy=\"450.72\" r=\"3.2\"/>\n<text id=\"astra-A-text\" class=\"astra-label\" x=\"360.00\" y=\"435.72\" text-anchor=\"middle\" dominant-baseline=\"middle\">A</text>\n<circle id=\"astra-B\" class=\"astra-point\" cx=\"360.00\" cy=\"1055.52\" r=\"3.2\"/>\n<text id=\"astra-B-text\" class=\"astra-label\" x=\"360.00\" y=\"1070.52\" text-anchor=\"middle\" dominant-baseline=\"middle\">B</text>\n<circle id=\"astra-D\" class=\"astra-point\" cx=\"57.60\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-D-text\" class=\"astra-label\" x=\"45.02\" y=\"761.29\" text-anchor=\"middle\" dominant-baseline=\"middle\">D</text>\n<circle id=\"astra-E\" class=\"astra-point\" cx=\"662.40\" cy=\"753.12\" r=\"3.2\"/>\n<text id=\"astra-E-text\" class=\"astra-label\" x=\"674.98\" y=\"761.29\" text-anchor=\"middle\" dominant-baseline=\"middle\">E</text>\n<circle id=\"astra-M\" class=\"astra-point\" cx=\"128.35\" cy=\"558.74\" r=\"3.2\"/>\n<text id=\"astra-M-text\" class=\"astra-label\" x=\"113.35\" y=\"558.88\" text-anchor=\"middle\" dominant-baseline=\"middle\">M</text>\n<circle id=\"astra-P\" class=\"astra-point\" cx=\"360.00\" cy=\"558.74\" r=\"3.2\"/>\n<text id=\"astra-P-text\" class=\"astra-label\" x=\"374.16\" y=\"563.70\" text-anchor=\"middle\" dominant-baseline=\"middle\">P</text>\n</g>\n<text class=\"astra-caption\" x=\"12\" y=\"1103.12\">drawn with a = 2.3, ρ = 1, S = 1</text>\n</svg>\n",
   "bundle": {
    "id": "euler-fig-3",
    "title": "Euler's Fig. 3: the particle M, the centre C and the luminary S",
@@ -5941,7 +5941,8 @@
      "p": "B",
      "q": "S",
      "dashed": false,
-     "owner": ""
+     "owner": "",
+     "label": "segment"
     },
     {
      "kind": "segment",
@@ -5949,7 +5950,8 @@
      "p": "M",
      "q": "P",
      "dashed": false,
-     "owner": ""
+     "owner": "",
+     "label": "segment"
     },
     {
      "kind": "segment",
@@ -5957,7 +5959,8 @@
      "p": "M",
      "q": "C",
      "dashed": false,
-     "owner": ""
+     "owner": "",
+     "label": "segment"
     },
     {
      "kind": "segment",
@@ -5965,7 +5968,8 @@
      "p": "M",
      "q": "S",
      "dashed": true,
-     "owner": ""
+     "owner": "",
+     "label": "dashed"
     },
     {
      "kind": "angle",
@@ -5981,7 +5985,8 @@
      "arrow": true,
      "text": "φ",
      "ref": "phi",
-     "owner": ""
+     "owner": "",
+     "label": "angle"
     },
     {
      "kind": "segment",
@@ -6313,6 +6318,7 @@
      "segments": []
     }
    ],
+   "stages": [],
    "drawn": {
     "a": "2.3",
     "rho": "1",

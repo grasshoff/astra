@@ -79,12 +79,6 @@ ul.task-list li input[type="checkbox"] {
 figure.astra svg{max-width:100%;height:auto}</style>
 
 
-<!-- famulus:publisher:start -->
-<meta name="referrer" content="no-referrer-when-downgrade">
-<meta name="publisher" content="OpenScienceTechnology GmbH">
-<meta name="DC.publisher" content="OpenScienceTechnology GmbH">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://famulus.lettre.ai/astra/docs/outputs.html", "publisher": {"@type": "Organization", "name": "OpenScienceTechnology GmbH", "address": {"@type": "PostalAddress", "streetAddress": "Im Wiesengrund 15A", "addressLocality": "47198 Duisburg", "addressCountry": "Deutschland"}}}</script>
-<!-- famulus:publisher:end -->
 </head>
 
 <body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -149,6 +143,10 @@ figure.astra svg{max-width:100%;height:auto}</style>
 <span class="menu-text">Runtime</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./package.html"> 
+<span class="menu-text">Package</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./references.html"> 
 <span class="menu-text">References</span></a>
   </li>  
@@ -189,6 +187,7 @@ figure.astra svg{max-width:100%;height:auto}</style>
   <li><a href="#ptolemys-values-rr-re" id="toc-ptolemys-values-rr-re" class="nav-link" data-scroll-target="#ptolemys-values-rr-re">Ptolemy’s values, R’/r = R/e</a></li>
   </ul></li>
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
+  <li><a href="#a-line-of-sight-and-a-narrated-figure" id="toc-a-line-of-sight-and-a-narrated-figure" class="nav-link" data-scroll-target="#a-line-of-sight-and-a-narrated-figure">A line of sight and a narrated figure</a></li>
   <li><a href="#the-typst-snippet" id="toc-the-typst-snippet" class="nav-link" data-scroll-target="#the-typst-snippet">The Typst snippet</a></li>
   </ul>
 </nav>
@@ -409,6 +408,19 @@ famulus-astra svg solar-fig-1-2 --at kappa_bar=131   # another state
 famulus-astra svg solar-fig-equal-radii-steps --step d6 --png</code></pre>
 <p><img src="_generated/solar-fig-1-4.svg" class="astra img-fluid"></p>
 <p>Points are small discs with their symbol offset outward, circles are outlines, angle marks are gold arcs, length labels sit beside their segment, motion arrows run ahead of the moving point, coincident points are drawn once. Colours, strokes and type come from the famulus design tokens as CSS custom properties, so one SVG renders in light and dark. A figure of a derivation can show one step: its points and segments in gold.</p>
+</section>
+<section id="a-line-of-sight-and-a-narrated-figure" class="level2">
+<h2 class="anchored" data-anchor-id="a-line-of-sight-and-a-narrated-figure">A line of sight and a narrated figure</h2>
+<p>A figure can draw the line of sight from an observer to a body, in a colour of its own, and it can be narrated: shown and described stage by stage.</p>
+<pre><code>label sight line(O, Ecc.S)
+stage eccentric "The eccentric form: the sun S moves uniformly about E." show Ecc
+stage epicyclic "The epicyclic form: the sun S' is carried on the epicycle." show Epi
+stage both      "Both forms in one figure." show Ecc, Epi
+stage sight     "The line of sight from O to the sun: one line for both forms." reveal sight
+stage run       "Through a whole revolution the two suns stay together." play</code></pre>
+<p>A stage shows members of a superposition (<code>show</code>; none named: all), lets labels of a kind appear and stay (<code>reveal</code>), stands at a state (<code>at kappa_bar = 90°</code>) or runs through one revolution (<code>play</code>), and says one sentence. The page shows that sentence under the figure; the stages are stepped through one by one or played in turn, and a change of stage fades. A narrated figure opens at its first stage and does not run by itself. In print the still is followed by the sentences as a numbered list. <code>famulus-astra svg &lt;figure&gt; --stage &lt;name&gt;</code> draws the still of one stage.</p>
+<p>The narration is checked with the figure: a stage that names an unknown member, reveals a kind the figure does not label, repeats a name or stands at a state of another variable makes the figure not well-formed.</p>
+<p>A project can hold astra texts of its own beside the shared ones: <code>famulus-astra --root &lt;folder&gt; …</code> (repeatable), or the folders named in <code>FAMULUS_ASTRA_PATH</code>. A Famulus notebook does this for <code>&lt;project&gt;/astra</code>.</p>
 </section>
 <section id="the-typst-snippet" class="level2">
 <h2 class="anchored" data-anchor-id="the-typst-snippet">The Typst snippet</h2>
@@ -826,9 +838,4 @@ famulus-astra svg solar-fig-equal-radii-steps --step d6 --png</code></pre>
 
 
 
-<!-- famulus:publisher:start -->
-<p class="famulus-publisher" style="max-width:46rem;margin:2.5rem auto 1.5rem;padding:.7rem 16px 0;border-top:2px solid #c8a22a;font:13px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;opacity:.8">Published by OpenScienceTechnology GmbH · <a style="color:inherit" href="/impressum/">Legal notice</a> · <a style="color:inherit" href="/datenschutz/">Privacy</a></p>
-<script>(function(){try{var C="https://lettre.ngrok.dev/famulus-counter/api/hit",L=C.replace(/hit$/,'leave'),q=new URLSearchParams(location.search),v=Math.random().toString(36).slice(2,12),u=location.pathname;function S(a,b){navigator.sendBeacon?navigator.sendBeacon(a,b):fetch(a,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}S(C,JSON.stringify({u:u,r:document.referrer,m:"",v:v,c:q.get('c')||q.get('utm_campaign')||''}));var a=0,t=document.visibilityState=='visible'?Date.now():0,s=0,x='',g='',k='';function sc(){var h=document.documentElement;s=Math.max(s,Math.min(100,Math.round((scrollY+innerHeight)/Math.max(h.scrollHeight,1)*100)))}addEventListener('scroll',sc,{passive:true});addEventListener('load',sc);sc();document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href]');if(l&&/^https?:$/.test(l.protocol)){var i=l.host==location.host;x=i?'in':'out';g=i?l.pathname+l.hash:l.host;k=(l.getAttribute('aria-label')||l.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);B()}},true);function B(){S(L,JSON.stringify({u:u,v:v,d:Math.round((a+(t?Date.now()-t:0))/1000),s:s,x:x,t:g,k:k}))}function F(){if(t){a+=Date.now()-t;t=0}B()}document.addEventListener('visibilitychange',function(){document.visibilityState=='hidden'?F():t=Date.now()});addEventListener('pagehide',function(){if(t)F()})}catch(e){}})();</script>
-<noscript><img src="https://lettre.ngrok.dev/famulus-counter/api/hit.gif?u=/astra/docs/outputs.html&amp;m=" width="1" height="1" alt=""></noscript>
-<!-- famulus:publisher:end -->
 </body></html>

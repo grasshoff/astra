@@ -8,6 +8,20 @@
   --fv-gold: #cfb53b;
   --fv-gold-deep: #8c6d2a;
   --fv-gold-100: #f3ead0;
+  --fv-sight: #a8323a;
+  --fv-band: #002147;
+  --fv-band-ink: #ffffff;
+  --fv-band-soft: #e8ecf2;
+  --fv-band-muted: #d9dfe8;
+  --fv-band-accent: #c4a15a;
+  --fv-on-oxford: #ffffff;
+  --fv-sand: #f6f1e7;
+  --fv-notes: #fbf7ea;
+  --fv-control: #ffffff;
+  --fv-warn: #a23b2a;
+  --fv-plate: #fffdf9;
+  --fv-plate-line: #e4dccb;
+  --fv-plate-rule: #c8a22a;
   --fv-paper: #fafaf5;
   --fv-sandstone: #fbf8f2;
   --fv-sandstone-dark: #efe9db;
@@ -61,6 +75,20 @@
     --fv-gold: #d9c25e;
     --fv-gold-deep: #c4a15a;
     --fv-gold-100: #3b3420;
+    --fv-sight: #e88d86;
+    --fv-band: #0e1726;
+    --fv-band-ink: #f4efe4;
+    --fv-band-soft: #d9dee8;
+    --fv-band-muted: #bcc6d6;
+    --fv-band-accent: #e3c766;
+    --fv-on-oxford: #0f1b2d;
+    --fv-sand: #233145;
+    --fv-notes: #212e42;
+    --fv-control: #233145;
+    --fv-warn: #e9937f;
+    --fv-plate: #152238;
+    --fv-plate-line: #3a4a63;
+    --fv-plate-rule: #d9c25e;
     --fv-paper: #0d1624;
     --fv-sandstone: #152238;
     --fv-sandstone-dark: #efe9db;
@@ -87,6 +115,20 @@
   --fv-gold: #d9c25e;
   --fv-gold-deep: #c4a15a;
   --fv-gold-100: #3b3420;
+  --fv-sight: #e88d86;
+  --fv-band: #0e1726;
+  --fv-band-ink: #f4efe4;
+  --fv-band-soft: #d9dee8;
+  --fv-band-muted: #bcc6d6;
+  --fv-band-accent: #e3c766;
+  --fv-on-oxford: #0f1b2d;
+  --fv-sand: #233145;
+  --fv-notes: #212e42;
+  --fv-control: #233145;
+  --fv-warn: #e9937f;
+  --fv-plate: #152238;
+  --fv-plate-line: #3a4a63;
+  --fv-plate-rule: #d9c25e;
   --fv-paper: #0d1624;
   --fv-sandstone: #152238;
   --fv-sandstone-dark: #efe9db;
@@ -109,6 +151,7 @@
 .astra-aux { fill: none; stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-hairline); }
 .astra-dashed { stroke-dasharray: 5 4; }
 .astra-claim { stroke: var(--fv-gold-deep); }
+.astra-sight { fill: none; stroke: var(--fv-sight); stroke-width: calc(var(--fv-stroke-line) * 1.6); stroke-linecap: round; }
 .astra-point { fill: var(--fv-paper); stroke: var(--fv-oxford); stroke-width: var(--fv-stroke-line); }
 .astra-label { font-family: var(--fv-sans); font-size: var(--fv-size-title); fill: var(--fv-ink); }
 .astra-label.var { font-style: italic; }

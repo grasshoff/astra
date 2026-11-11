@@ -119,9 +119,31 @@ up <angle>      fit [a, b, …]      speed <n> s
 label angle <angle> at <V> from <arm> to <arm> [arrow]       arm: a point, an angle name, or `aries` (0°)
 label length <param | "text"> on <P> <Q> [side right]
 label arrow <P> on <circle>      label segment line(P, Q)      label dashed line(P, Q)
+label sight line(P, Q)                   the line of sight from an observer P to a body Q, in the sight colour
 label direction <angle> from <P> [dashed]      label zodiac at <O> on <circle> [full]
 display <name> "<symbol>"      hide <name> …
+stage <name> "<sentence>" [show <member>, …] [reveal <label kind>, …] [at <variable> = <angle> | play]
 ```
+
+**Narration (1.1, 11 Nov 2026).** The `stage` statements of a figure, in their order, are its narration: a figure
+that is shown and described step by step. A stage
+
+- `show`s members of a superposition (`show Ecc`; none named: all of them) — what belongs to another member is not
+  drawn; what belongs to no member (the observer, a line of sight) always is;
+- `reveal`s labels by their kind (`reveal sight`): a kind that some stage reveals is not drawn before that stage
+  and stays from it on;
+- stands at a state (`at kappa_bar = 90°`; none given: the state it is entered in) or runs through a revolution
+  (`play`);
+- says one sentence, which the page shows under the figure and the print sets beside the still of the stage.
+
+A figure without stages is drawn and moves as before. The narration is checked with the figure: an unknown member,
+a kind the figure does not label, a name used twice or a state of another variable makes the figure not
+well-formed; a kind that no stage ever reveals, or one the figure does not draw, makes it not labelled. The page
+opens at the first stage and does not run by itself; the transport steps through the stages or plays them all.
+
+**Texts of a project.** A workspace reads the shared texts (`examples/`) and, beside them, the folders named by
+`--root <dir>` (repeatable) or `FAMULUS_ASTRA_PATH`: the own texts of a project, e.g. a notebook's figures. An id
+used in two folders is an error.
 
 A figure of a derivation draws the derivation's context, auxiliary constructions included, and can show one
 step at a time: the points and segments the step speaks of.
@@ -258,6 +280,33 @@ needs it; a state that fixes no variable is an error.
 observable or proposition of a context, a value of a parametrisation, a given, step, computation or the
 conclusion of a derivation. Views `~sheet ~source ~check`, for figures `~svg ~animation`. The grammar is in
 famulus-ref/2 (`reserved_namespaces.astra`, 2.4.0); the resolver names the kind of text.
+
+## 10a. The package and the texts of a project
+
+The shared texts are offered as a **package**: `PACKAGE.yaml` (schema `famulus-package/1`, written by
+`famulus-astra package --write`, never by hand) lists every text with its kind, its group (the folder under
+`examples/`: `solar`, `kepler`, `euler`), the SHA-256 of its source and the ids of the texts it names (`needs`:
+the model of a parametrisation, the members of a superposition, the context and the values of a figure or a
+derivation). Expositions are listed with the kind `exposition` in the group of the derivation they rest on.
+`famulus-astra package --check` says where the manifest and the texts differ; the test suite fails when it is
+behind. `fr:astra` names the package (version, digest, groups); `fr:astra/<group>` lists a group.
+
+A document that uses astra **declares what it imports**: the package (`fr:astra`), a group (`fr:astra/solar`) or
+one text (`fr:astra/solar-eccentric`), optionally pinned with `@rel:<version>`. A text comes with the texts it
+rests on (its closure over `needs`). Exactly the imported texts and the document's own texts are available to it;
+the importing system decides what a use outside that is (a Famulus notebook project reports it as a gap). The
+hashes let the importing system record against which state of a text it was written, and say when that state
+changed.
+
+A project's **own texts** stand in a folder of its own (`--root <dir>`, repeatable, or `FAMULUS_ASTRA_PATH`) and
+may be of every kind: a model, a parametrisation, a superposition of an own model with a shared one, a figure, a
+derivation. They name shared texts by id; a shared text never names a project's text, and a project's text never
+enters the manifest. An id used both in the package and in a project is an error of that id.
+
+`famulus-astra positions <figure> [<point> …] [--steps n] [--with <parametrisation>] [--json]` lists where named
+points stand at equally spaced states of one revolution, and for two points their distance with its maximum. It
+states what was computed with which values; that two points coincide for every admissible value is what a
+derivation shows.
 
 ## 11. Representation, model, description
 
